@@ -31,7 +31,7 @@ a{color:var(--green2);font-weight:700}.q{padding:12px 0;border-bottom:1px solid 
 
 /* Responsive SkELL keyword pills: keep long keywords fully visible inside their ovals. */
 .skell-cluster{min-width:0}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 1 auto;align-items:center;justify-content:center;width:max-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px clamp(10px,1.5vw,16px);box-sizing:border-box;font-size:clamp(.72rem,1.25vw,.98rem);line-height:1.12;letter-spacing:.015em;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0}@media(max-width:680px){.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;font-size:clamp(.72rem,3vw,.94rem);padding:8px 12px}.cluster-type{flex-basis:auto;width:100%}}
-</style>
+#word-count{font-weight:700}#word-count.word-count-warn{color:#805900}#word-count.word-count-ok{color:#176b45}</style>
 </head>
 <body>
 <header class="lesson-hero">
@@ -57,7 +57,7 @@ a{color:var(--green2);font-weight:700}.q{padding:12px 0;border-bottom:1px solid 
 <p class="muted" style="margin-bottom:0">Complete the tasks, investigate lexical word partnerships in SkELL and write about food culture, cooking and culinary experiences.</p>
 </section>
 <section class="card"><h2>80-minute lesson route</h2><p class="muted">Teacher-facing timing plan; the tasks below follow this sequence.</p><div class="timeline">
-<div class="slot"><b>0–5 min · Warm-up</b>Discuss food traditions, favourite meals and how people learn to cook.</div><div class="slot"><b>5–17 min · Reading</b>Read about food culture, flavour, shared meals and responsible choices.</div><div class="slot"><b>17–27 min · Noticing</b>Match and complete target collocations related to cooking and food.</div><div class="slot"><b>27–42 min · DDL with SkELL</b>Investigate four keywords and verify natural lexical collocations in SkELL.</div><div class="slot"><b>42–52 min · Retrieval</b>Use Odd One Out and Find the Collocate to notice word partnerships.</div><div class="slot"><b>52–62 min · Categorising</b>Practise collocation sorting and lexical cloze.</div><div class="slot"><b>62–70 min · Correction</b>Repair likely literal-transfer combinations and select natural English collocations.</div><div class="slot"><b>70–77 min · Production</b>Write 80–100 words about a meal, a food tradition or a memorable dining experience.</div><div class="slot"><b>77–80 min · Reflection</b>Review your score and share one collocation you verified in SkELL.</div>
+<div class="slot"><b>0–5 min · Warm-up</b>Discuss food traditions, favourite meals and how people learn to cook.</div><div class="slot"><b>5–17 min · Reading</b>Read about food culture, flavour, shared meals and responsible choices.</div><div class="slot"><b>17–27 min · Noticing</b>Match and complete target collocations related to cooking and food.</div><div class="slot"><b>27–42 min · DDL with SkELL</b>Investigate four keywords and verify natural lexical collocations in SkELL.</div><div class="slot"><b>42–52 min · Retrieval</b>Use Odd One Out and Find the Collocate to notice word partnerships.</div><div class="slot"><b>52–62 min · Categorising</b>Practise collocation sorting and lexical cloze.</div><div class="slot"><b>62–70 min · Correction</b>Repair likely literal-transfer combinations and select natural English collocations.</div><div class="slot"><b>70–77 min · Production</b>Write at least 100 words about a meal, a food tradition or a memorable dining experience.</div><div class="slot"><b>77–80 min · Reflection</b>Review your score and share one collocation you verified in SkELL.</div>
 </div></section>
 <section class="card"><h2>Learning outcomes</h2><p>By the end of the lesson, you will be able to recognise and use lexical collocations related to food culture, cooking, flavour and meals; verify word partnerships with SkELL; interpret related words in context; and describe food traditions and responsible eating choices.</p><h2>Target collocations: definitions and synonyms</h2><p class="muted">Study the English definitions and compare the synonyms. No translations are provided.</p><div class="grid" id="target"></div></section>
 <section class="card" id="reading"><h2>Reading: Food Culture, Cooking and Culinary Experiences</h2><p class="muted">Read the text carefully or listen to it. Target collocations are shown in bold.</p>
@@ -142,7 +142,7 @@ a{color:var(--green2);font-weight:700}.q{padding:12px 0;border-bottom:1px solid 
 <section class="card"><h2>6. Collocation Sorting · 10 points</h2><p class="muted">Choose the verb that creates a natural lexical collocation.</p><div id="sorting"></div><button onclick="check('sorting')">Check answers</button><button onclick="reset('sorting')">Try again</button><div id="sorting-result"></div></section>
 <section class="card"><h2>7. Lexical Cloze · 10 points</h2><p class="muted"><b>Word bank:</b> cook from scratch · bring out the flavour · follow a recipe · rich in flavour · develop a taste for · share a meal · dietary requirements · reduce food waste · balanced diet · explore local cuisine</p><div id="cloze"></div><button onclick="check('cloze')">Check answers</button><button onclick="reset('cloze')">Try again</button><div id="cloze-result"></div></section>
 <section class="card"><h2>8. Collocation Repair · 10 points</h2><p class="muted">Choose the best correction. Focus on natural lexical word partnerships for food culture, cooking, flavour and meals.</p><div id="repair"></div><button onclick="check('repair')">Check answers</button><button onclick="reset('repair')">Try again</button><div id="repair-result"></div></section>
-<section class="card" id="writing-zone"><h2>9. Productive Recall Challenge · 5 points (teacher-scored)</h2><p>Write 80–100 words on <b>Food Culture, Cooking and Culinary Experiences</b>. Use at least eight target collocations from this lesson. Write directly in the box; clipboard paste and drag-and-drop are disabled in this field.</p><p class="writing-anti-paste-note" id="writing-notice">Please compose your paragraph here rather than pasting a prepared text. Normal paste, cut/copy shortcuts and drag-and-drop are blocked in this writing field. This browser restriction supports the task rules but is not a complete plagiarism-detection system.</p><label for="paragraph">Your paragraph</label><textarea id="paragraph" class="writing-area" autocomplete="off" autocapitalize="sentences" spellcheck="true" placeholder="Food can bring people together when..."></textarea><p id="word-count" class="muted">0 words</p><p class="muted">Teacher awards up to 5 points for accurate use of distinct target collocations, a clear main idea and relevant examples.</p><div class="submission-panel"><h3>Submit your lesson work to the teacher</h3><p class="muted">Your name and group from the student profile above, your SkELL collocations and original sentences, related words, corpus notes, writing paragraph and available exercise scores will be collected in the teacher's spreadsheet.</p><button type="button" id="submitLessonBtn" onclick="submitLessonWork()">Submit lesson work</button><div id="submitStatus" class="submission-status" role="status" aria-live="polite"></div></div></section>
+<section class="card" id="writing-zone"><h2>9. Productive Recall Challenge · 5 points (teacher-scored)</h2><p>Write at least 100 words on <b>Food Culture, Cooking and Culinary Experiences</b>. Use at least eight target collocations from this lesson. Write directly in the box; clipboard paste and drag-and-drop are disabled in this field.</p><p class="writing-anti-paste-note" id="writing-notice">Please compose your paragraph here rather than pasting a prepared text. Normal paste, cut/copy shortcuts and drag-and-drop are blocked in this writing field. This browser restriction supports the task rules but is not a complete plagiarism-detection system.</p><label for="paragraph">Your paragraph</label><textarea id="paragraph" class="writing-area" autocomplete="off" autocapitalize="sentences" spellcheck="true" placeholder="Food can bring people together when..."></textarea><p id="word-count" class="muted" aria-live="polite">0 words — 100-word minimum to submit; no maximum</p><p class="muted">Teacher awards up to 5 points for accurate use of distinct target collocations, a clear main idea and relevant examples.</p><div class="submission-panel"><h3>Submit your lesson work to the teacher</h3><p class="muted">Your name and group from the student profile above, your SkELL collocations and original sentences, related words, corpus notes, writing paragraph and available exercise scores will be collected in the teacher's spreadsheet.</p><button type="button" id="submitLessonBtn" onclick="submitLessonWork()">Submit lesson work</button><div id="submitStatus" class="submission-status" role="status" aria-live="polite"></div></div></section>
 <section class="card"><h2>Lesson score</h2><p class="muted">Auto-scored sections: reading MCQ, True/False, paragraph matching, Matching, Sentence Completion, Odd One Out, Find the Collocate, Sorting, Lexical Cloze and Collocation Repair (100 points total). SkELL cluster (10) and productive writing (5) are teacher-scored. Maximum lesson total: 115 points.</p><button onclick="summary()">Show score summary</button><div id="summary"></div></section>
 <p class="muted">LexiLink · Connect words. Build fluency. Lesson submissions are sent to the configured Google Apps Script collector. The teacher must verify the saved row in Google Sheets because the browser cannot read confirmation in no-cors mode.</p>
 <script>
@@ -339,7 +339,27 @@ const profileName=document.getElementById('profile-name'),profileGroup=document.
 function updateProfile(){const words=profileName.value.trim().split(/\s+/).filter(Boolean);document.getElementById('avatar-initials').textContent=words.length?words.slice(0,2).map(w=>w[0].toUpperCase()).join(''):'S'}
 profileName.addEventListener('input',updateProfile);profileGroup.addEventListener('input',()=>{});
 const clusterIds=['cuisine','cooking','flavour','meals'];
-document.getElementById('paragraph').addEventListener('input',e=>{const t=e.target.value.trim();document.getElementById('word-count').textContent=(t?t.split(/\s+/).length:0)+' words'});
+function lexilinkCountWritingWords(text){
+  const clean=String(text||'').trim();
+  return clean?clean.split(/\s+/).filter(Boolean).length:0;
+}
+function lexilinkUpdateWritingWordCounter(){
+  const field=document.getElementById('paragraph');
+  const counter=document.getElementById('word-count');
+  if(!field||!counter)return;
+  const count=lexilinkCountWritingWords(field.value);
+  if(count<100){
+    counter.className='muted word-count-warn';
+    counter.textContent=`${count} words — ${100-count} more needed to submit (minimum 100; no maximum)`;
+  }else{
+    counter.className='muted word-count-ok';
+    counter.textContent=`${count} words — minimum reached; no maximum`;
+  }
+} const lexilinkWritingCounterField=document.getElementById('paragraph');
+if(lexilinkWritingCounterField){
+  lexilinkWritingCounterField.addEventListener('input',lexilinkUpdateWritingWordCounter);
+  lexilinkUpdateWritingWordCounter();
+}
 
 // Block ordinary clipboard paste/cut/copy shortcuts and drag-drop in the writing field.
 // This is a classroom friction measure, not secure plagiarism prevention.
@@ -406,7 +426,7 @@ function validateSubmission(){
   if(!fieldValue('profile-group')) return {ok:false,message:'Please enter your group in the student profile at the top of the lesson.',id:'profile-group'};
   const writing=fieldValue('paragraph');
   const words=writing?writing.split(/\s+/).length:0;
-  if(words<80||words>100) return {ok:false,message:`The writing task requires 80–100 words. Your current paragraph has ${words} words.`,id:'paragraph'};
+  if(words<100) return {ok:false,message:`Please write at least 100 words. Your current paragraph has ${words} words.`,id:'paragraph'};
   for(const keyword of clusterIds){
     const fields=[`${keyword}-coll-1`,`${keyword}-sentence-1`,`${keyword}-coll-2`,`${keyword}-sentence-2`,`${keyword}-syn-1`,`${keyword}-syn-2`,`${keyword}-evidence`];
     const missing=fields.find(id=>!fieldValue(id));
