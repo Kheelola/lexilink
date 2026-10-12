@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LexiLink — Social Connections: Art, Literature and Networking</title>
+<style>
+:root{--green:#176b45;--green2:#238657;--mint:#eaf7ef;--line:#cde6d5;--ink:#183326;--muted:#587466}
+*{box-sizing:border-box}body{font:16px/1.55 Arial,sans-serif;max-width:1000px;margin:auto;padding:18px;background:#f2faf4;color:var(--ink)}
+header,.card{background:white;padding:20px;margin:16px 0;border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 12px rgba(23,107,69,.06)}
+header{background:linear-gradient(125deg,#155d3d,#278653);color:white;border:0}header p{margin:.4rem 0}h1{margin-top:0}h2{font-size:1.25rem;color:var(--green)}h3{color:#235c3e}
+a{color:var(--green2);font-weight:700}.q{padding:12px 0;border-bottom:1px solid #e2efe6}label{display:block;margin:6px 0}select,textarea,input{font:inherit;padding:10px;width:100%;max-width:100%;border:1px solid #b9d7c3;border-radius:9px;background:#fcfffd;color:var(--ink)}input[type=radio]{width:auto;margin-right:6px}textarea{min-height:80px}button{padding:10px 14px;margin:8px 6px 0 0;border:0;border-radius:9px;background:var(--green);color:white;font-weight:bold;cursor:pointer}button:hover{background:#104d31}.muted{color:var(--muted);font-size:.92rem}.fb{font-size:.92rem}.ok{color:#167143}.bad{color:#b52e38}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.box{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfffc}.profile{background:var(--mint);border:1px solid #a9d9b8;border-radius:16px;padding:18px;margin:16px 0}.profile h2{margin-top:0}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.avatar{width:54px;height:54px;border-radius:50%;background:#176b45;color:white;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;flex-shrink:0}.profile-head{display:flex;gap:14px;align-items:center}.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px}.slot{background:#f0faf3;border:1px solid #cde6d5;border-left:5px solid #238657;padding:12px;border-radius:10px}.slot b{display:block;color:#176b45}.pill{display:inline-block;background:#d5f0de;color:#145a37;padding:4px 9px;border-radius:999px;font-size:.85rem;font-weight:bold}
+.skell-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:16px 0}.skell-cluster{min-width:0;padding:16px;border:1px solid #d7e5ef;border-radius:16px;background:#fff;box-shadow:0 3px 10px rgba(7,39,84,.06)}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;width:fit-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px 16px;background:#082a65;color:#fff;border-radius:999px;font-weight:800;letter-spacing:.02em;font-size:clamp(.82rem,1.55vw,1.05rem);line-height:1.15;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0;font-size:.86rem;color:#587466;line-height:1.35}collocation-lines{display:grid;gap:8px;margin:8px 0 14px}.collocation-line{height:44px;border-radius:8px;padding:3px 8px;border:1px solid transparent;font-weight:600;color:#142b43}.collocation-line:nth-child(3n+1){background:#fff0a6;border-color:#f0d96b}.collocation-line:nth-child(3n+2){background:#f9d1f7;border-color:#eaa3e7}.collocation-line:nth-child(3n){background:#c9f5d9;border-color:#91d9ad}.collocation-line::placeholder{color:#5a6070;font-weight:400}.similar-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.similar-grid input{background:#f6faff}.callout{padding:12px 14px;border-left:4px solid #238657;background:#eff9f2;border-radius:8px}.score-row{display:flex;gap:10px;flex-wrap:wrap}.score-chip{background:#edf7f0;border-radius:9px;padding:8px 12px}@media(max-width:680px){.skell-board{grid-template-columns:1fr}.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;padding:8px 14px}.cluster-type{flex-basis:auto;width:100%}}@media(max-width:560px){.profile-grid{grid-template-columns:1fr}body{padding:8px}header,.card{padding:15px}}@media print{button{display:none}body{background:white}}
+
+.audio-panel{padding:16px;margin:14px 0 18px;border:1px solid #b9dfc5;border-radius:14px;background:linear-gradient(135deg,#f2fbf4,#ffffff)}.audio-heading{display:flex;gap:10px;align-items:center;margin-bottom:10px}.audio-heading>span{font-size:1.7rem}.audio-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.audio-controls button{margin:2px 4px 2px 0}.speed-control{display:flex;gap:8px;align-items:center;margin:2px 0 2px 8px;font-weight:700}.speed-control select{width:auto;min-width:135px;padding:8px}.audio-status{margin:10px 0 0}.audio-progress-wrap{margin:12px 0 4px}.audio-progress-label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.9rem;color:var(--muted);margin-bottom:4px}.audio-progress{width:100%;max-width:none;height:22px;padding:0;margin:0;accent-color:var(--green);cursor:pointer;background:transparent}.audio-progress-help{font-size:.82rem;color:var(--muted);margin:2px 0 0}@media(max-width:560px){.audio-controls{align-items:stretch}.audio-controls button{flex:1}.speed-control{width:100%;margin:6px 0 0}.speed-control select{flex:1}}
+.lesson-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(118deg,#104b32 0%,#176b45 54%,#2c8b5b 100%);color:#fff;border:0;border-radius:22px;padding:25px 27px;margin:16px 0;box-shadow:0 10px 28px rgba(20,90,54,.17)}
+.lesson-hero:before{content:"";position:absolute;z-index:-1;width:300px;height:300px;right:135px;top:-205px;border:1px solid rgba(255,255,255,.11);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 58px rgba(255,255,255,.02)}
+.lesson-header-layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;align-items:center;gap:25px;min-width:0}
+.lesson-header-copy{min-width:0}
+.lesson-kicker{display:flex;align-items:center;gap:9px;margin-bottom:12px;color:#d7f5e1;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.lesson-kicker-mark{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;border-radius:9px;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.26);font-size:.72rem;letter-spacing:-.03em}
+.kicker-divider{padding:0 3px;color:#9edbb5}
+.lesson-header-copy h1{max-width:690px;margin:0 0 10px;color:#fff;font-size:clamp(1.7rem,3.1vw,2.35rem);font-weight:800;line-height:1.12;letter-spacing:-.035em;text-wrap:balance}
+.lesson-subtitle{max-width:650px;margin:0 0 17px!important;color:#e4f7e9;font-size:1.04rem;line-height:1.45}
+.lesson-meta{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.lesson-meta-pill{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:.79rem;font-weight:700;line-height:1.25}
+.lesson-method{margin:14px 0 0!important;color:#d4efdd;font-size:.84rem;letter-spacing:.01em}
+.lesson-header-photo{display:block;width:250px;height:166px;max-width:100%;object-fit:cover;object-position:center 48%;border-radius:17px;border:3px solid rgba(255,255,255,.88);box-shadow:0 12px 24px rgba(0,0,0,.2);background:#dcefe2}
+@media(max-width:760px){.lesson-hero{padding:21px;border-radius:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr) 205px;gap:16px}.lesson-header-photo{width:205px;height:148px}.lesson-header-copy h1{font-size:clamp(1.5rem,4vw,1.9rem)}}
+@media(max-width:560px){.lesson-hero{padding:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr);gap:15px}.lesson-header-photo{width:100%;height:190px;max-width:none;object-position:center 44%;border-radius:14px}.lesson-kicker{margin-bottom:9px}.lesson-header-copy h1{font-size:1.8rem}.lesson-subtitle{font-size:.98rem}.lesson-meta-pill{font-size:.76rem}}
+
+/* Responsive SkELL keyword pills: keep long keywords fully visible inside their ovals. */
+.skell-cluster{min-width:0}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 1 auto;align-items:center;justify-content:center;width:max-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px clamp(10px,1.5vw,16px);box-sizing:border-box;font-size:clamp(.72rem,1.25vw,.98rem);line-height:1.12;letter-spacing:.015em;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0}@media(max-width:680px){.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;font-size:clamp(.72rem,3vw,.94rem);padding:8px 12px}.cluster-type{flex-basis:auto;width:100%}}
+.cluster-sentences{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin:8px 0 12px}.cluster-sentence{min-height:68px;background:#fbfffc}.writing-area{min-height:190px}.writing-anti-paste-note{padding:10px 12px;background:#fff7d8;border:1px solid #ead27b;border-radius:9px;color:#624e00;font-size:.92rem}.submission-panel{margin-top:16px;padding:16px;border:1px solid #9ecfb0;border-radius:14px;background:#eff9f2}.submission-status{margin-top:10px;font-weight:700}.submission-status.ok{color:#176b45}.submission-status.err{color:#a5222d}.submission-status.warn{color:#805900}@media(max-width:680px){.cluster-sentences{grid-template-columns:1fr}}</style>
+</head>
+<body>
+<header class="lesson-hero">
+  <div class="lesson-header-layout">
+    <div class="lesson-header-copy">
+      <div class="lesson-kicker"><span class="lesson-kicker-mark">LL</span><span>LEXILINK <span class="kicker-divider">/</span> LESSON 07</span></div>
+      <h1>Social Connections: Art, Literature and Networking</h1>
+      <p class="lesson-subtitle">Exploring culture, conversation and meaningful professional connections</p>
+      <div class="lesson-meta" aria-label="Lesson information">
+        <span class="lesson-meta-pill">B2 · Upper-intermediate</span>
+        <span class="lesson-meta-pill">80-minute lesson</span>
+        <span class="lesson-meta-pill">20 target collocations</span>
+      </div>
+      <p class="lesson-method">SkELL investigation <span aria-hidden="true">·</span> Lexical approach</p>
+    </div>
+    <!-- Header photo: visitors discussing an art book in a gallery -->
+<img class="lesson-header-photo" src="https://sillegallery.com/app/uploads/2023/07/Kunst-in-opdracht-Stieber.jpg" alt="People discussing an art book in a gallery" title="Photo from Pexels" loading="eager" decoding="async">
+  </div>
+</header>
+<section class="profile" aria-label="Student profile">
+<div class="profile-head"><div class="avatar" id="avatar-initials">S</div><div><h2 style="margin:0;color:#176b45">Student profile</h2><p style="margin:.2rem 0">LexiLink · Culture and Connections <span class="pill">B2</span> <span class="pill">80 minutes</span></p></div></div>
+<div class="profile-grid" style="margin-top:14px"><div><label for="profile-name">Student name</label><input id="profile-name" placeholder="Enter your name"></div><div><label for="profile-group">Group</label><input id="profile-group" placeholder="Enter group"></div></div>
+<p class="muted" style="margin-bottom:0">Complete the tasks, investigate lexical word partnerships in SkELL and write about art, literature and social or professional connections.</p>
+</section>
+<section class="card"><h2>80-minute lesson route</h2><p class="muted">Teacher-facing timing plan; the tasks below follow this sequence.</p><div class="timeline">
+<div class="slot"><b>0–5 min · Warm-up</b>Discuss how art, books and shared interests can bring people together.</div><div class="slot"><b>5–17 min · Reading</b>Read about art, literature, conversation and networking.</div><div class="slot"><b>17–27 min · Noticing</b>Notice and practise target collocations about culture and connections.</div><div class="slot"><b>27–42 min · DDL with SkELL</b>Investigate four keywords and discover natural lexical collocations in SkELL.</div><div class="slot"><b>42–52 min · Retrieval</b>Odd One Out and Find the Collocate.</div><div class="slot"><b>52–62 min · Categorising</b>Collocation Sorting and Lexical Cloze.</div><div class="slot"><b>62–70 min · Correction</b>Repair unnatural lexical combinations.</div><div class="slot"><b>70–77 min · Production</b>Write 80–100 words about how cultural interests help people build personal or professional connections.</div><div class="slot"><b>77–80 min · Reflection</b>Review your score and share one SkELL discovery.</div>
+</div></section>
+<section class="card"><h2>Learning outcomes</h2><p>By the end of the lesson, you will be able to recognise and use lexical collocations related to art, literature, conversation and networking; verify word partnerships with SkELL; interpret related words in context; and explain how shared cultural interests can help people build connections.</p><h2>Target collocations: definitions and synonyms</h2><p class="muted">Study the English definitions and compare the synonyms. No translations are provided.</p><div class="grid" id="target"></div></section>
+<section class="card" id="reading"><h2>Reading: Social Connections: Art, Literature and Networking</h2><p class="muted">Read the text carefully or listen to it. Target collocations are shown in bold.</p>
+
+<div class="audio-panel" role="group" aria-label="Reading audio controls">
+  <div class="audio-heading"><span aria-hidden="true">🎧</span><div><strong>Listen to the reading</strong><div class="muted">Browser voice · English pronunciation</div></div></div>
+  <div class="audio-controls">
+    <button type="button" onclick="playReading()" aria-label="Play or resume reading text">▶ Listen / Resume</button>
+    <button type="button" onclick="pauseReading()" aria-label="Pause reading text">Ⅱ Pause</button>
+    <button type="button" onclick="stopReading()" aria-label="Stop and reset reading text">■ Stop</button>
+    <label class="speed-control" for="reading-speed">Speed
+      <select id="reading-speed" aria-label="Reading speed" onchange="updateReadingSpeedNote()">
+        <option value="0.75">0.75× Slow</option><option value="1" selected>1× Normal</option><option value="1.25">1.25× Fast</option>
+      </select>
+    </label>
+  </div>
+  <div class="audio-progress-wrap">
+    <div class="audio-progress-label"><label for="reading-progress" style="margin:0">Reading progress</label><span id="reading-progress-value">0%</span></div>
+    <input id="reading-progress" class="audio-progress" type="range" min="0" max="100" step="1" value="0" aria-label="Reading progress; move the slider to seek" oninput="previewReadingSeek(this.value)" onchange="seekReading(this.value)">
+    <p class="audio-progress-help">After the title, narration pauses for 3 seconds before continuing. Pause / Resume preserves your place, including during this break, or move the slider to jump to another part of the text.</p>
+  </div>
+  <p id="reading-audio-status" class="muted audio-status" aria-live="polite">Ready to play. The voice available depends on your browser and device.</p>
+</div>
+<article id="reading-text" style="line-height:1.75">
+<h3>Culture as a Bridge: Art, Literature and Connection</h3>
+<p>Art and literature can help people see the world from different perspectives. When visitors <b>appreciate art</b>, they may notice details, ask questions and discuss what a painting communicates. An <b>art exhibition</b> gives people an opportunity to encounter a new <b>work of art</b> and consider its meaning. Artists often <b>draw inspiration from</b> everyday experiences, history or other creative works. Art can be a form of <b>artistic expression</b>, but it can also provide a starting point for conversation between people who have never met before.</p>
+<p>Literature offers another way to explore ideas and experiences. People who <b>read widely</b> can encounter different voices, cultures and ways of thinking. A memorable <b>literary work</b> may <b>explore a theme</b> such as identity, belonging or justice, and readers may interpret the same passage in different ways. Some books receive <b>critical acclaim</b>, while others become important to individual readers even without wide recognition. To <b>engage with a text</b> means more than simply finishing it: readers can question the writer's choices, connect the story to their own experience and listen to other interpretations.</p>
+<p>Shared cultural interests often <b>spark a conversation</b>. Someone might <b>strike up a conversation</b> after noticing that another visitor is studying the same painting or reading the same author. People can <b>exchange ideas</b>, explain different viewpoints and discover that they <b>share common interests</b>. These conversations do not require everyone to agree. Shared interests can help people connect with like-minded people, including those who enjoy similar activities or approach ideas in a similar way. Respectful disagreement can still make a discussion richer, especially when people ask questions and listen carefully instead of trying to win an argument.</p>
+<p>Cultural events can also support professional life. A book launch, public lecture or gallery opening may help participants <b>build professional networks</b>, <b>expand their network</b> and <b>make useful contacts</b>. Genuine networking is not simply collecting names: people can <b>forge connections</b> by showing interest, exchanging ideas and <b>following up with someone</b> after an event. Over time, this can help them <b>maintain professional relationships</b> and learn about opportunities. The most valuable connections are often built through shared curiosity and thoughtful conversation rather than a single introduction.</p>
+</article>
+<h3>Reading Task A — Choose the best answer</h3><div id="readMCQ"></div><button onclick="checkReading()">Check reading answers</button><button onclick="resetReading()">Try again</button><div id="reading-result"></div>
+<h3>Reading Task B — True or False?</h3><p class="muted">Choose True or False according to the text.</p><div id="readTF"></div><button onclick="checkTF()">Check statements</button><button onclick="resetTF()">Try again</button><div id="tf-result"></div>
+<h3>Reading Task D — Match the idea to the paragraph</h3><p class="muted">Choose the paragraph number (1–4). Some paragraph numbers may be used more than once.</p><div id="readMatch"></div><button onclick="checkReadMatch()">Check paragraph matching</button><button onclick="resetReadMatch()">Try again</button><div id="readmatch-result"></div>
+</section>
+<section class="card"><h2>1. Matching · 10 points</h2><p class="muted">Choose the correct ending. Feedback and the correct answer appear only after you select an answer and check it.</p><div id="matching"></div><button onclick="check('matching')">Check answers</button><button onclick="reset('matching')">Try again</button><div id="matching-result"></div></section>
+<section class="card"><h2>2. Complete the Sentence · 10 points</h2><p class="muted">Choose the lexical collocation that best completes each sentence. Unanswered items will not reveal their answers.</p><div id="gaps"></div><button onclick="check('gaps')">Check answers</button><button onclick="reset('gaps')">Try again</button><div id="gaps-result"></div></section>
+<section class="card" id="skell-cluster"><h2>3. SkELL Collocation Clusters · 10 minutes · 10 points (teacher-scored)</h2>
+<p>Open <a href="https://skell.sketchengine.eu/" target="_blank" rel="noopener">SkELL</a>. For each keyword, use <b>Word Sketch</b> or example sentences to find at least two lexical collocations. Write one original sentence using each of your first two collocations. Then open <b>Similar words</b>, record two candidate synonyms or related words, and note a corpus example or context you checked. Related words are not automatically interchangeable: check their meaning and word partnerships in context. Your collocations, original sentences, Similar words and corpus notes will be submitted with this lesson for teacher review.</p>
+<div class="callout"><b>Investigation routine</b><br>Keyword → find lexical collocations in SkELL → record similar words → inspect a corpus example → decide whether each related word can replace the keyword in that context.</div>
+<div class="skell-board">
+<div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">ART</span><span class="cluster-type"><b>Search focus:</b> verb + noun / adjective + noun lexical collocations<br>Find combinations about appreciating, creating and exhibiting art.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="art-coll-1" placeholder="Collocation 1" aria-label="Art collocation 1"><input class="collocation-line" id="art-coll-2" placeholder="Collocation 2" aria-label="Art collocation 2"><input class="collocation-line" id="art-coll-3" placeholder="Collocation 3" aria-label="Art collocation 3"><input class="collocation-line" id="art-coll-4" placeholder="Collocation 4" aria-label="Art collocation 4"></div><div class="cluster-sentences"><label for="art-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="art-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="art-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="art-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="art-syn-1" placeholder="Word 1" aria-label="Art similar word 1"><input id="art-syn-2" placeholder="Word 2" aria-label="Art similar word 2"></div><label for="art-evidence">Corpus example / context</label><textarea id="art-evidence" placeholder="Copy a short SkELL example and explain what the collocation means in context."></textarea></div>
+<div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">LITERATURE</span><span class="cluster-type"><b>Search focus:</b> verb + noun / adjective + noun lexical collocations<br>Find verbs used with books, texts, novels and literary themes.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="literature-coll-1" placeholder="Collocation 1" aria-label="Literature collocation 1"><input class="collocation-line" id="literature-coll-2" placeholder="Collocation 2" aria-label="Literature collocation 2"><input class="collocation-line" id="literature-coll-3" placeholder="Collocation 3" aria-label="Literature collocation 3"><input class="collocation-line" id="literature-coll-4" placeholder="Collocation 4" aria-label="Literature collocation 4"></div><div class="cluster-sentences"><label for="literature-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="literature-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="literature-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="literature-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="literature-syn-1" placeholder="Word 1" aria-label="Literature similar word 1"><input id="literature-syn-2" placeholder="Word 2" aria-label="Literature similar word 2"></div><label for="literature-evidence">Corpus example / context</label><textarea id="literature-evidence" placeholder="Copy a short SkELL example and identify the literary collocation."></textarea></div>
+<div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">NETWORKING</span><span class="cluster-type"><b>Search focus:</b> verb + noun lexical collocations<br>Find combinations about professional contacts, networks and opportunities.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="networking-coll-1" placeholder="Collocation 1" aria-label="Networking collocation 1"><input class="collocation-line" id="networking-coll-2" placeholder="Collocation 2" aria-label="Networking collocation 2"><input class="collocation-line" id="networking-coll-3" placeholder="Collocation 3" aria-label="Networking collocation 3"><input class="collocation-line" id="networking-coll-4" placeholder="Collocation 4" aria-label="Networking collocation 4"></div><div class="cluster-sentences"><label for="networking-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="networking-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="networking-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="networking-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="networking-syn-1" placeholder="Word 1" aria-label="Networking similar word 1"><input id="networking-syn-2" placeholder="Word 2" aria-label="Networking similar word 2"></div><label for="networking-evidence">Corpus example / context</label><textarea id="networking-evidence" placeholder="Copy a short SkELL example about making contacts or building a network."></textarea></div>
+<div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">CONNECTIONS</span><span class="cluster-type"><b>Search focus:</b> verb + noun lexical collocations<br>Find how people establish, strengthen and maintain connections.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="connections-coll-1" placeholder="Collocation 1" aria-label="Connections collocation 1"><input class="collocation-line" id="connections-coll-2" placeholder="Collocation 2" aria-label="Connections collocation 2"><input class="collocation-line" id="connections-coll-3" placeholder="Collocation 3" aria-label="Connections collocation 3"><input class="collocation-line" id="connections-coll-4" placeholder="Collocation 4" aria-label="Connections collocation 4"></div><div class="cluster-sentences"><label for="connections-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="connections-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="connections-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="connections-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="connections-syn-1" placeholder="Word 1" aria-label="Connections similar word 1"><input id="connections-syn-2" placeholder="Word 2" aria-label="Connections similar word 2"></div><label for="connections-evidence">Corpus example / context</label><textarea id="connections-evidence" placeholder="Copy a short SkELL example about personal or professional connections."></textarea></div>
+</div>
+<p class="muted">Teacher scoring: up to 10 points for distinct, accurate lexical collocations supported by SkELL evidence. Similar words are assessed for relevance and contextual interpretation; related words are not automatically interchangeable.</p><p class="muted">Your SkELL records and original sentences will be submitted with the lesson; no separate copying is needed.</p></section>
+<section class="card"><h2>4. Odd One Out · Based on SkELL · 10 points</h2><p class="muted">Choose the collocation that does not fit the pattern of the other three. Use your SkELL notes to check which combinations are natural in English. Unanswered items stay hidden; explanations appear only after you choose and check.</p><div id="odd"></div><button onclick="check('odd')">Check answers</button><button onclick="reset('odd')">Try again</button><div id="odd-result"></div></section>
+<section class="card"><h2>5. Find the Verb, Find the Collocate · 10 points</h2><p>Choose the verb that completes each collocation related to art, literature, conversation and networking.</p><div id="find"></div><button onclick="check('find')">Check answers</button><button onclick="reset('find')">Try again</button><div id="find-result"></div></section>
+<section class="card"><h2>6. Collocation Sorting · 10 points</h2><p class="muted">Choose the verb that creates a natural lexical collocation.</p><div id="sorting"></div><button onclick="check('sorting')">Check answers</button><button onclick="reset('sorting')">Try again</button><div id="sorting-result"></div></section>
+<section class="card"><h2>7. Lexical Cloze · 10 points</h2><p class="muted"><b>Word bank:</b> appreciate art · draw inspiration from · read widely · literary work · critical acclaim · spark a conversation · exchange ideas · build professional networks · make useful contacts · forge connections</p><div id="cloze"></div><button onclick="check('cloze')">Check answers</button><button onclick="reset('cloze')">Try again</button><div id="cloze-result"></div></section>
+<section class="card"><h2>8. Collocation Repair · 10 points</h2><p class="muted">Choose the best correction. Focus on natural lexical word partnerships for art, literature, conversation and networking.</p><div id="repair"></div><button onclick="check('repair')">Check answers</button><button onclick="reset('repair')">Try again</button><div id="repair-result"></div></section>
+<section class="card"><h2>9. Productive Recall Challenge · 5 points (teacher-scored)</h2><p>Write 80–100 words on <b>Social Connections: Art, Literature and Networking</b>. Use at least eight target collocations from this lesson.</p><label for="student-name">Student name</label><input id="student-name" placeholder="First and last name"><label for="student-group">Group</label><input id="student-group" placeholder="Group number"><label for="paragraph">Your paragraph</label><p class="writing-anti-paste-note" id="writing-notice">Write directly in this field. Paste, cut/copy shortcuts and drag-and-drop are disabled here. This browser restriction supports independent writing but is not a complete plagiarism-detection system.</p><textarea id="paragraph" style="min-height:170px" placeholder="Art and literature can bring people together when... " class="writing-area"></textarea><p id="word-count" class="muted">0 words</p><p class="muted">Teacher awards up to 5 points for accurate use of distinct target collocations, a clear main idea and relevant examples.</p><div class="submission-panel"><h3>Submit your lesson work to the teacher</h3><p class="muted">Your profile, exercise responses, SkELL collocations and original sentences, related words, corpus notes, writing paragraph and available scores will be collected in the teacher’s spreadsheet. Complete all four clusters and the 80–100-word paragraph before submitting.</p><button type="button" id="submitLessonBtn" onclick="submitLessonWork()">Submit lesson work</button><div id="submitStatus" class="submission-status" role="status" aria-live="polite"></div></div></section>
+<section class="card"><h2>Lesson score</h2><p class="muted">Auto-scored sections: reading MCQ, True/False, paragraph matching, Matching, Sentence Completion, Odd One Out, Find the Collocate, Sorting, Lexical Cloze and Collocation Repair (100 points total). SkELL cluster (10) and productive writing (5) are teacher-scored. Maximum lesson total: 115 points.</p><button onclick="summary()">Show score summary</button><div id="summary"></div></section>
+<p class="muted">LexiLink · Connect words. Build fluency. Your SkELL collocations, original sentences, Similar words, corpus notes and writing paragraph are included in the lesson submission. Complete the required fields and submit your work to the teacher.</p>
+<script>
+let readingUtterance = null;
+let readingTextContent = '';
+let readingCurrentChar = 0;
+let readingRunId = 0;
+let readingSeekWhilePaused = false;
+let readingTitleEnd = 0;
+let readingDelayTimer = null;
+let readingDelayPaused = false;
+let readingDelayRemaining = 3000;
+let readingDelayStartedAt = 0;
+
+function setReadingAudioStatus(message){const el=document.getElementById('reading-audio-status');if(el)el.textContent=message;}
+function readingProgressPercent(){return readingTextContent.length?Math.min(100,Math.round(readingCurrentChar/readingTextContent.length*100)):0;}
+function updateReadingProgress(percent){
+  const slider=document.getElementById('reading-progress');
+  const label=document.getElementById('reading-progress-value');
+  const safe=Math.max(0,Math.min(100,Math.round(percent)));
+  if(slider)slider.value=String(safe);
+  if(label)label.textContent=safe+'%';
+}
+function getReadingText(){
+  const article=document.getElementById('reading-text');
+  if(!article)return '';
+  return (article.innerText||article.textContent||'').replace(/\s+/g,' ').trim();
+}
+function loadReadingText(){
+  const article=document.getElementById('reading-text');
+  readingTextContent=getReadingText();
+  const titleElement=article?article.querySelector('h3'):null;
+  const titleText=titleElement?(titleElement.innerText||titleElement.textContent||'').replace(/\s+/g,' ').trim():'';
+  const titleIndex=titleText?readingTextContent.indexOf(titleText):-1;
+  readingTitleEnd=titleIndex>=0?titleIndex+titleText.length:0;
+  if(readingTitleEnd<=0||readingTitleEnd>=readingTextContent.length)readingTitleEnd=0;
+  return readingTextContent;
+}
+function setProgressFromChar(charIndex){
+  readingCurrentChar=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  updateReadingProgress(readingProgressPercent());
+}
+function clearReadingDelay(){
+  if(readingDelayTimer!==null){clearTimeout(readingDelayTimer);readingDelayTimer=null;}
+  readingDelayStartedAt=0;
+}
+function startReadingDelay(runId, milliseconds){
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=Math.max(0,milliseconds);
+  if(readingDelayRemaining<=0){startReadingFrom(readingTitleEnd);return;}
+  readingDelayStartedAt=Date.now();
+  const seconds=(readingDelayRemaining/1000).toFixed(1).replace(/\.0$/,'');
+  setReadingAudioStatus('Title finished. Pausing for '+seconds+' seconds before the reading continues…');
+  readingDelayTimer=setTimeout(()=>{
+    readingDelayTimer=null;
+    readingDelayStartedAt=0;
+    if(runId!==readingRunId||readingDelayPaused)return;
+    readingDelayRemaining=3000;
+    startReadingFrom(readingTitleEnd);
+  },readingDelayRemaining);
+}
+function startReadingFrom(charIndex){
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  const start=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  if(start>=readingTextContent.length){setProgressFromChar(0);return startReadingFrom(0);}
+  const thisRun=++readingRunId;
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=3000;
+  window.speechSynthesis.cancel();
+  const isTitleSegment=readingTitleEnd>0&&start<readingTitleEnd;
+  const segmentEnd=isTitleSegment?readingTitleEnd:readingTextContent.length;
+  const segmentText=readingTextContent.slice(start,segmentEnd);
+  readingUtterance=new SpeechSynthesisUtterance(segmentText);
+  readingUtterance.lang='en-GB';
+  const rateControl=document.getElementById('reading-speed');
+  readingUtterance.rate=rateControl?Number(rateControl.value):1;
+  readingUtterance.pitch=1;
+  const voices=window.speechSynthesis.getVoices();
+  const englishVoice=voices.find(v=>/^en-GB$/i.test(v.lang))||voices.find(v=>/^en-US$/i.test(v.lang))||voices.find(v=>/^en/i.test(v.lang));
+  if(englishVoice)readingUtterance.voice=englishVoice;
+  setProgressFromChar(start);
+  readingUtterance.onstart=()=>{if(thisRun===readingRunId)setReadingAudioStatus(isTitleSegment?'Reading the title…':'Reading aloud…');};
+  readingUtterance.onboundary=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(Number.isFinite(event.charIndex))setProgressFromChar(start+event.charIndex);
+  };
+  readingUtterance.onend=()=>{
+    if(thisRun!==readingRunId)return;
+    if(isTitleSegment&&readingTitleEnd<readingTextContent.length){
+      setProgressFromChar(readingTitleEnd);
+      readingUtterance=null;
+      startReadingDelay(thisRun,3000);
+      return;
+    }
+    setProgressFromChar(readingTextContent.length);
+    setReadingAudioStatus('Reading finished. Press Listen to replay, or move the progress line to choose a section.');
+    readingUtterance=null;
+  };
+  readingUtterance.onerror=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(event.error!=='canceled'&&event.error!=='interrupted')setReadingAudioStatus('Audio playback could not start. Try another browser or check your device’s speech settings.');
+  };
+  window.speechSynthesis.speak(readingUtterance);
+  setReadingAudioStatus(isTitleSegment?'Starting with the title…':(start?'Resuming from the selected position…':'Starting playback…'));
+}
+function playReading(){
+  if(!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)){
+    setReadingAudioStatus('Text-to-speech is not supported in this browser. Try opening the lesson in an up-to-date Chrome, Edge or Safari browser.');return;
+  }
+  if(readingDelayPaused){
+    startReadingDelay(readingRunId,readingDelayRemaining);
+    setReadingAudioStatus('Resuming the 3-second pause after the title…');
+    return;
+  }
+  if(readingDelayTimer!==null){setReadingAudioStatus('The 3-second pause after the title is in progress…');return;}
+  if(window.speechSynthesis.paused&&!readingSeekWhilePaused){window.speechSynthesis.resume();setReadingAudioStatus('Reading resumed from the same place.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused)return;
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  if(readingCurrentChar>=readingTextContent.length)readingCurrentChar=0;
+  startReadingFrom(readingCurrentChar);
+}
+function pauseReading(){
+  if(!('speechSynthesis' in window)){setReadingAudioStatus('Text-to-speech is not supported in this browser.');return;}
+  if(readingDelayTimer!==null){
+    const elapsed=Math.max(0,Date.now()-readingDelayStartedAt);
+    readingDelayRemaining=Math.max(0,readingDelayRemaining-elapsed);
+    clearReadingDelay();
+    readingDelayPaused=true;
+    setReadingAudioStatus('Paused during the 3-second break after the title. Press Listen / Resume to continue the countdown.');
+    return;
+  }
+  if(readingDelayPaused){setReadingAudioStatus('The pause after the title is paused. Press Listen / Resume to continue.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused){window.speechSynthesis.pause();setReadingAudioStatus('Reading paused. Press Listen / Resume to continue from the same place.');}
+  else setReadingAudioStatus('There is no reading currently playing. Press Listen / Resume to start.');
+}
+function stopReading(){
+  if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  clearReadingDelay();
+  readingRunId++;
+  readingSeekWhilePaused=false;
+  readingDelayPaused=false;
+  readingDelayRemaining=3000;
+  readingUtterance=null;
+  loadReadingText();
+  readingCurrentChar=0;
+  updateReadingProgress(0);
+  setReadingAudioStatus('Reading stopped and reset to the beginning.');
+}
+function previewReadingSeek(percent){
+  const label=document.getElementById('reading-progress-value');
+  if(label)label.textContent=Math.max(0,Math.min(100,Math.round(Number(percent)||0))+'%');
+}
+function seekReading(percent){
+  if(!('speechSynthesis' in window)){updateReadingProgress(readingProgressPercent());return;}
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent)return;
+  const delayActive=readingDelayTimer!==null;
+  const delayPaused=readingDelayPaused;
+  const wasSpeaking=window.speechSynthesis.speaking&&!window.speechSynthesis.paused;
+  const wasPaused=window.speechSynthesis.paused;
+  const pct=Math.max(0,Math.min(100,Number(percent)||0));
+  let target=Math.round(readingTextContent.length*pct/100);
+  while(target>0&&target<readingTextContent.length&&!/\s/.test(readingTextContent[target-1]))target--;
+  setProgressFromChar(target);
+  if(delayActive){
+    clearReadingDelay();readingDelayPaused=false;readingDelayRemaining=3000;
+    startReadingFrom(target);
+  }else if(delayPaused||wasPaused){
+    clearReadingDelay();
+    if(window.speechSynthesis.speaking||window.speechSynthesis.paused)window.speechSynthesis.cancel();
+    readingRunId++;readingUtterance=null;readingDelayPaused=false;readingDelayRemaining=3000;readingSeekWhilePaused=true;
+    setReadingAudioStatus('Position selected. Press Listen / Resume to continue from here.');
+  }else if(wasSpeaking){startReadingFrom(target);}
+  else {
+    readingDelayPaused=false;readingDelayRemaining=3000;
+    setReadingAudioStatus(pct===0?'Ready to play from the beginning.':'Position selected. Press Listen / Resume to start from here.');
+  }
+}
+function updateReadingSpeedNote(){
+  if(window.speechSynthesis&&window.speechSynthesis.speaking&&!window.speechSynthesis.paused){
+    setReadingAudioStatus('To apply the new speed, stop and start playback again. Pause / Resume keeps the current playback speed.');
+  }
+}
+
+const target=[["appreciate art","Definition: to recognise the value or meaning of artistic work.","Synonyms: value art; enjoy art; understand artistic value"],["art exhibition","Definition: a public event or space where artworks are shown.","Synonyms: art show; exhibition of art; gallery exhibition"],["work of art","Definition: an object or performance created through artistic skill.","Synonyms: artwork; artistic creation; piece of art"],["draw inspiration from","Definition: to get ideas or creative energy from a source.","Synonyms: take inspiration from; be inspired by; find inspiration in"],["artistic expression","Definition: the communication of ideas or feelings through art.","Synonyms: creative expression; artistic communication; self-expression through art"],["read widely","Definition: to read different kinds of books, authors or subjects.","Synonyms: read broadly; explore different authors; read across genres"],["literary work","Definition: a written text considered as a work of literature.","Synonyms: work of literature; written work; literary text"],["receive critical acclaim","Definition: to be praised by professional critics.","Synonyms: earn critical praise; win acclaim; be critically praised"],["explore a theme","Definition: to examine an idea or subject in detail.","Synonyms: examine a theme; investigate a topic; develop a theme"],["engage with a text","Definition: to think actively about a text and respond to its ideas.","Synonyms: interact with a text; respond to a text; analyse a text"],["spark a conversation","Definition: to cause a conversation to begin.","Synonyms: start a conversation; prompt discussion; trigger a conversation"],["strike up a conversation","Definition: to begin talking to someone, often someone new.","Synonyms: start talking; initiate a conversation; open a conversation"],["exchange ideas","Definition: to share thoughts and consider each other's views.","Synonyms: share ideas; discuss ideas; compare viewpoints"],["build professional networks","Definition: to develop a range of professional relationships.","Synonyms: expand professional networks; develop a network; grow a professional network"],["make useful contacts","Definition: to meet people who may offer information or professional opportunities.","Synonyms: establish contacts; develop useful contacts; meet professional contacts"],["expand your network","Definition: to increase the range of people in your professional or social circle.","Synonyms: grow your network; broaden your network; extend your contacts"],["forge connections","Definition: to create strong or meaningful relationships.","Synonyms: build connections; establish connections; form relationships"],["maintain relationships","Definition: to keep relationships active and positive over time.","Synonyms: sustain relationships; nurture relationships; keep in touch"],["connect with like-minded people","Definition: to meet people who share similar interests or views.","Synonyms: meet people with similar interests; connect with people; find people on the same wavelength"],["follow up with someone","Definition: to contact someone again after an event or conversation.","Synonyms: get back in touch; contact again; continue the conversation"]];
+document.getElementById('target').innerHTML=target.map((x,i)=>`<div class="box"><b>${i+1}. ${x[0]}</b><p>${x[1]}</p><p class="muted"><b>${x[2].split(':')[0]}:</b>${x[2].split(':').slice(1).join(':')}</p></div>`).join('');
+const profileName=document.getElementById('profile-name'),profileGroup=document.getElementById('profile-group'),studentName=document.getElementById('student-name'),studentGroup=document.getElementById('student-group');
+function updateProfile(){if(studentName)studentName.value=profileName.value;if(studentGroup)studentGroup.value=profileGroup.value;const words=profileName.value.trim().split(/\s+/).filter(Boolean);document.getElementById('avatar-initials').textContent=words.length?words.slice(0,2).map(w=>w[0].toUpperCase()).join(''):'S'}
+profileName.addEventListener('input',updateProfile);profileGroup.addEventListener('input',updateProfile);studentName.addEventListener('input',()=>{profileName.value=studentName.value;updateProfile()});studentGroup.addEventListener('input',()=>{profileGroup.value=studentGroup.value;updateProfile()});
+const clusterIds=['art','literature','networking','connections'];
+document.getElementById('paragraph').addEventListener('input',e=>{const t=e.target.value.trim();document.getElementById('word-count').textContent=(t?t.split(/\s+/).length:0)+' words'});
+const readMCQs=[{"q":"What can an art exhibition offer visitors?","ans":"A chance to encounter artwork and consider its meaning.","opts":["A guarantee that all visitors will agree.","A chance to encounter artwork and consider its meaning.","A rule that visitors must buy an artwork.","A way to avoid discussing art."]},{"q":"What does it mean to draw inspiration from something?","ans":"To get creative ideas from it.","opts":["To copy it without thinking.","To criticise it publicly.","To get creative ideas from it.","To organise it for an exhibition."]},{"q":"According to the text, what can reading widely help people do?","ans":"Encounter different voices and ways of thinking.","opts":["Encounter different voices and ways of thinking.","Understand every book in exactly the same way.","Avoid unfamiliar ideas.","Guarantee that every book receives critical acclaim."]},{"q":"What does it mean to engage with a text?","ans":"To think actively about its ideas and respond to them.","opts":["To finish reading as quickly as possible.","To memorise every sentence.","To think actively about its ideas and respond to them.","To agree with the writer on every point."]},{"q":"How can shared cultural interests help people connect?","ans":"They can spark conversation and encourage an exchange of ideas.","opts":["They make differences of opinion impossible.","They can spark conversation and encourage an exchange of ideas.","They remove the need to listen.","They guarantee a professional promotion."]},{"q":"What is the text's view of networking?","ans":"It involves genuine interest and follow-up, not just collecting names.","opts":["It is only useful when people exchange business cards.","It involves genuine interest and follow-up, not just collecting names.","It should be limited to people with identical views.","It works best when people never contact each other again."]},{"q":"Why might someone follow up with a person after a cultural event?","ans":"To continue the conversation and develop the connection.","opts":["To prove that their opinion was correct.","To avoid any future communication.","To continue the conversation and develop the connection.","To ask the person to agree with every idea."]},{"q":"What can make a discussion richer, according to the text?","ans":"Respectful disagreement and careful listening.","opts":["Respectful disagreement and careful listening.","Trying to win every argument.","Avoiding questions.","Pretending everyone has the same interpretation."]},{"q":"Which statement about art and literature is supported by the text?","ans":"They can create opportunities for people to exchange perspectives.","opts":["They are useful only in professional settings.","They can create opportunities for people to exchange perspectives.","They always lead to agreement.","They have no connection with everyday conversation."]},{"q":"What is the main message of the reading?","ans":"Shared cultural interests can support thoughtful personal and professional connections.","opts":["A large contact list is the only measure of success.","People should discuss art only with experts.","Shared cultural interests can support thoughtful personal and professional connections.","Books and artworks have one correct interpretation."]}];
+const readTFs=[{"q":"The reading says an art exhibition can encourage people to discuss what an artwork communicates.","ans":"True"},{"q":"The text suggests that every literary work must receive critical acclaim to matter to readers.","ans":"False"},{"q":"Readers may interpret the same passage in different ways.","ans":"True"},{"q":"The text says people should avoid respectful disagreement during cultural discussions.","ans":"False"},{"q":"Shared cultural interests can give strangers a reason to start talking.","ans":"True"},{"q":"The reading describes networking as simply collecting as many names as possible.","ans":"False"},{"q":"Following up after an event may help people maintain a professional relationship.","ans":"True"},{"q":"Artistic expression can be inspired by everyday experiences and history.","ans":"True"},{"q":"According to the text, valuable professional connections are built only through one introduction.","ans":"False"},{"q":"Listening carefully can help make a discussion richer.","ans":"True"}];
+const readMatches=[{"q":"Noticing how artworks communicate ideas","ans":"1"},{"q":"Getting creative ideas from everyday experiences or other works","ans":"1"},{"q":"Considering different themes and interpretations in books","ans":"2"},{"q":"Thinking actively about a text instead of simply finishing it","ans":"2"},{"q":"Using shared interests to begin talking and exchange ideas","ans":"3"},{"q":"Listening and disagreeing respectfully","ans":"3"},{"q":"Developing contacts at talks, book launches or gallery openings","ans":"4"},{"q":"Continuing communication after an event","ans":"4"},{"q":"Seeing art as a possible starting point for a conversation","ans":"1"},{"q":"Building relationships through genuine interest, not just a contact list","ans":"4"}];
+function renderReadRadio(id,items,optsFn){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${optsFn(x,i)}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+function renderSelect(id,items,options){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b><label for="${id}-${i}">Choose:</label><select id="${id}-${i}"><option value="">Choose an answer…</option>${options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select><div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+renderReadRadio('readMCQ',readMCQs,(x,i)=>`<div>${x.opts.map(o=>`<label><input type="radio" name="readMCQ-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`);
+renderReadRadio('readTF',readTFs,(x,i)=>`<div><label><input type="radio" name="readTF-${i}" value="True"> True</label><label><input type="radio" name="readTF-${i}" value="False"> False</label></div>`);
+renderSelect('readMatch',readMatches,['1','2','3','4']);
+const scores={};
+function markRadioSet(items,namePrefix,id,resultId){let n=0,answered=0;items.forEach((x,i)=>{const chosen=document.querySelector(`input[name="${namePrefix}-${i}"]:checked`)?.value;const f=document.getElementById(`${id}-fb-${i}`);if(!chosen){f.className='fb muted';f.textContent='Choose an answer before checking this question.';return;}answered++;const ok=chosen===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct. '+(x.why||''):'Not quite. Correct answer: '+x.ans+(x.why?' — '+x.why:'')});scores[id]={score:n,max:items.length};document.getElementById(resultId).innerHTML=`<p><b>Score: ${n}/${items.length}</b> · Answered: ${answered}/${items.length}</p>`}
+function checkReading(){markRadioSet(readMCQs,'readMCQ','readMCQ','reading-result')}
+function resetReading(){readMCQs.forEach((x,i)=>{document.querySelectorAll(`input[name="readMCQ-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readMCQ-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('reading-result').innerHTML='';delete scores.readMCQ}
+function checkTF(){markRadioSet(readTFs,'readTF','readTF','tf-result')}
+function resetTF(){readTFs.forEach((x,i)=>{document.querySelectorAll(`input[name="readTF-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readTF-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('tf-result').innerHTML='';delete scores.readTF}
+function checkReadMatch(){let n=0,answered=0;readMatches.forEach((x,i)=>{const v=document.getElementById(`readMatch-${i}`).value;const f=document.getElementById(`readMatch-fb-${i}`);if(!v){f.className='fb muted';f.textContent='Choose a paragraph before checking this question.';return;}answered++;const ok=v===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct.':'Not quite. Correct answer: paragraph '+x.ans+'.'});scores.readMatch={score:n,max:readMatches.length};document.getElementById('readmatch-result').innerHTML=`<p><b>Score: ${n}/${readMatches.length}</b> · Answered: ${answered}/${readMatches.length}</p>`}
+function resetReadMatch(){readMatches.forEach((x,i)=>{document.getElementById(`readMatch-${i}`).value='';const f=document.getElementById(`readMatch-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('readmatch-result').innerHTML='';delete scores.readMatch}
+const data={"matching":{"mode":"select","items":[{"q":"appreciate ___","ans":"art"},{"q":"draw inspiration ___","ans":"from art"},{"q":"read ___","ans":"widely"},{"q":"explore a literary ___","ans":"theme"},{"q":"receive critical ___","ans":"acclaim"},{"q":"spark a ___","ans":"conversation"},{"q":"exchange ___","ans":"ideas"},{"q":"build professional ___","ans":"networks"},{"q":"make useful ___","ans":"contacts"},{"q":"follow up ___","ans":"with someone"}],"options":["contacts","widely","art","ideas","with someone","acclaim","networks","theme","conversation","from art"]},"gaps":{"mode":"select","items":[{"q":"Visitors gathered to see the new ___ at the city gallery.","ans":"art exhibition"},{"q":"Many artists ___ everyday life, history and other artworks.","ans":"draw inspiration from"},{"q":"People who ___ may encounter unfamiliar cultures and perspectives.","ans":"read widely"},{"q":"The novel ___ such as belonging and identity.","ans":"explores a theme"},{"q":"The book received ___ from several major reviewers.","ans":"critical acclaim"},{"q":"A question about a painting can ___ between strangers.","ans":"spark a conversation"},{"q":"At the conference, participants met to ___ and compare perspectives.","ans":"exchange ideas"},{"q":"Industry events can help early-career professionals ___.","ans":"build professional networks"},{"q":"She hoped to ___ who could share advice about publishing.","ans":"make useful contacts"},{"q":"After the gallery talk, he decided to ___ and thank her for the recommendation.","ans":"follow up with someone"}],"options":["exchange ideas","critical acclaim","make useful contacts","spark a conversation","read widely","art exhibition","follow up with someone","build professional networks","draw inspiration from","explores a theme"]},"odd":{"mode":"radio","items":[{"q":"ART EXHIBITIONS: Which collocation is the odd one out?","ans":"conduct an exhibition","opts":["host an exhibition","stage an exhibition","conduct an exhibition","curate an exhibition"],"why":"Host, stage and curate an exhibition are natural ways to describe organising or preparing one. “Conduct an exhibition” is not the usual collocation for organising an art show; “conduct” is more typical with research, interviews or investigations."},{"q":"INSPIRATION: Which collocation is the odd one out?","ans":"catch inspiration from a painting","opts":["find inspiration in a painting","draw inspiration from a painting","catch inspiration from a painting","take inspiration from a painting"],"why":"Find, draw and take inspiration from a painting are natural expressions. “Catch inspiration from” is a likely word-for-word transfer; English usually uses “get inspiration from” or “be inspired by.”"},{"q":"LITERATURE: Which collocation is the odd one out?","ans":"learn a novel","opts":["read a novel","publish a novel","learn a novel","write a novel"],"why":"Read, publish and write a novel are natural collocations. In English, a person may learn a poem or a passage by heart, but “learn a novel” is not the usual way to say that someone has read or studied a book."},{"q":"CRITICAL ACCLAIM: Which collocation is the odd one out?","ans":"take critical acclaim","opts":["receive critical acclaim","earn critical acclaim","take critical acclaim","win critical acclaim"],"why":"Receive, earn and win critical acclaim are accepted collocations. “Take critical acclaim” is not the usual way to express being praised by critics; use “receive/earn critical acclaim.”"},{"q":"CONVERSATION: Which collocation is the odd one out?","ans":"make a conversation with a stranger","opts":["strike up a conversation with a stranger","start a conversation with a stranger","make a conversation with a stranger","open a conversation with a stranger"],"why":"Strike up, start and open a conversation are natural ways to describe beginning to talk. “Make a conversation” is not the usual equivalent; “make conversation” without an article is possible but means talking socially, often to avoid silence."},{"q":"IDEAS: Which collocation is the odd one out?","ans":"change ideas with colleagues","opts":["exchange ideas with colleagues","share ideas with colleagues","change ideas with colleagues","discuss ideas with colleagues"],"why":"Exchange, share and discuss ideas are natural combinations. “Change ideas with colleagues” may come from a literal transfer of a phrase meaning to exchange ideas; in English, “change ideas” usually suggests altering one's ideas, not sharing them."},{"q":"ACQUAINTANCES: Which collocation is the odd one out?","ans":"establish acquaintances","opts":["make new acquaintances","meet new acquaintances","establish acquaintances","become acquainted with someone"],"why":"“Make new acquaintances,” “meet new acquaintances” and “become acquainted with someone” are natural expressions. “Establish acquaintances” is a word-for-word style transfer; English normally uses “make acquaintances” or “get to know people.”"},{"q":"SHARED INTERESTS: Which expression is the odd one out?","ans":"find people at the same wavelength","opts":["meet people with similar interests","find people at the same wavelength","connect with people","find people on the same wavelength"],"why":"“Meet people with similar interests,” “connect with people,” and “find people on the same wavelength” are natural expressions. The established idiom is “on the same wavelength,” not “at the same wavelength.”"},{"q":"CONNECTIONS: Which collocation is the odd one out?","ans":"manufacture connections","opts":["forge connections","build connections","manufacture connections","make connections"],"why":"Forge, build and make connections are natural collocations. “Manufacture connections” sounds like a literal transfer of a verb meaning “produce”; “manufacture” normally refers to making goods or producing something artificially."},{"q":"PROFESSIONAL RELATIONSHIPS: Which collocation is the odd one out?","ans":"keep relations with colleagues","opts":["maintain relationships with colleagues","nurture relationships with colleagues","keep relations with colleagues","build relationships with colleagues"],"why":"Maintain, nurture and build relationships with colleagues are natural expressions. “Keep relations with colleagues” is not the usual everyday pattern; speakers commonly say “maintain relationships” or “keep in touch with colleagues.”"}]},"find":{"mode":"select","items":[{"q":"appreciate ___","ans":"art"},{"q":"draw inspiration ___","ans":"from"},{"q":"explore a literary ___","ans":"theme"},{"q":"spark a ___","ans":"conversation"},{"q":"strike ___ a conversation","ans":"up"},{"q":"receive critical ___","ans":"acclaim"},{"q":"exchange ___","ans":"ideas"},{"q":"build professional ___","ans":"networks"},{"q":"make useful ___","ans":"contacts"},{"q":"follow up ___ someone","ans":"with"}],"options":["conversation","from","with","networks","contacts","ideas","up","art","acclaim","theme"]},"sorting":{"mode":"select","items":[{"q":"___ an exhibition","ans":"CURATE"},{"q":"___ inspiration from a painting","ans":"DRAW"},{"q":"___ widely","ans":"READ"},{"q":"___ critical acclaim","ans":"RECEIVE"},{"q":"___ a conversation","ans":"STRIKE UP"},{"q":"___ ideas","ans":"EXCHANGE"},{"q":"___ professional networks","ans":"BUILD"},{"q":"___ useful contacts","ans":"MAKE"},{"q":"___ connections","ans":"FORGE"},{"q":"___ up with someone","ans":"FOLLOW"}],"options":["BUILD","STRIKE UP","DRAW","FOLLOW","CURATE","FORGE","READ","MAKE","RECEIVE","EXCHANGE"]},"cloze":{"mode":"select","items":[{"q":"The new paintings are displayed at an ___.","ans":"art exhibition"},{"q":"Many creators ___ personal experience and history.","ans":"draw inspiration from"},{"q":"People who ___ may discover authors from different cultures.","ans":"read widely"},{"q":"The novel received ___ for its original style.","ans":"critical acclaim"},{"q":"A shared book recommendation can ___ between two people.","ans":"spark a conversation"},{"q":"At the discussion, students were encouraged to ___.","ans":"exchange ideas"},{"q":"A professional conference can help graduates ___.","ans":"build professional networks"},{"q":"A book club can help newcomers ___.","ans":"connect with like-minded people"},{"q":"People may ___ by sharing interests and keeping in touch.","ans":"forge connections"},{"q":"After the event, remember to ___ who gave you advice.","ans":"follow up with someone"}],"options":["exchange ideas","art exhibition","forge connections","read widely","draw inspiration from","follow up with someone","connect with like-minded people","critical acclaim","build professional networks","spark a conversation"]},"repair":{"mode":"radio","items":[{"q":"The gallery will conduct an exhibition of local artists next month.","ans":"The gallery will host an exhibition of local artists next month.","opts":["The gallery will stage an exhibition of local artists next month.","The gallery will conduct an exhibition of local artists next month.","The gallery will host an exhibition of local artists next month.","The gallery will curate an exhibition of local artists next month."],"why":"“Host an exhibition” is a natural way to say the gallery will organise the event. “Conduct an exhibition” is not the usual collocation in this context."},{"q":"The artist caught inspiration from the city streets.","ans":"The artist drew inspiration from the city streets.","opts":["The artist drew inspiration from the city streets.","The artist caught inspiration from the city streets.","The artist created inspiration from the city streets.","The artist held inspiration from the city streets."],"why":"“Draw inspiration from” is the established collocation."},{"q":"I learned a novel by a contemporary writer last weekend.","ans":"I read a novel by a contemporary writer last weekend.","opts":["I studied a novel by a contemporary writer last weekend.","I read a novel by a contemporary writer last weekend.","I learned a novel by a contemporary writer last weekend.","I made a novel by a contemporary writer last weekend."],"why":"Use “read a novel” or, if studying it closely, “study a novel.” “Learn a novel” is not the normal expression for reading a book."},{"q":"The book took critical acclaim after its publication.","ans":"The book received critical acclaim after its publication.","opts":["The book received critical acclaim after its publication.","The book took critical acclaim after its publication.","The book gained many positive reviews after its publication.","The book earned critical acclaim after its publication."],"why":"“Receive/earn/gain critical acclaim” are natural patterns; “take critical acclaim” is not the usual collocation."},{"q":"She made a conversation with another visitor about the painting.","ans":"She struck up a conversation with another visitor about the painting.","opts":["She made a conversation with another visitor about the painting.","She did a conversation with another visitor about the painting.","She struck up a conversation with another visitor about the painting.","She created a conversation with another visitor about the painting."],"why":"“Strike up a conversation” means to begin talking to someone, often someone you do not know."},{"q":"The participants changed ideas during the seminar.","ans":"The participants exchanged ideas during the seminar.","opts":["The participants exchanged ideas during the seminar.","The participants changed ideas during the seminar.","The participants shared ideas during the seminar.","The participants discussed ideas during the seminar."],"why":"“Exchange ideas” means to share thoughts; “change ideas” means something different and is not the standard collocation for a discussion."},{"q":"The event helped him establish acquaintances in the publishing industry.","ans":"The event helped him make useful contacts in the publishing industry.","opts":["The event helped him make useful contacts in the publishing industry.","The event helped him establish acquaintances in the publishing industry.","The event helped him create acquaintances in the publishing industry.","The event helped him do acquaintances in the publishing industry."],"why":"For professional introductions, “make useful contacts” is natural. “Establish acquaintances” is not the usual collocation; people usually “make acquaintances” or “establish contacts.”"},{"q":"He wants to increase his professional network by attending talks.","ans":"He wants to expand his professional network by attending talks.","opts":["He wants to grow his professional network by attending talks.","He wants to expand his professional network by attending talks.","He wants to broaden his professional network by attending talks."],"why":"“Expand/grow/broaden a network” are more idiomatic collocations in this context."},{"q":"The project helped the researchers manufacture connections with local artists.","ans":"The project helped the researchers forge connections with local artists.","opts":["The project helped the researchers create links with local artists.","The project helped the researchers build connections with local artists.","The project helped the researchers manufacture connections with local artists.","The project helped the researchers forge connections with local artists."],"why":"“Forge/build connections” are natural; “manufacture connections” is not the usual way to describe developing relationships."},{"q":"It is important to keep relations with people you meet at events.","ans":"It is important to maintain relationships with people you meet at events.","opts":["It is important to maintain relationships with people you meet at events.","It is important to keep relations with people you meet at events.","It is important to nurture relationships with people you meet at events.","It is important to build relationships with people you meet at events."],"why":"“Maintain/nurture/build relationships” are natural. In everyday English, “keep in touch with people” is also common."}]}};
+function render(id){const d=data[id];document.getElementById(id).innerHTML=d.items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${d.mode==='radio'?`<div>${x.opts.map(o=>`<label><input type="radio" name="${id}-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`:`<select id="${id}-${i}"><option value="">Choose…</option>${d.options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select>`}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+Object.keys(data).forEach(render);
+function check(id){const d=data[id];let n=0,answered=0;d.items.forEach((x,i)=>{const v=d.mode==='radio'?document.querySelector(`input[name="${id}-${i}"]:checked`)?.value:document.getElementById(`${id}-${i}`).value;const f=document.getElementById(`${id}-fb-${i}`);if(!v){f.className='fb muted';f.textContent='Choose an answer before checking this question.';return;}answered++;const ok=v===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=(ok?'Correct. ':'Not quite. Correct answer: '+x.ans+'. ')+(x.why||'')});scores[id]={score:n,max:d.items.length};document.getElementById(id+'-result').innerHTML=`<p><b>Score: ${n}/${d.items.length}</b> · Answered: ${answered}/${d.items.length}</p>`}
+function reset(id){const d=data[id];d.items.forEach((x,i)=>{if(d.mode==='radio')document.querySelectorAll(`input[name="${id}-${i}"]`).forEach(e=>e.checked=false);else document.getElementById(`${id}-${i}`).value='';const f=document.getElementById(`${id}-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById(id+'-result').innerHTML='';delete scores[id]}
+function summary(){let n=0,m=0;Object.values(scores).forEach(x=>{n+=x.score;m+=x.max});document.getElementById('summary').innerHTML=`<p><b>Automatically scored so far: ${n}/${m}.</b><br>Teacher-scored: SkELL cluster 0–10; writing 0–5. Maximum lesson score: 115 points.</p>`}
+
+// LexiLink shared submission collector — Lessons 1–8.
+// Replace the endpoint placeholder after deploying the shared Google Apps Script Web App.
+const SUBMISSION_ENDPOINT = "https://script.google.com/macros/s/AKfycbxKwWE0CYJDxrpP60p0A9JRv2sHrSECwzc9IPyYt9e-Kd1XQJsrHPGe2r8VHwlxPZWa/exec";
+const LEXILINK_LESSON_TITLE = "Lesson 7 — Social Connections: Art, Literature and Networking";
+const LEXILINK_WRITING_PROMPT = "Social Connections: Art, Literature and Networking";
+function lexilinkFieldValue(id){return (document.getElementById(id)?.value||'').trim();}
+function lexilinkCollectSkellClusters(){
+  return Array.from(document.querySelectorAll('.skell-cluster')).map(card=>{
+    const keyword=(card.querySelector('.keyword-pill')?.textContent||'').trim().toUpperCase();
+    const collocations=Array.from(card.querySelectorAll('.collocation-lines .collocation-line'));
+    const sentences=Array.from(card.querySelectorAll('.cluster-sentence'));
+    const similar=Array.from(card.querySelectorAll('.similar-grid input, .similar-grid textarea'));
+    const evidence=card.querySelector('textarea[id$="-evidence"]');
+    return {
+      keyword,
+      collocation1:(collocations[0]?.value||'').trim(),
+      sentence1:(sentences[0]?.value||'').trim(),
+      collocation2:(collocations[1]?.value||'').trim(),
+      sentence2:(sentences[1]?.value||'').trim(),
+      similarWord1:(similar[0]?.value||'').trim(),
+      similarWord2:(similar[1]?.value||'').trim(),
+      evidence:(evidence?.value||'').trim()
+    };
+  });
+}
+function lexilinkCollectAnswers(){
+  const answers={};
+  document.querySelectorAll('input,textarea,select').forEach((el,i)=>{
+    if(['profile-name','profile-group','student-name','student-group','paragraph','submitLessonBtn'].includes(el.id)) return;
+    if(el.type==='radio'&&!el.checked) return;
+    if(el.type==='checkbox'&&!el.checked) return;
+    const key=el.id||el.name||('field_'+(i+1));
+    answers[key]=String(el.value||'').trim();
+  });
+  return answers;
+}
+function lexilinkGetScoreSummary(){
+  const sectionScores={};
+  try{
+    Object.entries(scores||{}).forEach(([key,value])=>{
+      if(value&&Number.isFinite(Number(value.score))&&Number.isFinite(Number(value.max)))
+        sectionScores[key]={score:Number(value.score),max:Number(value.max)};
+    });
+  }catch(e){}
+  const values=Object.values(sectionScores);
+  return {sections:sectionScores,autoTotal:{score:values.reduce((n,x)=>n+x.score,0),max:values.reduce((n,x)=>n+x.max,0)}};
+}
+function lexilinkValidateSubmission(){
+  if(!lexilinkFieldValue('profile-name')) return {ok:false,message:'Please enter your name in the student profile at the top of the lesson.',id:'profile-name'};
+  if(!lexilinkFieldValue('profile-group')) return {ok:false,message:'Please enter your group in the student profile at the top of the lesson.',id:'profile-group'};
+  const writing=lexilinkFieldValue('paragraph');
+  const wordCount=writing?writing.split(/\s+/).filter(Boolean).length:0;
+  if(wordCount<80||wordCount>100) return {ok:false,message:`The writing task requires 80–100 words. Your current paragraph has ${wordCount} words.`,id:'paragraph'};
+  const clusters=Array.from(document.querySelectorAll('.skell-cluster'));
+  if(clusters.length!==4) return {ok:false,message:'The lesson should contain four SkELL keyword clusters. Please contact your teacher if one is missing.'};
+  for(const card of clusters){
+    const keyword=(card.querySelector('.keyword-pill')?.textContent||'this keyword').trim().toUpperCase();
+    const c=Array.from(card.querySelectorAll('.collocation-lines .collocation-line'));
+    const s=Array.from(card.querySelectorAll('.cluster-sentence'));
+    const sim=Array.from(card.querySelectorAll('.similar-grid input, .similar-grid textarea'));
+    const evidence=card.querySelector('textarea[id$="-evidence"]');
+    const required=[c[0],s[0],c[1],s[1],sim[0],sim[1],evidence];
+    const missing=required.find(el=>!el||!String(el.value||'').trim());
+    if(missing){return {ok:false,message:`Complete two collocations, your own sentence for each, two Similar words, and a SkELL example/context for ${keyword}.`,id:missing?.id};}
+  }
+  return {ok:true};
+}
+async function submitLessonWork(){
+  const status=document.getElementById('submitStatus');
+  const button=document.getElementById('submitLessonBtn');
+  const validation=lexilinkValidateSubmission();
+  if(!validation.ok){status.className='submission-status err';status.textContent=validation.message;if(validation.id)document.getElementById(validation.id)?.focus();return;}
+  if(SUBMISSION_ENDPOINT.includes('PASTE_LEXILINK_APPS_SCRIPT_WEB_APP_URL_HERE')){
+    status.className='submission-status warn';status.textContent='Submission is not connected yet. The teacher must deploy the shared LexiLink Apps Script collector, paste its /exec URL into SUBMISSION_ENDPOINT, and save the HTML file.';return;
+  }
+  const writing=lexilinkFieldValue('paragraph');
+  const score=lexilinkGetScoreSummary();
+  const payload={
+    lesson:LEXILINK_LESSON_TITLE,
+    studentName:lexilinkFieldValue('profile-name'),
+    group:lexilinkFieldValue('profile-group'),
+    submittedAt:new Date().toISOString(),
+    writing:{prompt:LEXILINK_WRITING_PROMPT,wordCount:writing.split(/\s+/).filter(Boolean).length,text:writing},
+    skellClusters:lexilinkCollectSkellClusters(),
+    scores:{sections:score.sections,autoTotal:score.autoTotal},
+    answers:lexilinkCollectAnswers(),
+    userAgent:navigator.userAgent
+  };
+  button.disabled=true;button.textContent='Sending…';status.className='submission-status warn';status.textContent='Sending your work to the teacher’s spreadsheet…';
+  try{
+    await fetch(SUBMISSION_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+    status.className='submission-status ok';status.textContent='Your submission request was sent. The browser cannot read the server confirmation in this mode, so the teacher should verify that the new rows appear in Google Sheets.';
+    button.textContent='Submission sent';
+  }catch(error){
+    status.className='submission-status err';status.textContent='The request could not be sent. Check the internet connection and try again.';
+    button.disabled=false;button.textContent='Submit lesson work';
+  }
+}
+// Writing Zone: block regular clipboard, keyboard paste/cut/copy shortcuts, context menu and drag/drop.
+// This is a classroom friction measure, not secure plagiarism prevention; it cannot defeat developer tools or external devices.
+(function lexilinkProtectWritingField(){
+  const field=document.getElementById('paragraph');
+  const notice=document.getElementById('writing-notice');
+  if(!field)return;
+  const blockedMessage='Please type your own text directly in this writing field; clipboard operations and drag-and-drop are disabled here.';
+  ['paste','copy','cut','drop','contextmenu'].forEach(eventName=>field.addEventListener(eventName,e=>{
+    e.preventDefault();
+    if(notice){notice.textContent=blockedMessage;notice.classList.add('submission-status','warn');}
+  }));
+  field.addEventListener('dragover',e=>e.preventDefault());
+  field.addEventListener('beforeinput',e=>{
+    if(['insertFromPaste','insertFromDrop','deleteByCut'].includes(e.inputType)){
+      e.preventDefault();if(notice)notice.textContent=blockedMessage;
+    }
+  });
+  field.addEventListener('keydown',e=>{
+    const key=String(e.key||'').toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['v','c','x'].includes(key)){e.preventDefault();if(notice)notice.textContent=blockedMessage;}
+    if(e.shiftKey&&e.key==='Insert'){e.preventDefault();if(notice)notice.textContent=blockedMessage;}
+  });
+})();
+
+</script>
+</body></html>

@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LexiLink — Leisure Activities and Lifestyle Choices</title>
+<style>
+:root{--green:#176b45;--green2:#238657;--mint:#eaf7ef;--line:#cde6d5;--ink:#183326;--muted:#587466}
+*{box-sizing:border-box}body{font:16px/1.55 Arial,sans-serif;max-width:1000px;margin:auto;padding:18px;background:#f2faf4;color:var(--ink)}
+header,.card{background:white;padding:20px;margin:16px 0;border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 12px rgba(23,107,69,.06)}
+header{background:linear-gradient(125deg,#155d3d,#278653);color:white;border:0}header p{margin:.4rem 0}h1{margin-top:0}h2{font-size:1.25rem;color:var(--green)}h3{color:#235c3e}
+a{color:var(--green2);font-weight:700}.q{padding:12px 0;border-bottom:1px solid #e2efe6}label{display:block;margin:6px 0}select,textarea,input{font:inherit;padding:10px;width:100%;max-width:100%;border:1px solid #b9d7c3;border-radius:9px;background:#fcfffd;color:var(--ink)}input[type=radio]{width:auto;margin-right:6px}textarea{min-height:80px}button{padding:10px 14px;margin:8px 6px 0 0;border:0;border-radius:9px;background:var(--green);color:white;font-weight:bold;cursor:pointer}button:hover{background:#104d31}.muted{color:var(--muted);font-size:.92rem}.fb{font-size:.92rem}.ok{color:#167143}.bad{color:#b52e38}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.box{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfffc}.profile{background:var(--mint);border:1px solid #a9d9b8;border-radius:16px;padding:18px;margin:16px 0}.profile h2{margin-top:0}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.avatar{width:54px;height:54px;border-radius:50%;background:#176b45;color:white;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;flex-shrink:0}.profile-head{display:flex;gap:14px;align-items:center}.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px}.slot{background:#f0faf3;border:1px solid #cde6d5;border-left:5px solid #238657;padding:12px;border-radius:10px}.slot b{display:block;color:#176b45}.pill{display:inline-block;background:#d5f0de;color:#145a37;padding:4px 9px;border-radius:999px;font-size:.85rem;font-weight:bold}
+.skell-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:16px 0}.skell-cluster{min-width:0;padding:16px;border:1px solid #d7e5ef;border-radius:16px;background:#fff;box-shadow:0 3px 10px rgba(7,39,84,.06)}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;width:fit-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px 16px;background:#082a65;color:#fff;border-radius:999px;font-weight:800;letter-spacing:.02em;font-size:clamp(.82rem,1.55vw,1.05rem);line-height:1.15;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0;font-size:.86rem;color:#587466;line-height:1.35}collocation-lines{display:grid;gap:8px;margin:8px 0 14px}.collocation-line{height:44px;border-radius:8px;padding:3px 8px;border:1px solid transparent;font-weight:600;color:#142b43}.collocation-line:nth-child(3n+1){background:#fff0a6;border-color:#f0d96b}.collocation-line:nth-child(3n+2){background:#f9d1f7;border-color:#eaa3e7}.collocation-line:nth-child(3n){background:#c9f5d9;border-color:#91d9ad}.collocation-line::placeholder{color:#5a6070;font-weight:400}.similar-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.similar-grid input{background:#f6faff}.callout{padding:12px 14px;border-left:4px solid #238657;background:#eff9f2;border-radius:8px}.score-row{display:flex;gap:10px;flex-wrap:wrap}.score-chip{background:#edf7f0;border-radius:9px;padding:8px 12px}@media(max-width:680px){.skell-board{grid-template-columns:1fr}.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;padding:8px 14px}.cluster-type{flex-basis:auto;width:100%}}@media(max-width:560px){.profile-grid{grid-template-columns:1fr}body{padding:8px}header,.card{padding:15px}}@media print{button{display:none}body{background:white}}
+
+.audio-panel{padding:16px;margin:14px 0 18px;border:1px solid #b9dfc5;border-radius:14px;background:linear-gradient(135deg,#f2fbf4,#ffffff)}.audio-heading{display:flex;gap:10px;align-items:center;margin-bottom:10px}.audio-heading>span{font-size:1.7rem}.audio-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.audio-controls button{margin:2px 4px 2px 0}.speed-control{display:flex;gap:8px;align-items:center;margin:2px 0 2px 8px;font-weight:700}.speed-control select{width:auto;min-width:135px;padding:8px}.audio-status{margin:10px 0 0}.audio-progress-wrap{margin:12px 0 4px}.audio-progress-label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.9rem;color:var(--muted);margin-bottom:4px}.audio-progress{width:100%;max-width:none;height:22px;padding:0;margin:0;accent-color:var(--green);cursor:pointer;background:transparent}.audio-progress-help{font-size:.82rem;color:var(--muted);margin:2px 0 0}@media(max-width:560px){.audio-controls{align-items:stretch}.audio-controls button{flex:1}.speed-control{width:100%;margin:6px 0 0}.speed-control select{flex:1}}
+.lesson-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(118deg,#104b32 0%,#176b45 54%,#2c8b5b 100%);color:#fff;border:0;border-radius:22px;padding:25px 27px;margin:16px 0;box-shadow:0 10px 28px rgba(20,90,54,.17)}
+.lesson-hero:before{content:"";position:absolute;z-index:-1;width:300px;height:300px;right:135px;top:-205px;border:1px solid rgba(255,255,255,.11);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 58px rgba(255,255,255,.02)}
+.lesson-header-layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;align-items:center;gap:25px;min-width:0}
+.lesson-header-copy{min-width:0}
+.lesson-kicker{display:flex;align-items:center;gap:9px;margin-bottom:12px;color:#d7f5e1;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.lesson-kicker-mark{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;border-radius:9px;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.26);font-size:.72rem;letter-spacing:-.03em}
+.kicker-divider{padding:0 3px;color:#9edbb5}
+.lesson-header-copy h1{max-width:690px;margin:0 0 10px;color:#fff;font-size:clamp(1.7rem,3.1vw,2.35rem);font-weight:800;line-height:1.12;letter-spacing:-.035em;text-wrap:balance}
+.lesson-subtitle{max-width:650px;margin:0 0 17px!important;color:#e4f7e9;font-size:1.04rem;line-height:1.45}
+.lesson-meta{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.lesson-meta-pill{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:.79rem;font-weight:700;line-height:1.25}
+.lesson-method{margin:14px 0 0!important;color:#d4efdd;font-size:.84rem;letter-spacing:.01em}
+.lesson-header-photo{display:block;width:250px;height:166px;max-width:100%;object-fit:cover;object-position:center 48%;border-radius:17px;border:3px solid rgba(255,255,255,.88);box-shadow:0 12px 24px rgba(0,0,0,.2);background:#dcefe2}
+@media(max-width:760px){.lesson-hero{padding:21px;border-radius:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr) 205px;gap:16px}.lesson-header-photo{width:205px;height:148px}.lesson-header-copy h1{font-size:clamp(1.5rem,4vw,1.9rem)}}
+@media(max-width:560px){.lesson-hero{padding:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr);gap:15px}.lesson-header-photo{width:100%;height:190px;max-width:none;object-position:center 44%;border-radius:14px}.lesson-kicker{margin-bottom:9px}.lesson-header-copy h1{font-size:1.8rem}.lesson-subtitle{font-size:.98rem}.lesson-meta-pill{font-size:.76rem}}
+
+/* Responsive SkELL keyword pills: keep long keywords fully visible inside their ovals. */
+.skell-cluster{min-width:0}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 1 auto;align-items:center;justify-content:center;width:max-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px clamp(10px,1.5vw,16px);box-sizing:border-box;font-size:clamp(.72rem,1.25vw,.98rem);line-height:1.12;letter-spacing:.015em;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0}@media(max-width:680px){.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;font-size:clamp(.72rem,3vw,.94rem);padding:8px 12px}.cluster-type{flex-basis:auto;width:100%}}
+.cluster-sentences{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin:8px 0 12px}.cluster-sentence{min-height:68px;background:#fbfffc}.writing-area{min-height:190px}.writing-anti-paste-note{padding:10px 12px;background:#fff7d8;border:1px solid #ead27b;border-radius:9px;color:#624e00;font-size:.92rem}.submission-panel{margin-top:16px;padding:16px;border:1px solid #9ecfb0;border-radius:14px;background:#eff9f2}.submission-status{margin-top:10px;font-weight:700}.submission-status.ok{color:#176b45}.submission-status.err{color:#a5222d}.submission-status.warn{color:#805900}@media(max-width:680px){.cluster-sentences{grid-template-columns:1fr}}</style>
+</head>
+<body>
+<header class="lesson-hero">
+  <div class="lesson-header-layout">
+    <div class="lesson-header-copy">
+      <div class="lesson-kicker"><span class="lesson-kicker-mark">LL</span><span>LEXILINK <span class="kicker-divider">/</span> LESSON 06</span></div>
+      <h1>Leisure Activities and Lifestyle Choices</h1>
+      <p class="lesson-subtitle">Exploring hobbies, relaxation and balanced everyday routines</p>
+      <div class="lesson-meta" aria-label="Lesson information">
+        <span class="lesson-meta-pill">B2 · Upper-intermediate</span>
+        <span class="lesson-meta-pill">80-minute lesson</span>
+        <span class="lesson-meta-pill">20 target collocations</span>
+      </div>
+      <p class="lesson-method">SkELL investigation <span aria-hidden="true">·</span> Lexical approach</p>
+    </div>
+    <!-- Header photo: people enjoying an outdoor leisure activity -->
+<img class="lesson-header-photo" src="https://images.pexels.com/photos/1537635/pexels-photo-1537635.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" alt="People enjoying outdoor leisure time together" title="Photo from Pexels" loading="eager" decoding="async">
+  </div>
+</header>
+<section class="profile" aria-label="Student profile">
+<div class="profile-head"><div class="avatar" id="avatar-initials">S</div><div><h2 style="margin:0;color:#176b45">Student profile</h2><p style="margin:.2rem 0">LexiLink · Leisure and Lifestyle <span class="pill">B2</span> <span class="pill">80 minutes</span></p></div></div>
+<div class="profile-grid" style="margin-top:14px"><div><label for="profile-name">Student name</label><input id="profile-name" placeholder="Enter your name"></div><div><label for="profile-group">Group</label><input id="profile-group" placeholder="Enter group"></div></div>
+<p class="muted" style="margin-bottom:0">Complete the tasks, investigate lexical word partnerships in SkELL and write about leisure activities and lifestyle choices.</p>
+</section>
+<section class="card"><h2>80-minute lesson route</h2><p class="muted">Teacher-facing timing plan; the tasks below follow this sequence.</p><div class="timeline">
+<div class="slot"><b>0–5 min · Warm-up</b>Discuss how people spend free time and balance work, rest and hobbies.</div><div class="slot"><b>5–17 min · Reading</b>Read about hobbies, relaxation and everyday routines.</div><div class="slot"><b>17–27 min · Noticing</b>Match and complete target collocations.</div><div class="slot"><b>27–42 min · DDL with SkELL</b>Investigate four keywords and discover natural lexical collocations.</div><div class="slot"><b>42–52 min · Retrieval</b>Odd One Out and Find the Collocate.</div><div class="slot"><b>52–62 min · Categorising</b>Collocation Sorting and Lexical Cloze.</div><div class="slot"><b>62–70 min · Correction</b>Repair unnatural lexical combinations.</div><div class="slot"><b>70–77 min · Production</b>Write 80–100 words about managing a disagreement and repairing a relationship.</div><div class="slot"><b>77–80 min · Reflection</b>Review your score and share one SkELL discovery.</div>
+</div></section>
+<section class="card"><h2>Learning outcomes</h2><p>By the end of the lesson, you will be able to recognise and use lexical collocations related to leisure, hobbies, relaxation and lifestyle; verify word partnerships with SkELL; interpret related words in context; and describe balanced leisure choices.</p><h2>Target collocations: definitions and synonyms</h2><p class="muted">Study the English definitions and compare the synonyms. No translations are provided.</p><div class="grid" id="target"></div></section>
+<section class="card" id="reading"><h2>Reading: Leisure Activities and Lifestyle Choices</h2><p class="muted">Read the text carefully or listen to it. Target collocations are shown in bold.</p>
+
+<div class="audio-panel" role="group" aria-label="Reading audio controls">
+  <div class="audio-heading"><span aria-hidden="true">🎧</span><div><strong>Listen to the reading</strong><div class="muted">Browser voice · English pronunciation</div></div></div>
+  <div class="audio-controls">
+    <button type="button" onclick="playReading()" aria-label="Play or resume reading text">▶ Listen / Resume</button>
+    <button type="button" onclick="pauseReading()" aria-label="Pause reading text">Ⅱ Pause</button>
+    <button type="button" onclick="stopReading()" aria-label="Stop and reset reading text">■ Stop</button>
+    <label class="speed-control" for="reading-speed">Speed
+      <select id="reading-speed" aria-label="Reading speed" onchange="updateReadingSpeedNote()">
+        <option value="0.75">0.75× Slow</option><option value="1" selected>1× Normal</option><option value="1.25">1.25× Fast</option>
+      </select>
+    </label>
+  </div>
+  <div class="audio-progress-wrap">
+    <div class="audio-progress-label"><label for="reading-progress" style="margin:0">Reading progress</label><span id="reading-progress-value">0%</span></div>
+    <input id="reading-progress" class="audio-progress" type="range" min="0" max="100" step="1" value="0" aria-label="Reading progress; move the slider to seek" oninput="previewReadingSeek(this.value)" onchange="seekReading(this.value)">
+    <p class="audio-progress-help">After the title, narration pauses for 3 seconds before continuing. Pause / Resume preserves your place, including during this break, or move the slider to jump to another part of the text.</p>
+  </div>
+  <p id="reading-audio-status" class="muted audio-status" aria-live="polite">Ready to play. The voice available depends on your browser and device.</p>
+</div>
+<article id="reading-text" style="line-height:1.75">
+<h3>Leisure: Making Time for What Matters</h3>
+<p>Free time can support well-being when people choose activities that suit their interests and needs. Some people <b>take up a hobby</b> to learn a new skill, while others <b>pursue an interest</b> they have enjoyed for years. Reading, gardening, cooking, music and team sports can all provide a sense of enjoyment. People do not need to spend money to <b>enjoy leisure time</b>: a walk, a conversation with a friend or time spent outdoors may be just as rewarding. The important point is to <b>make time for hobbies</b> instead of allowing every free moment to disappear into routine tasks.</p>
+<p>Rest is another part of a balanced life. After a demanding day, people may need to <b>unwind after work</b>, <b>take a break</b> or find a quiet way to <b>relieve stress</b>. Relaxation looks different for different people. One person may prefer a book or music, while another may choose a walk or a social activity. Short breaks can help people return to tasks with more energy, but leisure should not become another source of pressure. Choosing an activity because it is enjoyable is often more useful than comparing one's free time with other people's routines.</p>
+<p>Lifestyle choices are shaped by habits. People can <b>lead an active lifestyle</b>, <b>maintain a healthy routine</b> and <b>get regular exercise</b> without trying to change everything at once. It may help to <b>set aside time</b> for movement, sleep, social contact and personal interests. Some people find it easier to <b>stick to a routine</b> when they choose realistic goals and prepare activities in advance. A routine should provide support, not remove all flexibility: work, family responsibilities and unexpected events can change how much free time is available.</p>
+<p>A balanced lifestyle involves making choices rather than filling every hour. People may need to <b>strike a balance between work and leisure</b>, <b>make the most of free time</b> and occasionally try something new. Joining a club or class can help people <b>meet like-minded people</b> and <b>take part in group activities</b>. Others may prefer hobbies they can enjoy alone. There is no single perfect way to spend leisure time. A useful approach is to notice which activities help you feel rested, interested and connected, then make space for them in a realistic weekly plan.</p>
+</article>
+<h3>Reading Task A — Choose the best answer</h3><div id="readMCQ"></div><button onclick="checkReading()">Check reading answers</button><button onclick="resetReading()">Try again</button><div id="reading-result"></div>
+<h3>Reading Task B — True or False?</h3><p class="muted">Choose True or False according to the text.</p><div id="readTF"></div><button onclick="checkTF()">Check statements</button><button onclick="resetTF()">Try again</button><div id="tf-result"></div>
+<h3>Reading Task D — Match the idea to the paragraph</h3><p class="muted">Choose the paragraph number (1–4). Some paragraph numbers may be used more than once.</p><div id="readMatch"></div><button onclick="checkReadMatch()">Check paragraph matching</button><button onclick="resetReadMatch()">Try again</button><div id="readmatch-result"></div>
+</section>
+<section class="card"><h2>1. Matching · 10 points</h2><p class="muted">Choose the correct ending.</p><div id="matching"></div><button onclick="check('matching')">Check answers</button><button onclick="reset('matching')">Try again</button><div id="matching-result"></div></section>
+<section class="card"><h2>2. Complete the Sentence · 10 points</h2><p class="muted">Choose the lexical collocation that best completes each sentence.</p><div id="gaps"></div><button onclick="check('gaps')">Check answers</button><button onclick="reset('gaps')">Try again</button><div id="gaps-result"></div></section>
+<section class="card" id="skell-cluster"><h2>3. SkELL Collocation Clusters · 10 minutes · 10 points (teacher-scored)</h2>
+<p>Open <a href="https://skell.sketchengine.eu/" target="_blank" rel="noopener">SkELL</a>. For each keyword, use <b>Word Sketch</b> or example sentences to find at least two lexical collocations. Write one original sentence using each of your first two collocations. Then open <b>Similar words</b>, record two candidate synonyms or related words, and note a corpus example or context you checked. Related words are not automatically interchangeable: check their meaning and word partnerships in context. Your collocations, original sentences, Similar words and corpus notes will be submitted with this lesson for teacher review.</p>
+<div class="callout"><b>Investigation routine</b><br>Keyword → find lexical collocations in SkELL → record similar words → inspect a corpus example → decide whether each related word can replace the keyword in that context.</div>
+<div class="skell-board">
+<div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">LEISURE</span><span class="cluster-type"><b>Search focus:</b> verb + noun lexical collocations<br>Find how people spend, enjoy or make use of free time.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="leisure-coll-1" placeholder="Collocation 1" aria-label="Leisure collocation 1"><input class="collocation-line" id="leisure-coll-2" placeholder="Collocation 2" aria-label="Leisure collocation 2"><input class="collocation-line" id="leisure-coll-3" placeholder="Collocation 3" aria-label="Leisure collocation 3"><input class="collocation-line" id="leisure-coll-4" placeholder="Collocation 4" aria-label="Leisure collocation 4"></div><div class="cluster-sentences"><label for="leisure-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="leisure-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="leisure-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="leisure-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="leisure-syn-1" placeholder="Word 1" aria-label="Leisure similar word 1"><input id="leisure-syn-2" placeholder="Word 2" aria-label="Leisure similar word 2"></div><label for="leisure-evidence">Corpus example / context</label><textarea id="leisure-evidence" placeholder="Copy a short SkELL example and note what the person does in their free time."></textarea></div>
+<div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">HOBBY</span><span class="cluster-type"><b>Search focus:</b> verb + noun lexical collocations<br>Find verbs used with hobby and interest.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="hobby-coll-1" placeholder="Collocation 1" aria-label="Hobby collocation 1"><input class="collocation-line" id="hobby-coll-2" placeholder="Collocation 2" aria-label="Hobby collocation 2"><input class="collocation-line" id="hobby-coll-3" placeholder="Collocation 3" aria-label="Hobby collocation 3"><input class="collocation-line" id="hobby-coll-4" placeholder="Collocation 4" aria-label="Hobby collocation 4"></div><div class="cluster-sentences"><label for="hobby-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="hobby-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="hobby-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="hobby-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="hobby-syn-1" placeholder="Word 1" aria-label="Hobby similar word 1"><input id="hobby-syn-2" placeholder="Word 2" aria-label="Hobby similar word 2"></div><label for="hobby-evidence">Corpus example / context</label><textarea id="hobby-evidence" placeholder="Copy a short SkELL example and note the hobby or interest."></textarea></div>
+<div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">RELAXATION</span><span class="cluster-type"><b>Search focus:</b> verb + noun lexical collocations<br>Find combinations describing rest, stress relief and recovery.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="relaxation-coll-1" placeholder="Collocation 1" aria-label="Relaxation collocation 1"><input class="collocation-line" id="relaxation-coll-2" placeholder="Collocation 2" aria-label="Relaxation collocation 2"><input class="collocation-line" id="relaxation-coll-3" placeholder="Collocation 3" aria-label="Relaxation collocation 3"><input class="collocation-line" id="relaxation-coll-4" placeholder="Collocation 4" aria-label="Relaxation collocation 4"></div><div class="cluster-sentences"><label for="relaxation-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="relaxation-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="relaxation-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="relaxation-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="relaxation-syn-1" placeholder="Word 1" aria-label="Relaxation similar word 1"><input id="relaxation-syn-2" placeholder="Word 2" aria-label="Relaxation similar word 2"></div><label for="relaxation-evidence">Corpus example / context</label><textarea id="relaxation-evidence" placeholder="Copy a short SkELL example and explain how rest is achieved."></textarea></div>
+<div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">LIFESTYLE</span><span class="cluster-type"><b>Search focus:</b> verb + noun lexical collocations<br>Find verbs used with lifestyle, routine and balance.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="lifestyle-coll-1" placeholder="Collocation 1" aria-label="Lifestyle collocation 1"><input class="collocation-line" id="lifestyle-coll-2" placeholder="Collocation 2" aria-label="Lifestyle collocation 2"><input class="collocation-line" id="lifestyle-coll-3" placeholder="Collocation 3" aria-label="Lifestyle collocation 3"><input class="collocation-line" id="lifestyle-coll-4" placeholder="Collocation 4" aria-label="Lifestyle collocation 4"></div><div class="cluster-sentences"><label for="lifestyle-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="lifestyle-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="lifestyle-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="lifestyle-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="lifestyle-syn-1" placeholder="Word 1" aria-label="Lifestyle similar word 1"><input id="lifestyle-syn-2" placeholder="Word 2" aria-label="Lifestyle similar word 2"></div><label for="lifestyle-evidence">Corpus example / context</label><textarea id="lifestyle-evidence" placeholder="Copy a short SkELL example about a lifestyle or routine."></textarea></div>
+</div>
+<p class="muted">Teacher scoring: up to 10 points for distinct, accurate lexical collocations supported by SkELL evidence. Similar words are assessed for relevance and contextual interpretation; related words are not automatically interchangeable.</p><p class="muted">Your SkELL records and original sentences will be submitted with the lesson; no separate copying is needed.</p></section>
+<section class="card"><h2>4. Odd One Out · Based on SkELL · 10 points</h2><p class="muted">Choose the collocation that does not fit the pattern of the other three. Use your SkELL notes to check which combinations are natural in English. After checking, read the explanation.</p><div id="odd"></div><button onclick="check('odd')">Check answers</button><button onclick="reset('odd')">Try again</button><div id="odd-result"></div></section>
+<section class="card"><h2>5. Find the Verb, Find the Collocate · 10 points</h2><p>Choose the verb that completes each collocation related to leisure, hobbies, relaxation and lifestyle.</p><div id="find"></div><button onclick="check('find')">Check answers</button><button onclick="reset('find')">Try again</button><div id="find-result"></div></section>
+<section class="card"><h2>6. Collocation Sorting · 10 points</h2><p class="muted">Choose the verb that creates a natural lexical collocation.</p><div id="sorting"></div><button onclick="check('sorting')">Check answers</button><button onclick="reset('sorting')">Try again</button><div id="sorting-result"></div></section>
+<section class="card"><h2>7. Lexical Cloze · 10 points</h2><p class="muted"><b>Word bank:</b> take up a hobby · pursue an interest · enjoy leisure time · unwind after work · relieve stress · get regular exercise · lead an active lifestyle · stick to a routine · make time for hobbies · strike a balance</p><div id="cloze"></div><button onclick="check('cloze')">Check answers</button><button onclick="reset('cloze')">Try again</button><div id="cloze-result"></div></section>
+<section class="card"><h2>8. Collocation Repair · 10 points</h2><p class="muted">Choose the best correction. Focus on natural lexical word partnerships for hobbies, leisure and lifestyle.</p><div id="repair"></div><button onclick="check('repair')">Check answers</button><button onclick="reset('repair')">Try again</button><div id="repair-result"></div></section>
+<section class="card"><h2>9. Productive Recall Challenge · 5 points (teacher-scored)</h2><p>Write 80–100 words on <b>Leisure Activities and Lifestyle Choices</b>. Use at least eight target collocations from this lesson.</p><label for="student-name">Student name</label><input id="student-name" placeholder="First and last name"><label for="student-group">Group</label><input id="student-group" placeholder="Group number"><label for="paragraph">Your paragraph</label><p class="writing-anti-paste-note" id="writing-notice">Write directly in this field. Paste, cut/copy shortcuts and drag-and-drop are disabled here. This browser restriction supports independent writing but is not a complete plagiarism-detection system.</p><textarea id="paragraph" style="min-height:170px" placeholder="A balanced lifestyle can include... " class="writing-area"></textarea><p id="word-count" class="muted">0 words</p><p class="muted">Teacher awards up to 5 points for accurate use of distinct target collocations, a clear main idea and relevant examples.</p><div class="submission-panel"><h3>Submit your lesson work to the teacher</h3><p class="muted">Your profile, exercise responses, SkELL collocations and original sentences, related words, corpus notes, writing paragraph and available scores will be collected in the teacher’s spreadsheet. Complete all four clusters and the 80–100-word paragraph before submitting.</p><button type="button" id="submitLessonBtn" onclick="submitLessonWork()">Submit lesson work</button><div id="submitStatus" class="submission-status" role="status" aria-live="polite"></div></div></section>
+<section class="card"><h2>Lesson score</h2><p class="muted">Auto-scored sections: reading MCQ, True/False, paragraph matching, Matching, Sentence Completion, Odd One Out, Find the Collocate, Sorting, Lexical Cloze and Collocation Repair (100 points total). SkELL cluster (10) and productive writing (5) are teacher-scored. Maximum lesson total: 115 points.</p><button onclick="summary()">Show score summary</button><div id="summary"></div></section>
+<p class="muted">LexiLink · Connect words. Build fluency. Your SkELL collocations, original sentences, Similar words, corpus notes and writing paragraph are included in the lesson submission. Complete the required fields and submit your work to the teacher.</p>
+<script>
+let readingUtterance = null;
+let readingTextContent = '';
+let readingCurrentChar = 0;
+let readingRunId = 0;
+let readingSeekWhilePaused = false;
+let readingTitleEnd = 0;
+let readingDelayTimer = null;
+let readingDelayPaused = false;
+let readingDelayRemaining = 3000;
+let readingDelayStartedAt = 0;
+
+function setReadingAudioStatus(message){const el=document.getElementById('reading-audio-status');if(el)el.textContent=message;}
+function readingProgressPercent(){return readingTextContent.length?Math.min(100,Math.round(readingCurrentChar/readingTextContent.length*100)):0;}
+function updateReadingProgress(percent){
+  const slider=document.getElementById('reading-progress');
+  const label=document.getElementById('reading-progress-value');
+  const safe=Math.max(0,Math.min(100,Math.round(percent)));
+  if(slider)slider.value=String(safe);
+  if(label)label.textContent=safe+'%';
+}
+function getReadingText(){
+  const article=document.getElementById('reading-text');
+  if(!article)return '';
+  return (article.innerText||article.textContent||'').replace(/\s+/g,' ').trim();
+}
+function loadReadingText(){
+  const article=document.getElementById('reading-text');
+  readingTextContent=getReadingText();
+  const titleElement=article?article.querySelector('h3'):null;
+  const titleText=titleElement?(titleElement.innerText||titleElement.textContent||'').replace(/\s+/g,' ').trim():'';
+  const titleIndex=titleText?readingTextContent.indexOf(titleText):-1;
+  readingTitleEnd=titleIndex>=0?titleIndex+titleText.length:0;
+  if(readingTitleEnd<=0||readingTitleEnd>=readingTextContent.length)readingTitleEnd=0;
+  return readingTextContent;
+}
+function setProgressFromChar(charIndex){
+  readingCurrentChar=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  updateReadingProgress(readingProgressPercent());
+}
+function clearReadingDelay(){
+  if(readingDelayTimer!==null){clearTimeout(readingDelayTimer);readingDelayTimer=null;}
+  readingDelayStartedAt=0;
+}
+function startReadingDelay(runId, milliseconds){
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=Math.max(0,milliseconds);
+  if(readingDelayRemaining<=0){startReadingFrom(readingTitleEnd);return;}
+  readingDelayStartedAt=Date.now();
+  const seconds=(readingDelayRemaining/1000).toFixed(1).replace(/\.0$/,'');
+  setReadingAudioStatus('Title finished. Pausing for '+seconds+' seconds before the reading continues…');
+  readingDelayTimer=setTimeout(()=>{
+    readingDelayTimer=null;
+    readingDelayStartedAt=0;
+    if(runId!==readingRunId||readingDelayPaused)return;
+    readingDelayRemaining=3000;
+    startReadingFrom(readingTitleEnd);
+  },readingDelayRemaining);
+}
+function startReadingFrom(charIndex){
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  const start=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  if(start>=readingTextContent.length){setProgressFromChar(0);return startReadingFrom(0);}
+  const thisRun=++readingRunId;
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=3000;
+  window.speechSynthesis.cancel();
+  const isTitleSegment=readingTitleEnd>0&&start<readingTitleEnd;
+  const segmentEnd=isTitleSegment?readingTitleEnd:readingTextContent.length;
+  const segmentText=readingTextContent.slice(start,segmentEnd);
+  readingUtterance=new SpeechSynthesisUtterance(segmentText);
+  readingUtterance.lang='en-GB';
+  const rateControl=document.getElementById('reading-speed');
+  readingUtterance.rate=rateControl?Number(rateControl.value):1;
+  readingUtterance.pitch=1;
+  const voices=window.speechSynthesis.getVoices();
+  const englishVoice=voices.find(v=>/^en-GB$/i.test(v.lang))||voices.find(v=>/^en-US$/i.test(v.lang))||voices.find(v=>/^en/i.test(v.lang));
+  if(englishVoice)readingUtterance.voice=englishVoice;
+  setProgressFromChar(start);
+  readingUtterance.onstart=()=>{if(thisRun===readingRunId)setReadingAudioStatus(isTitleSegment?'Reading the title…':'Reading aloud…');};
+  readingUtterance.onboundary=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(Number.isFinite(event.charIndex))setProgressFromChar(start+event.charIndex);
+  };
+  readingUtterance.onend=()=>{
+    if(thisRun!==readingRunId)return;
+    if(isTitleSegment&&readingTitleEnd<readingTextContent.length){
+      setProgressFromChar(readingTitleEnd);
+      readingUtterance=null;
+      startReadingDelay(thisRun,3000);
+      return;
+    }
+    setProgressFromChar(readingTextContent.length);
+    setReadingAudioStatus('Reading finished. Press Listen to replay, or move the progress line to choose a section.');
+    readingUtterance=null;
+  };
+  readingUtterance.onerror=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(event.error!=='canceled'&&event.error!=='interrupted')setReadingAudioStatus('Audio playback could not start. Try another browser or check your device’s speech settings.');
+  };
+  window.speechSynthesis.speak(readingUtterance);
+  setReadingAudioStatus(isTitleSegment?'Starting with the title…':(start?'Resuming from the selected position…':'Starting playback…'));
+}
+function playReading(){
+  if(!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)){
+    setReadingAudioStatus('Text-to-speech is not supported in this browser. Try opening the lesson in an up-to-date Chrome, Edge or Safari browser.');return;
+  }
+  if(readingDelayPaused){
+    startReadingDelay(readingRunId,readingDelayRemaining);
+    setReadingAudioStatus('Resuming the 3-second pause after the title…');
+    return;
+  }
+  if(readingDelayTimer!==null){setReadingAudioStatus('The 3-second pause after the title is in progress…');return;}
+  if(window.speechSynthesis.paused&&!readingSeekWhilePaused){window.speechSynthesis.resume();setReadingAudioStatus('Reading resumed from the same place.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused)return;
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  if(readingCurrentChar>=readingTextContent.length)readingCurrentChar=0;
+  startReadingFrom(readingCurrentChar);
+}
+function pauseReading(){
+  if(!('speechSynthesis' in window)){setReadingAudioStatus('Text-to-speech is not supported in this browser.');return;}
+  if(readingDelayTimer!==null){
+    const elapsed=Math.max(0,Date.now()-readingDelayStartedAt);
+    readingDelayRemaining=Math.max(0,readingDelayRemaining-elapsed);
+    clearReadingDelay();
+    readingDelayPaused=true;
+    setReadingAudioStatus('Paused during the 3-second break after the title. Press Listen / Resume to continue the countdown.');
+    return;
+  }
+  if(readingDelayPaused){setReadingAudioStatus('The pause after the title is paused. Press Listen / Resume to continue.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused){window.speechSynthesis.pause();setReadingAudioStatus('Reading paused. Press Listen / Resume to continue from the same place.');}
+  else setReadingAudioStatus('There is no reading currently playing. Press Listen / Resume to start.');
+}
+function stopReading(){
+  if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  clearReadingDelay();
+  readingRunId++;
+  readingSeekWhilePaused=false;
+  readingDelayPaused=false;
+  readingDelayRemaining=3000;
+  readingUtterance=null;
+  loadReadingText();
+  readingCurrentChar=0;
+  updateReadingProgress(0);
+  setReadingAudioStatus('Reading stopped and reset to the beginning.');
+}
+function previewReadingSeek(percent){
+  const label=document.getElementById('reading-progress-value');
+  if(label)label.textContent=Math.max(0,Math.min(100,Math.round(Number(percent)||0))+'%');
+}
+function seekReading(percent){
+  if(!('speechSynthesis' in window)){updateReadingProgress(readingProgressPercent());return;}
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent)return;
+  const delayActive=readingDelayTimer!==null;
+  const delayPaused=readingDelayPaused;
+  const wasSpeaking=window.speechSynthesis.speaking&&!window.speechSynthesis.paused;
+  const wasPaused=window.speechSynthesis.paused;
+  const pct=Math.max(0,Math.min(100,Number(percent)||0));
+  let target=Math.round(readingTextContent.length*pct/100);
+  while(target>0&&target<readingTextContent.length&&!/\s/.test(readingTextContent[target-1]))target--;
+  setProgressFromChar(target);
+  if(delayActive){
+    clearReadingDelay();readingDelayPaused=false;readingDelayRemaining=3000;
+    startReadingFrom(target);
+  }else if(delayPaused||wasPaused){
+    clearReadingDelay();
+    if(window.speechSynthesis.speaking||window.speechSynthesis.paused)window.speechSynthesis.cancel();
+    readingRunId++;readingUtterance=null;readingDelayPaused=false;readingDelayRemaining=3000;readingSeekWhilePaused=true;
+    setReadingAudioStatus('Position selected. Press Listen / Resume to continue from here.');
+  }else if(wasSpeaking){startReadingFrom(target);}
+  else {
+    readingDelayPaused=false;readingDelayRemaining=3000;
+    setReadingAudioStatus(pct===0?'Ready to play from the beginning.':'Position selected. Press Listen / Resume to start from here.');
+  }
+}
+function updateReadingSpeedNote(){
+  if(window.speechSynthesis&&window.speechSynthesis.speaking&&!window.speechSynthesis.paused){
+    setReadingAudioStatus('To apply the new speed, stop and start playback again. Pause / Resume keeps the current playback speed.');
+  }
+}
+
+const target=[["take up a hobby","Definition: to start doing an activity regularly for enjoyment.","Synonyms: start a hobby; begin a new pastime; take on a new interest"],["pursue an interest","Definition: to spend time developing an activity or subject that interests you.","Synonyms: follow an interest; explore an interest; develop an interest"],["enjoy leisure time","Definition: to get pleasure from time when you are not working.","Synonyms: enjoy free time; make the most of one's free time; enjoy one's spare time"],["make time for hobbies","Definition: to arrange one's schedule so that hobbies have a place in it.","Synonyms: set aside time for hobbies; devote time to hobbies; find time for hobbies"],["unwind after work","Definition: to relax after a period of work or effort.","Synonyms: relax after work; switch off after work; wind down after work"],["take a break","Definition: to stop an activity for a short period of rest.","Synonyms: have a break; pause for a while; take time out"],["relieve stress","Definition: to reduce feelings of pressure or worry.","Synonyms: reduce stress; ease tension; release pressure"],["feel refreshed","Definition: to feel rested and full of energy again.","Synonyms: feel renewed; feel revitalised; feel rested"],["lead an active lifestyle","Definition: to live in a way that includes regular movement and activity.","Synonyms: stay physically active; maintain an active life; live an active life"],["maintain a healthy routine","Definition: to continue habits that support well-being.","Synonyms: keep a healthy routine; follow healthy habits; stick to a healthy schedule"],["get regular exercise","Definition: to do physical activity repeatedly as part of everyday life.","Synonyms: exercise regularly; do physical activity; stay physically active"],["set aside time","Definition: to reserve a period for a particular activity.","Synonyms: make time; allocate time; dedicate time"],["stick to a routine","Definition: to continue following a regular pattern of activities.","Synonyms: follow a routine; keep to a schedule; maintain a routine"],["strike a balance","Definition: to find a reasonable combination of different needs or activities.","Synonyms: achieve a balance; maintain balance; balance competing demands"],["balance work and leisure","Definition: to give suitable time and attention to both work and free time.","Synonyms: balance work with free time; find a work–leisure balance; manage work and leisure"],["make the most of free time","Definition: to use available free time in a satisfying or useful way.","Synonyms: use free time well; get the most out of free time; enjoy one's spare time"],["take part in activities","Definition: to participate in events or organised actions.","Synonyms: participate in activities; join in activities; engage in activities"],["meet like-minded people","Definition: to meet people who share similar interests or views.","Synonyms: meet people with similar interests; connect with people; find people on the same wavelength"],["try something new","Definition: to experience or do an activity for the first time.","Synonyms: explore a new activity; give something new a try; experiment with something"],["build healthy habits","Definition: to develop regular behaviours that support well-being.","Synonyms: develop good habits; establish healthy routines; form positive habits"]];
+document.getElementById('target').innerHTML=target.map((x,i)=>`<div class="box"><b>${i+1}. ${x[0]}</b><p>${x[1]}</p><p class="muted"><b>${x[2].split(':')[0]}:</b>${x[2].split(':').slice(1).join(':')}</p></div>`).join('');
+const profileName=document.getElementById('profile-name'),profileGroup=document.getElementById('profile-group'),studentName=document.getElementById('student-name'),studentGroup=document.getElementById('student-group');
+function updateProfile(){if(studentName)studentName.value=profileName.value;if(studentGroup)studentGroup.value=profileGroup.value;const words=profileName.value.trim().split(/\s+/).filter(Boolean);document.getElementById('avatar-initials').textContent=words.length?words.slice(0,2).map(w=>w[0].toUpperCase()).join(''):'S'}
+profileName.addEventListener('input',updateProfile);profileGroup.addEventListener('input',updateProfile);studentName.addEventListener('input',()=>{profileName.value=studentName.value;updateProfile()});studentGroup.addEventListener('input',()=>{profileGroup.value=studentGroup.value;updateProfile()});
+const clusterIds=['leisure','hobby','relaxation','lifestyle'];
+document.getElementById('paragraph').addEventListener('input',e=>{const t=e.target.value.trim();document.getElementById('word-count').textContent=(t?t.split(/\s+/).length:0)+' words'});
+const readMCQs=[{"q":"What is one reason to take up a hobby?","ans":"To learn a skill or enjoy an interest.","opts":["To avoid every responsibility.","To learn a skill or enjoy an interest.","To make every free moment productive.","To compare one's routine with others."]},{"q":"According to the text, what can count as leisure?","ans":"Activities such as walking, reading or talking with a friend.","opts":["Only expensive organised activities.","Only competitive sports.","Activities such as walking, reading or talking with a friend.","Only activities done with a group."]},{"q":"What may help people after a demanding day?","ans":"Taking a break or finding a relaxing activity.","opts":["Adding pressure to their schedule.","Taking a break or finding a relaxing activity.","Comparing their free time with others.","Removing every hobby from their routine."]},{"q":"What does the text suggest about exercise and routine?","ans":"Small, realistic habits can support an active lifestyle.","opts":["People must change all habits at once.","Exercise is useful only in a gym.","Small, realistic habits can support an active lifestyle.","A routine should never change."]},{"q":"Why might people set aside time for hobbies?","ans":"So hobbies do not disappear from a busy schedule.","opts":["So they can avoid all social contact.","So hobbies do not disappear from a busy schedule.","So they can fill every hour with tasks.","So they never need to rest."]},{"q":"What is one possible benefit of joining a club or class?","ans":"Meeting people with similar interests.","opts":["Meeting people with similar interests.","Making leisure more stressful.","Removing the need for personal interests.","Following someone else's routine exactly."]},{"q":"What does 'strike a balance' mean in the reading?","ans":"Find a reasonable combination of different needs.","opts":["Choose work and ignore leisure.","Find a reasonable combination of different needs.","Avoid planning any activities.","Do the same activity every day."]},{"q":"According to the text, what should a routine provide?","ans":"Support while allowing some flexibility.","opts":["A strict plan that never changes.","Support while allowing some flexibility.","A reason to avoid new activities.","A way to compare oneself with others."]},{"q":"Which statement about leisure is supported by the text?","ans":"Different people may prefer different ways to relax.","opts":["Everyone should enjoy the same hobbies.","Different people may prefer different ways to relax.","Only group activities are valuable.","Leisure should always be productive."]},{"q":"What is the main message of the reading?","ans":"Choose realistic activities that support rest, interest and connection.","opts":["Use every free moment for work.","Avoid routines and habits completely.","Choose realistic activities that support rest, interest and connection.","Hobbies are useful only when they cost money."]}];
+const readTFs=[{"q":"People can enjoy leisure through simple activities such as walking or talking with a friend.","ans":"True"},{"q":"The text says leisure activities must be expensive to be rewarding.","ans":"False"},{"q":"Relaxation can look different for different people.","ans":"True"},{"q":"A routine should remove all flexibility from a person's life.","ans":"False"},{"q":"Realistic goals may help people stick to a routine.","ans":"True"},{"q":"The reading recommends changing every lifestyle habit at once.","ans":"False"},{"q":"Setting aside time can help make room for movement and personal interests.","ans":"True"},{"q":"Joining a club or class may help people meet others with similar interests.","ans":"True"},{"q":"The text presents one single perfect way to spend free time.","ans":"False"},{"q":"A useful weekly plan can make space for activities that help a person feel rested and interested.","ans":"True"}];
+const readMatches=[{"q":"Starting an enjoyable activity and developing an interest","ans":"1"},{"q":"Making free time satisfying without spending money","ans":"1"},{"q":"Relaxing after a demanding day","ans":"2"},{"q":"Understanding that people relax in different ways","ans":"2"},{"q":"Building realistic habits and getting regular exercise","ans":"3"},{"q":"Setting aside time and sticking to a routine","ans":"3"},{"q":"Balancing work with free time","ans":"4"},{"q":"Joining activities and meeting like-minded people","ans":"4"},{"q":"Avoiding pressure to make every free moment productive","ans":"2"},{"q":"Planning a realistic week around restorative activities","ans":"4"}];
+function renderReadRadio(id,items,optsFn){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${optsFn(x,i)}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+function renderSelect(id,items,options){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b><label for="${id}-${i}">Choose:</label><select id="${id}-${i}"><option value="">Choose an answer…</option>${options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select><div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+renderReadRadio('readMCQ',readMCQs,(x,i)=>`<div>${x.opts.map(o=>`<label><input type="radio" name="readMCQ-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`);
+renderReadRadio('readTF',readTFs,(x,i)=>`<div><label><input type="radio" name="readTF-${i}" value="True"> True</label><label><input type="radio" name="readTF-${i}" value="False"> False</label></div>`);
+renderSelect('readMatch',readMatches,['1','2','3','4']);
+const scores={};
+function markRadioSet(items,namePrefix,id,resultId){let n=0,answered=0;items.forEach((x,i)=>{const chosen=document.querySelector(`input[name="${namePrefix}-${i}"]:checked`)?.value;const f=document.getElementById(`${id}-fb-${i}`);if(!chosen){f.className='fb muted';f.textContent='Choose an answer before checking this question.';return;}answered++;const ok=chosen===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct. '+(x.why||''):'Not quite. Correct answer: '+x.ans+(x.why?' — '+x.why:'')});scores[id]={score:n,max:items.length};document.getElementById(resultId).innerHTML=`<p><b>Score: ${n}/${items.length}</b> · Answered: ${answered}/${items.length}</p>`}
+function checkReading(){markRadioSet(readMCQs,'readMCQ','readMCQ','reading-result')}
+function resetReading(){readMCQs.forEach((x,i)=>{document.querySelectorAll(`input[name="readMCQ-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readMCQ-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('reading-result').innerHTML='';delete scores.readMCQ}
+function checkTF(){markRadioSet(readTFs,'readTF','readTF','tf-result')}
+function resetTF(){readTFs.forEach((x,i)=>{document.querySelectorAll(`input[name="readTF-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readTF-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('tf-result').innerHTML='';delete scores.readTF}
+function checkReadMatch(){let n=0,answered=0;readMatches.forEach((x,i)=>{const v=document.getElementById(`readMatch-${i}`).value;const f=document.getElementById(`readMatch-fb-${i}`);if(!v){f.className='fb muted';f.textContent='Choose a paragraph before checking this question.';return;}answered++;const ok=v===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct.':'Not quite. Correct answer: paragraph '+x.ans+'.'});scores.readMatch={score:n,max:readMatches.length};document.getElementById('readmatch-result').innerHTML=`<p><b>Score: ${n}/${readMatches.length}</b> · Answered: ${answered}/${readMatches.length}</p>`}
+function resetReadMatch(){readMatches.forEach((x,i)=>{document.getElementById(`readMatch-${i}`).value='';const f=document.getElementById(`readMatch-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('readmatch-result').innerHTML='';delete scores.readMatch}
+const data={"matching":{"mode":"select","items":[{"q":"take up a …","ans":"hobby"},{"q":"pursue an …","ans":"interest"},{"q":"enjoy leisure …","ans":"time"},{"q":"take a …","ans":"break"},{"q":"relieve …","ans":"stress"},{"q":"get regular …","ans":"exercise"},{"q":"stick to a …","ans":"routine"},{"q":"strike a …","ans":"balance"},{"q":"make the most of your …","ans":"free time"},{"q":"build healthy …","ans":"habits"}],"options":["habits","balance","stress","break","interest","time","free time","routine","exercise","hobby"]},"gaps":{"mode":"select","items":[{"q":"She decided to ___ after retirement and started learning pottery.","ans":"take up a hobby"},{"q":"He wanted to ___ in photography rather than give it up.","ans":"pursue an interest"},{"q":"A short walk can help people ___ after a busy day.","ans":"enjoy leisure time"},{"q":"It is useful to ___ instead of filling every evening with chores.","ans":"make time for hobbies"},{"q":"After a long shift, she listened to music to ___ .","ans":"unwind after work"},{"q":"Taking a short walk may help ___ .","ans":"relieve stress"},{"q":"You do not need a gym membership to ___ .","ans":"get regular exercise"},{"q":"Small, realistic goals can help people ___ .","ans":"stick to a routine"},{"q":"It can be difficult to ___ between work and leisure.","ans":"strike a balance"},{"q":"Joining a walking group can help people ___ .","ans":"meet like-minded people"}],"options":["stick to a routine","pursue an interest","get regular exercise","relieve stress","make time for hobbies","strike a balance","take up a hobby","unwind after work","meet like-minded people","enjoy leisure time"]},"odd":{"mode":"radio","items":[{"q":"HOBBY: Which collocation is the odd one out?","ans":"make a hobby","opts":["develop a hobby","make a hobby","pursue a hobby","take up a hobby"],"why":"Take up, pursue and develop a hobby are natural English combinations. “Make a hobby” is a likely word-for-word transfer; English would usually say “take up a hobby” or “develop a hobby.”"},{"q":"LEISURE: Which collocation is the odd one out?","ans":"pass leisure","opts":["spend leisure time","make the most of leisure time","enjoy leisure time","pass leisure"],"why":"Enjoy, spend and make the most of leisure time are natural patterns. English may say “pass the time,” but not normally “pass leisure.”"},{"q":"RELAXATION: Which collocation is the odd one out?","ans":"loosen after work","opts":["wind down after work","loosen after work","unwind after work","relax after work"],"why":"Unwind, relax and wind down after work are natural ways to describe relaxing. “Loosen after work” is not the usual expression for relaxing; “loosen up” is possible in a different pattern."},{"q":"EXERCISE: Which collocation is the odd one out?","ans":"make exercise","opts":["get regular exercise","take exercise","do some exercise","make exercise"],"why":"Get regular exercise, take exercise and do some exercise are established combinations. “Make exercise” is not the usual collocation; use “do/get/take exercise.”"},{"q":"LIFESTYLE: Which collocation is the odd one out?","ans":"conduct a healthy lifestyle","opts":["lead a healthy lifestyle","conduct a healthy lifestyle","maintain a healthy lifestyle","adopt a healthy lifestyle"],"why":"Lead, adopt and maintain a healthy lifestyle are natural collocations. “Conduct a lifestyle” transfers a verb used for activities such as research or an interview; English normally uses “lead/adopt/maintain a lifestyle.”"},{"q":"ROUTINE: Which collocation is the odd one out?","ans":"do a routine","opts":["stick to a routine","establish a routine","do a routine","follow a routine"],"why":"Follow, stick to and establish a routine are natural patterns. “Do a routine” can occur for a specific performance or exercise sequence, but it is not the usual equivalent of “follow a daily routine.”"},{"q":"ACTIVITIES: Which collocation is the odd one out?","ans":"enter in activities","opts":["engage in activities","participate in activities","take part in activities","enter in activities"],"why":"Take part in, participate in and engage in activities are natural combinations. English does not normally say “enter in activities” for joining them; use “take part in” or “participate in.”"},{"q":"TIME: Which collocation is the odd one out?","ans":"give time for hobbies","opts":["give time for hobbies","set aside time for hobbies","make time for hobbies","devote time to hobbies"],"why":"Make time for, set aside time for and devote time to hobbies are natural patterns. “Give time for hobbies” is not the usual phrasing; say “make time for hobbies” or “give time to a hobby” in a different construction."},{"q":"INTEREST: Which collocation is the odd one out?","ans":"do an interest","opts":["take an interest in art","pursue an interest","do an interest","develop an interest"],"why":"Develop/pursue an interest and take an interest in something are natural combinations. “Do an interest” is a likely literal transfer; English says “pursue an interest” or “take up an activity.”"},{"q":"BALANCE: Which collocation is the odd one out?","ans":"make a balance between work and leisure","opts":["make a balance between work and leisure","maintain a balance between work and leisure","strike a balance between work and leisure","achieve a balance between work and leisure"],"why":"Strike, maintain and achieve a balance are natural collocations. “Make a balance” is not the usual expression in this meaning; use “strike/achieve/maintain a balance.”"}]},"find":{"mode":"select","items":[{"q":"take up a ___","ans":"hobby"},{"q":"pursue an ___","ans":"interest"},{"q":"unwind after ___","ans":"work"},{"q":"relieve ___","ans":"stress"},{"q":"get regular ___","ans":"exercise"},{"q":"lead an active ___","ans":"lifestyle"},{"q":"stick to a ___","ans":"routine"},{"q":"strike a ___","ans":"balance"},{"q":"make time for ___","ans":"hobbies"},{"q":"meet like-minded ___","ans":"people"}],"options":["exercise","routine","people","hobbies","hobby","work","interest","balance","stress","lifestyle"]},"sorting":{"mode":"select","items":[{"q":"___ a hobby","ans":"TAKE UP"},{"q":"___ an interest","ans":"PURSUE"},{"q":"___ stress","ans":"RELIEVE"},{"q":"___ after work","ans":"UNWIND"},{"q":"___ regular exercise","ans":"GET"},{"q":"___ an active lifestyle","ans":"LEAD"},{"q":"___ to a routine","ans":"STICK"},{"q":"___ a balance","ans":"STRIKE"},{"q":"___ time for hobbies","ans":"MAKE"},{"q":"___ healthy habits","ans":"BUILD"}],"options":["GET","LEAD","RELIEVE","PURSUE","UNWIND","STICK","STRIKE","BUILD","TAKE UP","MAKE"]},"cloze":{"mode":"select","items":[{"q":"She decided to ___ and signed up for a pottery class.","ans":"take up a hobby"},{"q":"He wanted to ___ in photography and practise each weekend.","ans":"pursue an interest"},{"q":"A walk outdoors can help people ___ without spending money.","ans":"enjoy leisure time"},{"q":"Try to ___ rather than leaving no room for enjoyable activities.","ans":"make time for hobbies"},{"q":"After a busy day, she listens to music to ___ .","ans":"unwind after work"},{"q":"A short break can help ___ during a demanding day.","ans":"relieve stress"},{"q":"Walking or cycling can help people ___ .","ans":"get regular exercise"},{"q":"Realistic goals can make it easier to ___ .","ans":"stick to a routine"},{"q":"Many people try to ___ between responsibilities and rest.","ans":"strike a balance"},{"q":"A local club can help you ___ who share your interests.","ans":"meet like-minded people"}],"options":["pursue an interest","stick to a routine","get regular exercise","make time for hobbies","relieve stress","strike a balance","enjoy leisure time","unwind after work","take up a hobby","meet like-minded people"]},"repair":{"mode":"radio","items":[{"q":"She decided to make a hobby and joined a pottery class.","ans":"She decided to take up a hobby and joined a pottery class.","opts":["She decided to make a hobby and joined a pottery class.","She decided to create a hobby and joined a pottery class.","She decided to do a hobby and joined a pottery class.","She decided to take up a hobby and joined a pottery class."]},{"q":"He wants to do an interest in photography.","ans":"He wants to pursue an interest in photography.","opts":["He wants to pursue an interest in photography.","He wants to make an interest in photography.","He wants to do an interest in photography.","He wants to conduct an interest in photography."]},{"q":"A short walk helps me loosen after work.","ans":"A short walk helps me unwind after work.","opts":["A short walk helps me free after work.","A short walk helps me open after work.","A short walk helps me unwind after work.","A short walk helps me loosen after work."]},{"q":"She makes exercise three times a week.","ans":"She gets regular exercise three times a week.","opts":["She makes exercise three times a week.","She gets regular exercise three times a week.","She does regular exercise three times a week.","She creates exercise three times a week."]},{"q":"They conduct a healthy lifestyle by walking and cooking at home.","ans":"They lead a healthy lifestyle by walking and cooking at home.","opts":["They do a healthy lifestyle by walking and cooking at home.","They lead a healthy lifestyle by walking and cooking at home.","They conduct a healthy lifestyle by walking and cooking at home.","They make a healthy lifestyle by walking and cooking at home."]},{"q":"He tries to make a balance between work and leisure.","ans":"He tries to strike a balance between work and leisure.","opts":["He tries to do a balance between work and leisure.","He tries to create a balance between work and leisure.","He tries to strike a balance between work and leisure.","He tries to make a balance between work and leisure."]},{"q":"We entered in activities at the community centre.","ans":"We took part in activities at the community centre.","opts":["We did in activities at the community centre.","We entered in activities at the community centre.","We took part in activities at the community centre.","We made part in activities at the community centre."]},{"q":"I give time for my hobbies every weekend.","ans":"I make time for my hobbies every weekend.","opts":["I do time for my hobbies every weekend.","I give time for my hobbies every weekend.","I create time to my hobbies every weekend.","I make time for my hobbies every weekend."]},{"q":"She follows to a routine on weekdays.","ans":"She sticks to a routine on weekdays.","opts":["She makes to a routine on weekdays.","She does to a routine on weekdays.","She conducts to a routine on weekdays.","She sticks to a routine on weekdays."]},{"q":"He wants to meet people with the same interests, so he joined a club.","ans":"He wants to meet like-minded people, so he joined a club.","opts":["He wants to meet like-minded people, so he joined a club.","He wants to meet similar-minded people, so he joined a club.","He wants to meet equal-minded people, so he joined a club.","He wants to meet same-minded people, so he joined a club."]}]}};
+function render(id){const d=data[id];document.getElementById(id).innerHTML=d.items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${d.mode==='radio'?`<div>${x.opts.map(o=>`<label><input type="radio" name="${id}-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`:`<select id="${id}-${i}"><option value="">Choose…</option>${d.options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select>`}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+Object.keys(data).forEach(render);
+function check(id){const d=data[id];let n=0,answered=0;d.items.forEach((x,i)=>{const v=d.mode==='radio'?document.querySelector(`input[name="${id}-${i}"]:checked`)?.value:document.getElementById(`${id}-${i}`).value;const f=document.getElementById(`${id}-fb-${i}`);if(!v){f.className='fb muted';f.textContent='Choose an answer before checking this question.';return;}answered++;const ok=v===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=(ok?'Correct. ':'Not quite. Correct answer: '+x.ans+'. ')+(x.why||'')});scores[id]={score:n,max:d.items.length};document.getElementById(id+'-result').innerHTML=`<p><b>Score: ${n}/${d.items.length}</b> · Answered: ${answered}/${d.items.length}</p>`}
+function reset(id){const d=data[id];d.items.forEach((x,i)=>{if(d.mode==='radio')document.querySelectorAll(`input[name="${id}-${i}"]`).forEach(e=>e.checked=false);else document.getElementById(`${id}-${i}`).value='';const f=document.getElementById(`${id}-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById(id+'-result').innerHTML='';delete scores[id]}
+function summary(){let n=0,m=0;Object.values(scores).forEach(x=>{n+=x.score;m+=x.max});document.getElementById('summary').innerHTML=`<p><b>Automatically scored so far: ${n}/${m}.</b><br>Teacher-scored: SkELL cluster 0–10; writing 0–5. Maximum lesson score: 115 points.</p>`}
+
+// LexiLink shared submission collector — Lessons 1–8.
+// Replace the endpoint placeholder after deploying the shared Google Apps Script Web App.
+const SUBMISSION_ENDPOINT = "https://script.google.com/macros/s/AKfycbxKwWE0CYJDxrpP60p0A9JRv2sHrSECwzc9IPyYt9e-Kd1XQJsrHPGe2r8VHwlxPZWa/exec";
+const LEXILINK_LESSON_TITLE = "Lesson 6 — Leisure Activities and Lifestyle Choices";
+const LEXILINK_WRITING_PROMPT = "Leisure Activities and Lifestyle Choices";
+function lexilinkFieldValue(id){return (document.getElementById(id)?.value||'').trim();}
+function lexilinkCollectSkellClusters(){
+  return Array.from(document.querySelectorAll('.skell-cluster')).map(card=>{
+    const keyword=(card.querySelector('.keyword-pill')?.textContent||'').trim().toUpperCase();
+    const collocations=Array.from(card.querySelectorAll('.collocation-lines .collocation-line'));
+    const sentences=Array.from(card.querySelectorAll('.cluster-sentence'));
+    const similar=Array.from(card.querySelectorAll('.similar-grid input, .similar-grid textarea'));
+    const evidence=card.querySelector('textarea[id$="-evidence"]');
+    return {
+      keyword,
+      collocation1:(collocations[0]?.value||'').trim(),
+      sentence1:(sentences[0]?.value||'').trim(),
+      collocation2:(collocations[1]?.value||'').trim(),
+      sentence2:(sentences[1]?.value||'').trim(),
+      similarWord1:(similar[0]?.value||'').trim(),
+      similarWord2:(similar[1]?.value||'').trim(),
+      evidence:(evidence?.value||'').trim()
+    };
+  });
+}
+function lexilinkCollectAnswers(){
+  const answers={};
+  document.querySelectorAll('input,textarea,select').forEach((el,i)=>{
+    if(['profile-name','profile-group','student-name','student-group','paragraph','submitLessonBtn'].includes(el.id)) return;
+    if(el.type==='radio'&&!el.checked) return;
+    if(el.type==='checkbox'&&!el.checked) return;
+    const key=el.id||el.name||('field_'+(i+1));
+    answers[key]=String(el.value||'').trim();
+  });
+  return answers;
+}
+function lexilinkGetScoreSummary(){
+  const sectionScores={};
+  try{
+    Object.entries(scores||{}).forEach(([key,value])=>{
+      if(value&&Number.isFinite(Number(value.score))&&Number.isFinite(Number(value.max)))
+        sectionScores[key]={score:Number(value.score),max:Number(value.max)};
+    });
+  }catch(e){}
+  const values=Object.values(sectionScores);
+  return {sections:sectionScores,autoTotal:{score:values.reduce((n,x)=>n+x.score,0),max:values.reduce((n,x)=>n+x.max,0)}};
+}
+function lexilinkValidateSubmission(){
+  if(!lexilinkFieldValue('profile-name')) return {ok:false,message:'Please enter your name in the student profile at the top of the lesson.',id:'profile-name'};
+  if(!lexilinkFieldValue('profile-group')) return {ok:false,message:'Please enter your group in the student profile at the top of the lesson.',id:'profile-group'};
+  const writing=lexilinkFieldValue('paragraph');
+  const wordCount=writing?writing.split(/\s+/).filter(Boolean).length:0;
+  if(wordCount<80||wordCount>100) return {ok:false,message:`The writing task requires 80–100 words. Your current paragraph has ${wordCount} words.`,id:'paragraph'};
+  const clusters=Array.from(document.querySelectorAll('.skell-cluster'));
+  if(clusters.length!==4) return {ok:false,message:'The lesson should contain four SkELL keyword clusters. Please contact your teacher if one is missing.'};
+  for(const card of clusters){
+    const keyword=(card.querySelector('.keyword-pill')?.textContent||'this keyword').trim().toUpperCase();
+    const c=Array.from(card.querySelectorAll('.collocation-lines .collocation-line'));
+    const s=Array.from(card.querySelectorAll('.cluster-sentence'));
+    const sim=Array.from(card.querySelectorAll('.similar-grid input, .similar-grid textarea'));
+    const evidence=card.querySelector('textarea[id$="-evidence"]');
+    const required=[c[0],s[0],c[1],s[1],sim[0],sim[1],evidence];
+    const missing=required.find(el=>!el||!String(el.value||'').trim());
+    if(missing){return {ok:false,message:`Complete two collocations, your own sentence for each, two Similar words, and a SkELL example/context for ${keyword}.`,id:missing?.id};}
+  }
+  return {ok:true};
+}
+async function submitLessonWork(){
+  const status=document.getElementById('submitStatus');
+  const button=document.getElementById('submitLessonBtn');
+  const validation=lexilinkValidateSubmission();
+  if(!validation.ok){status.className='submission-status err';status.textContent=validation.message;if(validation.id)document.getElementById(validation.id)?.focus();return;}
+  if(SUBMISSION_ENDPOINT.includes('PASTE_LEXILINK_APPS_SCRIPT_WEB_APP_URL_HERE')){
+    status.className='submission-status warn';status.textContent='Submission is not connected yet. The teacher must deploy the shared LexiLink Apps Script collector, paste its /exec URL into SUBMISSION_ENDPOINT, and save the HTML file.';return;
+  }
+  const writing=lexilinkFieldValue('paragraph');
+  const score=lexilinkGetScoreSummary();
+  const payload={
+    lesson:LEXILINK_LESSON_TITLE,
+    studentName:lexilinkFieldValue('profile-name'),
+    group:lexilinkFieldValue('profile-group'),
+    submittedAt:new Date().toISOString(),
+    writing:{prompt:LEXILINK_WRITING_PROMPT,wordCount:writing.split(/\s+/).filter(Boolean).length,text:writing},
+    skellClusters:lexilinkCollectSkellClusters(),
+    scores:{sections:score.sections,autoTotal:score.autoTotal},
+    answers:lexilinkCollectAnswers(),
+    userAgent:navigator.userAgent
+  };
+  button.disabled=true;button.textContent='Sending…';status.className='submission-status warn';status.textContent='Sending your work to the teacher’s spreadsheet…';
+  try{
+    await fetch(SUBMISSION_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+    status.className='submission-status ok';status.textContent='Your submission request was sent. The browser cannot read the server confirmation in this mode, so the teacher should verify that the new rows appear in Google Sheets.';
+    button.textContent='Submission sent';
+  }catch(error){
+    status.className='submission-status err';status.textContent='The request could not be sent. Check the internet connection and try again.';
+    button.disabled=false;button.textContent='Submit lesson work';
+  }
+}
+// Writing Zone: block regular clipboard, keyboard paste/cut/copy shortcuts, context menu and drag/drop.
+// This is a classroom friction measure, not secure plagiarism prevention; it cannot defeat developer tools or external devices.
+(function lexilinkProtectWritingField(){
+  const field=document.getElementById('paragraph');
+  const notice=document.getElementById('writing-notice');
+  if(!field)return;
+  const blockedMessage='Please type your own text directly in this writing field; clipboard operations and drag-and-drop are disabled here.';
+  ['paste','copy','cut','drop','contextmenu'].forEach(eventName=>field.addEventListener(eventName,e=>{
+    e.preventDefault();
+    if(notice){notice.textContent=blockedMessage;notice.classList.add('submission-status','warn');}
+  }));
+  field.addEventListener('dragover',e=>e.preventDefault());
+  field.addEventListener('beforeinput',e=>{
+    if(['insertFromPaste','insertFromDrop','deleteByCut'].includes(e.inputType)){
+      e.preventDefault();if(notice)notice.textContent=blockedMessage;
+    }
+  });
+  field.addEventListener('keydown',e=>{
+    const key=String(e.key||'').toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['v','c','x'].includes(key)){e.preventDefault();if(notice)notice.textContent=blockedMessage;}
+    if(e.shiftKey&&e.key==='Insert'){e.preventDefault();if(notice)notice.textContent=blockedMessage;}
+  });
+})();
+
+</script>
+</body></html>

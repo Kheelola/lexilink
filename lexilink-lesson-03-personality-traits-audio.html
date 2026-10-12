@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LexiLink — Personality Traits and Individual Differences</title>
+<style>
+:root{--green:#176b45;--green2:#238657;--mint:#eaf7ef;--line:#cde6d5;--ink:#183326;--muted:#587466}
+*{box-sizing:border-box}body{font:16px/1.55 Arial,sans-serif;max-width:1000px;margin:auto;padding:18px;background:#f2faf4;color:var(--ink)}
+header,.card{background:white;padding:20px;margin:16px 0;border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 12px rgba(23,107,69,.06)}
+header{background:linear-gradient(125deg,#155d3d,#278653);color:white;border:0}header p{margin:.4rem 0}h1{margin-top:0}h2{font-size:1.25rem;color:var(--green)}h3{color:#235c3e}
+a{color:var(--green2);font-weight:700}.q{padding:12px 0;border-bottom:1px solid #e2efe6}label{display:block;margin:6px 0}select,textarea,input{font:inherit;padding:10px;width:100%;max-width:100%;border:1px solid #b9d7c3;border-radius:9px;background:#fcfffd;color:var(--ink)}input[type=radio]{width:auto;margin-right:6px}textarea{min-height:80px}button{padding:10px 14px;margin:8px 6px 0 0;border:0;border-radius:9px;background:var(--green);color:white;font-weight:bold;cursor:pointer}button:hover{background:#104d31}.muted{color:var(--muted);font-size:.92rem}.fb{font-size:.92rem}.ok{color:#167143}.bad{color:#b52e38}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.box{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfffc}.profile{background:var(--mint);border:1px solid #a9d9b8;border-radius:16px;padding:18px;margin:16px 0}.profile h2{margin-top:0}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.avatar{width:54px;height:54px;border-radius:50%;background:#176b45;color:white;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;flex-shrink:0}.profile-head{display:flex;gap:14px;align-items:center}.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px}.slot{background:#f0faf3;border:1px solid #cde6d5;border-left:5px solid #238657;padding:12px;border-radius:10px}.slot b{display:block;color:#176b45}.pill{display:inline-block;background:#d5f0de;color:#145a37;padding:4px 9px;border-radius:999px;font-size:.85rem;font-weight:bold}
+.skell-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:16px 0}.skell-cluster{padding:16px;border:1px solid #d7e5ef;border-radius:16px;background:#fff;box-shadow:0 3px 10px rgba(7,39,84,.06)}.skell-cluster-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}.keyword-pill{display:inline-flex;align-items:center;justify-content:center;min-width:126px;min-height:56px;padding:8px 20px;background:#082a65;color:#fff;border-radius:999px;font-weight:800;letter-spacing:.04em;font-size:1.05rem;text-align:center}.cluster-type{font-size:.86rem;color:#587466;line-height:1.35}.collocation-lines{display:grid;gap:8px;margin:8px 0 14px}.collocation-line{height:44px;border-radius:8px;padding:3px 8px;border:1px solid transparent;font-weight:600;color:#142b43}.collocation-line:nth-child(3n+1){background:#fff0a6;border-color:#f0d96b}.collocation-line:nth-child(3n+2){background:#f9d1f7;border-color:#eaa3e7}.collocation-line:nth-child(3n){background:#c9f5d9;border-color:#91d9ad}.collocation-line::placeholder{color:#5a6070;font-weight:400}.similar-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.similar-grid input{background:#f6faff}.callout{padding:12px 14px;border-left:4px solid #238657;background:#eff9f2;border-radius:8px}.score-row{display:flex;gap:10px;flex-wrap:wrap}.score-chip{background:#edf7f0;border-radius:9px;padding:8px 12px}@media(max-width:680px){.skell-board{grid-template-columns:1fr}.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:120px;min-height:48px}}@media(max-width:560px){.profile-grid{grid-template-columns:1fr}body{padding:8px}header,.card{padding:15px}}@media print{button{display:none}body{background:white}}
+
+.audio-panel{padding:16px;margin:14px 0 18px;border:1px solid #b9dfc5;border-radius:14px;background:linear-gradient(135deg,#f2fbf4,#ffffff)}.audio-heading{display:flex;gap:10px;align-items:center;margin-bottom:10px}.audio-heading>span{font-size:1.7rem}.audio-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.audio-controls button{margin:2px 4px 2px 0}.speed-control{display:flex;gap:8px;align-items:center;margin:2px 0 2px 8px;font-weight:700}.speed-control select{width:auto;min-width:135px;padding:8px}.audio-status{margin:10px 0 0}.audio-progress-wrap{margin:12px 0 4px}.audio-progress-label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.9rem;color:var(--muted);margin-bottom:4px}.audio-progress{width:100%;max-width:none;height:22px;padding:0;margin:0;accent-color:var(--green);cursor:pointer;background:transparent}.audio-progress-help{font-size:.82rem;color:var(--muted);margin:2px 0 0}@media(max-width:560px){.audio-controls{align-items:stretch}.audio-controls button{flex:1}.speed-control{width:100%;margin:6px 0 0}.speed-control select{flex:1}}
+
+/* Shared LexiLink lesson hero design */
+.lesson-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(118deg,#104b32 0%,#176b45 54%,#2c8b5b 100%);color:#fff;border:0;border-radius:22px;padding:25px 27px;margin:16px 0;box-shadow:0 10px 28px rgba(20,90,54,.17)}
+.lesson-hero:before{content:"";position:absolute;z-index:-1;width:300px;height:300px;right:135px;top:-205px;border:1px solid rgba(255,255,255,.11);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 58px rgba(255,255,255,.02)}
+.lesson-header-layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;align-items:center;gap:25px;min-width:0}
+.lesson-header-copy{min-width:0}
+.lesson-kicker{display:flex;align-items:center;gap:9px;margin-bottom:12px;color:#d7f5e1;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.lesson-kicker-mark{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;border-radius:9px;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.26);font-size:.72rem;letter-spacing:-.03em}
+.kicker-divider{padding:0 3px;color:#9edbb5}
+.lesson-header-copy h1{max-width:690px;margin:0 0 10px;color:#fff;font-size:clamp(1.7rem,3.1vw,2.35rem);font-weight:800;line-height:1.12;letter-spacing:-.035em;text-wrap:balance}
+.lesson-subtitle{max-width:650px;margin:0 0 17px!important;color:#e4f7e9;font-size:1.04rem;line-height:1.45}
+.lesson-meta{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.lesson-meta-pill{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:.79rem;font-weight:700;line-height:1.25}
+.lesson-method{margin:14px 0 0!important;color:#d4efdd;font-size:.84rem;letter-spacing:.01em}
+.lesson-header-media{min-width:0}
+.lesson-header-photo{display:block;width:250px;height:166px;max-width:100%;object-fit:cover;object-position:center 48%;border-radius:17px;border:3px solid rgba(255,255,255,.88);box-shadow:0 12px 24px rgba(0,0,0,.2);background:#dcefe2}
+.lesson-photo-credit{display:block;margin-top:7px;text-align:right;font-size:.66rem;line-height:1.25;color:rgba(255,255,255,.76);font-weight:400;text-decoration:none}
+.lesson-photo-credit:hover{text-decoration:underline;color:#fff}
+@media(max-width:760px){.lesson-hero{padding:21px;border-radius:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr) 205px;gap:16px}.lesson-header-photo{width:205px;height:148px}.lesson-header-copy h1{font-size:clamp(1.5rem,4vw,1.9rem)}}
+@media(max-width:560px){.lesson-hero{padding:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr);gap:15px}.lesson-header-photo{width:100%;height:190px;max-width:none;object-position:center 44%;border-radius:14px}.lesson-photo-credit{text-align:left}.lesson-kicker{margin-bottom:9px}.lesson-header-copy h1{font-size:1.8rem}.lesson-subtitle{font-size:.98rem}.lesson-meta-pill{font-size:.76rem}}
+
+
+/* Consistent LexiLink lesson hero, matching Lesson 4 */
+.lesson-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(118deg,#104b32 0%,#176b45 54%,#2c8b5b 100%);color:#fff;border:0;border-radius:22px;padding:25px 27px;margin:16px 0;box-shadow:0 10px 28px rgba(20,90,54,.17)}
+.lesson-hero:before{content:"";position:absolute;z-index:-1;width:300px;height:300px;right:135px;top:-205px;border:1px solid rgba(255,255,255,.11);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 58px rgba(255,255,255,.02)}
+.lesson-header-layout{display:grid;grid-template-columns:minmax(0,1fr) 218px;align-items:center;gap:25px;min-width:0}
+.lesson-header-copy{min-width:0}
+.lesson-kicker{display:flex;align-items:center;gap:9px;margin-bottom:12px;color:#d7f5e1;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.lesson-kicker-mark{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;border-radius:9px;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.26);font-size:.72rem;letter-spacing:-.03em}
+.kicker-divider{padding:0 3px;color:#9edbb5}
+.lesson-header-copy h1{max-width:690px;margin:0 0 10px;color:#fff;font-size:clamp(1.7rem,3.1vw,2.35rem);font-weight:800;line-height:1.12;letter-spacing:-.035em;text-wrap:balance;overflow-wrap:anywhere}
+.lesson-subtitle{max-width:650px;margin:0 0 17px!important;color:#e4f7e9;font-size:1.04rem;line-height:1.45}
+.lesson-meta{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.lesson-meta-pill{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:.79rem;font-weight:700;line-height:1.25}
+.lesson-method{margin:14px 0 0!important;color:#d4efdd;font-size:.84rem;letter-spacing:.01em}
+.lesson-header-photo{display:block;width:218px;height:158px;max-width:100%;object-fit:cover;object-position:center 48%;border-radius:17px;border:3px solid rgba(255,255,255,.88);box-shadow:0 12px 24px rgba(0,0,0,.2);background:#dcefe2}
+@media(max-width:680px){.lesson-hero{padding:21px;border-radius:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr) 175px;gap:16px}.lesson-header-photo{width:175px;height:138px}.lesson-header-copy h1{font-size:clamp(1.5rem,4vw,1.9rem)}}
+@media(max-width:520px){.lesson-hero{padding:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr);gap:15px}.lesson-header-photo{width:100%;height:175px;max-width:none;object-position:center 44%;border-radius:14px}.lesson-kicker{margin-bottom:9px}.lesson-header-copy h1{font-size:1.8rem}.lesson-subtitle{font-size:.98rem}.lesson-meta-pill{font-size:.76rem}}
+
+
+/* Keep long SkELL keywords fully inside their oval, including on narrow screens. */
+.skell-cluster{min-width:0}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 1 auto;align-items:center;justify-content:center;width:max-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px clamp(10px,1.5vw,16px);box-sizing:border-box;font-size:clamp(.72rem,1.25vw,.98rem);line-height:1.12;letter-spacing:.015em;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0}@media(max-width:680px){.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;font-size:clamp(.72rem,3vw,.94rem);padding:8px 12px}.cluster-type{flex-basis:auto;width:100%}}
+.cluster-sentences{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin:8px 0 12px}.cluster-sentence{min-height:68px;background:#fbfffc}.writing-area{min-height:190px}.writing-anti-paste-note{padding:10px 12px;background:#fff7d8;border:1px solid #ead27b;border-radius:9px;color:#624e00;font-size:.92rem}.submission-panel{margin-top:16px;padding:16px;border:1px solid #9ecfb0;border-radius:14px;background:#eff9f2}.submission-status{margin-top:10px;font-weight:700}.submission-status.ok{color:#176b45}.submission-status.err{color:#a5222d}.submission-status.warn{color:#805900}@media(max-width:680px){.cluster-sentences{grid-template-columns:1fr}}</style>
+</head>
+<body>
+<header class="lesson-hero">
+  <div class="lesson-header-layout">
+    <div class="lesson-header-copy">
+      <div class="lesson-kicker"><span class="lesson-kicker-mark">LL</span><span>LEXILINK <span class="kicker-divider">/</span> LESSON 03</span></div>
+      <h1>Personality Traits and Individual Differences</h1>
+      <p class="lesson-subtitle">People, character and everyday communication</p>
+      <div class="lesson-meta" aria-label="Lesson information">
+        <span class="lesson-meta-pill">B2 · Upper-intermediate</span>
+        <span class="lesson-meta-pill">80-minute lesson</span>
+        <span class="lesson-meta-pill">20 target collocations</span>
+      </div>
+      <p class="lesson-method">Personality vocabulary · SkELL investigation · Lexical approach</p>
+    </div>
+    <!-- Header photo: Ron Lach / Pexels; free-to-use Pexels source: https://www.pexels.com/photo/photo-of-a-group-of-friends-having-a-conversation-8921557/ -->
+    <img class="lesson-header-photo" src="https://images.pexels.com/photos/8921557/pexels-photo-8921557.jpeg?cs=srgb&amp;dl=pexels-ron-lach-8921557.jpg&amp;fm=jpg" alt="A diverse group of adults talking and listening to one another in a relaxed conversation" title="Photo by Ron Lach / Pexels" loading="eager" decoding="async">
+  </div>
+</header>
+<section class="profile" aria-label="Student profile">
+<div class="profile-head"><div class="avatar" id="avatar-initials">S</div><div><h2 style="margin:0;color:#176b45">Student profile</h2><p style="margin:.2rem 0">LexiLink · Personality and Individual Differences <span class="pill">B2</span> <span class="pill">80 minutes</span></p></div></div>
+<div class="profile-grid" style="margin-top:14px"><div><label for="profile-name">Student name</label><input id="profile-name" placeholder="Enter your name"></div><div><label for="profile-group">Group</label><input id="profile-group" placeholder="Enter group"></div></div>
+<p class="muted" style="margin-bottom:0">Complete the tasks, investigate lexical word partnerships in SkELL and write about how personality can shape everyday choices and relationships.</p>
+</section>
+<section class="card"><h2>80-minute lesson route</h2><p class="muted">Teacher-facing timing plan; the tasks below follow this sequence.</p><div class="timeline">
+<div class="slot"><b>0–5 min · Warm-up</b>Discuss personality strengths and how people differ.</div><div class="slot"><b>5–17 min · Reading</b>Read the text and complete comprehension tasks.</div><div class="slot"><b>17–27 min · Noticing</b>Match and complete target collocations.</div><div class="slot"><b>27–42 min · DDL with SkELL</b>Investigate four keywords and discover natural lexical collocations.</div><div class="slot"><b>42–52 min · Retrieval</b>Odd One Out and Find the Collocate.</div><div class="slot"><b>52–62 min · Categorising</b>Collocation Sorting and Lexical Cloze.</div><div class="slot"><b>62–70 min · Correction</b>Repair unnatural lexical combinations.</div><div class="slot"><b>70–77 min · Production</b>Write 80–100 words about personality and personal growth.</div><div class="slot"><b>77–80 min · Reflection</b>Review your score and share one SkELL discovery.</div>
+</div></section>
+<section class="card"><h2>Learning outcomes</h2><p>By the end of the lesson, you will be able to recognise and use lexical collocations related to personality, emotions and relationships; verify word partnerships with SkELL; interpret related words in context; and describe personal qualities and behaviour more precisely.</p><h2>Target collocations: definitions and synonyms</h2><p class="muted">Study the English definitions and compare the synonyms. No translations are provided.</p><div class="grid" id="target"></div></section>
+<section class="card" id="reading"><h2>Reading: Understanding Personality and Individual Differences</h2><p class="muted">Read the text carefully or listen to it. Target collocations are shown in bold.</p>
+<div class="audio-panel" role="group" aria-label="Reading audio controls">
+  <div class="audio-heading"><span aria-hidden="true">🎧</span><div><strong>Listen to the reading</strong><div class="muted">Browser voice · English pronunciation</div></div></div>
+  <div class="audio-controls">
+    <button type="button" onclick="playReading()" aria-label="Play or resume reading text">▶ Listen / Resume</button>
+    <button type="button" onclick="pauseReading()" aria-label="Pause reading text">Ⅱ Pause</button>
+    <button type="button" onclick="stopReading()" aria-label="Stop and reset reading text">■ Stop</button>
+    <label class="speed-control" for="reading-speed">Speed
+      <select id="reading-speed" aria-label="Reading speed" onchange="updateReadingSpeedNote()">
+        <option value="0.75">0.75× Slow</option><option value="1" selected>1× Normal</option><option value="1.25">1.25× Fast</option>
+      </select>
+    </label>
+  </div>
+  <div class="audio-progress-wrap">
+    <div class="audio-progress-label"><label for="reading-progress" style="margin:0">Reading progress</label><span id="reading-progress-value">0%</span></div>
+    <input id="reading-progress" class="audio-progress" type="range" min="0" max="100" step="1" value="0" aria-label="Reading progress; move the slider to seek" oninput="previewReadingSeek(this.value)" onchange="seekReading(this.value)">
+    <p class="audio-progress-help">After the title, narration pauses for 5 seconds before continuing. Pause / Resume preserves your place, including during this break, or move the slider to jump to another part of the text.</p>
+  </div>
+  <p id="reading-audio-status" class="muted audio-status" aria-live="polite">Ready to play. The voice available depends on your browser and device.</p>
+</div>
+<article id="reading-text" style="line-height:1.75">
+<h3>Personality: Patterns, Choices and Growth</h3>
+<p>People differ in the way they communicate, respond to stress and make choices. Personality is not a simple list of fixed labels: a person may be confident in one situation and uncertain in another. <b>Gain self-awareness</b> by noticing your usual reactions, strengths and areas for improvement. Reflection can help you <b>form an opinion</b> carefully rather than judge someone after one conversation. It can also help you <b>make a decision</b> that matches your values instead of following a group automatically.</p>
+<p>Emotions are part of everyday life, but people express them in different ways. Some people find it easy to <b>express emotions</b>, while others need time before they talk about how they feel. When a discussion becomes tense, it is useful to <b>keep calm</b> and <b>control your temper</b>. A person may <b>lose patience</b> when tired or under pressure, but recognising this pattern makes it easier to respond differently next time. Being able to <b>take criticism</b> without treating every comment as a personal attack can also support learning.</p>
+<p>Personality influences relationships, although no single trait guarantees success. People can <b>show empathy</b> by listening carefully and trying to understand another person’s point of view. They can <b>maintain relationships</b> by communicating honestly, respecting differences and showing patience during disagreements. In a group, someone may <b>take initiative</b> by suggesting a practical next step. Others may <b>show determination</b> by continuing with a difficult task or <b>demonstrate resilience</b> after a setback. It can take courage to speak up when something seems unfair, but people can learn to <b>display courage</b> respectfully.</p>
+<p>Personal growth usually depends on repeated choices rather than one dramatic change. For example, a student who wants to listen more carefully can <b>develop a habit</b> of waiting until others finish speaking, then practise until it feels natural. Someone who interrupts may need to <b>break a habit</b> by pausing before responding. People can <b>build confidence</b> through preparation and small achievements, and make an effort to practise unfamiliar behaviours. Sometimes new information leads us to <b>change our mind</b>. Understanding individual differences does not mean excusing hurtful behaviour; it means noticing patterns and choosing more helpful responses.</p>
+</article>
+<h3>Reading Task A — Choose the best answer</h3><div id="readMCQ"></div><button onclick="checkReading()">Check reading answers</button><button onclick="resetReading()">Try again</button><div id="reading-result"></div>
+<h3>Reading Task B — True or False?</h3><p class="muted">Choose True or False according to the text.</p><div id="readTF"></div><button onclick="checkTF()">Check statements</button><button onclick="resetTF()">Try again</button><div id="tf-result"></div>
+<h3>Reading Task D — Match the idea to the paragraph</h3><p class="muted">Choose the paragraph number (1–4). Some paragraph numbers may be used more than once.</p><div id="readMatch"></div><button onclick="checkReadMatch()">Check paragraph matching</button><button onclick="resetReadMatch()">Try again</button><div id="readmatch-result"></div>
+</section>
+<section class="card"><h2>1. Matching · 10 points</h2><p class="muted">Choose the correct ending.</p><div id="matching"></div><button onclick="check('matching')">Check answers</button><button onclick="reset('matching')">Try again</button><div id="matching-result"></div></section>
+<section class="card"><h2>2. Complete the Sentence · 10 points</h2><p class="muted">Choose the lexical collocation that best completes each sentence.</p><div id="gaps"></div><button onclick="check('gaps')">Check answers</button><button onclick="reset('gaps')">Try again</button><div id="gaps-result"></div></section>
+<section class="card" id="skell-cluster"><h2>3. SkELL Collocation Clusters · 10 minutes · 10 points (teacher-scored)</h2>
+<p>Open <a href="https://skell.sketchengine.eu/" target="_blank" rel="noopener">SkELL</a>. For each keyword, use <b>Word Sketch</b> or example sentences to find at least two lexical collocations. Write one original sentence using each of your first two collocations. Then open <b>Similar words</b>, record two candidate synonyms or related words, and note a corpus example or context you checked. Related words are not automatically interchangeable: check their meaning and word partnerships in context. Your collocations, original sentences, Similar words and corpus notes will be submitted with this lesson for teacher review.</p>
+<div class="callout"><b>Investigation routine</b><br>Keyword → find lexical collocations in SkELL → record similar words → inspect a corpus example → decide whether each related word can replace the keyword in that context.</div>
+<div class="skell-board"><div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">PERSONALITY</span><span class="cluster-type"><b>Search focus:</b> adjective + noun lexical collocations<br>Find adjectives that naturally describe different types or qualities of personality.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="personality-coll-1" placeholder="Collocation 1" aria-label="Personality collocation 1"><input class="collocation-line" id="personality-coll-2" placeholder="Collocation 2" aria-label="Personality collocation 2"><input class="collocation-line" id="personality-coll-3" placeholder="Collocation 3" aria-label="Personality collocation 3"><input class="collocation-line" id="personality-coll-4" placeholder="Collocation 4" aria-label="Personality collocation 4"></div><div class="cluster-sentences"><label for="personality-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="personality-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="personality-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="personality-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="personality-syn-1" placeholder="Word 1" aria-label="Personality similar word 1"><input id="personality-syn-2" placeholder="Word 2" aria-label="Personality similar word 2"></div><label for="personality-evidence">Corpus example / context</label><textarea id="personality-evidence" placeholder="Copy a short SkELL example and note the personality quality being described."></textarea></div>
+<div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">EMOTIONS</span><span class="cluster-type"><b>Search focus:</b> verb + noun lexical collocations<br>Find verbs that naturally combine with emotions.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="emotions-coll-1" placeholder="Collocation 1" aria-label="Emotions collocation 1"><input class="collocation-line" id="emotions-coll-2" placeholder="Collocation 2" aria-label="Emotions collocation 2"><input class="collocation-line" id="emotions-coll-3" placeholder="Collocation 3" aria-label="Emotions collocation 3"><input class="collocation-line" id="emotions-coll-4" placeholder="Collocation 4" aria-label="Emotions collocation 4"></div><div class="cluster-sentences"><label for="emotions-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="emotions-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="emotions-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="emotions-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="emotions-syn-1" placeholder="Word 1" aria-label="Emotions similar word 1"><input id="emotions-syn-2" placeholder="Word 2" aria-label="Emotions similar word 2"></div><label for="emotions-evidence">Corpus example / context</label><textarea id="emotions-evidence" placeholder="Copy a short SkELL example and explain how emotions are expressed or managed."></textarea></div>
+<div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">CONFIDENCE</span><span class="cluster-type"><b>Search focus:</b> verb + noun lexical collocations<br>Find verbs that describe developing, showing or increasing confidence.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="confidence-coll-1" placeholder="Collocation 1" aria-label="Confidence collocation 1"><input class="collocation-line" id="confidence-coll-2" placeholder="Collocation 2" aria-label="Confidence collocation 2"><input class="collocation-line" id="confidence-coll-3" placeholder="Collocation 3" aria-label="Confidence collocation 3"><input class="collocation-line" id="confidence-coll-4" placeholder="Collocation 4" aria-label="Confidence collocation 4"></div><div class="cluster-sentences"><label for="confidence-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="confidence-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="confidence-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="confidence-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="confidence-syn-1" placeholder="Word 1" aria-label="Confidence similar word 1"><input id="confidence-syn-2" placeholder="Word 2" aria-label="Confidence similar word 2"></div><label for="confidence-evidence">Corpus example / context</label><textarea id="confidence-evidence" placeholder="Copy a short SkELL example and explain what helps confidence grow."></textarea></div>
+<div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">RELATIONSHIPS</span><span class="cluster-type"><b>Search focus:</b> verb + noun lexical collocations<br>Find verbs that describe starting, developing or maintaining relationships.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="relationships-coll-1" placeholder="Collocation 1" aria-label="Relationships collocation 1"><input class="collocation-line" id="relationships-coll-2" placeholder="Collocation 2" aria-label="Relationships collocation 2"><input class="collocation-line" id="relationships-coll-3" placeholder="Collocation 3" aria-label="Relationships collocation 3"><input class="collocation-line" id="relationships-coll-4" placeholder="Collocation 4" aria-label="Relationships collocation 4"></div><div class="cluster-sentences"><label for="relationships-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="relationships-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="relationships-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="relationships-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="relationships-syn-1" placeholder="Word 1" aria-label="Relationships similar word 1"><input id="relationships-syn-2" placeholder="Word 2" aria-label="Relationships similar word 2"></div><label for="relationships-evidence">Corpus example / context</label><textarea id="relationships-evidence" placeholder="Copy a short SkELL example and describe the type of relationship or situation."></textarea></div></div>
+<p class="muted">Teacher scoring: up to 10 points for distinct, accurate lexical collocations supported by SkELL evidence. Similar words are assessed for relevance and contextual interpretation; related words are not automatically interchangeable.</p><p class="muted">Your SkELL records and original sentences will be submitted with the lesson; no separate copying is needed.</p></section>
+<section class="card"><h2>4. Odd One Out · Based on SkELL · 10 points</h2><p class="muted">Choose the collocation that does not fit the pattern of the other three. Use your SkELL notes to check which combinations are natural in English. After checking, read the explanation.</p><div id="odd"></div><button onclick="check('odd')">Check answers</button><button onclick="reset('odd')">Try again</button><div id="odd-result"></div></section>
+<section class="card"><h2>5. Find the Verb, Find the Collocate · 10 points</h2><p>Choose the verb that completes each personality-related collocation.</p><div id="find"></div><button onclick="check('find')">Check answers</button><button onclick="reset('find')">Try again</button><div id="find-result"></div></section>
+<section class="card"><h2>6. Collocation Sorting · 10 points</h2><p class="muted">Choose the verb that creates a natural lexical collocation.</p><div id="sorting"></div><button onclick="check('sorting')">Check answers</button><button onclick="reset('sorting')">Try again</button><div id="sorting-result"></div></section>
+<section class="card"><h2>7. Lexical Cloze · 10 points</h2><p class="muted"><b>Word bank:</b> show empathy · keep calm · control your temper · build confidence · take criticism · form an opinion · make a decision · take initiative · demonstrate resilience · maintain relationships</p><div id="cloze"></div><button onclick="check('cloze')">Check answers</button><button onclick="reset('cloze')">Try again</button><div id="cloze-result"></div></section>
+<section class="card"><h2>8. Collocation Repair · 10 points</h2><p class="muted">Choose the best correction. Focus on natural lexical word partnerships.</p><div id="repair"></div><button onclick="check('repair')">Check answers</button><button onclick="reset('repair')">Try again</button><div id="repair-result"></div></section>
+<section class="card"><h2>9. Productive Recall Challenge · 5 points (teacher-scored)</h2><p>Write 80–100 words on <b>Personality, Strengths and Personal Growth</b>. Use at least eight target collocations from this lesson.</p><label for="student-name">Student name</label><input id="student-name" placeholder="First and last name"><label for="student-group">Group</label><input id="student-group" placeholder="Group number"><label for="paragraph">Your paragraph</label><p class="writing-anti-paste-note" id="writing-notice">Write directly in this field. Paste, cut/copy shortcuts and drag-and-drop are disabled here. This browser restriction supports independent writing but is not a complete plagiarism-detection system.</p><textarea id="paragraph" style="min-height:170px" placeholder="One of my strengths is that I can show empathy and..." class="writing-area"></textarea><p id="word-count" class="muted">0 words</p><p class="muted">Teacher awards up to 5 points for accurate use of distinct target collocations, coherent reflection and relevant examples.</p><div class="submission-panel"><h3>Submit your lesson work to the teacher</h3><p class="muted">Your profile, exercise responses, SkELL collocations and original sentences, related words, corpus notes, writing paragraph and available scores will be collected in the teacher’s spreadsheet. Complete all four clusters and the 80–100-word paragraph before submitting.</p><button type="button" id="submitLessonBtn" onclick="submitLessonWork()">Submit lesson work</button><div id="submitStatus" class="submission-status" role="status" aria-live="polite"></div></div></section>
+<section class="card"><h2>Lesson score</h2><p class="muted">Auto-scored sections: reading MCQ, True/False, paragraph matching, Matching, Sentence Completion, Odd One Out, Find the Collocate, Sorting, Lexical Cloze and Collocation Repair (100 points total). SkELL cluster (10) and productive writing (5) are teacher-scored. Maximum lesson total: 115 points.</p><button onclick="summary()">Show score summary</button><div id="summary"></div></section>
+<p class="muted">LexiLink · Connect words. Build fluency. Your SkELL collocations, original sentences, Similar words, corpus notes and writing paragraph are included in the lesson submission. Complete the required fields and submit your work to the teacher.</p>
+<script>
+let readingUtterance = null;
+let readingTextContent = '';
+let readingCurrentChar = 0;
+let readingRunId = 0;
+let readingSeekWhilePaused = false;
+let readingTitleEnd = 0;
+let readingDelayTimer = null;
+let readingDelayPaused = false;
+let readingDelayRemaining = 5000;
+let readingDelayStartedAt = 0;
+
+function setReadingAudioStatus(message){const el=document.getElementById('reading-audio-status');if(el)el.textContent=message;}
+function readingProgressPercent(){return readingTextContent.length?Math.min(100,Math.round(readingCurrentChar/readingTextContent.length*100)):0;}
+function updateReadingProgress(percent){
+  const slider=document.getElementById('reading-progress');
+  const label=document.getElementById('reading-progress-value');
+  const safe=Math.max(0,Math.min(100,Math.round(percent)));
+  if(slider)slider.value=String(safe);
+  if(label)label.textContent=safe+'%';
+}
+function getReadingText(){
+  const article=document.getElementById('reading-text');
+  if(!article)return '';
+  return (article.innerText||article.textContent||'').replace(/\s+/g,' ').trim();
+}
+function loadReadingText(){
+  const article=document.getElementById('reading-text');
+  readingTextContent=getReadingText();
+  const titleElement=article?article.querySelector('h3'):null;
+  const titleText=titleElement?(titleElement.innerText||titleElement.textContent||'').replace(/\s+/g,' ').trim():'';
+  const titleIndex=titleText?readingTextContent.indexOf(titleText):-1;
+  readingTitleEnd=titleIndex>=0?titleIndex+titleText.length:0;
+  if(readingTitleEnd<=0||readingTitleEnd>=readingTextContent.length)readingTitleEnd=0;
+  return readingTextContent;
+}
+function setProgressFromChar(charIndex){
+  readingCurrentChar=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  updateReadingProgress(readingProgressPercent());
+}
+function clearReadingDelay(){
+  if(readingDelayTimer!==null){clearTimeout(readingDelayTimer);readingDelayTimer=null;}
+  readingDelayStartedAt=0;
+}
+function startReadingDelay(runId, milliseconds){
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=Math.max(0,milliseconds);
+  if(readingDelayRemaining<=0){startReadingFrom(readingTitleEnd);return;}
+  readingDelayStartedAt=Date.now();
+  const seconds=(readingDelayRemaining/1000).toFixed(1).replace(/\.0$/,'');
+  setReadingAudioStatus('Title finished. Pausing for '+seconds+' seconds before the reading continues…');
+  readingDelayTimer=setTimeout(()=>{
+    readingDelayTimer=null;
+    readingDelayStartedAt=0;
+    if(runId!==readingRunId||readingDelayPaused)return;
+    readingDelayRemaining=5000;
+    startReadingFrom(readingTitleEnd);
+  },readingDelayRemaining);
+}
+function startReadingFrom(charIndex){
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  const start=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  if(start>=readingTextContent.length){setProgressFromChar(0);return startReadingFrom(0);}
+  const thisRun=++readingRunId;
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=5000;
+  window.speechSynthesis.cancel();
+  const isTitleSegment=readingTitleEnd>0&&start<readingTitleEnd;
+  const segmentEnd=isTitleSegment?readingTitleEnd:readingTextContent.length;
+  const segmentText=readingTextContent.slice(start,segmentEnd);
+  readingUtterance=new SpeechSynthesisUtterance(segmentText);
+  readingUtterance.lang='en-GB';
+  const rateControl=document.getElementById('reading-speed');
+  readingUtterance.rate=rateControl?Number(rateControl.value):1;
+  readingUtterance.pitch=1;
+  const voices=window.speechSynthesis.getVoices();
+  const englishVoice=voices.find(v=>/^en-GB$/i.test(v.lang))||voices.find(v=>/^en-US$/i.test(v.lang))||voices.find(v=>/^en/i.test(v.lang));
+  if(englishVoice)readingUtterance.voice=englishVoice;
+  setProgressFromChar(start);
+  readingUtterance.onstart=()=>{if(thisRun===readingRunId)setReadingAudioStatus(isTitleSegment?'Reading the title…':'Reading aloud…');};
+  readingUtterance.onboundary=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(Number.isFinite(event.charIndex))setProgressFromChar(start+event.charIndex);
+  };
+  readingUtterance.onend=()=>{
+    if(thisRun!==readingRunId)return;
+    if(isTitleSegment&&readingTitleEnd<readingTextContent.length){
+      setProgressFromChar(readingTitleEnd);
+      readingUtterance=null;
+      startReadingDelay(thisRun,5000);
+      return;
+    }
+    setProgressFromChar(readingTextContent.length);
+    setReadingAudioStatus('Reading finished. Press Listen to replay, or move the progress line to choose a section.');
+    readingUtterance=null;
+  };
+  readingUtterance.onerror=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(event.error!=='canceled'&&event.error!=='interrupted')setReadingAudioStatus('Audio playback could not start. Try another browser or check your device’s speech settings.');
+  };
+  window.speechSynthesis.speak(readingUtterance);
+  setReadingAudioStatus(isTitleSegment?'Starting with the title…':(start?'Resuming from the selected position…':'Starting playback…'));
+}
+function playReading(){
+  if(!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)){
+    setReadingAudioStatus('Text-to-speech is not supported in this browser. Try opening the lesson in an up-to-date Chrome, Edge or Safari browser.');return;
+  }
+  if(readingDelayPaused){
+    startReadingDelay(readingRunId,readingDelayRemaining);
+    setReadingAudioStatus('Resuming the 5-second pause after the title…');
+    return;
+  }
+  if(readingDelayTimer!==null){setReadingAudioStatus('The 5-second pause after the title is in progress…');return;}
+  if(window.speechSynthesis.paused&&!readingSeekWhilePaused){window.speechSynthesis.resume();setReadingAudioStatus('Reading resumed from the same place.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused)return;
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  if(readingCurrentChar>=readingTextContent.length)readingCurrentChar=0;
+  startReadingFrom(readingCurrentChar);
+}
+function pauseReading(){
+  if(!('speechSynthesis' in window)){setReadingAudioStatus('Text-to-speech is not supported in this browser.');return;}
+  if(readingDelayTimer!==null){
+    const elapsed=Math.max(0,Date.now()-readingDelayStartedAt);
+    readingDelayRemaining=Math.max(0,readingDelayRemaining-elapsed);
+    clearReadingDelay();
+    readingDelayPaused=true;
+    setReadingAudioStatus('Paused during the 5-second break after the title. Press Listen / Resume to continue the countdown.');
+    return;
+  }
+  if(readingDelayPaused){setReadingAudioStatus('The pause after the title is paused. Press Listen / Resume to continue.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused){window.speechSynthesis.pause();setReadingAudioStatus('Reading paused. Press Listen / Resume to continue from the same place.');}
+  else setReadingAudioStatus('There is no reading currently playing. Press Listen / Resume to start.');
+}
+function stopReading(){
+  if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  clearReadingDelay();
+  readingRunId++;
+  readingSeekWhilePaused=false;
+  readingDelayPaused=false;
+  readingDelayRemaining=5000;
+  readingUtterance=null;
+  loadReadingText();
+  readingCurrentChar=0;
+  updateReadingProgress(0);
+  setReadingAudioStatus('Reading stopped and reset to the beginning.');
+}
+function previewReadingSeek(percent){
+  const label=document.getElementById('reading-progress-value');
+  if(label)label.textContent=Math.max(0,Math.min(100,Math.round(Number(percent)||0))+'%');
+}
+function seekReading(percent){
+  if(!('speechSynthesis' in window)){updateReadingProgress(readingProgressPercent());return;}
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent)return;
+  const delayActive=readingDelayTimer!==null;
+  const delayPaused=readingDelayPaused;
+  const wasSpeaking=window.speechSynthesis.speaking&&!window.speechSynthesis.paused;
+  const wasPaused=window.speechSynthesis.paused;
+  const pct=Math.max(0,Math.min(100,Number(percent)||0));
+  let target=Math.round(readingTextContent.length*pct/100);
+  while(target>0&&target<readingTextContent.length&&!/\s/.test(readingTextContent[target-1]))target--;
+  setProgressFromChar(target);
+  if(delayActive){
+    clearReadingDelay();readingDelayPaused=false;readingDelayRemaining=5000;
+    startReadingFrom(target);
+  }else if(delayPaused||wasPaused){
+    clearReadingDelay();
+    if(window.speechSynthesis.speaking||window.speechSynthesis.paused)window.speechSynthesis.cancel();
+    readingRunId++;readingUtterance=null;readingDelayPaused=false;readingDelayRemaining=5000;readingSeekWhilePaused=true;
+    setReadingAudioStatus('Position selected. Press Listen / Resume to continue from here.');
+  }else if(wasSpeaking){startReadingFrom(target);}
+  else {
+    readingDelayPaused=false;readingDelayRemaining=5000;
+    setReadingAudioStatus(pct===0?'Ready to play from the beginning.':'Position selected. Press Listen / Resume to start from here.');
+  }
+}
+function updateReadingSpeedNote(){
+  if(window.speechSynthesis&&window.speechSynthesis.speaking&&!window.speechSynthesis.paused){
+    setReadingAudioStatus('To apply the new speed, stop and start playback again. Pause / Resume keeps the current playback speed.');
+  }
+}
+
+const target=[
+["show empathy","Definition: to recognise another person’s feelings and respond with understanding.","Synonyms: show understanding; be considerate; understand someone’s feelings"],
+["express emotions","Definition: to communicate feelings through words, behaviour or facial expressions.","Synonyms: show feelings; communicate emotions; convey what one feels"],
+["control your temper","Definition: to prevent anger from controlling your words or actions.","Synonyms: manage your anger; keep your anger in check; restrain your temper"],
+["lose patience","Definition: to become annoyed because something takes too long or is difficult to deal with.","Synonyms: become impatient; run out of patience; grow frustrated"],
+["keep calm","Definition: to remain relaxed and think clearly in a difficult situation.","Synonyms: stay calm; remain composed; keep your cool"],
+["take criticism","Definition: to accept comments about weaknesses or mistakes without reacting defensively.","Synonyms: accept criticism; respond to feedback; listen to critical comments"],
+["build confidence","Definition: to develop a stronger belief in your abilities.","Synonyms: gain confidence; become more self-assured; strengthen self-belief"],
+["gain self-awareness","Definition: to understand your own feelings, habits, strengths and limitations better.","Synonyms: develop self-knowledge; become more aware of yourself; understand your own patterns"],
+["make a decision","Definition: to choose what to do after considering possibilities.","Synonyms: make a choice; decide on a course of action; reach a decision"],
+["form an opinion","Definition: to develop a belief or judgement about someone or something.","Synonyms: develop a view; reach a judgement; come to an opinion"],
+["change your mind","Definition: to adopt a different opinion or decision.","Synonyms: reconsider your view; think differently; revise your decision"],
+["take initiative","Definition: to act independently without waiting to be told what to do.","Synonyms: take the lead; act independently; show enterprise"],
+["show determination","Definition: to demonstrate that you are strongly committed to achieving something.","Synonyms: demonstrate resolve; remain committed; show persistence"],
+["demonstrate resilience","Definition: to show that you can recover or adapt after difficulty.","Synonyms: show resilience; recover from setbacks; adapt to adversity"],
+["handle conflict","Definition: to deal with disagreement in a constructive way.","Synonyms: manage disagreements; deal with conflict; resolve a dispute"],
+["maintain relationships","Definition: to keep social connections healthy and active over time.","Synonyms: preserve relationships; sustain connections; keep relationships strong"],
+["show patience","Definition: to remain calm while waiting or dealing with a delay or difficulty.","Synonyms: be patient; demonstrate patience; wait calmly"],
+["develop a habit","Definition: to make a behaviour regular through repeated practice.","Synonyms: establish a routine; build a habit; make something a regular practice"],
+["break a habit","Definition: to stop doing something that has become a regular behaviour.","Synonyms: stop a routine; get out of a habit; give up a habitual behaviour"],
+["display courage","Definition: to act bravely despite fear, risk or difficulty.","Synonyms: show bravery; demonstrate courage; act courageously"]
+];
+document.getElementById('target').innerHTML=target.map((x,i)=>`<div class="box"><b>${i+1}. ${x[0]}</b><p>${x[1]}</p><p class="muted"><b>${x[2].split(':')[0]}:</b>${x[2].split(':').slice(1).join(':')}</p></div>`).join('');
+const profileName=document.getElementById('profile-name'),profileGroup=document.getElementById('profile-group'),studentName=document.getElementById('student-name'),studentGroup=document.getElementById('student-group');
+function updateProfile(){if(studentName)studentName.value=profileName.value;if(studentGroup)studentGroup.value=profileGroup.value;const words=profileName.value.trim().split(/\s+/).filter(Boolean);document.getElementById('avatar-initials').textContent=words.length?words.slice(0,2).map(w=>w[0].toUpperCase()).join(''):'S'}
+profileName.addEventListener('input',updateProfile);profileGroup.addEventListener('input',updateProfile);studentName.addEventListener('input',()=>{profileName.value=studentName.value;updateProfile()});studentGroup.addEventListener('input',()=>{profileGroup.value=studentGroup.value;updateProfile()});
+const clusterIds=['personality','emotions','confidence','relationships'];
+document.getElementById('paragraph').addEventListener('input',e=>{const t=e.target.value.trim();document.getElementById('word-count').textContent=(t?t.split(/\s+/).length:0)+' words'});
+const readMCQs=[
+{q:"According to paragraph 1, why can self-awareness be useful?",ans:"It helps people notice their reactions, strengths and areas to improve.",opts:["It helps people notice their reactions, strengths and areas to improve.","It proves that personality never changes.","It means people should always follow the group.","It removes the need to make decisions."]},
+{q:"What does the text suggest about forming an opinion?",ans:"People should reflect instead of judging someone after one conversation.",opts:["People should reflect instead of judging someone after one conversation.","People should form opinions before hearing any information.","People should avoid having opinions.","People should always agree with their friends."]},
+{q:"What can help someone respond better when a discussion becomes tense?",ans:"Keeping calm and controlling their temper.",opts:["Leaving every discussion immediately.","Keeping calm and controlling their temper.","Expressing anger as strongly as possible.","Refusing to listen to anyone."]},
+{q:"In the text, what does taking criticism involve?",ans:"Accepting comments without treating every comment as a personal attack.",opts:["Accepting comments without treating every comment as a personal attack.","Believing that all comments are unfair.","Avoiding any feedback from others.","Agreeing with every criticism automatically."]},
+{q:"How can a person show empathy?",ans:"By listening carefully and trying to understand another point of view.",opts:["By telling people what to feel.","By listening carefully and trying to understand another point of view.","By avoiding people with different opinions.","By making every decision for a group."]},
+{q:"Which action is an example of taking initiative?",ans:"Suggesting a practical next step without waiting to be told.",opts:["Waiting for someone else to solve every problem.","Suggesting a practical next step without waiting to be told.","Refusing to take part in group work.","Changing a decision without considering the facts."]},
+{q:"What may help a person build confidence?",ans:"Preparation and small achievements.",opts:["Never trying unfamiliar tasks.","Preparation and small achievements.","Comparing every action with someone else.","Avoiding all feedback."]},
+{q:"What does the text say about personal growth?",ans:"It often depends on repeated choices and practice.",opts:["It happens in one dramatic moment only.","It is impossible after childhood.","It often depends on repeated choices and practice.","It requires people to become exactly alike."]},
+{q:"Why might someone need to break a habit of interrupting?",ans:"To practise listening and allow others to finish speaking.",opts:["To speak more often than everyone else.","To practise listening and allow others to finish speaking.","To avoid all conversations.","To show that personality cannot change."]},
+{q:"What is the main message of the text?",ans:"Understanding differences can help people choose more helpful responses.",opts:["Everyone should have the same personality.","Personality labels explain every action completely.","Understanding differences can help people choose more helpful responses.","People should excuse all hurtful behaviour as a personality trait."]}
+];
+const readTFs=[
+{q:"The text presents personality as a simple list of fixed labels.",ans:"False"},
+{q:"Self-awareness can involve noticing both strengths and areas for improvement.",ans:"True"},
+{q:"The text says people should always follow the group when making decisions.",ans:"False"},
+{q:"People can express emotions in different ways.",ans:"True"},
+{q:"The text suggests that losing patience can happen when someone is tired or under pressure.",ans:"True"},
+{q:"Taking criticism means treating every comment as a personal attack.",ans:"False"},
+{q:"Showing empathy includes trying to understand another person’s point of view.",ans:"True"},
+{q:"Taking initiative means waiting until someone gives you every instruction.",ans:"False"},
+{q:"A repeated practice can help someone develop a new habit.",ans:"True"},
+{q:"The text argues that understanding differences means excusing all hurtful behaviour.",ans:"False"}
+];
+const readMatches=[
+{q:"Personality, self-awareness and careful judgement",ans:"1"},
+{q:"Expressing emotions and responding to anger",ans:"2"},
+{q:"Listening, empathy and maintaining relationships",ans:"3"},
+{q:"Showing initiative after a setback",ans:"3"},
+{q:"Taking criticism without becoming defensive",ans:"2"},
+{q:"Choosing a response instead of following a group automatically",ans:"1"},
+{q:"Developing routines through repeated practice",ans:"4"},
+{q:"Stopping the habit of interrupting",ans:"4"},
+{q:"Changing an opinion after receiving new information",ans:"4"},
+{q:"Speaking up when something seems unfair",ans:"3"}
+];
+function renderReadRadio(id,items,optsFn){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${optsFn(x,i)}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+function renderSelect(id,items,options){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b><label for="${id}-${i}">Choose:</label><select id="${id}-${i}"><option value="">Choose an answer…</option>${options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select><div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+renderReadRadio('readMCQ',readMCQs,(x,i)=>`<div>${x.opts.map(o=>`<label><input type="radio" name="readMCQ-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`);
+renderReadRadio('readTF',readTFs,(x,i)=>`<div><label><input type="radio" name="readTF-${i}" value="True"> True</label><label><input type="radio" name="readTF-${i}" value="False"> False</label></div>`);
+renderSelect('readMatch',readMatches,['1','2','3','4']);
+const scores={};
+function markRadioSet(items,namePrefix,id,resultId){let n=0;items.forEach((x,i)=>{const chosen=document.querySelector(`input[name="${namePrefix}-${i}"]:checked`)?.value;const ok=chosen===x.ans;if(ok)n++;const f=document.getElementById(`${id}-fb-${i}`);f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct. '+(x.why||''):'Correct answer: '+x.ans+(x.why?' — '+x.why:'')});scores[id]={score:n,max:items.length};document.getElementById(resultId).innerHTML=`<p><b>Score: ${n}/${items.length}</b></p>`}
+function checkReading(){markRadioSet(readMCQs,'readMCQ','readMCQ','reading-result')}
+function resetReading(){readMCQs.forEach((x,i)=>{document.querySelectorAll(`input[name="readMCQ-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readMCQ-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('reading-result').innerHTML='';delete scores.readMCQ}
+function checkTF(){markRadioSet(readTFs,'readTF','readTF','tf-result')}
+function resetTF(){readTFs.forEach((x,i)=>{document.querySelectorAll(`input[name="readTF-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readTF-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('tf-result').innerHTML='';delete scores.readTF}
+function checkReadMatch(){let n=0;readMatches.forEach((x,i)=>{const ok=document.getElementById(`readMatch-${i}`).value===x.ans;if(ok)n++;const f=document.getElementById(`readMatch-fb-${i}`);f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct.':'Correct answer: paragraph '+x.ans+'.'});scores.readMatch={score:n,max:readMatches.length};document.getElementById('readmatch-result').innerHTML=`<p><b>Score: ${n}/${readMatches.length}</b></p>`}
+function resetReadMatch(){readMatches.forEach((x,i)=>{document.getElementById(`readMatch-${i}`).value='';const f=document.getElementById(`readMatch-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('readmatch-result').innerHTML='';delete scores.readMatch}
+const data={
+matching:{mode:'select',items:[{q:'show …',ans:'empathy'},{q:'express …',ans:'emotions'},{q:'control …',ans:'your temper'},{q:'lose …',ans:'patience'},{q:'keep …',ans:'calm'},{q:'take …',ans:'criticism'},{q:'build …',ans:'confidence'},{q:'gain …',ans:'self-awareness'},{q:'make …',ans:'a decision'},{q:'form …',ans:'an opinion'}],options:['empathy','emotions','your temper','patience','calm','criticism','confidence','self-awareness','a decision','an opinion']},
+gaps:{mode:'select',items:[{q:'When a friend shares a difficult experience, try to ___.',ans:'show empathy'},{q:'When the discussion becomes tense, it helps to ___.',ans:'keep calm'},{q:'When you feel frustrated, learn to ___ rather than shout.',ans:'control your temper'},{q:'Small achievements can help new speakers ___.',ans:'build confidence'},{q:'Feedback can help you improve when you are ready to ___.',ans:'take criticism'},{q:'After comparing both options, I needed to ___ before choosing a course.',ans:'make a decision'},{q:'A person should consider different views before they ___.',ans:'form an opinion'},{q:'In group work, volunteers sometimes need to ___ and suggest the next step.',ans:'take initiative'},{q:'After a setback, the athlete had to ___ and continue training.',ans:'demonstrate resilience'},{q:'Respectful communication helps people ___.',ans:'maintain relationships'}],options:['show empathy','keep calm','control your temper','build confidence','take criticism','make a decision','form an opinion','take initiative','demonstrate resilience','maintain relationships']},
+odd:{"mode":"radio","items":[{"q":"EMOTIONS: Which collocation is the odd one out?","ans":"tell your emotions","opts":["express emotions","tell your emotions","show emotions","communicate emotions"],"why":"Express, show and communicate emotions are natural collocations. “Tell your emotions” is a literal-transfer option; English usually says “express emotions” or “talk about your feelings.”"},{"q":"EMOTIONAL REGULATION: Which collocation is the odd one out?","ans":"rule emotions","opts":["manage emotions","regulate emotions","control emotions","rule emotions"],"why":"Manage, regulate and control emotions are conventional combinations. “Rule emotions” is not the usual English collocation for managing feelings; use “control/manage emotions.”"},{"q":"EMPATHY: Which collocation is the odd one out?","ans":"make empathy","opts":["make empathy","show empathy","demonstrate empathy","express empathy"],"why":"Show, demonstrate and express empathy are natural collocations. “Make empathy” is a literal-transfer option; English uses “show/express empathy.”"},{"q":"CONFIDENCE: Which collocation is the odd one out?","ans":"make confidence","opts":["build confidence","boost confidence","make confidence","gain confidence"],"why":"Build, boost and gain confidence are conventional collocations. “Make confidence” transfers a general verb into a context where English uses “build/boost/gain confidence.”"},{"q":"SELF-AWARENESS: Which collocation is the odd one out?","ans":"do self-awareness","opts":["develop self-awareness","do self-awareness","deepen self-awareness","increase self-awareness"],"why":"Develop, deepen and increase self-awareness are natural combinations. “Do self-awareness” is a literal-transfer option; English uses “develop self-awareness” or “practise self-reflection.”"},{"q":"OPINIONS: Which collocation is the odd one out?","ans":"make an opinion","opts":["make an opinion","form an opinion","develop an opinion","express an opinion"],"why":"Form, develop and express an opinion are standard collocations. “Make an opinion” mirrors a word-for-word transfer; English normally says “form an opinion.”"},{"q":"DECISIONS: Which collocation is the odd one out?","ans":"do a decision","opts":["make a decision","reach a decision","come to a decision","do a decision"],"why":"Make, reach and come to a decision are established collocations. “Do a decision” is a direct-transfer pattern; English uses “make/reach a decision.”"},{"q":"PERSONALITY: Which collocation is the odd one out?","ans":"carry a strong personality","opts":["have a strong personality","possess a strong personality","carry a strong personality","display a strong personality"],"why":"Have, possess and display a strong personality are natural English combinations. “Carry a strong personality” is a literal-transfer option; English usually says “have/display a strong personality.”"},{"q":"CRITICISM: Which collocation is the odd one out?","ans":"take criticism in account","opts":["accept criticism","take criticism in account","respond to criticism","take criticism on board"],"why":"Accept criticism, respond to criticism and take criticism on board are conventional expressions. The idiom is “take something into account,” not “in account.”"},{"q":"CALM: Which collocation is the odd one out?","ans":"hold calm","opts":["hold calm","keep calm","stay calm","remain calm"],"why":"Keep, stay and remain calm are natural English expressions. “Hold calm” is a literal-transfer option; English usually says “keep/stay calm.”"}]}, find:{mode:'select',items:[{q:'show ___',ans:'empathy'},{q:'express ___',ans:'emotions'},{q:'control your ___',ans:'temper'},{q:'lose ___',ans:'patience'},{q:'keep ___',ans:'calm'},{q:'take ___',ans:'criticism'},{q:'build ___',ans:'confidence'},{q:'gain self-___',ans:'awareness'},{q:'make a ___',ans:'decision'},{q:'form an ___',ans:'opinion'}],options:['empathy','emotions','temper','patience','calm','criticism','confidence','awareness','decision','opinion']},
+sorting:{mode:'select',items:[{q:'___ empathy',ans:'SHOW'},{q:'___ emotions',ans:'EXPRESS'},{q:'___ your temper',ans:'CONTROL'},{q:'___ patience',ans:'LOSE'},{q:'___ calm',ans:'KEEP'},{q:'___ criticism',ans:'TAKE'},{q:'___ confidence',ans:'BUILD'},{q:'___ self-awareness',ans:'GAIN'},{q:'___ a decision',ans:'MAKE'},{q:'___ an opinion',ans:'FORM'}],options:['SHOW','EXPRESS','CONTROL','LOSE','KEEP','TAKE','BUILD','GAIN','MAKE','FORM']},
+cloze:{mode:'select',items:[{q:'When someone shares a problem, try to ___.',ans:'show empathy'},{q:'Taking a breath can help you ___ during a disagreement.',ans:'keep calm'},{q:'When frustration rises, it is important to ___.',ans:'control your temper'},{q:'Regular practice can help people ___.',ans:'build confidence'},{q:'Constructive feedback is useful when you are prepared to ___.',ans:'take criticism'},{q:'Before deciding what you think about the issue, take time to ___.',ans:'form an opinion'},{q:'The committee needs to ___ before Friday.',ans:'make a decision'},{q:'Rather than waiting for instructions, team members can ___.',ans:'take initiative'},{q:'After a difficult result, the player tried to ___.',ans:'demonstrate resilience'},{q:'Honesty and listening can help friends ___.',ans:'maintain relationships'}],options:['show empathy','keep calm','control your temper','build confidence','take criticism','form an opinion','make a decision','take initiative','demonstrate resilience','maintain relationships']},
+repair:{mode:'radio',items:[{q:'She made empathy for her colleague when he was upset.',ans:'She showed empathy for her colleague when he was upset.',opts:['She formed empathy for her colleague when he was upset.','She showed empathy for her colleague when he was upset.','She built empathy for her colleague when he was upset.','She took empathy for her colleague when he was upset.']},{q:'He constructed confidence by practising his presentation several times.',ans:'He built confidence by practising his presentation several times.',opts:['He controlled confidence by practising his presentation several times.','He formed confidence by practising his presentation several times.','He built confidence by practising his presentation several times.','He lost confidence by practising his presentation several times.']},{q:'The speaker created his emotions clearly in the discussion.',ans:'The speaker expressed his emotions clearly in the discussion.',opts:['The speaker expressed his emotions clearly in the discussion.','The speaker formed his emotions clearly in the discussion.','The speaker built his emotions clearly in the discussion.','The speaker gained his emotions clearly in the discussion.']},{q:'When he became angry, he could not control his patience.',ans:'When he became angry, he could not control his temper.',opts:['When he became angry, he could not control his temper.','When he became angry, he could not build his patience.','When he became angry, he could not form his temper.','When he became angry, he could not gain his temper.']},{q:'The team made initiative and suggested a practical next step.',ans:'The team took initiative and suggested a practical next step.',opts:['The team made initiative and suggested a practical next step.','The team formed initiative and suggested a practical next step.','The team took initiative and suggested a practical next step.','The team expressed initiative and suggested a practical next step.']},{q:'After hearing new evidence, she made her mind about the issue.',ans:'After hearing new evidence, she changed her mind about the issue.',opts:['After hearing new evidence, she controlled her mind about the issue.','After hearing new evidence, she changed her mind about the issue.','After hearing new evidence, she expressed her mind about the issue.','After hearing new evidence, she built her mind about the issue.']},{q:'It takes time to make self-awareness through reflection.',ans:'It takes time to gain self-awareness through reflection.',opts:['It takes time to gain self-awareness through reflection.','It takes time to make self-awareness through reflection.','It takes time to express self-awareness through reflection.','It takes time to control self-awareness through reflection.']},{q:'The friends worked hard to hold their relationship despite disagreements.',ans:'The friends worked hard to maintain their relationship despite disagreements.',opts:['The friends worked hard to lose their relationship despite disagreements.','The friends worked hard to control their relationship despite disagreements.','The friends worked hard to maintain their relationship despite disagreements.','The friends worked hard to express their relationship despite disagreements.']},{q:'A regular pause before replying helped him do the habit of interrupting.',ans:'A regular pause before replying helped him break the habit of interrupting.',opts:['A regular pause before replying helped him create the habit of interrupting.','A regular pause before replying helped him break the habit of interrupting.','A regular pause before replying helped him build the habit of interrupting.','A regular pause before replying helped him express the habit of interrupting.']},{q:'After the setback, the athlete made resilience and continued training.',ans:'After the setback, the athlete demonstrated resilience and continued training.',opts:['After the setback, the athlete controlled resilience and continued training.','After the setback, the athlete demonstrated resilience and continued training.','After the setback, the athlete made resilience and continued training.','After the setback, the athlete took resilience and continued training.']}]}
+};
+function render(id){const d=data[id];document.getElementById(id).innerHTML=d.items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${d.mode==='radio'?`<div>${x.opts.map(o=>`<label><input type="radio" name="${id}-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`:`<select id="${id}-${i}"><option value="">Choose…</option>${d.options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select>`}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+Object.keys(data).forEach(render);
+function check(id){const d=data[id];let n=0;d.items.forEach((x,i)=>{const v=d.mode==='radio'?document.querySelector(`input[name="${id}-${i}"]:checked`)?.value:document.getElementById(`${id}-${i}`).value;const ok=v===x.ans;if(ok)n++;const f=document.getElementById(`${id}-fb-${i}`);f.className='fb '+(ok?'ok':'bad');f.textContent=(ok?'Correct. ':'Correct answer: '+x.ans+'. ')+(x.why||'')});scores[id]={score:n,max:d.items.length};document.getElementById(id+'-result').innerHTML=`<p><b>Score: ${n}/${d.items.length}</b></p>`}
+function reset(id){const d=data[id];d.items.forEach((x,i)=>{if(d.mode==='radio')document.querySelectorAll(`input[name="${id}-${i}"]`).forEach(e=>e.checked=false);else document.getElementById(`${id}-${i}`).value='';const f=document.getElementById(`${id}-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById(id+'-result').innerHTML='';delete scores[id]}
+function summary(){let n=0,m=0;Object.values(scores).forEach(x=>{n+=x.score;m+=x.max});document.getElementById('summary').innerHTML=`<p><b>Automatically scored so far: ${n}/${m}.</b><br>Teacher-scored: SkELL cluster 0–10; writing 0–5. Maximum lesson score: 115 points.</p>`}
+
+// LexiLink shared submission collector — Lessons 1–8.
+// Replace the endpoint placeholder after deploying the shared Google Apps Script Web App.
+const SUBMISSION_ENDPOINT = "https://script.google.com/macros/s/AKfycbxKwWE0CYJDxrpP60p0A9JRv2sHrSECwzc9IPyYt9e-Kd1XQJsrHPGe2r8VHwlxPZWa/exec";
+const LEXILINK_LESSON_TITLE = "Lesson 3 — Personality Traits and Individual Differences";
+const LEXILINK_WRITING_PROMPT = "Personality, Strengths and Personal Growth";
+function lexilinkFieldValue(id){return (document.getElementById(id)?.value||'').trim();}
+function lexilinkCollectSkellClusters(){
+  return Array.from(document.querySelectorAll('.skell-cluster')).map(card=>{
+    const keyword=(card.querySelector('.keyword-pill')?.textContent||'').trim().toUpperCase();
+    const collocations=Array.from(card.querySelectorAll('.collocation-lines .collocation-line'));
+    const sentences=Array.from(card.querySelectorAll('.cluster-sentence'));
+    const similar=Array.from(card.querySelectorAll('.similar-grid input, .similar-grid textarea'));
+    const evidence=card.querySelector('textarea[id$="-evidence"]');
+    return {
+      keyword,
+      collocation1:(collocations[0]?.value||'').trim(),
+      sentence1:(sentences[0]?.value||'').trim(),
+      collocation2:(collocations[1]?.value||'').trim(),
+      sentence2:(sentences[1]?.value||'').trim(),
+      similarWord1:(similar[0]?.value||'').trim(),
+      similarWord2:(similar[1]?.value||'').trim(),
+      evidence:(evidence?.value||'').trim()
+    };
+  });
+}
+function lexilinkCollectAnswers(){
+  const answers={};
+  document.querySelectorAll('input,textarea,select').forEach((el,i)=>{
+    if(['profile-name','profile-group','student-name','student-group','paragraph','submitLessonBtn'].includes(el.id)) return;
+    if(el.type==='radio'&&!el.checked) return;
+    if(el.type==='checkbox'&&!el.checked) return;
+    const key=el.id||el.name||('field_'+(i+1));
+    answers[key]=String(el.value||'').trim();
+  });
+  return answers;
+}
+function lexilinkGetScoreSummary(){
+  const sectionScores={};
+  try{
+    Object.entries(scores||{}).forEach(([key,value])=>{
+      if(value&&Number.isFinite(Number(value.score))&&Number.isFinite(Number(value.max)))
+        sectionScores[key]={score:Number(value.score),max:Number(value.max)};
+    });
+  }catch(e){}
+  const values=Object.values(sectionScores);
+  return {sections:sectionScores,autoTotal:{score:values.reduce((n,x)=>n+x.score,0),max:values.reduce((n,x)=>n+x.max,0)}};
+}
+function lexilinkValidateSubmission(){
+  if(!lexilinkFieldValue('profile-name')) return {ok:false,message:'Please enter your name in the student profile at the top of the lesson.',id:'profile-name'};
+  if(!lexilinkFieldValue('profile-group')) return {ok:false,message:'Please enter your group in the student profile at the top of the lesson.',id:'profile-group'};
+  const writing=lexilinkFieldValue('paragraph');
+  const wordCount=writing?writing.split(/\s+/).filter(Boolean).length:0;
+  if(wordCount<80||wordCount>100) return {ok:false,message:`The writing task requires 80–100 words. Your current paragraph has ${wordCount} words.`,id:'paragraph'};
+  const clusters=Array.from(document.querySelectorAll('.skell-cluster'));
+  if(clusters.length!==4) return {ok:false,message:'The lesson should contain four SkELL keyword clusters. Please contact your teacher if one is missing.'};
+  for(const card of clusters){
+    const keyword=(card.querySelector('.keyword-pill')?.textContent||'this keyword').trim().toUpperCase();
+    const c=Array.from(card.querySelectorAll('.collocation-lines .collocation-line'));
+    const s=Array.from(card.querySelectorAll('.cluster-sentence'));
+    const sim=Array.from(card.querySelectorAll('.similar-grid input, .similar-grid textarea'));
+    const evidence=card.querySelector('textarea[id$="-evidence"]');
+    const required=[c[0],s[0],c[1],s[1],sim[0],sim[1],evidence];
+    const missing=required.find(el=>!el||!String(el.value||'').trim());
+    if(missing){return {ok:false,message:`Complete two collocations, your own sentence for each, two Similar words, and a SkELL example/context for ${keyword}.`,id:missing?.id};}
+  }
+  return {ok:true};
+}
+async function submitLessonWork(){
+  const status=document.getElementById('submitStatus');
+  const button=document.getElementById('submitLessonBtn');
+  const validation=lexilinkValidateSubmission();
+  if(!validation.ok){status.className='submission-status err';status.textContent=validation.message;if(validation.id)document.getElementById(validation.id)?.focus();return;}
+  if(SUBMISSION_ENDPOINT.includes('PASTE_LEXILINK_APPS_SCRIPT_WEB_APP_URL_HERE')){
+    status.className='submission-status warn';status.textContent='Submission is not connected yet. The teacher must deploy the shared LexiLink Apps Script collector, paste its /exec URL into SUBMISSION_ENDPOINT, and save the HTML file.';return;
+  }
+  const writing=lexilinkFieldValue('paragraph');
+  const score=lexilinkGetScoreSummary();
+  const payload={
+    lesson:LEXILINK_LESSON_TITLE,
+    studentName:lexilinkFieldValue('profile-name'),
+    group:lexilinkFieldValue('profile-group'),
+    submittedAt:new Date().toISOString(),
+    writing:{prompt:LEXILINK_WRITING_PROMPT,wordCount:writing.split(/\s+/).filter(Boolean).length,text:writing},
+    skellClusters:lexilinkCollectSkellClusters(),
+    scores:{sections:score.sections,autoTotal:score.autoTotal},
+    answers:lexilinkCollectAnswers(),
+    userAgent:navigator.userAgent
+  };
+  button.disabled=true;button.textContent='Sending…';status.className='submission-status warn';status.textContent='Sending your work to the teacher’s spreadsheet…';
+  try{
+    await fetch(SUBMISSION_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+    status.className='submission-status ok';status.textContent='Your submission request was sent. The browser cannot read the server confirmation in this mode, so the teacher should verify that the new rows appear in Google Sheets.';
+    button.textContent='Submission sent';
+  }catch(error){
+    status.className='submission-status err';status.textContent='The request could not be sent. Check the internet connection and try again.';
+    button.disabled=false;button.textContent='Submit lesson work';
+  }
+}
+// Writing Zone: block regular clipboard, keyboard paste/cut/copy shortcuts, context menu and drag/drop.
+// This is a classroom friction measure, not secure plagiarism prevention; it cannot defeat developer tools or external devices.
+(function lexilinkProtectWritingField(){
+  const field=document.getElementById('paragraph');
+  const notice=document.getElementById('writing-notice');
+  if(!field)return;
+  const blockedMessage='Please type your own text directly in this writing field; clipboard operations and drag-and-drop are disabled here.';
+  ['paste','copy','cut','drop','contextmenu'].forEach(eventName=>field.addEventListener(eventName,e=>{
+    e.preventDefault();
+    if(notice){notice.textContent=blockedMessage;notice.classList.add('submission-status','warn');}
+  }));
+  field.addEventListener('dragover',e=>e.preventDefault());
+  field.addEventListener('beforeinput',e=>{
+    if(['insertFromPaste','insertFromDrop','deleteByCut'].includes(e.inputType)){
+      e.preventDefault();if(notice)notice.textContent=blockedMessage;
+    }
+  });
+  field.addEventListener('keydown',e=>{
+    const key=String(e.key||'').toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['v','c','x'].includes(key)){e.preventDefault();if(notice)notice.textContent=blockedMessage;}
+    if(e.shiftKey&&e.key==='Insert'){e.preventDefault();if(notice)notice.textContent=blockedMessage;}
+  });
+})();
+
+</script>
+</body></html>

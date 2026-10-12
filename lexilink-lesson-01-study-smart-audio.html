@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LexiLink — Study Smart</title>
+<style>
+:root{--green:#176b45;--green2:#238657;--mint:#eaf7ef;--line:#cde6d5;--ink:#183326;--muted:#587466} 
+body{font:16px/1.55 Arial,sans-serif;max-width:1000px;margin:auto;padding:18px;background:#f2faf4;color:var(--ink)}
+header,.card{background:white;padding:20px;margin:16px 0;border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 12px rgba(23,107,69,.06)}
+header{background:linear-gradient(125deg,#155d3d,#278653);color:white;border:0}header p{margin:.4rem 0}h1{margin-top:0}h2{font-size:1.25rem;color:var(--green)}
+a{color:var(--green2);font-weight:700}.q{padding:12px 0;border-bottom:1px solid #e2efe6}label{display:block;margin:6px 0}select,textarea,input{font:inherit;padding:10px;width:100%;max-width:100%;box-sizing:border-box;border:1px solid #b9d7c3;border-radius:9px;background:#fcfffd;color:var(--ink)}textarea{min-height:80px}button{padding:10px 14px;margin:8px 6px 0 0;border:0;border-radius:9px;background:var(--green);color:white;font-weight:bold;cursor:pointer}button:hover{background:#104d31}.muted{color:var(--muted);font-size:.92rem}.fb{font-size:.92rem}.ok{color:#167143}.bad{color:#b52e38}.key{background:#fff9e8;border-color:#ead7a0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.box{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfffc}.profile{background:var(--mint);border:1px solid #a9d9b8;border-radius:16px;padding:18px;margin:16px 0}.profile h2{margin-top:0}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.avatar{width:54px;height:54px;border-radius:50%;background:#176b45;color:white;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold}.profile-head{display:flex;gap:14px;align-items:center}.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px}.slot{background:#f0faf3;border:1px solid #cde6d5;border-left:5px solid #238657;padding:12px;border-radius:10px}.slot b{display:block;color:#176b45}.pill{display:inline-block;background:#d5f0de;color:#145a37;padding:4px 9px;border-radius:999px;font-size:.85rem;font-weight:bold}@media(max-width:560px){.profile-grid{grid-template-columns:1fr}} @media print{button{display:none}}
+
+.audio-panel{padding:16px;margin:14px 0 18px;border:1px solid #b9dfc5;border-radius:14px;background:linear-gradient(135deg,#f2fbf4,#ffffff)}.audio-heading{display:flex;gap:10px;align-items:center;margin-bottom:10px}.audio-heading>span{font-size:1.7rem}.audio-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.audio-controls button{margin:2px 4px 2px 0}.speed-control{display:flex;gap:8px;align-items:center;margin:2px 0 2px 8px;font-weight:700}.speed-control select{width:auto;min-width:135px;padding:8px}.audio-status{margin:10px 0 0}.audio-progress-wrap{margin:12px 0 4px}.audio-progress-label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.9rem;color:var(--muted);margin-bottom:4px}.audio-progress{width:100%;max-width:none;height:22px;padding:0;margin:0;accent-color:var(--green);cursor:pointer;background:transparent}.audio-progress-help{font-size:.82rem;color:var(--muted);margin:2px 0 0}@media(max-width:560px){.audio-controls{align-items:stretch}.audio-controls button{flex:1}.speed-control{width:100%;margin:6px 0 0}.speed-control select{flex:1}}
+
+
+/* Shared LexiLink lesson hero design */
+.lesson-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(118deg,#104b32 0%,#176b45 54%,#2c8b5b 100%);color:#fff;border:0;border-radius:22px;padding:25px 27px;margin:16px 0;box-shadow:0 10px 28px rgba(20,90,54,.17)}
+.lesson-hero:before{content:"";position:absolute;z-index:-1;width:300px;height:300px;right:135px;top:-205px;border:1px solid rgba(255,255,255,.11);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 58px rgba(255,255,255,.02)}
+.lesson-header-layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;align-items:center;gap:25px;min-width:0}
+.lesson-header-copy{min-width:0}
+.lesson-kicker{display:flex;align-items:center;gap:9px;margin-bottom:12px;color:#d7f5e1;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.lesson-kicker-mark{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;border-radius:9px;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.26);font-size:.72rem;letter-spacing:-.03em}
+.kicker-divider{padding:0 3px;color:#9edbb5}
+.lesson-header-copy h1{max-width:690px;margin:0 0 10px;color:#fff;font-size:clamp(1.7rem,3.1vw,2.35rem);font-weight:800;line-height:1.12;letter-spacing:-.035em;text-wrap:balance}
+.lesson-subtitle{max-width:650px;margin:0 0 17px!important;color:#e4f7e9;font-size:1.04rem;line-height:1.45}
+.lesson-meta{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.lesson-meta-pill{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:.79rem;font-weight:700;line-height:1.25}
+.lesson-method{margin:14px 0 0!important;color:#d4efdd;font-size:.84rem;letter-spacing:.01em}
+.lesson-header-media{min-width:0}
+.lesson-header-photo{display:block;width:250px;height:166px;max-width:100%;object-fit:cover;object-position:center 48%;border-radius:17px;border:3px solid rgba(255,255,255,.88);box-shadow:0 12px 24px rgba(0,0,0,.2);background:#dcefe2}
+.lesson-photo-credit{display:block;margin-top:7px;text-align:right;font-size:.66rem;line-height:1.25;color:rgba(255,255,255,.76);font-weight:400;text-decoration:none}
+.lesson-photo-credit:hover{text-decoration:underline;color:#fff}
+@media(max-width:760px){.lesson-hero{padding:21px;border-radius:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr) 205px;gap:16px}.lesson-header-photo{width:205px;height:148px}.lesson-header-copy h1{font-size:clamp(1.5rem,4vw,1.9rem)}}
+@media(max-width:560px){.lesson-hero{padding:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr);gap:15px}.lesson-header-photo{width:100%;height:190px;max-width:none;object-position:center 44%;border-radius:14px}.lesson-photo-credit{text-align:left}.lesson-kicker{margin-bottom:9px}.lesson-header-copy h1{font-size:1.8rem}.lesson-subtitle{font-size:.98rem}.lesson-meta-pill{font-size:.76rem}}
+
+
+/* Consistent LexiLink lesson hero, matching Lesson 4 */
+.lesson-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(118deg,#104b32 0%,#176b45 54%,#2c8b5b 100%);color:#fff;border:0;border-radius:22px;padding:25px 27px;margin:16px 0;box-shadow:0 10px 28px rgba(20,90,54,.17)}
+.lesson-hero:before{content:"";position:absolute;z-index:-1;width:300px;height:300px;right:135px;top:-205px;border:1px solid rgba(255,255,255,.11);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 58px rgba(255,255,255,.02)}
+.lesson-header-layout{display:grid;grid-template-columns:minmax(0,1fr) 218px;align-items:center;gap:25px;min-width:0}
+.lesson-header-copy{min-width:0}
+.lesson-kicker{display:flex;align-items:center;gap:9px;margin-bottom:12px;color:#d7f5e1;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.lesson-kicker-mark{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;border-radius:9px;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.26);font-size:.72rem;letter-spacing:-.03em}
+.kicker-divider{padding:0 3px;color:#9edbb5}
+.lesson-header-copy h1{max-width:690px;margin:0 0 10px;color:#fff;font-size:clamp(1.7rem,3.1vw,2.35rem);font-weight:800;line-height:1.12;letter-spacing:-.035em;text-wrap:balance;overflow-wrap:anywhere}
+.lesson-subtitle{max-width:650px;margin:0 0 17px!important;color:#e4f7e9;font-size:1.04rem;line-height:1.45}
+.lesson-meta{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.lesson-meta-pill{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:.79rem;font-weight:700;line-height:1.25}
+.lesson-method{margin:14px 0 0!important;color:#d4efdd;font-size:.84rem;letter-spacing:.01em}
+.lesson-header-photo{display:block;width:218px;height:158px;max-width:100%;object-fit:cover;object-position:center 48%;border-radius:17px;border:3px solid rgba(255,255,255,.88);box-shadow:0 12px 24px rgba(0,0,0,.2);background:#dcefe2}
+@media(max-width:680px){.lesson-hero{padding:21px;border-radius:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr) 175px;gap:16px}.lesson-header-photo{width:175px;height:138px}.lesson-header-copy h1{font-size:clamp(1.5rem,4vw,1.9rem)}}
+@media(max-width:520px){.lesson-hero{padding:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr);gap:15px}.lesson-header-photo{width:100%;height:175px;max-width:none;object-position:center 44%;border-radius:14px}.lesson-kicker{margin-bottom:9px}.lesson-header-copy h1{font-size:1.8rem}.lesson-subtitle{font-size:.98rem}.lesson-meta-pill{font-size:.76rem}}
+
+.skell-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:16px 0}.skell-cluster{min-width:0;padding:16px;border:1px solid #d7e5ef;border-radius:16px;background:#fff;box-shadow:0 3px 10px rgba(7,39,84,.06)}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;width:fit-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px 16px;background:#082a65;color:#fff;border-radius:999px;font-weight:800;letter-spacing:.02em;font-size:clamp(.82rem,1.55vw,1.05rem);line-height:1.15;text-align:center;white-space:normal;overflow-wrap:anywhere}.cluster-type{flex:1 1 180px;min-width:0;font-size:.86rem;color:#587466;line-height:1.35}.collocation-lines{display:grid;gap:8px;margin:8px 0 14px}.collocation-line{min-height:44px;width:100%;box-sizing:border-box;border-radius:8px;padding:8px;border:1px solid #f0d96b;background:#fff0a6;font-weight:600;color:#142b43}.collocation-line::placeholder{color:#5a6070;font-weight:400}.similar-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.similar-grid textarea{width:100%;box-sizing:border-box;background:#f6faff}.callout{padding:12px 14px;border-left:4px solid #238657;background:#eff9f2;border-radius:8px}@media(max-width:680px){.skell-board{grid-template-columns:1fr}.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;padding:8px 14px}.cluster-type{flex-basis:auto;width:100%}}.cluster-sentences{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin:8px 0 12px}.cluster-sentence{min-height:68px;background:#fbfffc}.writing-area{min-height:190px}.writing-anti-paste-note{padding:10px 12px;background:#fff7d8;border:1px solid #ead27b;border-radius:9px;color:#624e00;font-size:.92rem}.submission-panel{margin-top:16px;padding:16px;border:1px solid #9ecfb0;border-radius:14px;background:#eff9f2}.submission-status{margin-top:10px;font-weight:700}.submission-status.ok{color:#176b45}.submission-status.err{color:#a5222d}.submission-status.warn{color:#805900}@media(max-width:680px){.cluster-sentences{grid-template-columns:1fr}}</style></head><body>
+<header class="lesson-hero">
+  <div class="lesson-header-layout">
+    <div class="lesson-header-copy">
+      <div class="lesson-kicker"><span class="lesson-kicker-mark">LL</span><span>LEXILINK <span class="kicker-divider">/</span> LESSON 01</span></div>
+      <h1>Study Smart</h1>
+      <p class="lesson-subtitle">Strategies for Academic Success</p>
+      <div class="lesson-meta" aria-label="Lesson information">
+        <span class="lesson-meta-pill">B2 · Upper-intermediate</span>
+        <span class="lesson-meta-pill">80-minute lesson</span>
+        <span class="lesson-meta-pill">20 target collocations</span>
+      </div>
+      <p class="lesson-method">Academic vocabulary · SkELL investigation · Lexical approach</p>
+    </div>
+    <!-- Header photo: Tima Miroshnichenko / Pexels; free-to-use Pexels source: https://www.pexels.com/photo/college-students-studying-in-a-library-9572688/ -->
+    <img class="lesson-header-photo" src="https://images.pexels.com/photos/9572688/pexels-photo-9572688.jpeg?cs=srgb&amp;dl=pexels-tima-miroshnichenko-9572688.jpg&amp;fm=jpg" alt="Three university students studying with books and laptops in a library" title="Photo by Tima Miroshnichenko / Pexels" loading="eager" decoding="async">
+  </div>
+</header>
+<section class="profile" aria-label="Student profile">
+<div class="profile-head"><div class="avatar" id="avatar-initials">S</div><div><h2 style="margin:0;color:#176b45">Student profile</h2><p style="margin:.2rem 0">LexiLink · Study Smart <span class="pill">B2</span> <span class="pill">80 minutes</span></p></div></div>
+<div class="profile-grid" style="margin-top:14px"><div><label for="profile-name">Student name</label><input id="profile-name" placeholder="Enter your name"></div><div><label for="profile-group">Group</label><input id="profile-group" placeholder="Enter group"></div></div>
+<p class="muted" style="margin-bottom:0">Your work profile for this lesson. Complete the tasks, check your scores and prepare your final paragraph.</p>
+</section>
+<section class="card"><h2>80-minute lesson route</h2><p class="muted">Teacher-facing timing plan; the tasks below follow this sequence.</p><div class="timeline">
+<div class="slot"><b>0–5 min · Warm-up</b>Discuss study habits and predict useful collocations.</div>
+<div class="slot"><b>5–17 min · Reading</b>Read the text and complete comprehension tasks.</div>
+<div class="slot"><b>17–27 min · Noticing</b>Matching and sentence completion.</div>
+<div class="slot"><b>27–42 min · DDL with SkELL</b>Investigate four keywords—study, knowledge, research and deadline—using different cluster types.</div>
+<div class="slot"><b>42–52 min · Retrieval</b>Odd One Out and Find the Collocate.</div>
+<div class="slot"><b>52–62 min · Categorising</b>Collocation Sorting and Lexical Cloze.</div>
+<div class="slot"><b>62–70 min · Correction</b>Collocation Repair; justify corrections.</div>
+<div class="slot"><b>70–77 min · Production</b>Write 80–100 words using at least eight target collocations.</div>
+<div class="slot"><b>77–80 min · Reflection</b>Review score, share one finding and set a study goal.</div>
+</div></section>
+<section class="card"><h2>Learning outcomes</h2><p>Recognise academic collocations, check hypotheses with SkELL, identify unnatural combinations and use target expressions in context.</p><h2>Target collocations: definitions and synonyms</h2><p class="muted">Study each English definition and compare the synonyms. No translations are provided.</p><div class="grid" id="target"></div></section>
+
+<section class="card" id="reading">
+<h2>Reading: Studying Smarter, Not Longer</h2>
+<p class="muted">Read the text carefully or listen to it. Target collocations are shown in bold.</p>
+<div class="audio-panel" role="group" aria-label="Reading audio controls">
+  <div class="audio-heading"><span aria-hidden="true">🎧</span><div><strong>Listen to the reading</strong><div class="muted">Browser voice · English pronunciation</div></div></div>
+  <div class="audio-controls">
+    <button type="button" onclick="playReading()" aria-label="Play or resume reading text">▶ Listen / Resume</button>
+    <button type="button" onclick="pauseReading()" aria-label="Pause reading text">Ⅱ Pause</button>
+    <button type="button" onclick="stopReading()" aria-label="Stop and reset reading text">■ Stop</button>
+    <label class="speed-control" for="reading-speed">Speed
+      <select id="reading-speed" aria-label="Reading speed" onchange="updateReadingSpeedNote()">
+        <option value="0.75">0.75× Slow</option><option value="1" selected>1× Normal</option><option value="1.25">1.25× Fast</option>
+      </select>
+    </label>
+  </div>
+  <div class="audio-progress-wrap">
+    <div class="audio-progress-label"><label for="reading-progress" style="margin:0">Reading progress</label><span id="reading-progress-value">0%</span></div>
+    <input id="reading-progress" class="audio-progress" type="range" min="0" max="100" step="1" value="0" aria-label="Reading progress; move the slider to seek" oninput="previewReadingSeek(this.value)" onchange="seekReading(this.value)">
+    <p class="audio-progress-help">After the title, narration pauses for 5 seconds before continuing. Pause / Resume preserves your place, including during this break, or move the slider to jump to another part of the text.</p>
+  </div>
+  <p id="reading-audio-status" class="muted audio-status" aria-live="polite">Ready to play. The voice available depends on your browser and device.</p>
+</div>
+<article id="reading-text" style="line-height:1.75">
+<h3>A Better Way to Study</h3>
+<p>Many university students believe that academic success depends on studying for long hours. In reality, successful learning often begins with a clear plan. Students can <b>set realistic goals</b>, <b>manage time effectively</b> and make steady progress without becoming overwhelmed. A weekly timetable also helps them <b>meet deadlines</b> and leave enough time to <b>revise for an exam</b>.</p>
+<p>Learning requires more than reading information once. Students need to <b>acquire knowledge</b> step by step and use different strategies to <b>retain information</b>. During lectures, they should <b>pay attention</b> to key ideas and <b>take notes</b> in their own words. Reviewing these notes regularly can help them <b>broaden their knowledge</b> and <b>develop skills</b> that are useful beyond the classroom.</p>
+<p>Research projects provide another opportunity to learn. Students may <b>conduct research</b>, <b>collect data</b> and <b>analyse results</b> before they <b>draw a conclusion</b>. This process can help them <b>gain experience</b> and <b>improve performance</b> in academic tasks. When results are unexpected, students may face difficulties, but they can learn to <b>overcome difficulties</b> by asking questions, checking evidence and seeking feedback.</p>
+<p>Academic progress is not always immediate. Some learners need more time than others, and mistakes are part of the process. Rather than trying to do everything at once, students can focus on one task at a time. Consistent effort can help them <b>achieve academic success</b> and eventually <b>fulfil their potential</b>. The goal is not simply to study longer, but to study with purpose.</p>
+</article>
+<h3>Reading Task A — Choose the best answer</h3><div id="readMCQ"></div><button onclick="checkReading()">Check reading answers</button><button onclick="resetReading()">Try again</button><div id="reading-result"></div>
+<h3>Reading Task B — True or False?</h3><p class="muted">Choose True or False according to the text.</p><div id="readTF"></div><button onclick="checkTF()">Check statements</button><button onclick="resetTF()">Try again</button><div id="tf-result"></div>
+<h3>Reading Task D — Match the idea to the paragraph</h3><p class="muted">Choose the paragraph number (1–4). Some paragraph numbers may be used more than once.</p><div id="readMatch"></div><button onclick="checkReadMatch()">Check paragraph matching</button><button onclick="resetReadMatch()">Try again</button><div id="readmatch-result"></div>
+</section>
+
+<section class="card"><h2>1. Matching · 10 points</h2><p class="muted">Choose the correct ending.</p><div id="matching"></div><button onclick="check('matching')">Check answers</button><button onclick="reset('matching')">Try again</button><div id="matching-result"></div></section>
+<section class="card"><h2>2. Complete the Sentence · 10 points</h2><div id="gaps"></div><button onclick="check('gaps')">Check answers</button><button onclick="reset('gaps')">Try again</button><div id="gaps-result"></div></section>
+<section class="card" id="skell-cluster"><h2>3. SkELL Multi-Cluster Investigation · 10 minutes · 10 points (teacher-scored)</h2>
+<p>Open <a href="https://skell.sketchengine.eu/" target="_blank" rel="noopener">SkELL</a>. For each keyword, use <b>Word Sketch</b> or example sentences to find at least two lexical collocations. Write one original sentence using each of your first two collocations. Then open <b>Similar words</b>, record two candidate synonyms or related words, and note a corpus example or context you checked. Related words are not automatically interchangeable: check their meaning and word partnerships in context. Your collocations, original sentences, Similar words and corpus notes will be submitted with this lesson for teacher review.</p>
+<div class="box" style="margin-top:12px"><b>Step 1 · Investigate four mini-clusters in SkELL (10 minutes)</b><p>Open <a href="https://skell.sketchengine.eu/" target="_blank" rel="noopener">SkELL</a>. For each keyword, use <b>Word Sketch</b> or the example sentences to find lexical collocations, then open <b>Similar words</b> to find candidate synonyms or semantically related words. Record at least <b>10 distinct lexical collocations in total</b>, with at least <b>two from each mini-cluster</b>, and at least <b>two candidate synonyms or related words for each keyword</b>. Check candidates in example sentences before deciding whether they are interchangeable: a related word is not necessarily a synonym in every context. Record corpus examples that support your choices. The prompts below are search directions, not pre-verified results.</p></div>
+<div class="callout"><b>Investigation routine</b><br>Keyword → find lexical collocations in SkELL → record Similar words → inspect a corpus example → decide whether a related word can replace the keyword in that context.</div><div class="skell-board"><div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">STUDY</span><span class="cluster-type"><b>Search focus:</b> verb + noun lexical collocations<br>Find verbs that naturally combine with <i>study</i> when it means an investigation.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="study-collocations" placeholder="Collocation 1" aria-label="STUDY collocation 1"><input class="collocation-line" id="study-collocations-2" placeholder="Collocation 2" aria-label="STUDY collocation 2"><input class="collocation-line" id="study-collocations-3" placeholder="Collocation 3" aria-label="STUDY collocation 3"><input class="collocation-line" id="study-collocations-4" placeholder="Collocation 4" aria-label="STUDY collocation 4"></div><div class="cluster-sentences"><label for="study-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="study-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="study-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="study-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="study-synonyms" placeholder="Similar word 1" aria-label="STUDY similar word 1"><input id="study-synonyms-2" placeholder="Similar word 2" aria-label="STUDY similar word 2"></div><label for="study-evidence">Corpus example / context</label><textarea id="study-evidence" placeholder="Copy a short SkELL example and explain the meaning of study in the example."></textarea></div><div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">KNOWLEDGE</span><span class="cluster-type"><b>Search focus:</b> verb + noun lexical collocations<br>Explore verbs that express gaining, expanding or demonstrating <i>knowledge</i>.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="knowledge-collocations" placeholder="Collocation 1" aria-label="KNOWLEDGE collocation 1"><input class="collocation-line" id="knowledge-collocations-2" placeholder="Collocation 2" aria-label="KNOWLEDGE collocation 2"><input class="collocation-line" id="knowledge-collocations-3" placeholder="Collocation 3" aria-label="KNOWLEDGE collocation 3"><input class="collocation-line" id="knowledge-collocations-4" placeholder="Collocation 4" aria-label="KNOWLEDGE collocation 4"></div><div class="cluster-sentences"><label for="knowledge-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="knowledge-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="knowledge-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="knowledge-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="knowledge-synonyms" placeholder="Similar word 1" aria-label="KNOWLEDGE similar word 1"><input id="knowledge-synonyms-2" placeholder="Similar word 2" aria-label="KNOWLEDGE similar word 2"></div><label for="knowledge-evidence">Corpus example / context</label><textarea id="knowledge-evidence" placeholder="Copy a short SkELL example and explain how knowledge is gained, expanded or demonstrated."></textarea></div><div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">RESEARCH</span><span class="cluster-type"><b>Search focus:</b> adjective + noun lexical collocations<br>Find adjectives that describe the scope, stage or nature of <i>research</i>.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="research-collocations" placeholder="Collocation 1" aria-label="RESEARCH collocation 1"><input class="collocation-line" id="research-collocations-2" placeholder="Collocation 2" aria-label="RESEARCH collocation 2"><input class="collocation-line" id="research-collocations-3" placeholder="Collocation 3" aria-label="RESEARCH collocation 3"><input class="collocation-line" id="research-collocations-4" placeholder="Collocation 4" aria-label="RESEARCH collocation 4"></div><div class="cluster-sentences"><label for="research-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="research-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="research-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="research-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="research-synonyms" placeholder="Similar word 1" aria-label="RESEARCH similar word 1"><input id="research-synonyms-2" placeholder="Similar word 2" aria-label="RESEARCH similar word 2"></div><label for="research-evidence">Corpus example / context</label><textarea id="research-evidence" placeholder="Copy a short SkELL example and explain what the adjective tells you about the research."></textarea></div><div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">DEADLINE</span><span class="cluster-type"><b>Search focus:</b> verb + noun lexical collocations<br>Explore verbs expressing meeting, missing or changing a <i>deadline</i>.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="deadline-collocations" placeholder="Collocation 1" aria-label="DEADLINE collocation 1"><input class="collocation-line" id="deadline-collocations-2" placeholder="Collocation 2" aria-label="DEADLINE collocation 2"><input class="collocation-line" id="deadline-collocations-3" placeholder="Collocation 3" aria-label="DEADLINE collocation 3"><input class="collocation-line" id="deadline-collocations-4" placeholder="Collocation 4" aria-label="DEADLINE collocation 4"></div><div class="cluster-sentences"><label for="deadline-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="deadline-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="deadline-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="deadline-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="deadline-synonyms" placeholder="Similar word 1" aria-label="DEADLINE similar word 1"><input id="deadline-synonyms-2" placeholder="Similar word 2" aria-label="DEADLINE similar word 2"></div><label for="deadline-evidence">Corpus example / context</label><textarea id="deadline-evidence" placeholder="Copy a short SkELL example and explain whether the deadline is met, missed or changed."></textarea></div></div><p class="muted">Teacher scoring: 1 point for each distinct, accurately recorded collocation supported by relevant SkELL evidence, up to 10 points. Award credit only for items actually supported by the student's corpus notes. The comparison and original sentences are reviewed formatively; this section is not automatically scored.</p><p class="muted">Your SkELL records and original sentences will be submitted with the lesson; no separate copying is needed.</p></section>
+<section class="card"><h2>4. Odd One Out · Based on SkELL · 10 points</h2><p class="muted">Choose the collocation that does not fit the pattern of the other three. Use your SkELL notes to check which combinations are natural in English. After checking, read the explanation.</p><div id="odd"></div><button onclick="check('odd')">Check answers</button><button onclick="reset('odd')">Try again</button><div id="odd-result"></div></section>
+<section class="card"><h2>5. Find the Noun, Find the Collocate · 10 points</h2><p>Read: “Successful students need to make progress throughout the academic year. They conduct research, collect data, analyse results and draw conclusions. They also set realistic goals and meet deadlines.” Choose the verb that fits each phrase.</p><div id="find"></div><button onclick="check('find')">Check answers</button><button onclick="reset('find')">Try again</button><div id="find-result"></div></section>
+<section class="card"><h2>6. Collocation Sorting · 10 points</h2><p class="muted">Choose the verb that forms a natural collocation.</p><div id="sorting"></div><button onclick="check('sorting')">Check answers</button><button onclick="reset('sorting')">Try again</button><div id="sorting-result"></div></section>
+<section class="card"><h2>7. Lexical Cloze · 10 points</h2><p><b>Word bank:</b> acquire knowledge · retain information · manage time effectively · overcome difficulties · fulfil their potential · conduct research · collect data · draw a conclusion · set realistic goals · make progress</p><div id="cloze"></div><button onclick="check('cloze')">Check answers</button><button onclick="reset('cloze')">Try again</button><div id="cloze-result"></div></section>
+<section class="card"><h2>8. Collocation Repair · 10 points</h2><div id="repair"></div><button onclick="check('repair')">Check answers</button><button onclick="reset('repair')">Try again</button><div id="repair-result"></div></section>
+<section class="card"><h2>9. Productive Recall Challenge · 5 points (teacher-scored)</h2><p>Write 80–100 words on <b>How I Can Become a More Successful Student</b>. Use at least eight target collocations.</p><label>Student name</label><input id="student-name" placeholder="First and last name"><label>Group</label><input id="student-group" placeholder="Group number"><label>Your paragraph</label><p class="writing-anti-paste-note" id="writing-notice">Write directly in this field. Paste, cut/copy shortcuts and drag-and-drop are disabled here. This browser restriction supports independent writing but is not a complete plagiarism-detection system.</p><textarea id="paragraph" style="min-height:170px" placeholder="To achieve academic success, students need to..." class="writing-area"></textarea><p id="word-count" class="muted">0 words</p><p class="muted">Teacher awards 1 point for each of up to five distinct target collocations used accurately and appropriately.</p><div class="submission-panel"><h3>Submit your lesson work to the teacher</h3><p class="muted">Your profile, exercise responses, SkELL collocations and original sentences, related words, corpus notes, writing paragraph and available scores will be collected in the teacher’s spreadsheet. Complete all four clusters and the 80–100-word paragraph before submitting.</p><button type="button" id="submitLessonBtn" onclick="submitLessonWork()">Submit lesson work</button><div id="submitStatus" class="submission-status" role="status" aria-live="polite"></div></div></section>
+<section class="card"><h2>Lesson score</h2><p class="muted">Auto-scored sections have 10 items each: reading MCQ, True/False, paragraph matching, Matching, Sentence Completion, Odd One Out, Find the Collocate, Sorting, Lexical Cloze and Collocation Repair (100 points total). SkELL cluster (10) and productive writing (5) are teacher-scored. Maximum lesson total: 115 points.</p><button onclick="summary()">Show score summary</button><div id="summary"></div></section>
+<p class="muted">LexiLink · Connect words. Build fluency. This lesson is configured to send your answers to the LexiLink response collector. The teacher should confirm that your submission appears in Google Sheets. Complete all tasks before submitting.</p>
+<script>
+let readingUtterance = null;
+let readingTextContent = '';
+let readingCurrentChar = 0;
+let readingRunId = 0;
+let readingSeekWhilePaused = false;
+let readingTitleEnd = 0;
+let readingDelayTimer = null;
+let readingDelayPaused = false;
+let readingDelayRemaining = 5000;
+let readingDelayStartedAt = 0;
+
+function setReadingAudioStatus(message){const el=document.getElementById('reading-audio-status');if(el)el.textContent=message;}
+function readingProgressPercent(){return readingTextContent.length?Math.min(100,Math.round(readingCurrentChar/readingTextContent.length*100)):0;}
+function updateReadingProgress(percent){
+  const slider=document.getElementById('reading-progress');
+  const label=document.getElementById('reading-progress-value');
+  const safe=Math.max(0,Math.min(100,Math.round(percent)));
+  if(slider)slider.value=String(safe);
+  if(label)label.textContent=safe+'%';
+}
+function getReadingText(){
+  const article=document.getElementById('reading-text');
+  if(!article)return '';
+  return (article.innerText||article.textContent||'').replace(/\s+/g,' ').trim();
+}
+function loadReadingText(){
+  const article=document.getElementById('reading-text');
+  readingTextContent=getReadingText();
+  const titleElement=article?article.querySelector('h3'):null;
+  const titleText=titleElement?(titleElement.innerText||titleElement.textContent||'').replace(/\s+/g,' ').trim():'';
+  const titleIndex=titleText?readingTextContent.indexOf(titleText):-1;
+  readingTitleEnd=titleIndex>=0?titleIndex+titleText.length:0;
+  if(readingTitleEnd<=0||readingTitleEnd>=readingTextContent.length)readingTitleEnd=0;
+  return readingTextContent;
+}
+function setProgressFromChar(charIndex){
+  readingCurrentChar=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  updateReadingProgress(readingProgressPercent());
+}
+function clearReadingDelay(){
+  if(readingDelayTimer!==null){clearTimeout(readingDelayTimer);readingDelayTimer=null;}
+  readingDelayStartedAt=0;
+}
+function startReadingDelay(runId, milliseconds){
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=Math.max(0,milliseconds);
+  if(readingDelayRemaining<=0){startReadingFrom(readingTitleEnd);return;}
+  readingDelayStartedAt=Date.now();
+  const seconds=(readingDelayRemaining/1000).toFixed(1).replace(/\.0$/,'');
+  setReadingAudioStatus('Title finished. Pausing for '+seconds+' seconds before the reading continues…');
+  readingDelayTimer=setTimeout(()=>{
+    readingDelayTimer=null;
+    readingDelayStartedAt=0;
+    if(runId!==readingRunId||readingDelayPaused)return;
+    readingDelayRemaining=5000;
+    startReadingFrom(readingTitleEnd);
+  },readingDelayRemaining);
+}
+function startReadingFrom(charIndex){
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  const start=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  if(start>=readingTextContent.length){setProgressFromChar(0);return startReadingFrom(0);}
+  const thisRun=++readingRunId;
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=5000;
+  window.speechSynthesis.cancel();
+  const isTitleSegment=readingTitleEnd>0&&start<readingTitleEnd;
+  const segmentEnd=isTitleSegment?readingTitleEnd:readingTextContent.length;
+  const segmentText=readingTextContent.slice(start,segmentEnd);
+  readingUtterance=new SpeechSynthesisUtterance(segmentText);
+  readingUtterance.lang='en-GB';
+  const rateControl=document.getElementById('reading-speed');
+  readingUtterance.rate=rateControl?Number(rateControl.value):1;
+  readingUtterance.pitch=1;
+  const voices=window.speechSynthesis.getVoices();
+  const englishVoice=voices.find(v=>/^en-GB$/i.test(v.lang))||voices.find(v=>/^en-US$/i.test(v.lang))||voices.find(v=>/^en/i.test(v.lang));
+  if(englishVoice)readingUtterance.voice=englishVoice;
+  setProgressFromChar(start);
+  readingUtterance.onstart=()=>{if(thisRun===readingRunId)setReadingAudioStatus(isTitleSegment?'Reading the title…':'Reading aloud…');};
+  readingUtterance.onboundary=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(Number.isFinite(event.charIndex))setProgressFromChar(start+event.charIndex);
+  };
+  readingUtterance.onend=()=>{
+    if(thisRun!==readingRunId)return;
+    if(isTitleSegment&&readingTitleEnd<readingTextContent.length){
+      setProgressFromChar(readingTitleEnd);
+      readingUtterance=null;
+      startReadingDelay(thisRun,5000);
+      return;
+    }
+    setProgressFromChar(readingTextContent.length);
+    setReadingAudioStatus('Reading finished. Press Listen to replay, or move the progress line to choose a section.');
+    readingUtterance=null;
+  };
+  readingUtterance.onerror=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(event.error!=='canceled'&&event.error!=='interrupted')setReadingAudioStatus('Audio playback could not start. Try another browser or check your device’s speech settings.');
+  };
+  window.speechSynthesis.speak(readingUtterance);
+  setReadingAudioStatus(isTitleSegment?'Starting with the title…':(start?'Resuming from the selected position…':'Starting playback…'));
+}
+function playReading(){
+  if(!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)){
+    setReadingAudioStatus('Text-to-speech is not supported in this browser. Try opening the lesson in an up-to-date Chrome, Edge or Safari browser.');return;
+  }
+  if(readingDelayPaused){
+    startReadingDelay(readingRunId,readingDelayRemaining);
+    setReadingAudioStatus('Resuming the 5-second pause after the title…');
+    return;
+  }
+  if(readingDelayTimer!==null){setReadingAudioStatus('The 5-second pause after the title is in progress…');return;}
+  if(window.speechSynthesis.paused&&!readingSeekWhilePaused){window.speechSynthesis.resume();setReadingAudioStatus('Reading resumed from the same place.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused)return;
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  if(readingCurrentChar>=readingTextContent.length)readingCurrentChar=0;
+  startReadingFrom(readingCurrentChar);
+}
+function pauseReading(){
+  if(!('speechSynthesis' in window)){setReadingAudioStatus('Text-to-speech is not supported in this browser.');return;}
+  if(readingDelayTimer!==null){
+    const elapsed=Math.max(0,Date.now()-readingDelayStartedAt);
+    readingDelayRemaining=Math.max(0,readingDelayRemaining-elapsed);
+    clearReadingDelay();
+    readingDelayPaused=true;
+    setReadingAudioStatus('Paused during the 5-second break after the title. Press Listen / Resume to continue the countdown.');
+    return;
+  }
+  if(readingDelayPaused){setReadingAudioStatus('The pause after the title is paused. Press Listen / Resume to continue.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused){window.speechSynthesis.pause();setReadingAudioStatus('Reading paused. Press Listen / Resume to continue from the same place.');}
+  else setReadingAudioStatus('There is no reading currently playing. Press Listen / Resume to start.');
+}
+function stopReading(){
+  if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  clearReadingDelay();
+  readingRunId++;
+  readingSeekWhilePaused=false;
+  readingDelayPaused=false;
+  readingDelayRemaining=5000;
+  readingUtterance=null;
+  loadReadingText();
+  readingCurrentChar=0;
+  updateReadingProgress(0);
+  setReadingAudioStatus('Reading stopped and reset to the beginning.');
+}
+function previewReadingSeek(percent){
+  const label=document.getElementById('reading-progress-value');
+  if(label)label.textContent=Math.max(0,Math.min(100,Math.round(Number(percent)||0))+'%');
+}
+function seekReading(percent){
+  if(!('speechSynthesis' in window)){updateReadingProgress(readingProgressPercent());return;}
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent)return;
+  const delayActive=readingDelayTimer!==null;
+  const delayPaused=readingDelayPaused;
+  const wasSpeaking=window.speechSynthesis.speaking&&!window.speechSynthesis.paused;
+  const wasPaused=window.speechSynthesis.paused;
+  const pct=Math.max(0,Math.min(100,Number(percent)||0));
+  let target=Math.round(readingTextContent.length*pct/100);
+  while(target>0&&target<readingTextContent.length&&!/\s/.test(readingTextContent[target-1]))target--;
+  setProgressFromChar(target);
+  if(delayActive){
+    clearReadingDelay();readingDelayPaused=false;readingDelayRemaining=5000;
+    startReadingFrom(target);
+  }else if(delayPaused||wasPaused){
+    clearReadingDelay();
+    if(window.speechSynthesis.speaking||window.speechSynthesis.paused)window.speechSynthesis.cancel();
+    readingRunId++;readingUtterance=null;readingDelayPaused=false;readingDelayRemaining=5000;readingSeekWhilePaused=true;
+    setReadingAudioStatus('Position selected. Press Listen / Resume to continue from here.');
+  }else if(wasSpeaking){startReadingFrom(target);}
+  else {
+    readingDelayPaused=false;readingDelayRemaining=5000;
+    setReadingAudioStatus(pct===0?'Ready to play from the beginning.':'Position selected. Press Listen / Resume to start from here.');
+  }
+}
+function updateReadingSpeedNote(){
+  if(window.speechSynthesis&&window.speechSynthesis.speaking&&!window.speechSynthesis.paused){
+    setReadingAudioStatus('To apply the new speed, stop and start playback again. Pause / Resume keeps the current playback speed.');
+  }
+}
+
+const target=[
+["acquire knowledge","Definition: to learn or gain information, facts, or understanding.","Synonyms: gain knowledge; learn; become informed"],
+["gain experience","Definition: to develop practical knowledge or skill by doing something.","Synonyms: get experience; build experience; learn through practice"],
+["meet a deadline","Definition: to finish a task by the time it is due.","Synonyms: finish on time; complete by the due date"],
+["conduct research","Definition: to carry out a systematic investigation to discover or confirm information.","Synonyms: carry out research; undertake a study; investigate"],
+["collect data","Definition: to gather information for analysis or research.","Synonyms: gather data; compile information; obtain evidence"],
+["analyse results","Definition: to examine findings carefully in order to understand what they show.","Synonyms: examine the findings; interpret results; evaluate outcomes"],
+["draw a conclusion","Definition: to decide what is likely to be true after considering evidence.","Synonyms: reach a conclusion; come to a conclusion; infer"],
+["achieve academic success","Definition: to reach good results or meet important goals in education.","Synonyms: do well academically; succeed in one's studies; attain educational goals"],
+["improve performance","Definition: to make the quality or results of someone's work better.","Synonyms: perform better; enhance results; make progress"],
+["develop skills","Definition: to build or improve the ability to do something well.","Synonyms: build skills; strengthen abilities; improve one's competence"],
+["broaden one's knowledge","Definition: to increase the range of things one knows or understands.","Synonyms: expand one's knowledge; widen one's understanding; learn more about"],
+["retain information","Definition: to keep information in one's memory and be able to recall it later.","Synonyms: remember information; store information in memory; recall what one has learned"],
+["revise for an exam","Definition: to study material again in preparation for a test.","Synonyms: review for an exam; go over the material; prepare for a test"],
+["take notes","Definition: to write down important information while listening or reading.","Synonyms: make notes; jot down key points; record information"],
+["pay attention","Definition: to listen, watch, or think carefully about something.","Synonyms: focus on; concentrate on; give something one's attention"],
+["make progress","Definition: to move forward or improve in relation to a goal.","Synonyms: improve; move forward; make headway"],
+["overcome difficulties","Definition: to successfully deal with problems or obstacles.","Synonyms: get past obstacles; cope with challenges; surmount problems"],
+["manage time effectively","Definition: to plan and use available time in a productive way.","Synonyms: use time wisely; organise one's time; prioritise tasks"],
+["set realistic goals","Definition: to decide on aims that are practical and achievable.","Synonyms: establish achievable aims; set attainable targets; define practical objectives"],
+["fulfil one's potential","Definition: to develop one's abilities as fully as possible.","Synonyms: reach one's potential; realise one's potential; make the most of one's abilities"]
+];
+document.getElementById('target').innerHTML=target.map((x,i)=>`<div class="box"><b>${i+1}. ${x[0]}</b><p>${x[1]}</p><p class="muted"><b>${x[2].split(':')[0]}:</b>${x[2].split(':').slice(1).join(':')}</p></div>`).join('');
+const profileName=document.getElementById('profile-name'), profileGroup=document.getElementById('profile-group'), studentName=document.getElementById('student-name'), studentGroup=document.getElementById('student-group');
+function updateProfile(){studentName.value=profileName.value;studentGroup.value=profileGroup.value;const words=profileName.value.trim().split(/\s+/).filter(Boolean);document.getElementById('avatar-initials').textContent=words.length?words.slice(0,2).map(w=>w[0].toUpperCase()).join(''):'S'}
+profileName.addEventListener('input',updateProfile);profileGroup.addEventListener('input',updateProfile);studentName.addEventListener('input',()=>{profileName.value=studentName.value;updateProfile()});studentGroup.addEventListener('input',()=>{profileGroup.value=studentGroup.value;updateProfile()});
+
+const data={
+matching:{items:[["acquire …","knowledge"],["meet …","a deadline"],["collect …","data"],["analyse …","results"],["draw …","a conclusion"],["develop …","skills"],["make …","progress"],["set realistic …","goals"],["retain …","information"],["gain …","experience"]],options:["knowledge","a deadline","data","results","skills","a conclusion","progress","goals","information","experience"]},
+gaps:{items:[["Students need to ___ before writing a research report.","collect data"],["To remember new vocabulary, learners must ___.","retain information"],["She had only two days left, so she had to ___.","meet a deadline"],["The evidence helped the researchers ___.","draw a conclusion"],["I need to ___ for tomorrow's test.","revise for an exam"],["A weekly schedule helps students ___.","manage time effectively"],["Fieldwork can help students ___.","gain experience"],["Learners can ___ by practising regularly.","develop skills"],["Reading widely can help students ___.","broaden one's knowledge"],["With support, students can ___ and use their abilities well.","fulfil their potential"]],options:["collect data","meet a deadline","make progress","retain information","draw a conclusion","gain experience","develop skills","broaden one's knowledge","revise for an exam","conduct research","fulfil my potential","manage time effectively","fulfil their potential","acquire knowledge"]},
+odd:{"items":[["RESEARCH: Which collocation is the odd one out?","make research","Conduct, carry out and undertake research are standard ways to say that research is being done. “Make research” follows a direct word-for-word pattern but is not the usual English collocation."],["KNOWLEDGE: Which collocation is the odd one out?","take knowledge","Acquire, gain and obtain knowledge are conventional collocations. “Take knowledge” is not the usual English equivalent of “получить знания”; use “acquire/gain knowledge.”"],["CONCLUSIONS: Which collocation is the odd one out?","make conclusions","Draw, reach and arrive at conclusions are standard English combinations. “Make conclusions” mirrors a word-for-word translation of “делать выводы”; English normally uses “draw conclusions.”"],["DEADLINES: Which collocation is the odd one out?","put a deadline","Set, establish and impose a deadline are natural collocations. “Put a deadline” is a literal-transfer pattern; English usually uses “set a deadline.”"],["GOALS: Which collocation is the odd one out?","put goals","Set, define and establish goals are standard combinations. “Put goals” follows a literal translation of “поставить цели”; the usual English collocation is “set goals.”"],["DATA ANALYSIS: Which collocation is the odd one out?","realise data analysis","Conduct, carry out and perform data analysis are conventional combinations. “Realise data analysis” is a word-for-word transfer of a verb meaning “to carry out”; English uses “conduct/perform data analysis.”"],["ACADEMIC WRITING: Which collocation is the odd one out?","make an essay","Write, draft and compose an essay are natural collocations. “Make an essay” is a literal-transfer option; English normally uses “write” or “draft an essay.”"],["EXAM PREPARATION: Which collocation is the odd one out?","do preparation for an exam","Prepare for, revise for and study for an exam are standard expressions. “Do preparation for an exam” mirrors a common word-for-word pattern; “prepare for an exam” is more natural."],["PROGRESS: Which collocation is the odd one out?","reach progress","Make, show and see progress are natural English combinations. “Reach progress” is a literal-transfer option; English usually says “make progress” or “show progress.”"],["STUDY PLAN: Which collocation is the odd one out?","put a study plan","Make, draw up and develop a study plan are natural English combinations. “Put a study plan” is a literal-transfer option; English normally uses “make/draw up a study plan.”"]],"options":["conduct research","make research","carry out research","undertake research","acquire knowledge","gain knowledge","obtain knowledge","take knowledge","make conclusions","draw conclusions","reach conclusions","arrive at conclusions","set a deadline","establish a deadline","put a deadline","impose a deadline","set goals","put goals","define goals","establish goals","realise data analysis","conduct data analysis","carry out data analysis","perform data analysis","write an essay","draft an essay","compose an essay","make an essay","prepare for an exam","revise for an exam","do preparation for an exam","study for an exam","make progress","reach progress","show progress","see progress","put a study plan","make a study plan","draw up a study plan","develop a study plan"],"radio":true}, find:{items:[["___ research","conduct"],["___ data","collect"],["___ results","analyse"],["___ conclusions","draw"],["___ realistic goals","set"],["___ deadlines","meet"],["___ progress","make"],["___ knowledge","acquire"],["___ notes","take"],["___ attention","pay"]],options:["conduct","collect","analyse","draw","set","meet","make","acquire","take","pay"]},
+sorting:{items:[["___ progress","MAKE"],["___ a mistake","MAKE"],["___ an effort","MAKE"],["___ research","DO"],["___ an assignment","DO"],["___ your best","DO"],["___ a break","HAVE"],["___ difficulty","HAVE"],["___ an opportunity","HAVE"],["___ notes","TAKE"]],options:["MAKE","DO","HAVE","TAKE"]},
+cloze:{items:[["Students need to ___ through reading and practical work.","acquire knowledge"],["Regular revision can help learners ___.","retain information"],["A weekly schedule helps students ___ and meet deadlines.","manage time effectively"],["With persistence, learners can ___ during their studies.","overcome difficulties"],["Supportive teachers help students ___ and develop their abilities.","fulfil their potential"],["Before writing a report, students should ___.","conduct research"],["Researchers need to ___ before interpreting the findings.","collect data"],["After checking the evidence, researchers can ___.","draw a conclusion"],["Learners should ___ to keep their work on schedule.","set realistic goals"],["Regular practice can help students ___.","make progress"]],options:["acquire knowledge","retain information","manage time effectively","overcome difficulties","fulfil their potential","conduct research","collect data","draw a conclusion","set realistic goals","make progress"]},
+repair:{items:[["Students should do progress every week.","make progress"],["You need to do a conclusion from the evidence.","draw a conclusion"],["She made a research into learning strategies.","conducted research"],["He wants to fulfil to his potential.","fulfil his potential"],["Please do attention to the instructions.","pay attention to the instructions"],["The students collected a research last term.","conducted research"],["We must analyse the datas carefully.","analyse the data"],["She took a progress in English this month.","made progress"],["They did notes during the lecture.","took notes"],["He setted realistic goals for the semester.","set realistic goals"]],options:["make progress","gain progress","achieve a progress","do progress","draw a conclusion","make a conclusion","take a conclusion","reach a conclusion","conducted research","made a research","made research","conduct a research","fulfil his potential","fulfil to his potential","make his potential","complete his potential","pay attention to the instructions","give attention the instructions","do attention to the instructions","pay attentions to the instructions","conducted research","collected research","did a research","made a research","analyse the data","analyse the datas","analyse a data","analyse datas","made progress","took progress","did progress","made a progress","took notes","did notes","made notes","took a note","set realistic goals","setted realistic goals","put realistic goals","made realistic goals"],radio:true}
+};
+function render(id){const d=data[id];document.getElementById(id).innerHTML=d.items.map((x,i)=>`<div class="q"><b>${i+1}. ${x[0]}</b>${d.radio?'<div>'+d.options.slice(i*4,i*4+4).map(o=>`<label><input type="radio" name="${id}-${i}" value="${o}"> ${o}</label>`).join('')+'</div>':`<select id="${id}-${i}"><option value="">Choose…</option>${d.options.map(o=>`<option>${o}</option>`).join('')}</select>`}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+Object.keys(data).forEach(render);
+const scores={};
+function check(id){const d=data[id];let n=0;d.items.forEach((x,i)=>{let v=d.radio?document.querySelector(`input[name="${id}-${i}"]:checked`)?.value:document.getElementById(`${id}-${i}`).value;const ok=v===x[1];if(ok)n++;const fb=document.getElementById(`${id}-fb-${i}`);fb.className='fb '+(ok?'ok':'bad');fb.textContent=ok?'Correct. '+(x[2]||''):'Correct answer: '+x[1]+(x[2]?' — '+x[2]:'');});scores[id]={score:n,max:d.items.length};document.getElementById(id+'-result').innerHTML=`<p><b>Score: ${n}/${d.items.length}</b></p>`}
+function reset(id){const d=data[id];d.items.forEach((x,i)=>{if(d.radio){document.querySelectorAll(`input[name="${id}-${i}"]`).forEach(e=>e.checked=false)}else document.getElementById(`${id}-${i}`).value='';const f=document.getElementById(`${id}-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById(id+'-result').innerHTML='';delete scores[id]}
+function summary(){let n=0,m=0;Object.values(scores).forEach(x=>{n+=x.score;m+=x.max});document.getElementById('summary').innerHTML=`<p><b>Automatically scored so far: ${n}/${m}.</b><br>Teacher-scored: SkELL cluster 0–10; writing 0–5. Maximum lesson score: 115, excluding teacher-reviewed reading evidence.</p>`}
+
+const readMCQs=[
+{q:"What is the main message of the text?",ans:"Effective study depends on purposeful strategies, not just long hours.",opts:["Effective study depends on purposeful strategies, not just long hours.","Students should study as many hours as possible.","Research projects are the only way to learn.","Students should avoid making mistakes."]},
+{q:"Why should students take notes in their own words?",ans:"To identify and record key ideas in a useful way.",opts:["To avoid listening to the lecturer.","To identify and record key ideas in a useful way.","To replace all reading and revision.","To finish every assignment immediately."]},
+{q:"What should students do before drawing a conclusion in a research project?",ans:"Collect data and analyse results.",opts:["Set a deadline and stop working.","Ask another student to write the report.","Collect data and analyse results.","Memorise the conclusion first."]},
+{q:"How can students respond to difficulties?",ans:"Ask questions, check evidence and seek feedback.",opts:["Give up on the task.","Ignore unexpected results.","Study all night without a plan.","Ask questions, check evidence and seek feedback."]},
+{q:"What does a weekly timetable help students do?",ans:"Plan work and leave time for revision.",opts:["Avoid all assignments.","Plan work and leave time for revision.","Replace taking notes.","Guarantee perfect results."]},
+{q:"Which activity is mentioned as part of research?",ans:"Analysing results.",opts:["Ignoring data.","Skipping evidence.","Analysing results.","Avoiding feedback."]},
+{q:"What can reviewing notes help students do?",ans:"Broaden their knowledge.",opts:["Broaden their knowledge.","Miss deadlines.","Avoid developing skills.","Stop learning new material."]},
+{q:"According to the text, what is a realistic view of mistakes?",ans:"They can be part of learning.",opts:["They mean students should stop studying.","They can be part of learning.","They should never be discussed.","They always lead to failure."]},
+{q:"What should students do rather than trying to do everything at once?",ans:"Focus on one task at a time.",opts:["Ignore their timetable.","Focus on one task at a time.","Stop setting goals.","Avoid all challenging work."]},
+{q:"What is the main purpose of the text?",ans:"To suggest practical ways to study purposefully.",opts:["To argue that exams are unnecessary.","To suggest practical ways to study purposefully.","To explain how to avoid research.","To claim that only talented students succeed."]}
+];
+const readTFs=[
+{q:"The text says that studying for longer hours always guarantees academic success.",ans:"False"},
+{q:"A weekly timetable can help students leave time for exam revision.",ans:"True"},
+{q:"The text suggests that students should draw conclusions before analysing results.",ans:"False"},
+{q:"The text presents mistakes as a possible part of the learning process.",ans:"True"},
+{q:"Students should revise for an exam only after missing the deadline.",ans:"False"},
+{q:"The text recommends taking notes in one's own words.",ans:"True"},
+{q:"The text says unexpected research results should be ignored.",ans:"False"},
+{q:"Consistent effort can help students fulfil their potential.",ans:"True"},
+{q:"The text claims that every student learns at exactly the same speed.",ans:"False"},
+{q:"The text advises students to focus on one task at a time.",ans:"True"}
+];
+const readMatches=[
+{q:"Planning time, setting goals and meeting deadlines",ans:"1"},
+{q:"Taking notes and retaining information",ans:"2"},
+{q:"Collecting data and analysing results",ans:"3"},
+{q:"Persistence, mistakes and reaching potential",ans:"4"},
+{q:"Leaving enough time for exam revision",ans:"1"},
+{q:"Using notes to support memory",ans:"2"},
+{q:"Checking findings before making a conclusion",ans:"3"},
+{q:"Asking questions and seeking feedback",ans:"3"},
+{q:"Developing useful skills beyond the classroom",ans:"2"},
+{q:"Focusing on one task at a time",ans:"4"}
+];
+function renderReadRadio(id,items,optsFn){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${optsFn(x,i)}<div class="fb" id="${id}-fb-${i}"></div></div>`).join("")}
+function renderSelect(id,items,options){
+  const host=document.getElementById(id);
+  if(!host) throw new Error(`Missing activity container: ${id}`);
+  host.innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b><label for="${id}-${i}">Paragraph:</label><select id="${id}-${i}"><option value="">Choose a paragraph…</option>${options.map(o=>`<option value="${String(o).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}">${String(o).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</option>`).join("")}</select><div class="fb" id="${id}-fb-${i}"></div></div>`).join("");
+}
+renderReadRadio("readMCQ",readMCQs,(x,i)=>`<div>${x.opts.map(o=>`<label><input type="radio" name="readMCQ-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join("")}</div>`);
+renderReadRadio("readTF",readTFs,(x,i)=>`<div><label><input type="radio" name="readTF-${i}" value="True"> True</label><label><input type="radio" name="readTF-${i}" value="False"> False</label></div>`);
+renderSelect("readMatch",readMatches,["1","2","3","4"]);
+function checkReading(){let n=0;readMCQs.forEach((x,i)=>{const v=document.querySelector(`input[name="readMCQ-${i}"]:checked`)?.value;const ok=v===x.ans;if(ok)n++;const f=document.getElementById(`readMCQ-fb-${i}`);f.className="fb "+(ok?"ok":"bad");f.textContent=ok?"Correct.":"Answer: "+x.ans});scores.reading={score:n,max:readMCQs.length};document.getElementById("reading-result").innerHTML=`<p><b>Score: ${n}/${readMCQs.length}</b></p>`}
+function resetReading(){readMCQs.forEach((x,i)=>{document.querySelectorAll(`input[name="readMCQ-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readMCQ-fb-${i}`);f.textContent="";f.className="fb"});document.getElementById("reading-result").innerHTML="";delete scores.reading}
+function checkTF(){let n=0;readTFs.forEach((x,i)=>{const v=document.querySelector(`input[name="readTF-${i}"]:checked`)?.value;const ok=v===x.ans;if(ok)n++;const f=document.getElementById(`readTF-fb-${i}`);f.className="fb "+(ok?"ok":"bad");f.textContent=ok?"Correct.":"Answer: "+x.ans});scores.readTF={score:n,max:readTFs.length};document.getElementById("tf-result").innerHTML=`<p><b>Score: ${n}/${readTFs.length}</b></p>`}
+function resetTF(){readTFs.forEach((x,i)=>{document.querySelectorAll(`input[name="readTF-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readTF-fb-${i}`);f.textContent="";f.className="fb"});document.getElementById("tf-result").innerHTML="";delete scores.readTF}
+function checkReadMatch(){
+  let n=0;
+  readMatches.forEach((item,i)=>{
+    const select=document.getElementById(`readMatch-${i}`);
+    const ok=!!select && select.value===item.ans;
+    if(ok)n++;
+    const fb=document.getElementById(`readMatch-fb-${i}`);
+    fb.className="fb "+(ok?"ok":"bad");
+    fb.textContent=ok?"Correct.":`Correct answer: paragraph ${item.ans}.`;
+  });
+  scores.readMatch={score:n,max:readMatches.length};
+  document.getElementById("readmatch-result").innerHTML=`<p><b>Score: ${n}/${readMatches.length}</b></p>`;
+}
+function resetReadMatch(){
+  readMatches.forEach((item,i)=>{
+    const select=document.getElementById(`readMatch-${i}`);
+    if(select)select.value="";
+    const fb=document.getElementById(`readMatch-fb-${i}`);
+    if(fb){fb.textContent="";fb.className="fb";}
+  });
+  document.getElementById("readmatch-result").innerHTML="";
+  delete scores.readMatch;
+}
+
+document.getElementById('paragraph').addEventListener('input',e=>{const t=e.target.value.trim();document.getElementById('word-count').textContent=(t?t.split(/\s+/).length:0)+' words'});
+
+// LexiLink shared submission collector — Lessons 1–8.
+// Replace the endpoint placeholder after deploying the shared Google Apps Script Web App.
+const SUBMISSION_ENDPOINT = "https://script.google.com/macros/s/AKfycbxKwWE0CYJDxrpP60p0A9JRv2sHrSECwzc9IPyYt9e-Kd1XQJsrHPGe2r8VHwlxPZWa/exec";
+const LEXILINK_LESSON_TITLE = "Lesson 1 — Study Smart: Strategies for Academic Success";
+const LEXILINK_WRITING_PROMPT = "How I Can Become a More Successful Student";
+function lexilinkFieldValue(id){return (document.getElementById(id)?.value||'').trim();}
+function lexilinkCollectSkellClusters(){
+  return Array.from(document.querySelectorAll('.skell-cluster')).map(card=>{
+    const keyword=(card.querySelector('.keyword-pill')?.textContent||'').trim().toUpperCase();
+    const collocations=Array.from(card.querySelectorAll('.collocation-lines .collocation-line'));
+    const sentences=Array.from(card.querySelectorAll('.cluster-sentence'));
+    const similar=Array.from(card.querySelectorAll('.similar-grid input, .similar-grid textarea'));
+    const evidence=card.querySelector('textarea[id$="-evidence"]');
+    return {
+      keyword,
+      collocation1:(collocations[0]?.value||'').trim(),
+      sentence1:(sentences[0]?.value||'').trim(),
+      collocation2:(collocations[1]?.value||'').trim(),
+      sentence2:(sentences[1]?.value||'').trim(),
+      similarWord1:(similar[0]?.value||'').trim(),
+      similarWord2:(similar[1]?.value||'').trim(),
+      evidence:(evidence?.value||'').trim()
+    };
+  });
+}
+function lexilinkCollectAnswers(){
+  const answers={};
+  document.querySelectorAll('input,textarea,select').forEach((el,i)=>{
+    if(['profile-name','profile-group','student-name','student-group','paragraph','submitLessonBtn'].includes(el.id)) return;
+    if(el.type==='radio'&&!el.checked) return;
+    if(el.type==='checkbox'&&!el.checked) return;
+    const key=el.id||el.name||('field_'+(i+1));
+    answers[key]=String(el.value||'').trim();
+  });
+  return answers;
+}
+function lexilinkGetScoreSummary(){
+  const sectionScores={};
+  try{
+    Object.entries(scores||{}).forEach(([key,value])=>{
+      if(value&&Number.isFinite(Number(value.score))&&Number.isFinite(Number(value.max)))
+        sectionScores[key]={score:Number(value.score),max:Number(value.max)};
+    });
+  }catch(e){}
+  const values=Object.values(sectionScores);
+  return {sections:sectionScores,autoTotal:{score:values.reduce((n,x)=>n+x.score,0),max:values.reduce((n,x)=>n+x.max,0)}};
+}
+function lexilinkValidateSubmission(){
+  if(!lexilinkFieldValue('profile-name')) return {ok:false,message:'Please enter your name in the student profile at the top of the lesson.',id:'profile-name'};
+  if(!lexilinkFieldValue('profile-group')) return {ok:false,message:'Please enter your group in the student profile at the top of the lesson.',id:'profile-group'};
+  const writing=lexilinkFieldValue('paragraph');
+  const wordCount=writing?writing.split(/\s+/).filter(Boolean).length:0;
+  if(wordCount<80||wordCount>100) return {ok:false,message:`The writing task requires 80–100 words. Your current paragraph has ${wordCount} words.`,id:'paragraph'};
+  const clusters=Array.from(document.querySelectorAll('.skell-cluster'));
+  if(clusters.length!==4) return {ok:false,message:'The lesson should contain four SkELL keyword clusters. Please contact your teacher if one is missing.'};
+  for(const card of clusters){
+    const keyword=(card.querySelector('.keyword-pill')?.textContent||'this keyword').trim().toUpperCase();
+    const c=Array.from(card.querySelectorAll('.collocation-lines .collocation-line'));
+    const s=Array.from(card.querySelectorAll('.cluster-sentence'));
+    const sim=Array.from(card.querySelectorAll('.similar-grid input, .similar-grid textarea'));
+    const evidence=card.querySelector('textarea[id$="-evidence"]');
+    const required=[c[0],s[0],c[1],s[1],sim[0],sim[1],evidence];
+    const missing=required.find(el=>!el||!String(el.value||'').trim());
+    if(missing){return {ok:false,message:`Complete two collocations, your own sentence for each, two Similar words, and a SkELL example/context for ${keyword}.`,id:missing?.id};}
+  }
+  return {ok:true};
+}
+async function submitLessonWork(){
+  const status=document.getElementById('submitStatus');
+  const button=document.getElementById('submitLessonBtn');
+  const validation=lexilinkValidateSubmission();
+  if(!validation.ok){status.className='submission-status err';status.textContent=validation.message;if(validation.id)document.getElementById(validation.id)?.focus();return;}
+  if(SUBMISSION_ENDPOINT.includes('PASTE_LEXILINK_APPS_SCRIPT_WEB_APP_URL_HERE')){
+    status.className='submission-status warn';status.textContent='Submission is not connected yet. The teacher must deploy the shared LexiLink Apps Script collector, paste its /exec URL into SUBMISSION_ENDPOINT, and save the HTML file.';return;
+  }
+  const writing=lexilinkFieldValue('paragraph');
+  const score=lexilinkGetScoreSummary();
+  const payload={
+    lesson:LEXILINK_LESSON_TITLE,
+    studentName:lexilinkFieldValue('profile-name'),
+    group:lexilinkFieldValue('profile-group'),
+    submittedAt:new Date().toISOString(),
+    writing:{prompt:LEXILINK_WRITING_PROMPT,wordCount:writing.split(/\s+/).filter(Boolean).length,text:writing},
+    skellClusters:lexilinkCollectSkellClusters(),
+    scores:{sections:score.sections,autoTotal:score.autoTotal},
+    answers:lexilinkCollectAnswers(),
+    userAgent:navigator.userAgent
+  };
+  button.disabled=true;button.textContent='Sending…';status.className='submission-status warn';status.textContent='Sending your work to the teacher’s spreadsheet…';
+  try{
+    await fetch(SUBMISSION_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+    status.className='submission-status ok';status.textContent='Your submission request was sent. The browser cannot read the server confirmation in this mode, so the teacher should verify that the new rows appear in Google Sheets.';
+    button.textContent='Submission sent';
+  }catch(error){
+    status.className='submission-status err';status.textContent='The request could not be sent. Check the internet connection and try again.';
+    button.disabled=false;button.textContent='Submit lesson work';
+  }
+}
+// Writing Zone: block regular clipboard, keyboard paste/cut/copy shortcuts, context menu and drag/drop.
+// This is a classroom friction measure, not secure plagiarism prevention; it cannot defeat developer tools or external devices.
+(function lexilinkProtectWritingField(){
+  const field=document.getElementById('paragraph');
+  const notice=document.getElementById('writing-notice');
+  if(!field)return;
+  const blockedMessage='Please type your own text directly in this writing field; clipboard operations and drag-and-drop are disabled here.';
+  ['paste','copy','cut','drop','contextmenu'].forEach(eventName=>field.addEventListener(eventName,e=>{
+    e.preventDefault();
+    if(notice){notice.textContent=blockedMessage;notice.classList.add('submission-status','warn');}
+  }));
+  field.addEventListener('dragover',e=>e.preventDefault());
+  field.addEventListener('beforeinput',e=>{
+    if(['insertFromPaste','insertFromDrop','deleteByCut'].includes(e.inputType)){
+      e.preventDefault();if(notice)notice.textContent=blockedMessage;
+    }
+  });
+  field.addEventListener('keydown',e=>{
+    const key=String(e.key||'').toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['v','c','x'].includes(key)){e.preventDefault();if(notice)notice.textContent=blockedMessage;}
+    if(e.shiftKey&&e.key==='Insert'){e.preventDefault();if(notice)notice.textContent=blockedMessage;}
+  });
+})();
+
+</script></body></html>

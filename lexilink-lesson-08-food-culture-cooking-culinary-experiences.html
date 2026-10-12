@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LexiLink — Food Culture, Cooking and Culinary Experiences</title>
+<style>
+:root{--green:#176b45;--green2:#238657;--mint:#eaf7ef;--line:#cde6d5;--ink:#183326;--muted:#587466}
+*{box-sizing:border-box}body{font:16px/1.55 Arial,sans-serif;max-width:1000px;margin:auto;padding:18px;background:#f2faf4;color:var(--ink)}
+header,.card{background:white;padding:20px;margin:16px 0;border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 12px rgba(23,107,69,.06)}
+header{background:linear-gradient(125deg,#155d3d,#278653);color:white;border:0}header p{margin:.4rem 0}h1{margin-top:0}h2{font-size:1.25rem;color:var(--green)}h3{color:#235c3e}
+a{color:var(--green2);font-weight:700}.q{padding:12px 0;border-bottom:1px solid #e2efe6}label{display:block;margin:6px 0}select,textarea,input{font:inherit;padding:10px;width:100%;max-width:100%;border:1px solid #b9d7c3;border-radius:9px;background:#fcfffd;color:var(--ink)}input[type=radio]{width:auto;margin-right:6px}textarea{min-height:80px}button{padding:10px 14px;margin:8px 6px 0 0;border:0;border-radius:9px;background:var(--green);color:white;font-weight:bold;cursor:pointer}button:hover{background:#104d31}.muted{color:var(--muted);font-size:.92rem}.fb{font-size:.92rem}.ok{color:#167143}.bad{color:#b52e38}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.box{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfffc}.profile{background:var(--mint);border:1px solid #a9d9b8;border-radius:16px;padding:18px;margin:16px 0}.profile h2{margin-top:0}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.avatar{width:54px;height:54px;border-radius:50%;background:#176b45;color:white;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;flex-shrink:0}.profile-head{display:flex;gap:14px;align-items:center}.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px}.slot{background:#f0faf3;border:1px solid #cde6d5;border-left:5px solid #238657;padding:12px;border-radius:10px}.slot b{display:block;color:#176b45}.pill{display:inline-block;background:#d5f0de;color:#145a37;padding:4px 9px;border-radius:999px;font-size:.85rem;font-weight:bold}
+.skell-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:16px 0}.skell-cluster{min-width:0;padding:16px;border:1px solid #d7e5ef;border-radius:16px;background:#fff;box-shadow:0 3px 10px rgba(7,39,84,.06)}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;width:fit-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px 16px;background:#082a65;color:#fff;border-radius:999px;font-weight:800;letter-spacing:.02em;font-size:clamp(.82rem,1.55vw,1.05rem);line-height:1.15;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0;font-size:.86rem;color:#587466;line-height:1.35}.collocation-lines{display:grid;gap:8px;margin:8px 0 14px}.collocation-line{height:44px;width:100%;border-radius:8px;padding:3px 8px;border:1px solid transparent;font-weight:600;color:#142b43}.collocation-line:nth-child(3n+1){background:#fff0a6;border-color:#f0d96b}.collocation-line:nth-child(3n+2){background:#f9d1f7;border-color:#eaa3e7}.collocation-line:nth-child(3n){background:#c9f5d9;border-color:#91d9ad}.collocation-line::placeholder{color:#5a6070;font-weight:400}.student-sentence{min-height:70px;margin:6px 0 12px;background:#fbfffc}.submission-panel{margin-top:16px;padding:16px;border:1px solid #9ecfb0;border-radius:14px;background:#eff9f2}.submission-status{margin-top:10px;font-weight:700}.submission-status.ok{color:#176b45}.submission-status.err{color:#a5222d}.submission-status.warn{color:#805900}.writing-area{min-height:190px}.writing-anti-paste-note{padding:10px 12px;background:#fff7d8;border:1px solid #ead27b;border-radius:9px;color:#624e00;font-size:.92rem}.similar-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.similar-grid input{background:#f6faff}.callout{padding:12px 14px;border-left:4px solid #238657;background:#eff9f2;border-radius:8px}.score-row{display:flex;gap:10px;flex-wrap:wrap}.score-chip{background:#edf7f0;border-radius:9px;padding:8px 12px}@media(max-width:680px){.skell-board{grid-template-columns:1fr}.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;padding:8px 14px}.cluster-type{flex-basis:auto;width:100%}}@media(max-width:560px){.profile-grid{grid-template-columns:1fr}body{padding:8px}header,.card{padding:15px}}@media print{button{display:none}body{background:white}}
+
+.audio-panel{padding:16px;margin:14px 0 18px;border:1px solid #b9dfc5;border-radius:14px;background:linear-gradient(135deg,#f2fbf4,#ffffff)}.audio-heading{display:flex;gap:10px;align-items:center;margin-bottom:10px}.audio-heading>span{font-size:1.7rem}.audio-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.audio-controls button{margin:2px 4px 2px 0}.speed-control{display:flex;gap:8px;align-items:center;margin:2px 0 2px 8px;font-weight:700}.speed-control select{width:auto;min-width:135px;padding:8px}.audio-status{margin:10px 0 0}.audio-progress-wrap{margin:12px 0 4px}.audio-progress-label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.9rem;color:var(--muted);margin-bottom:4px}.audio-progress{width:100%;max-width:none;height:22px;padding:0;margin:0;accent-color:var(--green);cursor:pointer;background:transparent}.audio-progress-help{font-size:.82rem;color:var(--muted);margin:2px 0 0}@media(max-width:560px){.audio-controls{align-items:stretch}.audio-controls button{flex:1}.speed-control{width:100%;margin:6px 0 0}.speed-control select{flex:1}}
+.lesson-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(118deg,#104b32 0%,#176b45 54%,#2c8b5b 100%);color:#fff;border:0;border-radius:22px;padding:25px 27px;margin:16px 0;box-shadow:0 10px 28px rgba(20,90,54,.17)}
+.lesson-hero:before{content:"";position:absolute;z-index:-1;width:300px;height:300px;right:135px;top:-205px;border:1px solid rgba(255,255,255,.11);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 58px rgba(255,255,255,.02)}
+.lesson-header-layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;align-items:center;gap:25px;min-width:0}
+.lesson-header-copy{min-width:0}
+.lesson-kicker{display:flex;align-items:center;gap:9px;margin-bottom:12px;color:#d7f5e1;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.lesson-kicker-mark{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;border-radius:9px;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.26);font-size:.72rem;letter-spacing:-.03em}
+.kicker-divider{padding:0 3px;color:#9edbb5}
+.lesson-header-copy h1{max-width:690px;margin:0 0 10px;color:#fff;font-size:clamp(1.7rem,3.1vw,2.35rem);font-weight:800;line-height:1.12;letter-spacing:-.035em;text-wrap:balance}
+.lesson-subtitle{max-width:650px;margin:0 0 17px!important;color:#e4f7e9;font-size:1.04rem;line-height:1.45}
+.lesson-meta{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.lesson-meta-pill{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:.79rem;font-weight:700;line-height:1.25}
+.lesson-method{margin:14px 0 0!important;color:#d4efdd;font-size:.84rem;letter-spacing:.01em}
+.lesson-header-photo{display:block;width:250px;height:166px;max-width:100%;object-fit:cover;object-position:center 48%;border-radius:17px;border:3px solid rgba(255,255,255,.88);box-shadow:0 12px 24px rgba(0,0,0,.2);background:#dcefe2}
+@media(max-width:760px){.lesson-hero{padding:21px;border-radius:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr) 205px;gap:16px}.lesson-header-photo{width:205px;height:148px}.lesson-header-copy h1{font-size:clamp(1.5rem,4vw,1.9rem)}}
+@media(max-width:560px){.lesson-hero{padding:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr);gap:15px}.lesson-header-photo{width:100%;height:190px;max-width:none;object-position:center 44%;border-radius:14px}.lesson-kicker{margin-bottom:9px}.lesson-header-copy h1{font-size:1.8rem}.lesson-subtitle{font-size:.98rem}.lesson-meta-pill{font-size:.76rem}}
+
+/* Responsive SkELL keyword pills: keep long keywords fully visible inside their ovals. */
+.skell-cluster{min-width:0}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 1 auto;align-items:center;justify-content:center;width:max-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px clamp(10px,1.5vw,16px);box-sizing:border-box;font-size:clamp(.72rem,1.25vw,.98rem);line-height:1.12;letter-spacing:.015em;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0}@media(max-width:680px){.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;font-size:clamp(.72rem,3vw,.94rem);padding:8px 12px}.cluster-type{flex-basis:auto;width:100%}}
+</style>
+</head>
+<body>
+<header class="lesson-hero">
+  <div class="lesson-header-layout">
+    <div class="lesson-header-copy">
+      <div class="lesson-kicker"><span class="lesson-kicker-mark">LL</span><span>LEXILINK <span class="kicker-divider">/</span> LESSON 08</span></div>
+      <h1>Food Culture, Cooking and Culinary Experiences</h1>
+      <p class="lesson-subtitle">Exploring food traditions, cooking techniques and memorable meals</p>
+      <div class="lesson-meta" aria-label="Lesson information">
+        <span class="lesson-meta-pill">B2 · Upper-intermediate</span>
+        <span class="lesson-meta-pill">80-minute lesson</span>
+        <span class="lesson-meta-pill">20 target collocations</span>
+      </div>
+      <p class="lesson-method">SkELL investigation <span aria-hidden="true">·</span> Lexical approach</p>
+    </div>
+    <!-- Header photo: a freshly prepared meal -->
+<img class="lesson-header-photo" src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" alt="A freshly prepared meal with colourful ingredients" title="Food photography from Pexels" loading="eager" decoding="async">
+  </div>
+</header>
+<section class="profile" aria-label="Student profile">
+<div class="profile-head"><div class="avatar" id="avatar-initials">S</div><div><h2 style="margin:0;color:#176b45">Student profile</h2><p style="margin:.2rem 0">LexiLink · Food and Culinary Culture <span class="pill">B2</span> <span class="pill">80 minutes</span></p></div></div>
+<div class="profile-grid" style="margin-top:14px"><div><label for="profile-name">Student name</label><input id="profile-name" placeholder="Enter your name"></div><div><label for="profile-group">Group</label><input id="profile-group" placeholder="Enter group"></div></div>
+<p class="muted" style="margin-bottom:0">Complete the tasks, investigate lexical word partnerships in SkELL and write about food culture, cooking and culinary experiences.</p>
+</section>
+<section class="card"><h2>80-minute lesson route</h2><p class="muted">Teacher-facing timing plan; the tasks below follow this sequence.</p><div class="timeline">
+<div class="slot"><b>0–5 min · Warm-up</b>Discuss food traditions, favourite meals and how people learn to cook.</div><div class="slot"><b>5–17 min · Reading</b>Read about food culture, flavour, shared meals and responsible choices.</div><div class="slot"><b>17–27 min · Noticing</b>Match and complete target collocations related to cooking and food.</div><div class="slot"><b>27–42 min · DDL with SkELL</b>Investigate four keywords and verify natural lexical collocations in SkELL.</div><div class="slot"><b>42–52 min · Retrieval</b>Use Odd One Out and Find the Collocate to notice word partnerships.</div><div class="slot"><b>52–62 min · Categorising</b>Practise collocation sorting and lexical cloze.</div><div class="slot"><b>62–70 min · Correction</b>Repair likely literal-transfer combinations and select natural English collocations.</div><div class="slot"><b>70–77 min · Production</b>Write 80–100 words about a meal, a food tradition or a memorable dining experience.</div><div class="slot"><b>77–80 min · Reflection</b>Review your score and share one collocation you verified in SkELL.</div>
+</div></section>
+<section class="card"><h2>Learning outcomes</h2><p>By the end of the lesson, you will be able to recognise and use lexical collocations related to food culture, cooking, flavour and meals; verify word partnerships with SkELL; interpret related words in context; and describe food traditions and responsible eating choices.</p><h2>Target collocations: definitions and synonyms</h2><p class="muted">Study the English definitions and compare the synonyms. No translations are provided.</p><div class="grid" id="target"></div></section>
+<section class="card" id="reading"><h2>Reading: Food Culture, Cooking and Culinary Experiences</h2><p class="muted">Read the text carefully or listen to it. Target collocations are shown in bold.</p>
+
+<div class="audio-panel" role="group" aria-label="Reading audio controls">
+  <div class="audio-heading"><span aria-hidden="true">🎧</span><div><strong>Listen to the reading</strong><div class="muted">Browser voice · English pronunciation</div></div></div>
+  <div class="audio-controls">
+    <button type="button" onclick="playReading()" aria-label="Play or resume reading text">▶ Listen / Resume</button>
+    <button type="button" onclick="pauseReading()" aria-label="Pause reading text">Ⅱ Pause</button>
+    <button type="button" onclick="stopReading()" aria-label="Stop and reset reading text">■ Stop</button>
+    <label class="speed-control" for="reading-speed">Speed
+      <select id="reading-speed" aria-label="Reading speed" onchange="updateReadingSpeedNote()">
+        <option value="0.75">0.75× Slow</option><option value="1" selected>1× Normal</option><option value="1.25">1.25× Fast</option>
+      </select>
+    </label>
+  </div>
+  <div class="audio-progress-wrap">
+    <div class="audio-progress-label"><label for="reading-progress" style="margin:0">Reading progress</label><span id="reading-progress-value">0%</span></div>
+    <input id="reading-progress" class="audio-progress" type="range" min="0" max="100" step="1" value="0" aria-label="Reading progress; move the slider to seek" oninput="previewReadingSeek(this.value)" onchange="seekReading(this.value)">
+    <p class="audio-progress-help">After the title, narration pauses for 3 seconds before continuing. Pause / Resume preserves your place, including during this break, or move the slider to jump to another part of the text.</p>
+  </div>
+  <p id="reading-audio-status" class="muted audio-status" aria-live="polite">Ready to play. The voice available depends on your browser and device.</p>
+</div>
+<article id="reading-text" style="line-height:1.75">
+<h3>More Than a Meal: Food, Culture and Experience</h3>
+<p>Food is more than something people eat when they are hungry. <b>Food culture</b> reflects a community's history, climate, beliefs and everyday habits. Families may pass a <b>traditional dish</b> from one generation to another, changing small details while keeping its meaning. When people <b>explore local cuisine</b>, they discover ingredients and cooking methods that may be unfamiliar to them. Preparing food can also bring people together: a cook may <b>prepare a meal</b>, <b>chop vegetables</b>, use <b>fresh ingredients</b> and <b>follow a recipe</b> shared by a relative. Others prefer to <b>cook from scratch</b>, choosing the ingredients and adjusting each step themselves.</p>
+<p>Good cooking often depends on how ingredients are combined. A cook may <b>add seasoning</b> carefully to <b>bring out the flavour</b> of a sauce, soup or vegetable dish. Some meals are <b>rich in flavour</b> because of herbs, spices or slow cooking, while others rely on a few simple ingredients. People do not always enjoy every taste immediately. They may <b>develop a taste for</b> unfamiliar foods after trying them more than once, or gradually <b>acquire a taste for</b> bitter, fermented or spicy dishes. Tasting something in a relaxed setting can make a new flavour easier to appreciate.</p>
+<p>Meals also have a social role. Friends and relatives often <b>share a meal</b> to celebrate, talk or offer support. In many communities, the way people <b>serve a dish</b> and the order in which food is eaten are part of local custom. For visitors, a <b>dining experience</b> can include the atmosphere, hospitality and stories behind the food, not only its taste. Asking about a dish can show respect for the people who prepared it and provide a chance to learn about regional traditions. Food can therefore connect personal memories with a wider cultural identity.</p>
+<p>Modern food choices also involve health and responsibility. People’s <b>eating habits</b> are shaped by routines, culture, access and personal needs. A <b>balanced diet</b> includes variety and depends on a person's age, activity and health needs. Hosts and restaurants should consider guests' <b>dietary requirements</b>, such as allergies or vegetarian choices, and communicate ingredients clearly. At home, planning meals and storing ingredients properly can help people <b>reduce food waste</b>. Leftovers may be used in another dish instead of being thrown away. Learning about food culture is not about following one perfect way to eat; it is about making informed choices, appreciating different traditions and enjoying food thoughtfully.</p>
+</article>
+<h3>Reading Task A — Choose the best answer</h3><div id="readMCQ"></div><button onclick="checkReading()">Check reading answers</button><button onclick="resetReading()">Try again</button><div id="reading-result"></div>
+<h3>Reading Task B — True or False?</h3><p class="muted">Choose True or False according to the text.</p><div id="readTF"></div><button onclick="checkTF()">Check statements</button><button onclick="resetTF()">Try again</button><div id="tf-result"></div>
+<h3>Reading Task D — Match the idea to the paragraph</h3><p class="muted">Choose the paragraph number (1–4). Some paragraph numbers may be used more than once.</p><div id="readMatch"></div><button onclick="checkReadMatch()">Check paragraph matching</button><button onclick="resetReadMatch()">Try again</button><div id="readmatch-result"></div>
+</section>
+<section class="card"><h2>1. Matching · 10 points</h2><p class="muted">Choose the correct ending. Feedback and the correct answer appear only after you select an answer and check it.</p><div id="matching"></div><button onclick="check('matching')">Check answers</button><button onclick="reset('matching')">Try again</button><div id="matching-result"></div></section>
+<section class="card"><h2>2. Complete the Sentence · 10 points</h2><p class="muted">Choose the lexical collocation that best completes each sentence. Unanswered items will not reveal their answers.</p><div id="gaps"></div><button onclick="check('gaps')">Check answers</button><button onclick="reset('gaps')">Try again</button><div id="gaps-result"></div></section>
+<section class="card" id="skell-cluster"><h2>3. SkELL Collocation Investigation · 10 minutes · 10 points (teacher-scored)</h2>
+<p>Open <a href="https://skell.sketchengine.eu/" target="_blank" rel="noopener">SkELL</a>. Search each keyword in <b>Word Sketch</b>, inspect example sentences and open <b>Similar words</b>. Record at least two lexical collocations for every keyword, write one original sentence with each collocation, add two candidate synonyms or related words, and save one short corpus example or its context. Your collocations and original sentences will be saved separately in the teacher's spreadsheet when you submit the lesson at the end.</p>
+<div class="callout"><b>Investigation routine</b><br>Keyword → verify collocations in SkELL → write your own examples → record Similar words → inspect a corpus example → decide whether a related word can replace the keyword in that context. Related words are not automatically interchangeable.</div>
+<div class="skell-board">
+  <div class="skell-cluster" data-keyword="CUISINE">
+    <div class="skell-cluster-head"><span class="keyword-pill">CUISINE</span><span class="cluster-type"><b>Search focus:</b> Verb + noun / adjective + noun<br>Regional food, food culture and traditional dishes.</span></div>
+    <label for="cuisine-coll-1">Collocation 1</label><input class="collocation-line" id="cuisine-coll-1" placeholder="e.g. local cuisine" autocomplete="off">
+    <label for="cuisine-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="cuisine-sentence-1" placeholder="Write a new sentence of your own."></textarea>
+    <label for="cuisine-coll-2">Collocation 2</label><input class="collocation-line" id="cuisine-coll-2" placeholder="Collocation 2" autocomplete="off">
+    <label for="cuisine-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="cuisine-sentence-2" placeholder="Write a new sentence of your own."></textarea>
+    <label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input id="cuisine-syn-1" placeholder="Related word 1" autocomplete="off"><input id="cuisine-syn-2" placeholder="Related word 2" autocomplete="off"></div>
+    <label for="cuisine-evidence">Corpus example / context checked in SkELL</label><textarea id="cuisine-evidence" placeholder="Write a short example or note the context you checked in SkELL."></textarea>
+  </div>
+  <div class="skell-cluster" data-keyword="COOKING">
+    <div class="skell-cluster-head"><span class="keyword-pill">COOKING</span><span class="cluster-type"><b>Search focus:</b> Verb + noun lexical collocations<br>Preparing food, using recipes and working with ingredients.</span></div>
+    <label for="cooking-coll-1">Collocation 1</label><input class="collocation-line" id="cooking-coll-1" placeholder="e.g. follow a recipe" autocomplete="off">
+    <label for="cooking-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="cooking-sentence-1" placeholder="Write a new sentence of your own."></textarea>
+    <label for="cooking-coll-2">Collocation 2</label><input class="collocation-line" id="cooking-coll-2" placeholder="Collocation 2" autocomplete="off">
+    <label for="cooking-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="cooking-sentence-2" placeholder="Write a new sentence of your own."></textarea>
+    <label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input id="cooking-syn-1" placeholder="Related word 1" autocomplete="off"><input id="cooking-syn-2" placeholder="Related word 2" autocomplete="off"></div>
+    <label for="cooking-evidence">Corpus example / context checked in SkELL</label><textarea id="cooking-evidence" placeholder="Write a short example or note the context you checked in SkELL."></textarea>
+  </div>
+  <div class="skell-cluster" data-keyword="FLAVOUR">
+    <div class="skell-cluster-head"><span class="keyword-pill">FLAVOUR</span><span class="cluster-type"><b>Search focus:</b> Adjective + noun / verb + noun<br>Describing taste and making flavours more noticeable.</span></div>
+    <label for="flavour-coll-1">Collocation 1</label><input class="collocation-line" id="flavour-coll-1" placeholder="e.g. rich in flavour" autocomplete="off">
+    <label for="flavour-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="flavour-sentence-1" placeholder="Write a new sentence of your own."></textarea>
+    <label for="flavour-coll-2">Collocation 2</label><input class="collocation-line" id="flavour-coll-2" placeholder="Collocation 2" autocomplete="off">
+    <label for="flavour-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="flavour-sentence-2" placeholder="Write a new sentence of your own."></textarea>
+    <label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input id="flavour-syn-1" placeholder="Related word 1" autocomplete="off"><input id="flavour-syn-2" placeholder="Related word 2" autocomplete="off"></div>
+    <label for="flavour-evidence">Corpus example / context checked in SkELL</label><textarea id="flavour-evidence" placeholder="Write a short example or note the context you checked in SkELL."></textarea>
+  </div>
+  <div class="skell-cluster" data-keyword="MEALS">
+    <div class="skell-cluster-head"><span class="keyword-pill">MEALS</span><span class="cluster-type"><b>Search focus:</b> Verb + noun lexical collocations<br>Preparing, sharing and serving meals.</span></div>
+    <label for="meals-coll-1">Collocation 1</label><input class="collocation-line" id="meals-coll-1" placeholder="e.g. share a meal" autocomplete="off">
+    <label for="meals-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="meals-sentence-1" placeholder="Write a new sentence of your own."></textarea>
+    <label for="meals-coll-2">Collocation 2</label><input class="collocation-line" id="meals-coll-2" placeholder="Collocation 2" autocomplete="off">
+    <label for="meals-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="meals-sentence-2" placeholder="Write a new sentence of your own."></textarea>
+    <label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input id="meals-syn-1" placeholder="Related word 1" autocomplete="off"><input id="meals-syn-2" placeholder="Related word 2" autocomplete="off"></div>
+    <label for="meals-evidence">Corpus example / context checked in SkELL</label><textarea id="meals-evidence" placeholder="Write a short example or note the context you checked in SkELL."></textarea>
+  </div>
+</div>
+<p class="muted">Teacher scoring: up to 10 points for accurate, distinct collocations, sentences showing meaningful use, and evidence from SkELL. Similar words are assessed for relevance and contextual interpretation.</p>
+<p class="muted">No separate “Copy cluster notes” button is needed: these structured fields are included in the lesson submission and appear as individual records in the teacher's spreadsheet.</p></section>
+<section class="card"><h2>4. Odd One Out · Based on SkELL · 10 points</h2><p class="muted">Choose the collocation that does not fit the pattern of the other options. Use your SkELL notes to check which combinations are natural in English. Unanswered items stay hidden; explanations appear only after you choose and check.</p><div id="odd"></div><button onclick="check('odd')">Check answers</button><button onclick="reset('odd')">Try again</button><div id="odd-result"></div></section>
+<section class="card"><h2>5. Find the Verb, Find the Collocate · 10 points</h2><p>Choose the verb that completes each collocation related to food culture, cooking, flavour and meals.</p><div id="find"></div><button onclick="check('find')">Check answers</button><button onclick="reset('find')">Try again</button><div id="find-result"></div></section>
+<section class="card"><h2>6. Collocation Sorting · 10 points</h2><p class="muted">Choose the verb that creates a natural lexical collocation.</p><div id="sorting"></div><button onclick="check('sorting')">Check answers</button><button onclick="reset('sorting')">Try again</button><div id="sorting-result"></div></section>
+<section class="card"><h2>7. Lexical Cloze · 10 points</h2><p class="muted"><b>Word bank:</b> cook from scratch · bring out the flavour · follow a recipe · rich in flavour · develop a taste for · share a meal · dietary requirements · reduce food waste · balanced diet · explore local cuisine</p><div id="cloze"></div><button onclick="check('cloze')">Check answers</button><button onclick="reset('cloze')">Try again</button><div id="cloze-result"></div></section>
+<section class="card"><h2>8. Collocation Repair · 10 points</h2><p class="muted">Choose the best correction. Focus on natural lexical word partnerships for food culture, cooking, flavour and meals.</p><div id="repair"></div><button onclick="check('repair')">Check answers</button><button onclick="reset('repair')">Try again</button><div id="repair-result"></div></section>
+<section class="card" id="writing-zone"><h2>9. Productive Recall Challenge · 5 points (teacher-scored)</h2><p>Write 80–100 words on <b>Food Culture, Cooking and Culinary Experiences</b>. Use at least eight target collocations from this lesson. Write directly in the box; clipboard paste and drag-and-drop are disabled in this field.</p><p class="writing-anti-paste-note" id="writing-notice">Please compose your paragraph here rather than pasting a prepared text. Normal paste, cut/copy shortcuts and drag-and-drop are blocked in this writing field. This browser restriction supports the task rules but is not a complete plagiarism-detection system.</p><label for="paragraph">Your paragraph</label><textarea id="paragraph" class="writing-area" autocomplete="off" autocapitalize="sentences" spellcheck="true" placeholder="Food can bring people together when..."></textarea><p id="word-count" class="muted">0 words</p><p class="muted">Teacher awards up to 5 points for accurate use of distinct target collocations, a clear main idea and relevant examples.</p><div class="submission-panel"><h3>Submit your lesson work to the teacher</h3><p class="muted">Your name and group from the student profile above, your SkELL collocations and original sentences, related words, corpus notes, writing paragraph and available exercise scores will be collected in the teacher's spreadsheet.</p><button type="button" id="submitLessonBtn" onclick="submitLessonWork()">Submit lesson work</button><div id="submitStatus" class="submission-status" role="status" aria-live="polite"></div></div></section>
+<section class="card"><h2>Lesson score</h2><p class="muted">Auto-scored sections: reading MCQ, True/False, paragraph matching, Matching, Sentence Completion, Odd One Out, Find the Collocate, Sorting, Lexical Cloze and Collocation Repair (100 points total). SkELL cluster (10) and productive writing (5) are teacher-scored. Maximum lesson total: 115 points.</p><button onclick="summary()">Show score summary</button><div id="summary"></div></section>
+<p class="muted">LexiLink · Connect words. Build fluency. Lesson submissions are sent to the configured Google Apps Script collector. The teacher must verify the saved row in Google Sheets because the browser cannot read confirmation in no-cors mode.</p>
+<script>
+let readingUtterance = null;
+let readingTextContent = '';
+let readingCurrentChar = 0;
+let readingRunId = 0;
+let readingSeekWhilePaused = false;
+let readingTitleEnd = 0;
+let readingDelayTimer = null;
+let readingDelayPaused = false;
+let readingDelayRemaining = 3000;
+let readingDelayStartedAt = 0;
+
+function setReadingAudioStatus(message){const el=document.getElementById('reading-audio-status');if(el)el.textContent=message;}
+function readingProgressPercent(){return readingTextContent.length?Math.min(100,Math.round(readingCurrentChar/readingTextContent.length*100)):0;}
+function updateReadingProgress(percent){
+  const slider=document.getElementById('reading-progress');
+  const label=document.getElementById('reading-progress-value');
+  const safe=Math.max(0,Math.min(100,Math.round(percent)));
+  if(slider)slider.value=String(safe);
+  if(label)label.textContent=safe+'%';
+}
+function getReadingText(){
+  const article=document.getElementById('reading-text');
+  if(!article)return '';
+  return (article.innerText||article.textContent||'').replace(/\s+/g,' ').trim();
+}
+function loadReadingText(){
+  const article=document.getElementById('reading-text');
+  readingTextContent=getReadingText();
+  const titleElement=article?article.querySelector('h3'):null;
+  const titleText=titleElement?(titleElement.innerText||titleElement.textContent||'').replace(/\s+/g,' ').trim():'';
+  const titleIndex=titleText?readingTextContent.indexOf(titleText):-1;
+  readingTitleEnd=titleIndex>=0?titleIndex+titleText.length:0;
+  if(readingTitleEnd<=0||readingTitleEnd>=readingTextContent.length)readingTitleEnd=0;
+  return readingTextContent;
+}
+function setProgressFromChar(charIndex){
+  readingCurrentChar=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  updateReadingProgress(readingProgressPercent());
+}
+function clearReadingDelay(){
+  if(readingDelayTimer!==null){clearTimeout(readingDelayTimer);readingDelayTimer=null;}
+  readingDelayStartedAt=0;
+}
+function startReadingDelay(runId, milliseconds){
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=Math.max(0,milliseconds);
+  if(readingDelayRemaining<=0){startReadingFrom(readingTitleEnd);return;}
+  readingDelayStartedAt=Date.now();
+  const seconds=(readingDelayRemaining/1000).toFixed(1).replace(/\.0$/,'');
+  setReadingAudioStatus('Title finished. Pausing for '+seconds+' seconds before the reading continues…');
+  readingDelayTimer=setTimeout(()=>{
+    readingDelayTimer=null;
+    readingDelayStartedAt=0;
+    if(runId!==readingRunId||readingDelayPaused)return;
+    readingDelayRemaining=3000;
+    startReadingFrom(readingTitleEnd);
+  },readingDelayRemaining);
+}
+function startReadingFrom(charIndex){
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  const start=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  if(start>=readingTextContent.length){setProgressFromChar(0);return startReadingFrom(0);}
+  const thisRun=++readingRunId;
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=3000;
+  window.speechSynthesis.cancel();
+  const isTitleSegment=readingTitleEnd>0&&start<readingTitleEnd;
+  const segmentEnd=isTitleSegment?readingTitleEnd:readingTextContent.length;
+  const segmentText=readingTextContent.slice(start,segmentEnd);
+  readingUtterance=new SpeechSynthesisUtterance(segmentText);
+  readingUtterance.lang='en-GB';
+  const rateControl=document.getElementById('reading-speed');
+  readingUtterance.rate=rateControl?Number(rateControl.value):1;
+  readingUtterance.pitch=1;
+  const voices=window.speechSynthesis.getVoices();
+  const englishVoice=voices.find(v=>/^en-GB$/i.test(v.lang))||voices.find(v=>/^en-US$/i.test(v.lang))||voices.find(v=>/^en/i.test(v.lang));
+  if(englishVoice)readingUtterance.voice=englishVoice;
+  setProgressFromChar(start);
+  readingUtterance.onstart=()=>{if(thisRun===readingRunId)setReadingAudioStatus(isTitleSegment?'Reading the title…':'Reading aloud…');};
+  readingUtterance.onboundary=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(Number.isFinite(event.charIndex))setProgressFromChar(start+event.charIndex);
+  };
+  readingUtterance.onend=()=>{
+    if(thisRun!==readingRunId)return;
+    if(isTitleSegment&&readingTitleEnd<readingTextContent.length){
+      setProgressFromChar(readingTitleEnd);
+      readingUtterance=null;
+      startReadingDelay(thisRun,3000);
+      return;
+    }
+    setProgressFromChar(readingTextContent.length);
+    setReadingAudioStatus('Reading finished. Press Listen to replay, or move the progress line to choose a section.');
+    readingUtterance=null;
+  };
+  readingUtterance.onerror=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(event.error!=='canceled'&&event.error!=='interrupted')setReadingAudioStatus('Audio playback could not start. Try another browser or check your device’s speech settings.');
+  };
+  window.speechSynthesis.speak(readingUtterance);
+  setReadingAudioStatus(isTitleSegment?'Starting with the title…':(start?'Resuming from the selected position…':'Starting playback…'));
+}
+function playReading(){
+  if(!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)){
+    setReadingAudioStatus('Text-to-speech is not supported in this browser. Try opening the lesson in an up-to-date Chrome, Edge or Safari browser.');return;
+  }
+  if(readingDelayPaused){
+    startReadingDelay(readingRunId,readingDelayRemaining);
+    setReadingAudioStatus('Resuming the 3-second pause after the title…');
+    return;
+  }
+  if(readingDelayTimer!==null){setReadingAudioStatus('The 3-second pause after the title is in progress…');return;}
+  if(window.speechSynthesis.paused&&!readingSeekWhilePaused){window.speechSynthesis.resume();setReadingAudioStatus('Reading resumed from the same place.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused)return;
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  if(readingCurrentChar>=readingTextContent.length)readingCurrentChar=0;
+  startReadingFrom(readingCurrentChar);
+}
+function pauseReading(){
+  if(!('speechSynthesis' in window)){setReadingAudioStatus('Text-to-speech is not supported in this browser.');return;}
+  if(readingDelayTimer!==null){
+    const elapsed=Math.max(0,Date.now()-readingDelayStartedAt);
+    readingDelayRemaining=Math.max(0,readingDelayRemaining-elapsed);
+    clearReadingDelay();
+    readingDelayPaused=true;
+    setReadingAudioStatus('Paused during the 3-second break after the title. Press Listen / Resume to continue the countdown.');
+    return;
+  }
+  if(readingDelayPaused){setReadingAudioStatus('The pause after the title is paused. Press Listen / Resume to continue.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused){window.speechSynthesis.pause();setReadingAudioStatus('Reading paused. Press Listen / Resume to continue from the same place.');}
+  else setReadingAudioStatus('There is no reading currently playing. Press Listen / Resume to start.');
+}
+function stopReading(){
+  if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  clearReadingDelay();
+  readingRunId++;
+  readingSeekWhilePaused=false;
+  readingDelayPaused=false;
+  readingDelayRemaining=3000;
+  readingUtterance=null;
+  loadReadingText();
+  readingCurrentChar=0;
+  updateReadingProgress(0);
+  setReadingAudioStatus('Reading stopped and reset to the beginning.');
+}
+function previewReadingSeek(percent){
+  const label=document.getElementById('reading-progress-value');
+  if(label)label.textContent=Math.max(0,Math.min(100,Math.round(Number(percent)||0))+'%');
+}
+function seekReading(percent){
+  if(!('speechSynthesis' in window)){updateReadingProgress(readingProgressPercent());return;}
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent)return;
+  const delayActive=readingDelayTimer!==null;
+  const delayPaused=readingDelayPaused;
+  const wasSpeaking=window.speechSynthesis.speaking&&!window.speechSynthesis.paused;
+  const wasPaused=window.speechSynthesis.paused;
+  const pct=Math.max(0,Math.min(100,Number(percent)||0));
+  let target=Math.round(readingTextContent.length*pct/100);
+  while(target>0&&target<readingTextContent.length&&!/\s/.test(readingTextContent[target-1]))target--;
+  setProgressFromChar(target);
+  if(delayActive){
+    clearReadingDelay();readingDelayPaused=false;readingDelayRemaining=3000;
+    startReadingFrom(target);
+  }else if(delayPaused||wasPaused){
+    clearReadingDelay();
+    if(window.speechSynthesis.speaking||window.speechSynthesis.paused)window.speechSynthesis.cancel();
+    readingRunId++;readingUtterance=null;readingDelayPaused=false;readingDelayRemaining=3000;readingSeekWhilePaused=true;
+    setReadingAudioStatus('Position selected. Press Listen / Resume to continue from here.');
+  }else if(wasSpeaking){startReadingFrom(target);}
+  else {
+    readingDelayPaused=false;readingDelayRemaining=3000;
+    setReadingAudioStatus(pct===0?'Ready to play from the beginning.':'Position selected. Press Listen / Resume to start from here.');
+  }
+}
+function updateReadingSpeedNote(){
+  if(window.speechSynthesis&&window.speechSynthesis.speaking&&!window.speechSynthesis.paused){
+    setReadingAudioStatus('To apply the new speed, stop and start playback again. Pause / Resume keeps the current playback speed.');
+  }
+}
+
+const target=[["food culture","Definition: the traditions, habits and meanings connected with food in a community.","Synonyms: culinary culture; food traditions; eating traditions"],["traditional dish","Definition: a meal or type of food associated with a community or region over time.","Synonyms: local speciality; classic dish; regional dish"],["explore local cuisine","Definition: to try and learn about the food of a place.","Synonyms: sample local cuisine; try local dishes; discover regional food"],["prepare a meal","Definition: to get food ready to eat.","Synonyms: make a meal; cook a meal; get a meal ready"],["chop vegetables","Definition: to cut vegetables into small pieces.","Synonyms: dice vegetables; cut up vegetables; slice vegetables"],["fresh ingredients","Definition: food products that are fresh rather than preserved or processed.","Synonyms: fresh produce; fresh food items; recently harvested ingredients"],["follow a recipe","Definition: to prepare a dish by using the instructions given.","Synonyms: use a recipe; cook from a recipe; stick to a recipe"],["cook from scratch","Definition: to prepare food using basic ingredients rather than ready-made products.","Synonyms: make from scratch; prepare food from basic ingredients; cook without ready-made components"],["add seasoning","Definition: to put salt, herbs, spices or other flavourings into food.","Synonyms: season a dish; add herbs and spices; flavour the food"],["bring out the flavour","Definition: to make the natural taste of food more noticeable.","Synonyms: enhance the flavour; bring out the taste; intensify the flavour"],["rich in flavour","Definition: having a strong, full or complex taste.","Synonyms: full of flavour; flavourful; packed with flavour"],["develop a taste for","Definition: to begin to enjoy a food or flavour over time.","Synonyms: acquire a taste for; grow to like; learn to enjoy"],["acquire a taste for","Definition: to gradually start liking something that was unfamiliar or unappealing.","Synonyms: develop a taste for; develop a liking for; learn to appreciate"],["share a meal","Definition: to eat together, often as a social activity.","Synonyms: have a meal together; eat together; sit down to a meal together"],["serve a dish","Definition: to present prepared food for people to eat.","Synonyms: present a dish; bring out a dish; offer a dish"],["dining experience","Definition: the overall experience of eating a meal, including food, service and atmosphere.","Synonyms: meal experience; restaurant experience; eating-out experience"],["balanced diet","Definition: a way of eating that provides a suitable variety of nutrients.","Synonyms: healthy diet; varied diet; nutritionally balanced diet"],["dietary requirements","Definition: particular food needs related to health, beliefs or personal choices.","Synonyms: dietary needs; food requirements; special dietary needs"],["reduce food waste","Definition: to decrease the amount of edible food that is thrown away.","Synonyms: cut down on food waste; minimise food waste; throw away less food"],["eating habits","Definition: the usual ways a person chooses, prepares and eats food.","Synonyms: dietary habits; eating patterns; food habits"]];
+document.getElementById('target').innerHTML=target.map((x,i)=>`<div class="box"><b>${i+1}. ${x[0]}</b><p>${x[1]}</p><p class="muted"><b>${x[2].split(':')[0]}:</b>${x[2].split(':').slice(1).join(':')}</p></div>`).join('');
+const profileName=document.getElementById('profile-name'),profileGroup=document.getElementById('profile-group');
+function updateProfile(){const words=profileName.value.trim().split(/\s+/).filter(Boolean);document.getElementById('avatar-initials').textContent=words.length?words.slice(0,2).map(w=>w[0].toUpperCase()).join(''):'S'}
+profileName.addEventListener('input',updateProfile);profileGroup.addEventListener('input',()=>{});
+const clusterIds=['cuisine','cooking','flavour','meals'];
+document.getElementById('paragraph').addEventListener('input',e=>{const t=e.target.value.trim();document.getElementById('word-count').textContent=(t?t.split(/\s+/).length:0)+' words'});
+
+// Block ordinary clipboard paste/cut/copy shortcuts and drag-drop in the writing field.
+// This is a classroom friction measure, not secure plagiarism prevention.
+(function protectWritingField(){
+  const field=document.getElementById('paragraph');
+  const notice=document.getElementById('writing-notice');
+  const blockedMessage='Please type your own text directly in this writing field; paste and drag-and-drop are disabled.';
+  ['paste','copy','cut','drop'].forEach(eventName=>field.addEventListener(eventName,e=>{
+    e.preventDefault();
+    if(notice){notice.textContent=blockedMessage;notice.classList.add('submission-status','warn');}
+  }));
+  field.addEventListener('dragover',e=>e.preventDefault());
+  field.addEventListener('beforeinput',e=>{
+    if(['insertFromPaste','insertFromDrop','deleteByCut'].includes(e.inputType)){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+  });
+  field.addEventListener('keydown',e=>{
+    const key=e.key.toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['v','c','x'].includes(key)){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+    if(e.shiftKey&&e.key==='Insert'){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+  });
+})();
+
+// Paste the deployed Web App URL for the collector script supplied with this lesson.
+const SUBMISSION_ENDPOINT = "https://script.google.com/macros/s/AKfycbxKwWE0CYJDxrpP60p0A9JRv2sHrSECwzc9IPyYt9e-Kd1XQJsrHPGe2r8VHwlxPZWa/exec";
+function fieldValue(id){return (document.getElementById(id)?.value||'').trim()}
+function collectSkellClusters(){
+  return clusterIds.map(keyword=>({
+    keyword:keyword.toUpperCase(),
+    collocation1:fieldValue(`${keyword}-coll-1`),
+    sentence1:fieldValue(`${keyword}-sentence-1`),
+    collocation2:fieldValue(`${keyword}-coll-2`),
+    sentence2:fieldValue(`${keyword}-sentence-2`),
+    similarWord1:fieldValue(`${keyword}-syn-1`),
+    similarWord2:fieldValue(`${keyword}-syn-2`),
+    evidence:fieldValue(`${keyword}-evidence`)
+  }));
+}
+function collectAnswers(){
+  const answers={};
+  document.querySelectorAll('input,textarea,select').forEach((el,i)=>{
+    if(['profile-name','profile-group','paragraph','submitLessonBtn'].includes(el.id)) return;
+    if(el.type==='radio'&&!el.checked) return;
+    if(el.type==='checkbox'&&!el.checked) return;
+    const key=el.id||el.name||`field_${i+1}`;
+    answers[key]=String(el.value||'').trim();
+  });
+  return answers;
+}
+function getScoreSummary(){
+  const parts=Object.values(scores);
+  return {score:parts.reduce((sum,x)=>sum+Number(x.score||0),0),max:parts.reduce((sum,x)=>sum+Number(x.max||0),0)};
+}
+function validateSubmission(){
+  if(!fieldValue('profile-name')) return {ok:false,message:'Please enter your name in the student profile at the top of the lesson.',id:'profile-name'};
+  if(!fieldValue('profile-group')) return {ok:false,message:'Please enter your group in the student profile at the top of the lesson.',id:'profile-group'};
+  const writing=fieldValue('paragraph');
+  const words=writing?writing.split(/\s+/).length:0;
+  if(words<80||words>100) return {ok:false,message:`The writing task requires 80–100 words. Your current paragraph has ${words} words.`,id:'paragraph'};
+  for(const keyword of clusterIds){
+    const fields=[`${keyword}-coll-1`,`${keyword}-sentence-1`,`${keyword}-coll-2`,`${keyword}-sentence-2`,`${keyword}-syn-1`,`${keyword}-syn-2`,`${keyword}-evidence`];
+    const missing=fields.find(id=>!fieldValue(id));
+    if(missing) return {ok:false,message:`Complete both collocations and their own sentences, two Similar words, and a corpus context for ${keyword.toUpperCase()}.`,id:missing};
+  }
+  return {ok:true};
+}
+async function submitLessonWork(){
+  const status=document.getElementById('submitStatus');
+  const button=document.getElementById('submitLessonBtn');
+  const validation=validateSubmission();
+  if(!validation.ok){status.className='submission-status err';status.textContent=validation.message;document.getElementById(validation.id)?.focus();return;}
+  if(SUBMISSION_ENDPOINT.includes('PASTE_LEXILINK_APPS_SCRIPT_WEB_APP_URL_HERE')){
+    status.className='submission-status warn';
+    status.textContent='Submission is not connected yet. The teacher must deploy the shared LexiLink Google Apps Script collector, paste its /exec URL into SUBMISSION_ENDPOINT, and save the HTML file.';
+    return;
+  }
+  const payload={
+    lesson:'Lesson 8 — Food Culture, Cooking and Culinary Experiences',
+    studentName:fieldValue('profile-name'),
+    group:fieldValue('profile-group'),
+    submittedAt:new Date().toISOString(),
+    writing:{prompt:'Food Culture, Cooking and Culinary Experiences',wordCount:fieldValue('paragraph').split(/\s+/).length,text:fieldValue('paragraph')},
+    skellClusters:collectSkellClusters(),
+    scores:{sections:scores,autoTotal:getScoreSummary()},
+    answers:collectAnswers(),
+    userAgent:navigator.userAgent
+  };
+  button.disabled=true;button.textContent='Sending…';status.className='submission-status warn';status.textContent='Sending your work to the teacher’s spreadsheet…';
+  try{
+    await fetch(SUBMISSION_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+    status.className='submission-status ok';status.textContent='Your submission request was sent. The browser cannot read the server confirmation in this mode, so the teacher should verify that the new rows appear in Google Sheets.';
+    button.textContent='Submission sent';
+  }catch(error){
+    status.className='submission-status err';status.textContent='The request could not be sent. Check the internet connection and try again.';
+    button.disabled=false;button.textContent='Try again';
+  }
+}
+const readMCQs=[{"q":"What can food culture tell people about a community?","ans":"Its history, climate, beliefs and everyday habits.","opts":["Only the cost of food in local shops.","Its history, climate, beliefs and everyday habits.","That everyone in the community eats the same way.","That recipes never change over time."]},{"q":"What does it mean to cook from scratch?","ans":"To prepare food from basic ingredients rather than ready-made products.","opts":["To heat a ready-made meal without changing it.","To prepare food from basic ingredients rather than ready-made products.","To follow only the shortest recipe.","To cook without using any ingredients."]},{"q":"Why might a cook add seasoning carefully?","ans":"To bring out the flavour of the dish.","opts":["To remove every natural taste from the food.","To make all dishes taste exactly the same.","To bring out the flavour of the dish.","To avoid using fresh ingredients."]},{"q":"What may happen when someone tries an unfamiliar food several times?","ans":"They may develop or acquire a taste for it.","opts":["They must immediately prefer it to familiar food.","They may develop or acquire a taste for it.","They will always lose interest in it.","They will no longer need a balanced diet."]},{"q":"According to the reading, what can a dining experience include besides taste?","ans":"Atmosphere, hospitality and stories behind the food.","opts":["Atmosphere, hospitality and stories behind the food.","Only the number of ingredients on a plate.","A requirement to eat every dish offered.","A guarantee that all guests have the same preferences."]},{"q":"Why do people often share a meal?","ans":"To celebrate, talk or offer support.","opts":["To avoid communicating with one another.","To celebrate, talk or offer support.","To make every meal more expensive.","To prevent cultural traditions from continuing."]},{"q":"What should hosts or restaurants consider?","ans":"Guests' dietary requirements and clear information about ingredients.","opts":["Guests' dietary requirements and clear information about ingredients.","Only the host's favourite food.","The idea that allergies are unimportant.","Serving every guest precisely the same food."]},{"q":"How can people reduce food waste at home?","ans":"Plan meals and store ingredients properly.","opts":["Buy more food than they can use.","Throw away leftovers immediately.","Plan meals and store ingredients properly.","Avoid using fresh ingredients."]},{"q":"Which statement about a balanced diet is supported by the reading?","ans":"It includes variety and depends on a person's needs.","opts":["It is identical for every person.","It includes variety and depends on a person's needs.","It excludes all traditional dishes.","It is determined only by the cost of food."]},{"q":"What is the main message of the reading?","ans":"Food connects culture, enjoyment, health and responsibility.","opts":["Everyone should follow one universal diet.","Cooking is useful only for professional chefs.","Food connects culture, enjoyment, health and responsibility.","New foods should always be avoided."]}];
+const readTFs=[{"q":"Food culture can reflect a community's history and habits.","ans":"True"},{"q":"The reading says cooking from scratch means using only ready-made products.","ans":"False"},{"q":"Seasoning can help bring out the flavour of a dish.","ans":"True"},{"q":"People may gradually develop a taste for unfamiliar foods.","ans":"True"},{"q":"The reading describes a dining experience as involving food only, not atmosphere or hospitality.","ans":"False"},{"q":"Sharing a meal can be a way to celebrate or offer support.","ans":"True"},{"q":"Dietary requirements may relate to health, beliefs or personal choices.","ans":"True"},{"q":"Planning meals and storing ingredients can help reduce food waste.","ans":"True"},{"q":"The reading claims that a balanced diet is exactly the same for every person.","ans":"False"},{"q":"The text encourages people to appreciate food thoughtfully and learn about different traditions.","ans":"True"}];
+const readMatches=[{"q":"Food traditions can express a community's history and identity","ans":"1"},{"q":"Preparing food from basic ingredients rather than ready-made products","ans":"1"},{"q":"Using seasoning to make a dish's taste more noticeable","ans":"2"},{"q":"Gradually beginning to enjoy a new taste","ans":"2"},{"q":"Eating together to celebrate, talk or offer support","ans":"3"},{"q":"Learning about a place through its local food and hospitality","ans":"3"},{"q":"Considering allergies and other food needs","ans":"4"},{"q":"Planning meals and storing ingredients to throw away less food","ans":"4"},{"q":"Passing a traditional dish from one generation to another","ans":"1"},{"q":"Making informed choices rather than following one perfect way to eat","ans":"4"}];
+function renderReadRadio(id,items,optsFn){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${optsFn(x,i)}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+function renderSelect(id,items,options){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b><label for="${id}-${i}">Choose:</label><select id="${id}-${i}"><option value="">Choose an answer…</option>${options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select><div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+renderReadRadio('readMCQ',readMCQs,(x,i)=>`<div>${x.opts.map(o=>`<label><input type="radio" name="readMCQ-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`);
+renderReadRadio('readTF',readTFs,(x,i)=>`<div><label><input type="radio" name="readTF-${i}" value="True"> True</label><label><input type="radio" name="readTF-${i}" value="False"> False</label></div>`);
+renderSelect('readMatch',readMatches,['1','2','3','4']);
+const scores={};
+function markRadioSet(items,namePrefix,id,resultId){let n=0,answered=0;items.forEach((x,i)=>{const chosen=document.querySelector(`input[name="${namePrefix}-${i}"]:checked`)?.value;const f=document.getElementById(`${id}-fb-${i}`);if(!chosen){f.className='fb muted';f.textContent='Choose an answer before checking this question.';return;}answered++;const ok=chosen===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct. '+(x.why||''):'Not quite. Correct answer: '+x.ans+(x.why?' — '+x.why:'')});scores[id]={score:n,max:items.length};document.getElementById(resultId).innerHTML=`<p><b>Score: ${n}/${items.length}</b> · Answered: ${answered}/${items.length}</p>`}
+function checkReading(){markRadioSet(readMCQs,'readMCQ','readMCQ','reading-result')}
+function resetReading(){readMCQs.forEach((x,i)=>{document.querySelectorAll(`input[name="readMCQ-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readMCQ-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('reading-result').innerHTML='';delete scores.readMCQ}
+function checkTF(){markRadioSet(readTFs,'readTF','readTF','tf-result')}
+function resetTF(){readTFs.forEach((x,i)=>{document.querySelectorAll(`input[name="readTF-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readTF-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('tf-result').innerHTML='';delete scores.readTF}
+function checkReadMatch(){let n=0,answered=0;readMatches.forEach((x,i)=>{const v=document.getElementById(`readMatch-${i}`).value;const f=document.getElementById(`readMatch-fb-${i}`);if(!v){f.className='fb muted';f.textContent='Choose a paragraph before checking this question.';return;}answered++;const ok=v===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct.':'Not quite. Correct answer: paragraph '+x.ans+'.'});scores.readMatch={score:n,max:readMatches.length};document.getElementById('readmatch-result').innerHTML=`<p><b>Score: ${n}/${readMatches.length}</b> · Answered: ${answered}/${readMatches.length}</p>`}
+function resetReadMatch(){readMatches.forEach((x,i)=>{document.getElementById(`readMatch-${i}`).value='';const f=document.getElementById(`readMatch-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('readmatch-result').innerHTML='';delete scores.readMatch}
+const data={"matching":{"mode":"select","items":[{"q":"follow a ___","ans":"recipe"},{"q":"chop the ___","ans":"vegetables"},{"q":"add ___ to a dish","ans":"seasoning"},{"q":"bring out the ___","ans":"flavour"},{"q":"sample local ___","ans":"cuisine"},{"q":"cook from ___","ans":"scratch"},{"q":"share a ___","ans":"meal"},{"q":"follow a balanced ___","ans":"diet"},{"q":"use fresh ___","ans":"ingredients"},{"q":"reduce food ___","ans":"waste"}],"options":["recipe","vegetables","seasoning","flavour","cuisine","scratch","meal","diet","ingredients","waste"]},"gaps":{"mode":"select","items":[{"q":"My grandmother taught me to ___ instead of buying ready-made food.","ans":"cook from scratch"},{"q":"The chef added fresh herbs to ___ of the sauce.","ans":"bring out the flavour"},{"q":"If you are new to a dish, try to ___ before changing the ingredients.","ans":"follow a recipe"},{"q":"The stew was ___ after it had simmered slowly with herbs.","ans":"rich in flavour"},{"q":"After several tastings, she began to ___ olives.","ans":"develop a taste for"},{"q":"Families often ___ during holidays and celebrations.","ans":"share a meal"},{"q":"A restaurant should ask about customers' ___, including allergies.","ans":"dietary requirements"},{"q":"Planning portions and using leftovers can help people ___.","ans":"reduce food waste"},{"q":"A ___ includes a variety of foods and suitable nutrients.","ans":"balanced diet"},{"q":"Travellers can ___ by trying dishes that are common in the region.","ans":"explore local cuisine"}],"options":["cook from scratch","bring out the flavour","follow a recipe","rich in flavour","develop a taste for","share a meal","dietary requirements","reduce food waste","balanced diet","explore local cuisine"]},"odd":{"mode":"radio","items":[{"q":"RECIPES: Which collocation is the odd one out?","ans":"obey a recipe","opts":["follow a recipe","stick to a recipe","obey a recipe"],"why":"English speakers normally follow or stick to a recipe. “Obey a recipe” sounds like a direct transfer of a verb used with rules or instructions; “obey the instructions” is possible, but the usual collocation here is “follow a recipe.”"},{"q":"FLAVOUR: Which collocation is the odd one out?","ans":"rich on flavour","opts":["rich in flavour","full of flavour","rich on flavour"],"why":"“Rich in flavour” and “full of flavour” are natural descriptions. The usual preposition is “in,” not “on,” in “rich in flavour.”"},{"q":"COOKING: Which expression is the odd one out?","ans":"cook from zero","opts":["cook from scratch","make from scratch","cook from zero"],"why":"“Cook from scratch” is the established expression for using basic ingredients. “From zero” is a likely word-for-word transfer; in this context, English uses “from scratch.”"},{"q":"MEALS: Which expression is the odd one out?","ans":"spend a meal with friends","opts":["share a meal with friends","have a meal with friends","spend a meal with friends"],"why":"“Share a meal” and “have a meal with friends” are natural. English normally uses “spend time with someone,” not “spend a meal with someone.”"},{"q":"TASTE: Which collocation is the odd one out?","ans":"make a taste for spicy food","opts":["develop a taste for spicy food","acquire a taste for spicy food","make a taste for spicy food"],"why":"“Develop a taste for” and “acquire a taste for” describe gradually beginning to enjoy something. “Make a taste for” is not the usual collocation for this meaning."},{"q":"SEASONING: Which collocation is the odd one out?","ans":"put seasoning to the soup","opts":["add seasoning to the soup","put seasoning to the soup","season the soup"],"why":"“Add seasoning to the soup” and “season the soup” are natural. “Put seasoning to” transfers a common add/put pattern too literally; English uses “add seasoning to” or the verb “season.”"},{"q":"DIET: Which collocation is the odd one out?","ans":"hold a balanced diet","opts":["follow a balanced diet","maintain a balanced diet","hold a balanced diet"],"why":"“Follow” and “maintain a balanced diet” are established combinations. “Hold a balanced diet” is not the usual verb partnership for maintaining a way of eating."},{"q":"DINING: Which collocation is the odd one out?","ans":"raise the dining experience","opts":["enhance the dining experience","improve the dining experience","raise the dining experience"],"why":"“Enhance” and “improve the dining experience” are natural ways to say that an experience becomes better. “Raise the dining experience” is a likely direct transfer of a verb meaning increase or improve."},{"q":"LOCAL FOOD: Which expression is the odd one out?","ans":"test local cuisine","opts":["sample local cuisine","try local cuisine","test local cuisine"],"why":"“Sample” and “try local cuisine” mean tasting food to learn about it. “Test local cuisine” usually suggests evaluating or testing it in a more technical or critical way, rather than simply trying local food."},{"q":"FOOD WASTE: Which collocation is the odd one out?","ans":"shorten food waste","opts":["reduce food waste","cut down on food waste","shorten food waste"],"why":"“Reduce food waste” and “cut down on food waste” are natural ways to describe producing or throwing away less food. “Shorten food waste” is not the usual collocation for this meaning."}]},"find":{"mode":"select","items":[{"q":"___ a recipe","ans":"FOLLOW"},{"q":"___ vegetables","ans":"CHOP"},{"q":"___ seasoning","ans":"ADD"},{"q":"___ out the flavour","ans":"BRING"},{"q":"___ a taste for unfamiliar food","ans":"DEVELOP"},{"q":"___ a meal with family","ans":"SHARE"},{"q":"___ local cuisine","ans":"SAMPLE"},{"q":"___ a balanced diet","ans":"MAINTAIN"},{"q":"___ food waste","ans":"REDUCE"},{"q":"___ a traditional dish","ans":"SERVE"}],"options":["FOLLOW","CHOP","ADD","BRING","DEVELOP","SHARE","SAMPLE","MAINTAIN","REDUCE","SERVE"]},"sorting":{"mode":"select","items":[{"q":"___ from scratch","ans":"COOK"},{"q":"___ vegetables","ans":"CHOP"},{"q":"___ seasoning to a dish","ans":"ADD"},{"q":"___ out the flavour","ans":"BRING"},{"q":"___ a recipe","ans":"FOLLOW"},{"q":"___ a taste for spicy food","ans":"DEVELOP"},{"q":"___ local cuisine","ans":"EXPLORE"},{"q":"___ a balanced diet","ans":"FOLLOW"},{"q":"___ food waste","ans":"REDUCE"},{"q":"___ a dish to guests","ans":"SERVE"}],"options":["COOK","CHOP","ADD","BRING","FOLLOW","DEVELOP","EXPLORE","REDUCE","SERVE"]},"cloze":{"mode":"select","items":[{"q":"Preparing food with basic ingredients instead of ready-made products is to ___.","ans":"cook from scratch"},{"q":"The herbs helped the chef ___.","ans":"bring out the flavour"},{"q":"When making a new dish, it can help to ___.","ans":"follow a recipe"},{"q":"The curry was ___, with several spices and herbs.","ans":"rich in flavour"},{"q":"It took time, but he began to ___ fermented vegetables.","ans":"develop a taste for"},{"q":"On special occasions, relatives often ___.","ans":"share a meal"},{"q":"A hotel should clearly ask about guests' ___.","ans":"dietary requirements"},{"q":"Using leftovers safely is one way to ___.","ans":"reduce food waste"},{"q":"A varied, ___ supports overall health.","ans":"balanced diet"},{"q":"Visitors often ___ to learn about regional traditions.","ans":"explore local cuisine"}],"options":["cook from scratch","bring out the flavour","follow a recipe","rich in flavour","develop a taste for","share a meal","dietary requirements","reduce food waste","balanced diet","explore local cuisine"]},"repair":{"mode":"radio","items":[{"q":"The chef obeyed the recipe carefully.","ans":"The chef followed the recipe carefully.","opts":["The chef followed the recipe carefully.","The chef obeyed the recipe carefully.","The chef kept the recipe carefully."],"why":"“Follow a recipe” is the usual collocation. “Keep a recipe” means to retain or save it, not to cook according to it."},{"q":"The sauce was rich on flavour.","ans":"The sauce was rich in flavour.","opts":["The sauce was rich in flavour.","The sauce was rich on flavour.","The sauce was rich at flavour."],"why":"The established phrase is “rich in flavour.” “Full of flavour” is also natural, but this repair focuses on correcting the preposition in the original sentence."},{"q":"We cooked the whole meal from zero.","ans":"We cooked the whole meal from scratch.","opts":["We cooked the whole meal from scratch.","We cooked the whole meal from zero.","We cooked the whole meal from the beginning of zero."],"why":"The natural expression is “cook from scratch,” meaning that the food is prepared from basic ingredients."},{"q":"We spent a meal with our neighbours.","ans":"We shared a meal with our neighbours.","opts":["We shared a meal with our neighbours.","We spent a meal with our neighbours.","We passed a meal with our neighbours."],"why":"English uses “share a meal” or “have a meal with someone.” “Spend time with someone” is natural, but “spend a meal” is not the usual collocation."},{"q":"She made a taste for spicy food over time.","ans":"She developed a taste for spicy food over time.","opts":["She developed a taste for spicy food over time.","She made a taste for spicy food over time.","She did a taste for spicy food over time."],"why":"The natural collocation is “develop a taste for” or “acquire a taste for.”"},{"q":"He put seasoning to the soup.","ans":"He added seasoning to the soup.","opts":["He added seasoning to the soup.","He put seasoning to the soup.","He placed seasoning to the soup."],"why":"English uses “add seasoning to the soup” or “season the soup.”"},{"q":"They held a balanced diet during the trip.","ans":"They maintained a balanced diet during the trip.","opts":["They maintained a balanced diet during the trip.","They held a balanced diet during the trip.","They kept a balanced diet in their hands during the trip."],"why":"“Maintain a balanced diet” or “follow a balanced diet” are natural. “Hold a diet” is not the usual expression for continuing a way of eating."},{"q":"The restaurant wanted to raise the dining experience.","ans":"The restaurant wanted to enhance the dining experience.","opts":["The restaurant wanted to enhance the dining experience.","The restaurant wanted to raise the dining experience.","The restaurant wanted to lift the dining experience upward."],"why":"“Enhance the dining experience” means to make it better or more enjoyable."},{"q":"While travelling, we tested local cuisine in every town.","ans":"While travelling, we tried local cuisine in every town.","opts":["While travelling, we tried local cuisine in every town.","While travelling, we tested local cuisine in every town.","While travelling, we proved local cuisine in every town."],"why":"“Try” or “sample local cuisine” means to taste food from a place. “Test” suggests evaluating or checking something rather than simply tasting it."},{"q":"Our family wants to shorten food waste.","ans":"Our family wants to reduce food waste.","opts":["Our family wants to reduce food waste.","Our family wants to shorten food waste.","Our family wants to make food waste shorter."],"why":"“Reduce food waste” and “cut down on food waste” are natural expressions for throwing away less food."}]}};
+function render(id){const d=data[id];document.getElementById(id).innerHTML=d.items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${d.mode==='radio'?`<div>${x.opts.map(o=>`<label><input type="radio" name="${id}-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`:`<select id="${id}-${i}"><option value="">Choose…</option>${d.options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select>`}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+Object.keys(data).forEach(render);
+function check(id){const d=data[id];let n=0,answered=0;d.items.forEach((x,i)=>{const v=d.mode==='radio'?document.querySelector(`input[name="${id}-${i}"]:checked`)?.value:document.getElementById(`${id}-${i}`).value;const f=document.getElementById(`${id}-fb-${i}`);if(!v){f.className='fb muted';f.textContent='Choose an answer before checking this question.';return;}answered++;const ok=v===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=(ok?'Correct. ':'Not quite. Correct answer: '+x.ans+'. ')+(x.why||'')});scores[id]={score:n,max:d.items.length};document.getElementById(id+'-result').innerHTML=`<p><b>Score: ${n}/${d.items.length}</b> · Answered: ${answered}/${d.items.length}</p>`}
+function reset(id){const d=data[id];d.items.forEach((x,i)=>{if(d.mode==='radio')document.querySelectorAll(`input[name="${id}-${i}"]`).forEach(e=>e.checked=false);else document.getElementById(`${id}-${i}`).value='';const f=document.getElementById(`${id}-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById(id+'-result').innerHTML='';delete scores[id]}
+function summary(){let n=0,m=0;Object.values(scores).forEach(x=>{n+=x.score;m+=x.max});document.getElementById('summary').innerHTML=`<p><b>Automatically scored so far: ${n}/${m}.</b><br>Teacher-scored: SkELL cluster 0–10; writing 0–5. Maximum lesson score: 115 points.</p>`}
+</script>
+</body></html>

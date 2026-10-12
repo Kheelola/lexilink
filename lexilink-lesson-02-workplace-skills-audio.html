@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LexiLink — Workplace Skills and Career Development</title>
+<style>
+:root{--green:#176b45;--green2:#238657;--mint:#eaf7ef;--line:#cde6d5;--ink:#183326;--muted:#587466}
+*{box-sizing:border-box}body{font:16px/1.55 Arial,sans-serif;max-width:1000px;margin:auto;padding:18px;background:#f2faf4;color:var(--ink)}
+header,.card{background:white;padding:20px;margin:16px 0;border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 12px rgba(23,107,69,.06)}
+header{background:linear-gradient(125deg,#155d3d,#278653);color:white;border:0}header p{margin:.4rem 0}h1{margin-top:0}h2{font-size:1.25rem;color:var(--green)}h3{color:#235c3e}
+a{color:var(--green2);font-weight:700}.q{padding:12px 0;border-bottom:1px solid #e2efe6}label{display:block;margin:6px 0}select,textarea,input{font:inherit;padding:10px;width:100%;max-width:100%;border:1px solid #b9d7c3;border-radius:9px;background:#fcfffd;color:var(--ink)}input[type=radio]{width:auto;margin-right:6px}textarea{min-height:80px}button{padding:10px 14px;margin:8px 6px 0 0;border:0;border-radius:9px;background:var(--green);color:white;font-weight:bold;cursor:pointer}button:hover{background:#104d31}.muted{color:var(--muted);font-size:.92rem}.fb{font-size:.92rem}.ok{color:#167143}.bad{color:#b52e38}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.box{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfffc}.profile{background:var(--mint);border:1px solid #a9d9b8;border-radius:16px;padding:18px;margin:16px 0}.profile h2{margin-top:0}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.avatar{width:54px;height:54px;border-radius:50%;background:#176b45;color:white;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;flex-shrink:0}.profile-head{display:flex;gap:14px;align-items:center}.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px}.slot{background:#f0faf3;border:1px solid #cde6d5;border-left:5px solid #238657;padding:12px;border-radius:10px}.slot b{display:block;color:#176b45}.pill{display:inline-block;background:#d5f0de;color:#145a37;padding:4px 9px;border-radius:999px;font-size:.85rem;font-weight:bold}
+.skell-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:16px 0}.skell-cluster{padding:16px;border:1px solid #d7e5ef;border-radius:16px;background:#fff;box-shadow:0 3px 10px rgba(7,39,84,.06)}.skell-cluster-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}.keyword-pill{display:inline-flex;align-items:center;justify-content:center;min-width:126px;min-height:56px;padding:8px 20px;background:#082a65;color:#fff;border-radius:999px;font-weight:800;letter-spacing:.04em;font-size:1.05rem;text-align:center}.cluster-type{font-size:.86rem;color:#587466;line-height:1.35}.collocation-lines{display:grid;gap:8px;margin:8px 0 14px}.collocation-line{height:44px;border-radius:8px;padding:3px 8px;border:1px solid transparent;font-weight:600;color:#142b43}.collocation-line:nth-child(3n+1){background:#fff0a6;border-color:#f0d96b}.collocation-line:nth-child(3n+2){background:#f9d1f7;border-color:#eaa3e7}.collocation-line:nth-child(3n){background:#c9f5d9;border-color:#91d9ad}.collocation-line::placeholder{color:#5a6070;font-weight:400}.similar-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.similar-grid input{background:#f6faff}.callout{padding:12px 14px;border-left:4px solid #238657;background:#eff9f2;border-radius:8px}.score-row{display:flex;gap:10px;flex-wrap:wrap}.score-chip{background:#edf7f0;border-radius:9px;padding:8px 12px}@media(max-width:680px){.skell-board{grid-template-columns:1fr}.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:120px;min-height:48px}}@media(max-width:560px){.profile-grid{grid-template-columns:1fr}body{padding:8px}header,.card{padding:15px}}@media print{button{display:none}body{background:white}}
+
+.audio-panel{padding:16px;margin:14px 0 18px;border:1px solid #b9dfc5;border-radius:14px;background:linear-gradient(135deg,#f2fbf4,#ffffff)}.audio-heading{display:flex;gap:10px;align-items:center;margin-bottom:10px}.audio-heading>span{font-size:1.7rem}.audio-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.audio-controls button{margin:2px 4px 2px 0}.speed-control{display:flex;gap:8px;align-items:center;margin:2px 0 2px 8px;font-weight:700}.speed-control select{width:auto;min-width:135px;padding:8px}.audio-status{margin:10px 0 0}.audio-progress-wrap{margin:12px 0 4px}.audio-progress-label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.9rem;color:var(--muted);margin-bottom:4px}.audio-progress{width:100%;max-width:none;height:22px;padding:0;margin:0;accent-color:var(--green);cursor:pointer;background:transparent}.audio-progress-help{font-size:.82rem;color:var(--muted);margin:2px 0 0}@media(max-width:560px){.audio-controls{align-items:stretch}.audio-controls button{flex:1}.speed-control{width:100%;margin:6px 0 0}.speed-control select{flex:1}}
+
+
+/* Shared LexiLink lesson hero design */
+.lesson-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(118deg,#104b32 0%,#176b45 54%,#2c8b5b 100%);color:#fff;border:0;border-radius:22px;padding:25px 27px;margin:16px 0;box-shadow:0 10px 28px rgba(20,90,54,.17)}
+.lesson-hero:before{content:"";position:absolute;z-index:-1;width:300px;height:300px;right:135px;top:-205px;border:1px solid rgba(255,255,255,.11);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 58px rgba(255,255,255,.02)}
+.lesson-header-layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;align-items:center;gap:25px;min-width:0}
+.lesson-header-copy{min-width:0}
+.lesson-kicker{display:flex;align-items:center;gap:9px;margin-bottom:12px;color:#d7f5e1;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.lesson-kicker-mark{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;border-radius:9px;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.26);font-size:.72rem;letter-spacing:-.03em}
+.kicker-divider{padding:0 3px;color:#9edbb5}
+.lesson-header-copy h1{max-width:690px;margin:0 0 10px;color:#fff;font-size:clamp(1.7rem,3.1vw,2.35rem);font-weight:800;line-height:1.12;letter-spacing:-.035em;text-wrap:balance}
+.lesson-subtitle{max-width:650px;margin:0 0 17px!important;color:#e4f7e9;font-size:1.04rem;line-height:1.45}
+.lesson-meta{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.lesson-meta-pill{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:.79rem;font-weight:700;line-height:1.25}
+.lesson-method{margin:14px 0 0!important;color:#d4efdd;font-size:.84rem;letter-spacing:.01em}
+.lesson-header-media{min-width:0}
+.lesson-header-photo{display:block;width:250px;height:166px;max-width:100%;object-fit:cover;object-position:center 48%;border-radius:17px;border:3px solid rgba(255,255,255,.88);box-shadow:0 12px 24px rgba(0,0,0,.2);background:#dcefe2}
+.lesson-photo-credit{display:block;margin-top:7px;text-align:right;font-size:.66rem;line-height:1.25;color:rgba(255,255,255,.76);font-weight:400;text-decoration:none}
+.lesson-photo-credit:hover{text-decoration:underline;color:#fff}
+@media(max-width:760px){.lesson-hero{padding:21px;border-radius:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr) 205px;gap:16px}.lesson-header-photo{width:205px;height:148px}.lesson-header-copy h1{font-size:clamp(1.5rem,4vw,1.9rem)}}
+@media(max-width:560px){.lesson-hero{padding:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr);gap:15px}.lesson-header-photo{width:100%;height:190px;max-width:none;object-position:center 44%;border-radius:14px}.lesson-photo-credit{text-align:left}.lesson-kicker{margin-bottom:9px}.lesson-header-copy h1{font-size:1.8rem}.lesson-subtitle{font-size:.98rem}.lesson-meta-pill{font-size:.76rem}}
+
+
+/* Consistent LexiLink lesson hero, matching Lesson 4 */
+.lesson-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(118deg,#104b32 0%,#176b45 54%,#2c8b5b 100%);color:#fff;border:0;border-radius:22px;padding:25px 27px;margin:16px 0;box-shadow:0 10px 28px rgba(20,90,54,.17)}
+.lesson-hero:before{content:"";position:absolute;z-index:-1;width:300px;height:300px;right:135px;top:-205px;border:1px solid rgba(255,255,255,.11);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 58px rgba(255,255,255,.02)}
+.lesson-header-layout{display:grid;grid-template-columns:minmax(0,1fr) 218px;align-items:center;gap:25px;min-width:0}
+.lesson-header-copy{min-width:0}
+.lesson-kicker{display:flex;align-items:center;gap:9px;margin-bottom:12px;color:#d7f5e1;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.lesson-kicker-mark{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;border-radius:9px;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.26);font-size:.72rem;letter-spacing:-.03em}
+.kicker-divider{padding:0 3px;color:#9edbb5}
+.lesson-header-copy h1{max-width:690px;margin:0 0 10px;color:#fff;font-size:clamp(1.7rem,3.1vw,2.35rem);font-weight:800;line-height:1.12;letter-spacing:-.035em;text-wrap:balance;overflow-wrap:anywhere}
+.lesson-subtitle{max-width:650px;margin:0 0 17px!important;color:#e4f7e9;font-size:1.04rem;line-height:1.45}
+.lesson-meta{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.lesson-meta-pill{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:.79rem;font-weight:700;line-height:1.25}
+.lesson-method{margin:14px 0 0!important;color:#d4efdd;font-size:.84rem;letter-spacing:.01em}
+.lesson-header-photo{display:block;width:218px;height:158px;max-width:100%;object-fit:cover;object-position:center 48%;border-radius:17px;border:3px solid rgba(255,255,255,.88);box-shadow:0 12px 24px rgba(0,0,0,.2);background:#dcefe2}
+@media(max-width:680px){.lesson-hero{padding:21px;border-radius:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr) 175px;gap:16px}.lesson-header-photo{width:175px;height:138px}.lesson-header-copy h1{font-size:clamp(1.5rem,4vw,1.9rem)}}
+@media(max-width:520px){.lesson-hero{padding:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr);gap:15px}.lesson-header-photo{width:100%;height:175px;max-width:none;object-position:center 44%;border-radius:14px}.lesson-kicker{margin-bottom:9px}.lesson-header-copy h1{font-size:1.8rem}.lesson-subtitle{font-size:.98rem}.lesson-meta-pill{font-size:.76rem}}
+
+.cluster-sentences{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin:8px 0 12px}.cluster-sentence{min-height:68px;background:#fbfffc}.writing-area{min-height:190px}.writing-anti-paste-note{padding:10px 12px;background:#fff7d8;border:1px solid #ead27b;border-radius:9px;color:#624e00;font-size:.92rem}.submission-panel{margin-top:16px;padding:16px;border:1px solid #9ecfb0;border-radius:14px;background:#eff9f2}.submission-status{margin-top:10px;font-weight:700}.submission-status.ok{color:#176b45}.submission-status.err{color:#a5222d}.submission-status.warn{color:#805900}@media(max-width:680px){.cluster-sentences{grid-template-columns:1fr}}</style>
+</head>
+<body>
+<header class="lesson-hero">
+  <div class="lesson-header-layout">
+    <div class="lesson-header-copy">
+      <div class="lesson-kicker"><span class="lesson-kicker-mark">LL</span><span>LEXILINK <span class="kicker-divider">/</span> LESSON 02</span></div>
+      <h1>Workplace Skills and Career Development</h1>
+      <p class="lesson-subtitle">Professional communication, teamwork and career growth</p>
+      <div class="lesson-meta" aria-label="Lesson information">
+        <span class="lesson-meta-pill">B2 · Upper-intermediate</span>
+        <span class="lesson-meta-pill">80-minute lesson</span>
+        <span class="lesson-meta-pill">20 target collocations</span>
+      </div>
+      <p class="lesson-method">Workplace vocabulary · SkELL investigation · Lexical approach</p>
+    </div>
+    <!-- Header photo: Pavel Danilyuk / Pexels; free-to-use Pexels source: https://www.pexels.com/photo/people-having-a-meeting-in-an-office-8424560/ -->
+    <img class="lesson-header-photo" src="https://images.pexels.com/photos/8424560/pexels-photo-8424560.jpeg?cs=srgb&amp;dl=pexels-pavel-danilyuk-8424560.jpg&amp;fm=jpg" alt="Professionals collaborating and discussing ideas during a business meeting" title="Photo by Pavel Danilyuk / Pexels" loading="eager" decoding="async">
+  </div>
+</header>
+<section class="profile" aria-label="Student profile">
+<div class="profile-head"><div class="avatar" id="avatar-initials">S</div><div><h2 style="margin:0;color:#176b45">Student profile</h2><p style="margin:.2rem 0">LexiLink · Workplace Skills <span class="pill">B2</span> <span class="pill">80 minutes</span></p></div></div>
+<div class="profile-grid" style="margin-top:14px"><div><label for="profile-name">Student name</label><input id="profile-name" placeholder="Enter your name"></div><div><label for="profile-group">Group</label><input id="profile-group" placeholder="Enter group"></div></div>
+<p class="muted" style="margin-bottom:0">Complete the tasks, investigate word partnerships in SkELL and prepare a short career-development paragraph.</p>
+</section>
+<section class="card"><h2>80-minute lesson route</h2><p class="muted">Teacher-facing timing plan; the tasks below follow this sequence.</p><div class="timeline">
+<div class="slot"><b>0–5 min · Warm-up</b>Discuss workplace strengths and career goals.</div><div class="slot"><b>5–17 min · Reading</b>Read the text and complete comprehension tasks.</div><div class="slot"><b>17–27 min · Noticing</b>Match and complete target collocations.</div><div class="slot"><b>27–42 min · DDL with SkELL</b>Investigate four keywords and discover natural lexical collocations.</div><div class="slot"><b>42–52 min · Retrieval</b>Odd One Out and Find the Collocate.</div><div class="slot"><b>52–62 min · Categorising</b>Collocation Sorting and Lexical Cloze.</div><div class="slot"><b>62–70 min · Correction</b>Repair unnatural lexical combinations.</div><div class="slot"><b>70–77 min · Production</b>Write 80–100 words about a career-development plan.</div><div class="slot"><b>77–80 min · Reflection</b>Review your score and share one SkELL discovery.</div>
+</div></section>
+<section class="card"><h2>Learning outcomes</h2><p>By the end of the lesson, you will be able to recognise and use lexical collocations related to career development, verify word partnerships with SkELL, interpret related words in context and describe professional goals more naturally.</p><h2>Target collocations: definitions and synonyms</h2><p class="muted">Study the English definitions and compare the synonyms. No translations are provided.</p><div class="grid" id="target"></div></section>
+<section class="card" id="reading"><h2>Reading: Building a Career Step by Step</h2><p class="muted">Read the text carefully or listen to it. Target collocations are shown in bold.</p><div class="audio-panel" role="group" aria-label="Reading audio controls">
+  <div class="audio-heading"><span aria-hidden="true">🎧</span><div><strong>Listen to the reading</strong><div class="muted">Browser voice · English pronunciation</div></div></div>
+  <div class="audio-controls">
+    <button type="button" onclick="playReading()" aria-label="Play or resume reading text">▶ Listen / Resume</button>
+    <button type="button" onclick="pauseReading()" aria-label="Pause reading text">Ⅱ Pause</button>
+    <button type="button" onclick="stopReading()" aria-label="Stop and reset reading text">■ Stop</button>
+    <label class="speed-control" for="reading-speed">Speed
+      <select id="reading-speed" aria-label="Reading speed" onchange="updateReadingSpeedNote()">
+        <option value="0.75">0.75× Slow</option><option value="1" selected>1× Normal</option><option value="1.25">1.25× Fast</option>
+      </select>
+    </label>
+  </div>
+  <div class="audio-progress-wrap">
+    <div class="audio-progress-label"><label for="reading-progress" style="margin:0">Reading progress</label><span id="reading-progress-value">0%</span></div>
+    <input id="reading-progress" class="audio-progress" type="range" min="0" max="100" step="1" value="0" aria-label="Reading progress; move the slider to seek" oninput="previewReadingSeek(this.value)" onchange="seekReading(this.value)">
+    <p class="audio-progress-help">After the title, narration pauses for 5 seconds before continuing. Pause / Resume preserves your place, including during this break, or move the slider to jump to another part of the text.</p>
+  </div>
+  <p id="reading-audio-status" class="muted audio-status" aria-live="polite">Ready to play. The voice available depends on your browser and device.</p>
+</div>
+<article id="reading-text" style="line-height:1.75">
+<h3>From First Job to Professional Growth</h3>
+<p>Career development usually begins with understanding your strengths and deciding what you want to achieve. It helps to <b>set career goals</b> and identify the abilities you need to reach them. People can <b>develop professional skills</b> through courses, projects and practical tasks. For many graduates, the next priority is to <b>gain work experience</b> that connects classroom knowledge with real workplace demands.</p>
+<p>When looking for a position, candidates should <b>update their CV</b>, <b>apply for a job</b> that matches their interests and <b>submit an application</b> that clearly presents their qualifications. If they are invited to <b>attend an interview</b>, they can prepare examples that <b>demonstrate their abilities</b>. Clear, relevant answers can help candidates <b>make a good impression</b> and <b>answer questions confidently</b>.</p>
+<p>Professional success also depends on how people work with others. Employees need to <b>take responsibility</b> for their tasks and <b>manage their workload</b> carefully. They are often expected to <b>meet performance targets</b>, <b>work collaboratively</b> with colleagues and <b>solve problems</b> when plans change. Constructive teams also <b>provide feedback</b> so that members can learn from experience and improve their work.</p>
+<p>Work can sometimes be demanding, so employees need to <b>handle pressure</b> without losing sight of priorities. They can continue learning by asking for feedback, sharing ideas and building useful contacts. It is valuable to <b>build a professional network</b>, <b>improve performance</b> over time and <b>pursue career opportunities</b> that match long-term goals. Career development is not a single event; it is a process of learning, contribution and reflection.</p>
+</article>
+<h3>Reading Task A — Choose the best answer</h3><div id="readMCQ"></div><button onclick="checkReading()">Check reading answers</button><button onclick="resetReading()">Try again</button><div id="reading-result"></div>
+<h3>Reading Task B — True or False?</h3><p class="muted">Choose True or False according to the text.</p><div id="readTF"></div><button onclick="checkTF()">Check statements</button><button onclick="resetTF()">Try again</button><div id="tf-result"></div>
+<h3>Reading Task D — Match the idea to the paragraph</h3><p class="muted">Choose the paragraph number (1–4). Some paragraph numbers may be used more than once.</p><div id="readMatch"></div><button onclick="checkReadMatch()">Check paragraph matching</button><button onclick="resetReadMatch()">Try again</button><div id="readmatch-result"></div>
+</section>
+<section class="card"><h2>1. Matching · 10 points</h2><p class="muted">Choose the correct ending.</p><div id="matching"></div><button onclick="check('matching')">Check answers</button><button onclick="reset('matching')">Try again</button><div id="matching-result"></div></section>
+<section class="card"><h2>2. Complete the Sentence · 10 points</h2><p class="muted">Choose the lexical collocation that best completes each sentence.</p><div id="gaps"></div><button onclick="check('gaps')">Check answers</button><button onclick="reset('gaps')">Try again</button><div id="gaps-result"></div></section>
+<section class="card" id="skell-cluster"><h2>3. SkELL Collocation Clusters · 10 minutes · 10 points (teacher-scored)</h2>
+<p>Open <a href="https://skell.sketchengine.eu/" target="_blank" rel="noopener">SkELL</a>. For each keyword, use <b>Word Sketch</b> or example sentences to find at least two lexical collocations. Write one original sentence using each of your first two collocations. Then open <b>Similar words</b>, record two candidate synonyms or related words, and note a corpus example or context you checked. Related words are not automatically interchangeable: check their meaning and word partnerships in context. Your collocations, original sentences, Similar words and corpus notes will be submitted with this lesson for teacher review.</p>
+<div class="callout"><b>Investigation routine</b><br>Keyword → find collocations in SkELL → record similar words → check a real example → decide whether each related word can replace the keyword in that context.</div>
+<div class="skell-board">
+<div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">CAREER</span><span class="cluster-type"><b>Search focus:</b> verb + noun lexical collocations<br>Find verbs that naturally combine with <i>career</i>.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="career-coll-1" placeholder="Collocation 1" aria-label="Career collocation 1"><input class="collocation-line" id="career-coll-2" placeholder="Collocation 2" aria-label="Career collocation 2"><input class="collocation-line" id="career-coll-3" placeholder="Collocation 3" aria-label="Career collocation 3"><input class="collocation-line" id="career-coll-4" placeholder="Collocation 4" aria-label="Career collocation 4"></div><div class="cluster-sentences"><label for="career-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="career-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="career-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="career-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="career-syn-1" placeholder="Word 1" aria-label="Career similar word 1"><input id="career-syn-2" placeholder="Word 2" aria-label="Career similar word 2"></div><label for="career-evidence">Corpus example / context</label><textarea id="career-evidence" placeholder="Copy a short SkELL example and explain how career is used"></textarea></div>
+<div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">SKILLS</span><span class="cluster-type"><b>Search focus:</b> verb + noun lexical collocations<br>Find verbs that describe building, using or showing <i>skills</i>.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="skills-coll-1" placeholder="Collocation 1" aria-label="Skills collocation 1"><input class="collocation-line" id="skills-coll-2" placeholder="Collocation 2" aria-label="Skills collocation 2"><input class="collocation-line" id="skills-coll-3" placeholder="Collocation 3" aria-label="Skills collocation 3"><input class="collocation-line" id="skills-coll-4" placeholder="Collocation 4" aria-label="Skills collocation 4"></div><div class="cluster-sentences"><label for="skills-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="skills-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="skills-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="skills-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="skills-syn-1" placeholder="Word 1" aria-label="Skills similar word 1"><input id="skills-syn-2" placeholder="Word 2" aria-label="Skills similar word 2"></div><label for="skills-evidence">Corpus example / context</label><textarea id="skills-evidence" placeholder="Copy a short SkELL example and note which kind of skills is meant"></textarea></div>
+<div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">EXPERIENCE</span><span class="cluster-type"><b>Search focus:</b> verb + noun lexical collocations<br>Find verbs associated with obtaining or using <i>experience</i>.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="experience-coll-1" placeholder="Collocation 1" aria-label="Experience collocation 1"><input class="collocation-line" id="experience-coll-2" placeholder="Collocation 2" aria-label="Experience collocation 2"><input class="collocation-line" id="experience-coll-3" placeholder="Collocation 3" aria-label="Experience collocation 3"><input class="collocation-line" id="experience-coll-4" placeholder="Collocation 4" aria-label="Experience collocation 4"></div><div class="cluster-sentences"><label for="experience-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="experience-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="experience-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="experience-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="experience-syn-1" placeholder="Word 1" aria-label="Experience similar word 1"><input id="experience-syn-2" placeholder="Word 2" aria-label="Experience similar word 2"></div><label for="experience-evidence">Corpus example / context</label><textarea id="experience-evidence" placeholder="Copy a short SkELL example and explain what experience means here"></textarea></div>
+<div class="skell-cluster"><div class="skell-cluster-head"><span class="keyword-pill">TEAMWORK</span><span class="cluster-type"><b>Search focus:</b> adjective + noun lexical collocations<br>Find adjectives that describe the quality or nature of <i>teamwork</i>.</span></div><label>Collocations found in SkELL (fill the bars)</label><div class="collocation-lines"><input class="collocation-line" id="teamwork-coll-1" placeholder="Collocation 1" aria-label="Teamwork collocation 1"><input class="collocation-line" id="teamwork-coll-2" placeholder="Collocation 2" aria-label="Teamwork collocation 2"><input class="collocation-line" id="teamwork-coll-3" placeholder="Collocation 3" aria-label="Teamwork collocation 3"><input class="collocation-line" id="teamwork-coll-4" placeholder="Collocation 4" aria-label="Teamwork collocation 4"></div><div class="cluster-sentences"><label for="teamwork-sentence-1">Your own sentence using collocation 1</label><textarea class="cluster-sentence" id="teamwork-sentence-1" data-sentence-index="1" placeholder="Write a new sentence using your first collocation."></textarea><label for="teamwork-sentence-2">Your own sentence using collocation 2</label><textarea class="cluster-sentence" id="teamwork-sentence-2" data-sentence-index="2" placeholder="Write a new sentence using your second collocation."></textarea></div><label>SkELL Similar words — possible synonyms / related words</label><div class="similar-grid"><input id="teamwork-syn-1" placeholder="Word 1" aria-label="Teamwork similar word 1"><input id="teamwork-syn-2" placeholder="Word 2" aria-label="Teamwork similar word 2"></div><label for="teamwork-evidence">Corpus example / context</label><textarea id="teamwork-evidence" placeholder="Copy a short SkELL example and describe what makes the teamwork effective or difficult"></textarea></div>
+</div>
+<p class="muted">Teacher scoring: up to 10 points for distinct, accurate lexical collocations supported by SkELL evidence. Similar words are assessed for relevance and contextual interpretation; related words are not automatically interchangeable.</p><p class="muted">Your SkELL records and original sentences will be submitted with the lesson; no separate copying is needed.</p></section>
+<section class="card"><h2>4. Odd One Out · Based on SkELL · 10 points</h2><p class="muted">Choose the collocation that does not fit the pattern of the other three. Use your SkELL notes to check which combinations are natural in English. After checking, read the explanation.</p><div id="odd"></div><button onclick="check('odd')">Check answers</button><button onclick="reset('odd')">Try again</button><div id="odd-result"></div></section>
+<section class="card"><h2>5. Find the Verb, Find the Collocate · 10 points</h2><p>Choose the verb that completes each workplace collocation.</p><div id="find"></div><button onclick="check('find')">Check answers</button><button onclick="reset('find')">Try again</button><div id="find-result"></div></section>
+<section class="card"><h2>6. Collocation Sorting · 10 points</h2><p class="muted">Choose the verb that creates a natural lexical collocation.</p><div id="sorting"></div><button onclick="check('sorting')">Check answers</button><button onclick="reset('sorting')">Try again</button><div id="sorting-result"></div></section>
+<section class="card"><h2>7. Lexical Cloze · 10 points</h2><p class="muted"><b>Word bank:</b> set career goals · develop professional skills · gain work experience · update your CV · attend an interview · make a good impression · take responsibility · manage your workload · meet performance targets · build a professional network</p><div id="cloze"></div><button onclick="check('cloze')">Check answers</button><button onclick="reset('cloze')">Try again</button><div id="cloze-result"></div></section>
+<section class="card"><h2>8. Collocation Repair · 10 points</h2><p class="muted">Choose the best correction. Focus on natural lexical word partnerships.</p><div id="repair"></div><button onclick="check('repair')">Check answers</button><button onclick="reset('repair')">Try again</button><div id="repair-result"></div></section>
+<section class="card"><h2>9. Productive Recall Challenge · 5 points (teacher-scored)</h2><p>Write 80–100 words on <b>My Career Development Plan</b>. Use at least eight target collocations from this lesson.</p><label for="student-name">Student name</label><input id="student-name" placeholder="First and last name"><label for="student-group">Group</label><input id="student-group" placeholder="Group number"><label for="paragraph">Your paragraph</label><p class="writing-anti-paste-note" id="writing-notice">Write directly in this field. Paste, cut/copy shortcuts and drag-and-drop are disabled here. This browser restriction supports independent writing but is not a complete plagiarism-detection system.</p><textarea id="paragraph" style="min-height:170px" placeholder="To develop my career, I need to set clear goals and..." class="writing-area"></textarea><p id="word-count" class="muted">0 words</p><p class="muted">Teacher awards up to 5 points for accurate, appropriate use of distinct target collocations and a clear career-development plan.</p><div class="submission-panel"><h3>Submit your lesson work to the teacher</h3><p class="muted">Your profile, exercise responses, SkELL collocations and original sentences, related words, corpus notes, writing paragraph and available scores will be collected in the teacher’s spreadsheet. Complete all four clusters and the 80–100-word paragraph before submitting.</p><button type="button" id="submitLessonBtn" onclick="submitLessonWork()">Submit lesson work</button><div id="submitStatus" class="submission-status" role="status" aria-live="polite"></div></div></section>
+<section class="card"><h2>Lesson score</h2><p class="muted">Auto-scored sections: reading MCQ, True/False, paragraph matching, Matching, Sentence Completion, Odd One Out, Find the Collocate, Sorting, Lexical Cloze and Collocation Repair (100 points total). SkELL cluster (10) and productive writing (5) are teacher-scored. Maximum lesson total: 115 points.</p><button onclick="summary()">Show score summary</button><div id="summary"></div></section>
+<p class="muted">LexiLink · Connect words. Build fluency. Your SkELL collocations, original sentences, Similar words, corpus notes and writing paragraph are included in the lesson submission. Complete the required fields and submit your work to the teacher.</p>
+<script>
+let readingUtterance = null;
+let readingTextContent = '';
+let readingCurrentChar = 0;
+let readingRunId = 0;
+let readingSeekWhilePaused = false;
+let readingTitleEnd = 0;
+let readingDelayTimer = null;
+let readingDelayPaused = false;
+let readingDelayRemaining = 5000;
+let readingDelayStartedAt = 0;
+
+function setReadingAudioStatus(message){const el=document.getElementById('reading-audio-status');if(el)el.textContent=message;}
+function readingProgressPercent(){return readingTextContent.length?Math.min(100,Math.round(readingCurrentChar/readingTextContent.length*100)):0;}
+function updateReadingProgress(percent){
+  const slider=document.getElementById('reading-progress');
+  const label=document.getElementById('reading-progress-value');
+  const safe=Math.max(0,Math.min(100,Math.round(percent)));
+  if(slider)slider.value=String(safe);
+  if(label)label.textContent=safe+'%';
+}
+function getReadingText(){
+  const article=document.getElementById('reading-text');
+  if(!article)return '';
+  return (article.innerText||article.textContent||'').replace(/\s+/g,' ').trim();
+}
+function loadReadingText(){
+  const article=document.getElementById('reading-text');
+  readingTextContent=getReadingText();
+  const titleElement=article?article.querySelector('h3'):null;
+  const titleText=titleElement?(titleElement.innerText||titleElement.textContent||'').replace(/\s+/g,' ').trim():'';
+  const titleIndex=titleText?readingTextContent.indexOf(titleText):-1;
+  readingTitleEnd=titleIndex>=0?titleIndex+titleText.length:0;
+  if(readingTitleEnd<=0||readingTitleEnd>=readingTextContent.length)readingTitleEnd=0;
+  return readingTextContent;
+}
+function setProgressFromChar(charIndex){
+  readingCurrentChar=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  updateReadingProgress(readingProgressPercent());
+}
+function clearReadingDelay(){
+  if(readingDelayTimer!==null){clearTimeout(readingDelayTimer);readingDelayTimer=null;}
+  readingDelayStartedAt=0;
+}
+function startReadingDelay(runId, milliseconds){
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=Math.max(0,milliseconds);
+  if(readingDelayRemaining<=0){startReadingFrom(readingTitleEnd);return;}
+  readingDelayStartedAt=Date.now();
+  const seconds=(readingDelayRemaining/1000).toFixed(1).replace(/\.0$/,'');
+  setReadingAudioStatus('Title finished. Pausing for '+seconds+' seconds before the reading continues…');
+  readingDelayTimer=setTimeout(()=>{
+    readingDelayTimer=null;
+    readingDelayStartedAt=0;
+    if(runId!==readingRunId||readingDelayPaused)return;
+    readingDelayRemaining=5000;
+    startReadingFrom(readingTitleEnd);
+  },readingDelayRemaining);
+}
+function startReadingFrom(charIndex){
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  const start=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  if(start>=readingTextContent.length){setProgressFromChar(0);return startReadingFrom(0);}
+  const thisRun=++readingRunId;
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=5000;
+  window.speechSynthesis.cancel();
+  const isTitleSegment=readingTitleEnd>0&&start<readingTitleEnd;
+  const segmentEnd=isTitleSegment?readingTitleEnd:readingTextContent.length;
+  const segmentText=readingTextContent.slice(start,segmentEnd);
+  readingUtterance=new SpeechSynthesisUtterance(segmentText);
+  readingUtterance.lang='en-GB';
+  const rateControl=document.getElementById('reading-speed');
+  readingUtterance.rate=rateControl?Number(rateControl.value):1;
+  readingUtterance.pitch=1;
+  const voices=window.speechSynthesis.getVoices();
+  const englishVoice=voices.find(v=>/^en-GB$/i.test(v.lang))||voices.find(v=>/^en-US$/i.test(v.lang))||voices.find(v=>/^en/i.test(v.lang));
+  if(englishVoice)readingUtterance.voice=englishVoice;
+  setProgressFromChar(start);
+  readingUtterance.onstart=()=>{if(thisRun===readingRunId)setReadingAudioStatus(isTitleSegment?'Reading the title…':'Reading aloud…');};
+  readingUtterance.onboundary=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(Number.isFinite(event.charIndex))setProgressFromChar(start+event.charIndex);
+  };
+  readingUtterance.onend=()=>{
+    if(thisRun!==readingRunId)return;
+    if(isTitleSegment&&readingTitleEnd<readingTextContent.length){
+      setProgressFromChar(readingTitleEnd);
+      readingUtterance=null;
+      startReadingDelay(thisRun,5000);
+      return;
+    }
+    setProgressFromChar(readingTextContent.length);
+    setReadingAudioStatus('Reading finished. Press Listen to replay, or move the progress line to choose a section.');
+    readingUtterance=null;
+  };
+  readingUtterance.onerror=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(event.error!=='canceled'&&event.error!=='interrupted')setReadingAudioStatus('Audio playback could not start. Try another browser or check your device’s speech settings.');
+  };
+  window.speechSynthesis.speak(readingUtterance);
+  setReadingAudioStatus(isTitleSegment?'Starting with the title…':(start?'Resuming from the selected position…':'Starting playback…'));
+}
+function playReading(){
+  if(!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)){
+    setReadingAudioStatus('Text-to-speech is not supported in this browser. Try opening the lesson in an up-to-date Chrome, Edge or Safari browser.');return;
+  }
+  if(readingDelayPaused){
+    startReadingDelay(readingRunId,readingDelayRemaining);
+    setReadingAudioStatus('Resuming the 5-second pause after the title…');
+    return;
+  }
+  if(readingDelayTimer!==null){setReadingAudioStatus('The 5-second pause after the title is in progress…');return;}
+  if(window.speechSynthesis.paused&&!readingSeekWhilePaused){window.speechSynthesis.resume();setReadingAudioStatus('Reading resumed from the same place.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused)return;
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  if(readingCurrentChar>=readingTextContent.length)readingCurrentChar=0;
+  startReadingFrom(readingCurrentChar);
+}
+function pauseReading(){
+  if(!('speechSynthesis' in window)){setReadingAudioStatus('Text-to-speech is not supported in this browser.');return;}
+  if(readingDelayTimer!==null){
+    const elapsed=Math.max(0,Date.now()-readingDelayStartedAt);
+    readingDelayRemaining=Math.max(0,readingDelayRemaining-elapsed);
+    clearReadingDelay();
+    readingDelayPaused=true;
+    setReadingAudioStatus('Paused during the 5-second break after the title. Press Listen / Resume to continue the countdown.');
+    return;
+  }
+  if(readingDelayPaused){setReadingAudioStatus('The pause after the title is paused. Press Listen / Resume to continue.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused){window.speechSynthesis.pause();setReadingAudioStatus('Reading paused. Press Listen / Resume to continue from the same place.');}
+  else setReadingAudioStatus('There is no reading currently playing. Press Listen / Resume to start.');
+}
+function stopReading(){
+  if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  clearReadingDelay();
+  readingRunId++;
+  readingSeekWhilePaused=false;
+  readingDelayPaused=false;
+  readingDelayRemaining=5000;
+  readingUtterance=null;
+  loadReadingText();
+  readingCurrentChar=0;
+  updateReadingProgress(0);
+  setReadingAudioStatus('Reading stopped and reset to the beginning.');
+}
+function previewReadingSeek(percent){
+  const label=document.getElementById('reading-progress-value');
+  if(label)label.textContent=Math.max(0,Math.min(100,Math.round(Number(percent)||0))+'%');
+}
+function seekReading(percent){
+  if(!('speechSynthesis' in window)){updateReadingProgress(readingProgressPercent());return;}
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent)return;
+  const delayActive=readingDelayTimer!==null;
+  const delayPaused=readingDelayPaused;
+  const wasSpeaking=window.speechSynthesis.speaking&&!window.speechSynthesis.paused;
+  const wasPaused=window.speechSynthesis.paused;
+  const pct=Math.max(0,Math.min(100,Number(percent)||0));
+  let target=Math.round(readingTextContent.length*pct/100);
+  while(target>0&&target<readingTextContent.length&&!/\s/.test(readingTextContent[target-1]))target--;
+  setProgressFromChar(target);
+  if(delayActive){
+    clearReadingDelay();readingDelayPaused=false;readingDelayRemaining=5000;
+    startReadingFrom(target);
+  }else if(delayPaused||wasPaused){
+    clearReadingDelay();
+    if(window.speechSynthesis.speaking||window.speechSynthesis.paused)window.speechSynthesis.cancel();
+    readingRunId++;readingUtterance=null;readingDelayPaused=false;readingDelayRemaining=5000;readingSeekWhilePaused=true;
+    setReadingAudioStatus('Position selected. Press Listen / Resume to continue from here.');
+  }else if(wasSpeaking){startReadingFrom(target);}
+  else {
+    readingDelayPaused=false;readingDelayRemaining=5000;
+    setReadingAudioStatus(pct===0?'Ready to play from the beginning.':'Position selected. Press Listen / Resume to start from here.');
+  }
+}
+function updateReadingSpeedNote(){
+  if(window.speechSynthesis&&window.speechSynthesis.speaking&&!window.speechSynthesis.paused){
+    setReadingAudioStatus('To apply the new speed, stop and start playback again. Pause / Resume keeps the current playback speed.');
+  }
+}
+
+const target=[
+["set career goals","Definition: to decide on aims for one's working life.","Synonyms: establish career objectives; define professional aims; set professional targets"],
+["develop professional skills","Definition: to improve abilities needed in a particular type of work.","Synonyms: build workplace skills; strengthen job-related abilities; improve professional competence"],
+["gain work experience","Definition: to obtain practical knowledge by doing a job or work-related tasks.","Synonyms: acquire workplace experience; get practical experience; learn on the job"],
+["update your CV","Definition: to add current information and improve a document describing your education and work history.","Synonyms: revise your CV; refresh your résumé; bring your CV up to date"],
+["apply for a job","Definition: to formally ask to be considered for a position.","Synonyms: seek employment; apply for a position; put oneself forward for a job"],
+["submit an application","Definition: to formally send the documents or form required for consideration.","Synonyms: send in an application; file an application; present an application"],
+["attend an interview","Definition: to be present at a formal conversation used to assess a candidate for a position.","Synonyms: go to a job interview; participate in an interview; take part in an interview"],
+["make a good impression","Definition: to cause other people to form a positive opinion of you.","Synonyms: create a positive impression; impress someone favourably; come across well"],
+["demonstrate your abilities","Definition: to show what you can do through examples or actions.","Synonyms: show your skills; display your capabilities; prove your competence"],
+["answer questions confidently","Definition: to respond to questions in a calm and assured way.","Synonyms: respond with confidence; give assured answers; answer without hesitation"],
+["take responsibility","Definition: to accept that you are accountable for a task or result.","Synonyms: accept responsibility; be accountable; take ownership"],
+["manage your workload","Definition: to organise and control the amount of work you have to do.","Synonyms: organise your tasks; handle work demands; prioritise your work"],
+["meet performance targets","Definition: to achieve the results or standards expected at work.","Synonyms: achieve work targets; reach performance goals; attain expected results"],
+["work collaboratively","Definition: to work with other people towards a shared result.","Synonyms: cooperate with colleagues; work as a team; collaborate with others"],
+["solve problems","Definition: to find answers or ways to deal with difficult situations.","Synonyms: resolve issues; find solutions; deal with challenges"],
+["provide feedback","Definition: to give comments that help someone understand or improve their work.","Synonyms: give feedback; offer constructive comments; provide guidance"],
+["handle pressure","Definition: to manage stress or demanding circumstances effectively.","Synonyms: cope with stress; manage pressure; deal with demanding situations"],
+["build a professional network","Definition: to develop useful work-related contacts and relationships.","Synonyms: develop professional contacts; establish work connections; expand one's network"],
+["improve performance","Definition: to make the quality or results of one's work better.","Synonyms: perform better; enhance results; increase effectiveness"],
+["pursue career opportunities","Definition: to actively seek chances for professional progress.","Synonyms: explore career options; seek professional opportunities; go after career openings"]
+];
+document.getElementById('target').innerHTML=target.map((x,i)=>`<div class="box"><b>${i+1}. ${x[0]}</b><p>${x[1]}</p><p class="muted"><b>${x[2].split(':')[0]}:</b>${x[2].split(':').slice(1).join(':')}</p></div>`).join('');
+const profileName=document.getElementById('profile-name'),profileGroup=document.getElementById('profile-group'),studentName=document.getElementById('student-name'),studentGroup=document.getElementById('student-group');
+function updateProfile(){if(studentName)studentName.value=profileName.value;if(studentGroup)studentGroup.value=profileGroup.value;const words=profileName.value.trim().split(/\s+/).filter(Boolean);document.getElementById('avatar-initials').textContent=words.length?words.slice(0,2).map(w=>w[0].toUpperCase()).join(''):'S'}
+profileName.addEventListener('input',updateProfile);profileGroup.addEventListener('input',updateProfile);studentName.addEventListener('input',()=>{profileName.value=studentName.value;updateProfile()});studentGroup.addEventListener('input',()=>{profileGroup.value=studentGroup.value;updateProfile()});
+const clusterIds=['career','skills','experience','teamwork'];
+document.getElementById('paragraph').addEventListener('input',e=>{const t=e.target.value.trim();document.getElementById('word-count').textContent=(t?t.split(/\s+/).length:0)+' words'});
+const readMCQs=[
+{q:"What is a useful first step in career development?",ans:"Set goals and identify the abilities needed to reach them.",opts:["Set goals and identify the abilities needed to reach them.","Apply for every available job immediately.","Avoid practical tasks until you have a senior role.","Wait for an employer to choose your career path."]},
+{q:"What can practical tasks help graduates gain?",ans:"Work experience.",opts:["An automatic promotion.","Work experience.","A guaranteed salary increase.","A job without an application."]},
+{q:"What should a candidate do before applying for a position?",ans:"Update their CV and prepare a clear application.",opts:["Avoid describing their qualifications.","Wait until after the interview to prepare.","Update their CV and prepare a clear application.","Send the same incomplete form to every employer."]},
+{q:"How can a candidate make a good impression at an interview?",ans:"Prepare examples and answer questions confidently.",opts:["Refuse to answer questions.","Prepare examples and answer questions confidently.","Avoid talking about relevant abilities.","Ignore the interviewer's questions."]},
+{q:"What does taking responsibility mean at work?",ans:"Accepting accountability for a task or result.",opts:["Giving every task to a colleague.","Accepting accountability for a task or result.","Avoiding feedback.","Working without priorities."]},
+{q:"Why might employees manage their workload carefully?",ans:"To organise tasks and work towards expected results.",opts:["To avoid all teamwork.","To prevent colleagues from learning.","To organise tasks and work towards expected results.","To stop setting performance targets."]},
+{q:"What can constructive feedback help employees do?",ans:"Learn from experience and improve their work.",opts:["Learn from experience and improve their work.","Avoid all communication.","Replace every professional skill.","Guarantee that no problems will occur."]},
+{q:"What should employees do when plans change?",ans:"Work with colleagues and solve problems.",opts:["Ignore the change.","Stop communicating with colleagues.","Work with colleagues and solve problems.","Give up their responsibilities."]},
+{q:"What is a professional network?",ans:"A group of useful work-related contacts and relationships.",opts:["A list of personal shopping preferences.","A group of useful work-related contacts and relationships.","A formal job interview.","A document describing only academic grades."]},
+{q:"According to the text, career development is…",ans:"An ongoing process of learning and professional growth.",opts:["An ongoing process of learning and professional growth.","Something that ends after the first job.","Only a way to increase salary immediately.","Unrelated to feedback or reflection."]}
+];
+const readTFs=[
+{q:"The text recommends identifying the abilities needed to reach career goals.",ans:"True"},{q:"The text says a CV should not be updated when a candidate applies for a job.",ans:"False"},{q:"Candidates can prepare examples to demonstrate their abilities.",ans:"True"},{q:"The text suggests that interview candidates should avoid answering questions.",ans:"False"},{q:"Employees may need to manage their workload carefully.",ans:"True"},{q:"Working collaboratively means refusing to work with colleagues.",ans:"False"},{q:"Constructive feedback can support learning and improvement.",ans:"True"},{q:"The text says employees never face pressure at work.",ans:"False"},{q:"Building a professional network means developing work-related contacts.",ans:"True"},{q:"The text describes career development as a continuing process.",ans:"True"}
+];
+const readMatches=[
+{q:"Setting goals and developing professional skills",ans:"1"},{q:"Preparing a CV and application",ans:"2"},{q:"Demonstrating abilities in an interview",ans:"2"},{q:"Taking responsibility and managing work",ans:"3"},{q:"Working with colleagues to solve problems",ans:"3"},{q:"Learning through constructive feedback",ans:"3"},{q:"Handling demanding circumstances",ans:"4"},{q:"Developing useful work-related contacts",ans:"4"},{q:"Seeking opportunities for professional progress",ans:"4"},{q:"Connecting education with practical experience",ans:"1"}
+];
+function renderReadRadio(id,items,optsFn){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${optsFn(x,i)}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+function renderSelect(id,items,options){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b><label for="${id}-${i}">Choose:</label><select id="${id}-${i}"><option value="">Choose an answer…</option>${options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select><div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+renderReadRadio('readMCQ',readMCQs,(x,i)=>`<div>${x.opts.map(o=>`<label><input type="radio" name="readMCQ-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`);
+renderReadRadio('readTF',readTFs,(x,i)=>`<div><label><input type="radio" name="readTF-${i}" value="True"> True</label><label><input type="radio" name="readTF-${i}" value="False"> False</label></div>`);
+renderSelect('readMatch',readMatches,['1','2','3','4']);
+const scores={};
+function markRadioSet(items,namePrefix,id,resultId){let n=0;items.forEach((x,i)=>{const chosen=document.querySelector(`input[name="${namePrefix}-${i}"]:checked`)?.value;const ok=chosen===x.ans;if(ok)n++;const f=document.getElementById(`${id}-fb-${i}`);f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct. '+(x.why||''):'Correct answer: '+x.ans+(x.why?' — '+x.why:'')});scores[id]={score:n,max:items.length};document.getElementById(resultId).innerHTML=`<p><b>Score: ${n}/${items.length}</b></p>`}
+function checkReading(){markRadioSet(readMCQs,'readMCQ','readMCQ','reading-result')}
+function resetReading(){readMCQs.forEach((x,i)=>{document.querySelectorAll(`input[name="readMCQ-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readMCQ-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('reading-result').innerHTML='';delete scores.readMCQ}
+function checkTF(){markRadioSet(readTFs,'readTF','readTF','tf-result')}
+function resetTF(){readTFs.forEach((x,i)=>{document.querySelectorAll(`input[name="readTF-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readTF-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('tf-result').innerHTML='';delete scores.readTF}
+function checkReadMatch(){let n=0;readMatches.forEach((x,i)=>{const ok=document.getElementById(`readMatch-${i}`).value===x.ans;if(ok)n++;const f=document.getElementById(`readMatch-fb-${i}`);f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct.':'Correct answer: paragraph '+x.ans+'.'});scores.readMatch={score:n,max:readMatches.length};document.getElementById('readmatch-result').innerHTML=`<p><b>Score: ${n}/${readMatches.length}</b></p>`}
+function resetReadMatch(){readMatches.forEach((x,i)=>{document.getElementById(`readMatch-${i}`).value='';const f=document.getElementById(`readMatch-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('readmatch-result').innerHTML='';delete scores.readMatch}
+const data={
+matching:{mode:'select',items:[{q:'set …',ans:'career goals'},{q:'gain …',ans:'work experience'},{q:'update …',ans:'your CV'},{q:'submit …',ans:'an application'},{q:'attend …',ans:'an interview'},{q:'make …',ans:'a good impression'},{q:'take …',ans:'responsibility'},{q:'manage …',ans:'your workload'},{q:'meet …',ans:'performance targets'},{q:'build …',ans:'a professional network'}],options:['career goals','work experience','your CV','an application','an interview','a good impression','responsibility','your workload','performance targets','a professional network']},
+gaps:{mode:'select',items:[{q:'Before applying for a position, I need to ___ so that it includes my latest experience.',ans:'update my CV'},{q:'Practical projects can help graduates ___.',ans:'gain work experience'},{q:'A clear long-term plan can help you ___.',ans:'set career goals'},{q:'Applicants should prepare examples that ___ during an interview.',ans:'demonstrate their abilities'},{q:'Employees need to ___ for their tasks and decisions.',ans:'take responsibility'},{q:'A weekly plan helps me ___ when several tasks are due.',ans:'manage my workload'},{q:'People often ___ by cooperating with colleagues.',ans:'solve problems'},{q:'Good team members ___ to help others improve.',ans:'provide feedback'},{q:'A useful way to develop work contacts is to ___.',ans:'build a professional network'},{q:'Employees can ___ by reviewing their work and learning from feedback.',ans:'improve performance'}],options:['update my CV','gain work experience','set career goals','demonstrate their abilities','take responsibility','manage my workload','solve problems','provide feedback','build a professional network','improve performance','attend an interview','make a good impression','meet performance targets','pursue career opportunities']},
+odd:{"mode":"radio","items":[{"q":"CAREER: Which collocation is the odd one out?","ans":"do a career","opts":["build a career","do a career","pursue a career","develop a career"],"why":"Build, pursue and develop a career are conventional collocations. “Do a career” transfers a general verb into a context where English uses “build/pursue/develop a career.”"},{"q":"SKILLS: Which collocation is the odd one out?","ans":"raise professional skills","opts":["develop professional skills","hone professional skills","refine professional skills","raise professional skills"],"why":"Develop, hone and refine professional skills are natural collocations. “Raise professional skills” is a likely literal-transfer pattern; English usually says “develop/improve skills.”"},{"q":"EXPERIENCE: Which collocation is the odd one out?","ans":"receive experience","opts":["receive experience","gain experience","acquire experience","build experience"],"why":"Gain, acquire and build experience are conventional collocations. “Receive experience” is a literal rendering of “получить опыт”; English normally uses “gain/acquire experience.”"},{"q":"TEAMWORK: Which collocation is the odd one out?","ans":"make teamwork","opts":["foster teamwork","encourage teamwork","make teamwork","promote teamwork"],"why":"Foster, encourage and promote teamwork are natural combinations. “Make teamwork” transfers a general verb into a context where English uses “foster/encourage/promote teamwork.”"},{"q":"CAREER GOALS: Which collocation is the odd one out?","ans":"put career goals","opts":["set career goals","put career goals","define career goals","establish career goals"],"why":"Set, define and establish career goals are conventional collocations. “Put career goals” follows a literal translation of “поставить цели”; English uses “set goals.”"},{"q":"FEEDBACK: Which collocation is the odd one out?","ans":"say feedback","opts":["say feedback","give feedback","provide feedback","offer feedback"],"why":"Give, provide and offer feedback are standard collocations. “Say feedback” is a literal-transfer option; English usually uses “give/provide feedback” or “comment on something.”"},{"q":"INITIATIVE: Which collocation is the odd one out?","ans":"make initiative","opts":["take initiative","show initiative","demonstrate initiative","make initiative"],"why":"Take, show and demonstrate initiative are established collocations. “Make initiative” is not the conventional English combination; use “take/show initiative.”"},{"q":"PROFESSIONAL NETWORK: Which collocation is the odd one out?","ans":"increase a professional network","opts":["build a professional network","expand a professional network","increase a professional network","develop a professional network"],"why":"Build, expand and develop a professional network are conventional combinations. “Increase a professional network” is less idiomatic than “expand/grow a network,” though “increase the size of a network” is possible."},{"q":"QUALIFICATIONS: Which collocation is the odd one out?","ans":"raise qualifications","opts":["gain qualifications","raise qualifications","obtain qualifications","earn qualifications"],"why":"Gain, obtain and earn qualifications are conventional collocations. “Raise qualifications” reflects a literal transfer of “повысить квалификацию”; English usually says “improve/update your qualifications” or “upgrade your skills.”"},{"q":"PRESSURE: Which collocation is the odd one out?","ans":"work in pressure","opts":["work in pressure","cope with pressure","handle pressure","work under pressure"],"why":"Cope with pressure, handle pressure and work under pressure are natural English combinations. “Work in pressure” transfers the source-language preposition; the usual expression is “work under pressure.”"}]}, find:{mode:'select',items:[{q:'___ career goals',ans:'set'},{q:'___ work experience',ans:'gain'},{q:'___ professional skills',ans:'develop'},{q:'___ a good impression',ans:'make'},{q:'___ responsibility',ans:'take'},{q:'___ your workload',ans:'manage'},{q:'___ performance targets',ans:'meet'},{q:'___ feedback',ans:'provide'},{q:'___ a professional network',ans:'build'},{q:'___ pressure',ans:'handle'}],options:['set','gain','develop','make','take','manage','meet','provide','build','handle']},
+sorting:{mode:'select',items:[{q:'___ professional skills',ans:'DEVELOP'},{q:'___ a good impression',ans:'MAKE'},{q:'___ responsibility',ans:'TAKE'},{q:'___ work experience',ans:'GAIN'},{q:'___ your workload',ans:'MANAGE'},{q:'___ performance targets',ans:'MEET'},{q:'___ feedback',ans:'PROVIDE'},{q:'___ a professional network',ans:'BUILD'},{q:'___ a problem',ans:'SOLVE'},{q:'___ pressure',ans:'HANDLE'}],options:['DEVELOP','MAKE','TAKE','GAIN','MANAGE','MEET','PROVIDE','BUILD','SOLVE','HANDLE']},
+cloze:{mode:'select',items:[{q:'My first priority is to ___ so I know what I want to achieve professionally.',ans:'set career goals'},{q:'An internship can help a graduate ___.',ans:'gain work experience'},{q:'She took a short course to ___.',ans:'develop professional skills'},{q:'Remember to ___ before sending your application.',ans:'update your CV'},{q:'He prepared examples of past projects to ___ at the interview.',ans:'demonstrate his abilities'},{q:'A candidate should try to ___ when meeting an employer.',ans:'make a good impression'},{q:'Good employees ___ for their actions.',ans:'take responsibility'},{q:'A weekly schedule can help you ___.',ans:'manage your workload'},{q:'The team worked hard to ___.',ans:'meet performance targets'},{q:'Professional events can help you ___.',ans:'build a professional network'}],options:['set career goals','gain work experience','develop professional skills','update your CV','demonstrate his abilities','make a good impression','take responsibility','manage your workload','meet performance targets','build a professional network']},
+repair:{mode:'radio',items:[{q:'They did a good impression at the interview.',ans:'They made a good impression at the interview.',opts:['They did a good impression at the interview.','They made a good impression at the interview.','They gained a good impression at the interview.','They took a good impression at the interview.']},{q:'She made professional skills through the course.',ans:'She developed professional skills through the course.',opts:['She produced professional skills through the course.','She did professional skills through the course.','She developed professional skills through the course.','She met professional skills through the course.']},{q:'He reached work experience at the company.',ans:'He gained work experience at the company.',opts:['He reached work experience at the company.','He raised work experience at the company.','He made work experience at the company.','He gained work experience at the company.']},{q:'Please build responsibility for your task.',ans:'Please take responsibility for your task.',opts:['Please make responsibility for your task.','Please take responsibility for your task.','Please provide responsibility for your task.','Please meet responsibility for your task.']},{q:'We need to do the performance targets this quarter.',ans:'We need to meet the performance targets this quarter.',opts:['We need to take the performance targets this quarter.','We need to build the performance targets this quarter.','We need to meet the performance targets this quarter.','We need to make the performance targets this quarter.']},{q:'I have to gain my CV before applying.',ans:'I have to update my CV before applying.',opts:['I have to update my CV before applying.','I have to attend my CV before applying.','I have to pursue my CV before applying.','I have to provide my CV before applying.']},{q:'She provided a professional network at the conference.',ans:'She built a professional network at the conference.',opts:['She solved a professional network at the conference.','She built a professional network at the conference.','She handled a professional network at the conference.','She met a professional network at the conference.']},{q:'He made a problem with the customer complaint.',ans:'He solved the problem with the customer complaint.',opts:['He solved the problem with the customer complaint.','He met the problem with the customer complaint.','He attended the problem with the customer complaint.','He gained the problem with the customer complaint.']},{q:'Our manager did feedback after the presentation.',ans:'Our manager provided feedback after the presentation.',opts:['Our manager made feedback after the presentation.','Our manager gained feedback after the presentation.','Our manager provided feedback after the presentation.','Our manager met feedback after the presentation.']},{q:'She made pressure during the busy period.',ans:'She handled pressure during the busy period.',opts:['She built pressure during the busy period.','She handled pressure during the busy period.','She met pressure during the busy period.','She updated pressure during the busy period.']} ]}
+};
+function render(id){const d=data[id];document.getElementById(id).innerHTML=d.items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${d.mode==='radio'?`<div>${x.opts.map(o=>`<label><input type="radio" name="${id}-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`:`<select id="${id}-${i}"><option value="">Choose…</option>${d.options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select>`}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+Object.keys(data).forEach(render);
+function check(id){const d=data[id];let n=0;d.items.forEach((x,i)=>{const v=d.mode==='radio'?document.querySelector(`input[name="${id}-${i}"]:checked`)?.value:document.getElementById(`${id}-${i}`).value;const ok=v===x.ans;if(ok)n++;const f=document.getElementById(`${id}-fb-${i}`);f.className='fb '+(ok?'ok':'bad');f.textContent=(ok?'Correct. ':'Correct answer: '+x.ans+'. ')+(x.why||'')});scores[id]={score:n,max:d.items.length};document.getElementById(id+'-result').innerHTML=`<p><b>Score: ${n}/${d.items.length}</b></p>`}
+function reset(id){const d=data[id];d.items.forEach((x,i)=>{if(d.mode==='radio')document.querySelectorAll(`input[name="${id}-${i}"]`).forEach(e=>e.checked=false);else document.getElementById(`${id}-${i}`).value='';const f=document.getElementById(`${id}-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById(id+'-result').innerHTML='';delete scores[id]}
+function summary(){let n=0,m=0;Object.values(scores).forEach(x=>{n+=x.score;m+=x.max});document.getElementById('summary').innerHTML=`<p><b>Automatically scored so far: ${n}/${m}.</b><br>Teacher-scored: SkELL cluster 0–10; writing 0–5. Maximum lesson score: 115 points.</p>`}
+
+// LexiLink shared submission collector — Lessons 1–8.
+// Replace the endpoint placeholder after deploying the shared Google Apps Script Web App.
+const SUBMISSION_ENDPOINT = "https://script.google.com/macros/s/AKfycbxKwWE0CYJDxrpP60p0A9JRv2sHrSECwzc9IPyYt9e-Kd1XQJsrHPGe2r8VHwlxPZWa/exec";
+const LEXILINK_LESSON_TITLE = "Lesson 2 — Workplace Skills and Career Development";
+const LEXILINK_WRITING_PROMPT = "My Career Development Plan";
+function lexilinkFieldValue(id){return (document.getElementById(id)?.value||'').trim();}
+function lexilinkCollectSkellClusters(){
+  return Array.from(document.querySelectorAll('.skell-cluster')).map(card=>{
+    const keyword=(card.querySelector('.keyword-pill')?.textContent||'').trim().toUpperCase();
+    const collocations=Array.from(card.querySelectorAll('.collocation-lines .collocation-line'));
+    const sentences=Array.from(card.querySelectorAll('.cluster-sentence'));
+    const similar=Array.from(card.querySelectorAll('.similar-grid input, .similar-grid textarea'));
+    const evidence=card.querySelector('textarea[id$="-evidence"]');
+    return {
+      keyword,
+      collocation1:(collocations[0]?.value||'').trim(),
+      sentence1:(sentences[0]?.value||'').trim(),
+      collocation2:(collocations[1]?.value||'').trim(),
+      sentence2:(sentences[1]?.value||'').trim(),
+      similarWord1:(similar[0]?.value||'').trim(),
+      similarWord2:(similar[1]?.value||'').trim(),
+      evidence:(evidence?.value||'').trim()
+    };
+  });
+}
+function lexilinkCollectAnswers(){
+  const answers={};
+  document.querySelectorAll('input,textarea,select').forEach((el,i)=>{
+    if(['profile-name','profile-group','student-name','student-group','paragraph','submitLessonBtn'].includes(el.id)) return;
+    if(el.type==='radio'&&!el.checked) return;
+    if(el.type==='checkbox'&&!el.checked) return;
+    const key=el.id||el.name||('field_'+(i+1));
+    answers[key]=String(el.value||'').trim();
+  });
+  return answers;
+}
+function lexilinkGetScoreSummary(){
+  const sectionScores={};
+  try{
+    Object.entries(scores||{}).forEach(([key,value])=>{
+      if(value&&Number.isFinite(Number(value.score))&&Number.isFinite(Number(value.max)))
+        sectionScores[key]={score:Number(value.score),max:Number(value.max)};
+    });
+  }catch(e){}
+  const values=Object.values(sectionScores);
+  return {sections:sectionScores,autoTotal:{score:values.reduce((n,x)=>n+x.score,0),max:values.reduce((n,x)=>n+x.max,0)}};
+}
+function lexilinkValidateSubmission(){
+  if(!lexilinkFieldValue('profile-name')) return {ok:false,message:'Please enter your name in the student profile at the top of the lesson.',id:'profile-name'};
+  if(!lexilinkFieldValue('profile-group')) return {ok:false,message:'Please enter your group in the student profile at the top of the lesson.',id:'profile-group'};
+  const writing=lexilinkFieldValue('paragraph');
+  const wordCount=writing?writing.split(/\s+/).filter(Boolean).length:0;
+  if(wordCount<80||wordCount>100) return {ok:false,message:`The writing task requires 80–100 words. Your current paragraph has ${wordCount} words.`,id:'paragraph'};
+  const clusters=Array.from(document.querySelectorAll('.skell-cluster'));
+  if(clusters.length!==4) return {ok:false,message:'The lesson should contain four SkELL keyword clusters. Please contact your teacher if one is missing.'};
+  for(const card of clusters){
+    const keyword=(card.querySelector('.keyword-pill')?.textContent||'this keyword').trim().toUpperCase();
+    const c=Array.from(card.querySelectorAll('.collocation-lines .collocation-line'));
+    const s=Array.from(card.querySelectorAll('.cluster-sentence'));
+    const sim=Array.from(card.querySelectorAll('.similar-grid input, .similar-grid textarea'));
+    const evidence=card.querySelector('textarea[id$="-evidence"]');
+    const required=[c[0],s[0],c[1],s[1],sim[0],sim[1],evidence];
+    const missing=required.find(el=>!el||!String(el.value||'').trim());
+    if(missing){return {ok:false,message:`Complete two collocations, your own sentence for each, two Similar words, and a SkELL example/context for ${keyword}.`,id:missing?.id};}
+  }
+  return {ok:true};
+}
+async function submitLessonWork(){
+  const status=document.getElementById('submitStatus');
+  const button=document.getElementById('submitLessonBtn');
+  const validation=lexilinkValidateSubmission();
+  if(!validation.ok){status.className='submission-status err';status.textContent=validation.message;if(validation.id)document.getElementById(validation.id)?.focus();return;}
+  if(SUBMISSION_ENDPOINT.includes('PASTE_LEXILINK_APPS_SCRIPT_WEB_APP_URL_HERE')){
+    status.className='submission-status warn';status.textContent='Submission is not connected yet. The teacher must deploy the shared LexiLink Apps Script collector, paste its /exec URL into SUBMISSION_ENDPOINT, and save the HTML file.';return;
+  }
+  const writing=lexilinkFieldValue('paragraph');
+  const score=lexilinkGetScoreSummary();
+  const payload={
+    lesson:LEXILINK_LESSON_TITLE,
+    studentName:lexilinkFieldValue('profile-name'),
+    group:lexilinkFieldValue('profile-group'),
+    submittedAt:new Date().toISOString(),
+    writing:{prompt:LEXILINK_WRITING_PROMPT,wordCount:writing.split(/\s+/).filter(Boolean).length,text:writing},
+    skellClusters:lexilinkCollectSkellClusters(),
+    scores:{sections:score.sections,autoTotal:score.autoTotal},
+    answers:lexilinkCollectAnswers(),
+    userAgent:navigator.userAgent
+  };
+  button.disabled=true;button.textContent='Sending…';status.className='submission-status warn';status.textContent='Sending your work to the teacher’s spreadsheet…';
+  try{
+    await fetch(SUBMISSION_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+    status.className='submission-status ok';status.textContent='Your submission request was sent. The browser cannot read the server confirmation in this mode, so the teacher should verify that the new rows appear in Google Sheets.';
+    button.textContent='Submission sent';
+  }catch(error){
+    status.className='submission-status err';status.textContent='The request could not be sent. Check the internet connection and try again.';
+    button.disabled=false;button.textContent='Submit lesson work';
+  }
+}
+// Writing Zone: block regular clipboard, keyboard paste/cut/copy shortcuts, context menu and drag/drop.
+// This is a classroom friction measure, not secure plagiarism prevention; it cannot defeat developer tools or external devices.
+(function lexilinkProtectWritingField(){
+  const field=document.getElementById('paragraph');
+  const notice=document.getElementById('writing-notice');
+  if(!field)return;
+  const blockedMessage='Please type your own text directly in this writing field; clipboard operations and drag-and-drop are disabled here.';
+  ['paste','copy','cut','drop','contextmenu'].forEach(eventName=>field.addEventListener(eventName,e=>{
+    e.preventDefault();
+    if(notice){notice.textContent=blockedMessage;notice.classList.add('submission-status','warn');}
+  }));
+  field.addEventListener('dragover',e=>e.preventDefault());
+  field.addEventListener('beforeinput',e=>{
+    if(['insertFromPaste','insertFromDrop','deleteByCut'].includes(e.inputType)){
+      e.preventDefault();if(notice)notice.textContent=blockedMessage;
+    }
+  });
+  field.addEventListener('keydown',e=>{
+    const key=String(e.key||'').toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['v','c','x'].includes(key)){e.preventDefault();if(notice)notice.textContent=blockedMessage;}
+    if(e.shiftKey&&e.key==='Insert'){e.preventDefault();if(notice)notice.textContent=blockedMessage;}
+  });
+})();
+
+</script>
+</body></html>
