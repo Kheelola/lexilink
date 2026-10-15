@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LexiLink — Lesson 16: The Media: In Print</title>
+<style>
+:root{--green:#176b45;--green2:#238657;--mint:#eaf7ef;--line:#cde6d5;--ink:#183326;--muted:#587466}
+*{box-sizing:border-box}body{font:16px/1.55 Arial,sans-serif;max-width:1000px;margin:auto;padding:18px;background:#f2faf4;color:var(--ink)}
+header,.card{background:white;padding:20px;margin:16px 0;border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 12px rgba(23,107,69,.06)}
+header{background:linear-gradient(125deg,#155d3d,#278653);color:white;border:0}header p{margin:.4rem 0}h1{margin-top:0}h2{font-size:1.25rem;color:var(--green)}h3{color:#235c3e}
+a{color:var(--green2);font-weight:700}.q{padding:12px 0;border-bottom:1px solid #e2efe6}label{display:block;margin:6px 0}select,textarea,input{font:inherit;padding:10px;width:100%;max-width:100%;border:1px solid #b9d7c3;border-radius:9px;background:#fcfffd;color:var(--ink)}input[type=radio]{width:auto;margin-right:6px}textarea{min-height:80px}button{padding:10px 14px;margin:8px 6px 0 0;border:0;border-radius:9px;background:var(--green);color:white;font-weight:bold;cursor:pointer}button:hover{background:#104d31}.muted{color:var(--muted);font-size:.92rem}.fb{font-size:.92rem}.ok{color:#167143}.bad{color:#b52e38}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.box{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfffc}.profile{background:var(--mint);border:1px solid #a9d9b8;border-radius:16px;padding:18px;margin:16px 0}.profile h2{margin-top:0}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.avatar{width:54px;height:54px;border-radius:50%;background:#176b45;color:white;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;flex-shrink:0}.profile-head{display:flex;gap:14px;align-items:center}.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px}.slot{background:#f0faf3;border:1px solid #cde6d5;border-left:5px solid #238657;padding:12px;border-radius:10px}.slot b{display:block;color:#176b45}.pill{display:inline-block;background:#d5f0de;color:#145a37;padding:4px 9px;border-radius:999px;font-size:.85rem;font-weight:bold}
+.skell-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:16px 0}.skell-cluster{min-width:0;padding:16px;border:1px solid #d7e5ef;border-radius:16px;background:#fff;box-shadow:0 3px 10px rgba(7,39,84,.06)}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;width:fit-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px 16px;background:#082a65;color:#fff;border-radius:999px;font-weight:800;letter-spacing:.02em;font-size:clamp(.82rem,1.55vw,1.05rem);line-height:1.15;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0;font-size:.86rem;color:#587466;line-height:1.35}.collocation-lines{display:grid;gap:8px;margin:8px 0 14px}.collocation-line{height:44px;width:100%;border-radius:8px;padding:3px 8px;border:1px solid transparent;font-weight:600;color:#142b43}.collocation-line:nth-child(3n+1){background:#fff0a6;border-color:#f0d96b}.collocation-line:nth-child(3n+2){background:#f9d1f7;border-color:#eaa3e7}.collocation-line:nth-child(3n){background:#c9f5d9;border-color:#91d9ad}.collocation-line::placeholder{color:#5a6070;font-weight:400}.student-sentence{min-height:70px;margin:6px 0 12px;background:#fbfffc}.submission-panel{margin-top:16px;padding:16px;border:1px solid #9ecfb0;border-radius:14px;background:#eff9f2}.submission-status{margin-top:10px;font-weight:700}.submission-status.ok{color:#176b45}.submission-status.err{color:#a5222d}.submission-status.warn{color:#805900}.writing-area{min-height:190px}.writing-anti-paste-note{padding:10px 12px;background:#fff7d8;border:1px solid #ead27b;border-radius:9px;color:#624e00;font-size:.92rem}.similar-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.similar-grid input{background:#f6faff}.callout{padding:12px 14px;border-left:4px solid #238657;background:#eff9f2;border-radius:8px}.score-row{display:flex;gap:10px;flex-wrap:wrap}.score-chip{background:#edf7f0;border-radius:9px;padding:8px 12px}@media(max-width:680px){.skell-board{grid-template-columns:1fr}.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;padding:8px 14px}.cluster-type{flex-basis:auto;width:100%}}@media(max-width:560px){.profile-grid{grid-template-columns:1fr}body{padding:8px}header,.card{padding:15px}}@media print{button{display:none}body{background:white}}
+
+.audio-panel{padding:16px;margin:14px 0 18px;border:1px solid #b9dfc5;border-radius:14px;background:linear-gradient(135deg,#f2fbf4,#ffffff)}.audio-heading{display:flex;gap:10px;align-items:center;margin-bottom:10px}.audio-heading>span{font-size:1.7rem}.audio-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.voice-picker-row{display:grid;grid-template-columns:auto minmax(180px,1fr) auto;gap:8px 10px;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid #d5eadb}.voice-picker-row select{width:100%;min-width:0;padding:9px;border:1px solid #a8cdb4;border-radius:8px;background:#fff;color:var(--ink)}.voice-picker-row button{margin:0}.voice-picker-row #reading-voice-info{grid-column:2/-1;font-size:.82rem}.audio-controls button{margin:2px 4px 2px 0}.speed-control{display:flex;gap:8px;align-items:center;margin:2px 0 2px 8px;font-weight:700}.speed-control select{width:auto;min-width:135px;padding:8px}.audio-status{margin:10px 0 0}.audio-progress-wrap{margin:12px 0 4px}.audio-progress-label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.9rem;color:var(--muted);margin-bottom:4px}.audio-progress{width:100%;max-width:none;height:22px;padding:0;margin:0;accent-color:var(--green);cursor:pointer;background:transparent}.audio-progress-help{font-size:.82rem;color:var(--muted);margin:2px 0 0}@media(max-width:560px){.voice-picker-row{grid-template-columns:1fr}.voice-picker-row #reading-voice-info{grid-column:1}.audio-controls{align-items:stretch}.audio-controls button{flex:1}.speed-control{width:100%;margin:6px 0 0}.speed-control select{flex:1}}
+.lesson-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(118deg,#104b32 0%,#176b45 54%,#2c8b5b 100%);color:#fff;border:0;border-radius:22px;padding:25px 27px;margin:16px 0;box-shadow:0 10px 28px rgba(20,90,54,.17)}
+.lesson-hero:before{content:"";position:absolute;z-index:-1;width:300px;height:300px;right:135px;top:-205px;border:1px solid rgba(255,255,255,.11);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 58px rgba(255,255,255,.02)}
+.lesson-header-layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;align-items:center;gap:25px;min-width:0}
+.lesson-header-copy{min-width:0}
+.lesson-kicker{display:flex;align-items:center;gap:9px;margin-bottom:12px;color:#d7f5e1;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.lesson-kicker-mark{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;border-radius:9px;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.26);font-size:.72rem;letter-spacing:-.03em}
+.kicker-divider{padding:0 3px;color:#9edbb5}
+.lesson-header-copy h1{max-width:690px;margin:0 0 10px;color:#fff;font-size:clamp(1.7rem,3.1vw,2.35rem);font-weight:800;line-height:1.12;letter-spacing:-.035em;text-wrap:balance}
+.lesson-subtitle{max-width:650px;margin:0 0 17px!important;color:#e4f7e9;font-size:1.04rem;line-height:1.45}
+.lesson-meta{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.lesson-meta-pill{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:.79rem;font-weight:700;line-height:1.25}
+.lesson-method{margin:14px 0 0!important;color:#d4efdd;font-size:.84rem;letter-spacing:.01em}
+.lesson-header-photo{display:block;width:250px;height:166px;max-width:100%;object-fit:cover;object-position:center 48%;border-radius:17px;border:3px solid rgba(255,255,255,.88);box-shadow:0 12px 24px rgba(0,0,0,.2);background:#dcefe2}
+@media(max-width:760px){.lesson-hero{padding:21px;border-radius:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr) 205px;gap:16px}.lesson-header-photo{width:205px;height:148px}.lesson-header-copy h1{font-size:clamp(1.5rem,4vw,1.9rem)}}
+@media(max-width:560px){.lesson-hero{padding:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr);gap:15px}.lesson-header-photo{width:100%;height:190px;max-width:none;object-position:center 44%;border-radius:14px}.lesson-kicker{margin-bottom:9px}.lesson-header-copy h1{font-size:1.8rem}.lesson-subtitle{font-size:.98rem}.lesson-meta-pill{font-size:.76rem}}
+
+/* Responsive SkELL keyword pills: keep long keywords fully visible inside their ovals. */
+.skell-cluster{min-width:0}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 1 auto;align-items:center;justify-content:center;width:max-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px clamp(10px,1.5vw,16px);box-sizing:border-box;font-size:clamp(.72rem,1.25vw,.98rem);line-height:1.12;letter-spacing:.015em;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0}@media(max-width:680px){.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;font-size:clamp(.72rem,3vw,.94rem);padding:8px 12px}.cluster-type{flex-basis:auto;width:100%}}
+#word-count{font-weight:700}#word-count.word-count-warn{color:#805900}#word-count.word-count-ok{color:#176b45}
+/* Lesson 13 visual redesign: justice photography, editorial typography, compact navigation. */
+:root{--green:#145b45;--green2:#247c5b;--mint:#eaf4ed;--line:#d4e1d6;--ink:#142e3e;--muted:#65766d;--cream:#fbf7ec;--navy:#112d4f}
+body{max-width:1320px;padding:16px 20px 34px;background:#f4f7f4;color:#142e3e;font:16px/1.55 Arial,sans-serif}
+.justice-hero{position:relative;isolation:isolate;overflow:hidden;min-height:365px;margin:4px 0 12px;padding:34px 38px;border:0;border-radius:22px;background:#12392f!important;box-shadow:0 14px 32px rgba(16,51,40,.2);color:#fff}
+.justice-banner-photos{position:absolute;z-index:-3;inset:0 0 0 54%;display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;overflow:hidden;}
+.justice-banner-photos img{display:block;width:100%;height:100%;min-width:0;object-fit:cover;filter:saturate(.86);}
+.justice-banner-photos:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,85,50,.92) 0%,rgba(8,85,50,.48) 24%,rgba(8,45,34,.12) 100%);pointer-events:none;}
+.justice-hero:before{content:"";position:absolute;z-index:-2;inset:0;width:auto;height:auto;right:auto;top:auto;border:0;border-radius:0;box-shadow:none;background:linear-gradient(90deg,rgba(4,32,28,.88) 0%,rgba(5,38,31,.67) 38%,rgba(6,40,34,.14) 75%,rgba(7,37,34,.12) 100%)}
+.justice-hero-shade{position:absolute;z-index:-1;inset:0;background:linear-gradient(0deg,rgba(6,28,25,.5),transparent 50%)}
+.justice-hero-content{position:relative;max-width:780px;z-index:1}
+.brand-row{display:flex;align-items:center;gap:17px;flex-wrap:wrap;margin-bottom:0}
+.brand-name{font:700 2.1rem/1 Georgia,'Times New Roman',serif;letter-spacing:-.04em;color:#fff}
+.lesson-number{display:inline-flex;align-items:center;border-radius:12px;padding:9px 18px;background:#0c5b4a;color:#fff;border:1px solid rgba(255,255,255,.28);font-weight:800;letter-spacing:.04em}
+.brand-subtitle{margin:5px 0 24px!important;color:#e6f1e9;font-size:.81rem;letter-spacing:.06em}
+.justice-hero h1{max-width:750px;margin:0 0 14px;font:700 clamp(2.35rem,4.4vw,4.1rem)/.99 Georgia,'Times New Roman',serif;letter-spacing:-.045em;color:#fff;text-wrap:balance}
+.hero-motto{margin:16px 0!important;font-size:.93rem;letter-spacing:.17em;font-weight:800;color:#f3f5de}
+.hero-motto span{padding:0 .38em;color:#d4c77c}
+.justice-hero .lesson-meta{gap:8px;max-width:700px}
+.justice-hero .lesson-meta-pill{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.33);backdrop-filter:blur(3px)}
+.hero-start{display:inline-flex;align-items:center;gap:15px;margin-top:21px;padding:11px 17px;border-radius:999px;background:#fff;color:#124f40;text-decoration:none;font-weight:800;box-shadow:0 6px 18px rgba(0,0,0,.16)}
+.hero-start:hover{background:#f0f6ec;color:#0c3f33}
+.hero-side-note{position:absolute;right:30px;top:30px;max-width:240px;padding:15px 19px;border:1px solid rgba(255,255,255,.24);border-radius:13px;background:rgba(9,45,35,.42);color:#fff;font:italic 1.13rem/1.5 Georgia,'Times New Roman',serif;text-align:right;backdrop-filter:blur(4px)}
+.lesson-jumps{display:flex;gap:7px;align-items:center;overflow-x:auto;padding:7px 1px 12px;margin:0 0 16px;scrollbar-width:thin}
+.lesson-jumps a{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;padding:9px 12px;border:1px solid #dce4df;border-radius:11px;background:#fff;color:#183548;text-decoration:none;font-size:.82rem;font-weight:700;box-shadow:0 2px 4px rgba(20,50,40,.035);white-space:nowrap}
+.lesson-jumps a:hover{border-color:#7db79a;background:#eff7f0}
+.lesson-jumps b{display:inline-flex;width:23px;height:23px;align-items:center;justify-content:center;border-radius:7px;background:#267b58;color:white;font-size:.78rem}
+.justice-overview{display:grid;grid-template-columns:minmax(230px,1fr) minmax(300px,1.72fr) minmax(330px,1.2fr);gap:15px;margin:0 0 15px;align-items:stretch}
+.overview-card{min-width:0;padding:18px;border:1px solid #e2e8e0;border-radius:16px;background:#fff;box-shadow:0 4px 14px rgba(21,53,38,.045)}
+.objectives-card{background:linear-gradient(160deg,#f0f7f1,#fff 78%)}
+.collocation-card{background:linear-gradient(160deg,#fcf8eb,#fff 90%)}
+.overview-card h2{margin:0 0 13px;color:#123354;font:700 1.3rem/1.2 Georgia,'Times New Roman',serif;letter-spacing:-.02em}
+.overview-card h2 span{display:inline-flex;margin-right:7px;color:#2d8058}
+.overview-card h3{margin:18px 0 8px;color:#155840;font-size:1rem}
+.objective-list,.theme-list{padding-left:0;margin:0;list-style:none}
+.objective-list li{position:relative;padding:0 0 8px 25px;font-size:.91rem;line-height:1.42}
+.objective-list li:before{content:"✓";position:absolute;left:0;top:1px;display:inline-flex;width:18px;height:18px;align-items:center;justify-content:center;border-radius:50%;background:#55a766;color:white;font-size:.77rem;font-weight:900}
+.theme-list{padding-left:18px;list-style:disc;font-size:.88rem;line-height:1.42}
+.overview-feature{position:relative;min-height:370px;overflow:hidden;border-radius:16px;background:#0f4b53;box-shadow:0 8px 22px rgba(9,50,56,.12)}
+.overview-feature>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center}
+.overview-feature:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,27,41,.86) 0%,rgba(3,27,41,.08) 68%,transparent 100%)}
+.feature-caption{position:absolute;z-index:1;left:22px;right:22px;bottom:19px;color:white}
+.feature-kicker{font-size:.72rem;letter-spacing:.16em;font-weight:800;color:#c7e6a6}
+.feature-caption p{max-width:380px;margin:6px 0 0;font:1.45rem/1.18 Georgia,'Times New Roman',serif}
+.key-collocations{columns:2;column-gap:14px;list-style:none;padding:0;margin:0}
+.key-collocations li{display:flex;align-items:flex-start;gap:7px;margin:0 0 8px;break-inside:avoid;font-size:.79rem;line-height:1.29;color:#1b3042}
+.key-collocations li span{flex:0 0 21px;width:21px;height:21px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:#e0efe3;color:#176b45;font-size:.67rem;font-weight:900}
+.text-link{display:inline-flex;gap:7px;align-items:center;margin-top:7px;color:#176b45;font-size:.84rem;text-decoration:none}
+.justice-gallery{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:11px;margin:0 0 14px}
+.justice-tile{min-width:0;overflow:hidden;border:1px solid #e0e6e0;border-radius:13px;background:#fff;box-shadow:0 3px 11px rgba(16,49,35,.05)}
+.justice-tile img{display:block;width:100%;height:112px;object-fit:cover}
+.justice-tile>div{display:flex;gap:7px;align-items:center;padding:9px 10px;min-height:45px;background:linear-gradient(90deg,#eef6ee,#f8faf8);font-size:.77rem;line-height:1.2;color:#173a34}
+.justice-tile>div span{font-size:1.15rem;color:#2a7e4f}
+.justice-quote{display:flex;align-items:center;gap:13px;margin:0 0 18px;padding:15px 22px;border-radius:15px;background:#e5f0e7;border:1px solid #d3e5d7;color:#174536}
+.justice-quote>span{font:700 3.3rem/.6 Georgia,serif;color:#65a27c}
+.justice-quote p{flex:1;margin:0;font:italic 1.14rem/1.4 Georgia,'Times New Roman',serif}
+.justice-quote a{flex:0 0 auto;display:inline-flex;gap:8px;align-items:center;color:#145b45;text-decoration:none;font-weight:800;font-size:.88rem}
+body>section.card,body>section.profile{scroll-margin-top:18px}
+.card{border-color:#e0e8e0;box-shadow:0 4px 15px rgba(20,62,42,.045)}
+.card h2{color:#143b53;font-family:Georgia,'Times New Roman',serif;font-size:1.35rem}
+.q{border-bottom-color:#edf0e9}
+@media(max-width:1050px){.justice-overview{grid-template-columns:minmax(230px,.9fr) minmax(300px,1.3fr)}.collocation-card{grid-column:1/-1}.key-collocations{columns:3}.justice-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}.justice-tile img{height:140px}}
+@media(max-width:700px){body{padding:10px}.justice-banner-photos{left:36%;opacity:.72}.justice-hero{min-height:0;padding:25px 20px;border-radius:18px}.justice-hero h1{font-size:clamp(2rem,9vw,3rem)}.brand-name{font-size:1.75rem}.brand-subtitle{margin-bottom:18px!important}.hero-side-note{display:none}.hero-motto{font-size:.75rem;letter-spacing:.09em}.justice-overview{grid-template-columns:1fr}.collocation-card{grid-column:auto}.overview-feature{min-height:285px;grid-row:1}.key-collocations{columns:2}.justice-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.justice-tile img{height:130px}.justice-quote{align-items:flex-start;flex-wrap:wrap;padding:14px}.justice-quote p{flex-basis:calc(100% - 45px)}.justice-quote a{margin-left:43px}}
+@media(max-width:400px){.key-collocations{columns:1}.justice-gallery{gap:8px}.justice-tile img{height:108px}.justice-tile>div{font-size:.72rem;padding:7px}}
+@media print{.lesson-jumps,.hero-start{display:none}.justice-hero{min-height:240px;print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+</style>
+</head>
+<body>
+<header class="lesson-hero justice-hero media-hero">
+  <div class="justice-banner-photos" aria-label="Print journalism, newspaper production and editorial work">
+    <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="A reader looking at a printed newspaper" fetchpriority="high">
+    <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Newspapers and printed news pages" loading="eager">
+    <img src="https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Printed newspapers ready to be read" loading="eager">
+  </div>
+  <div class="justice-hero-shade" aria-hidden="true"></div>
+  <div class="justice-hero-content">
+    <div class="brand-row"><span class="brand-name">LexiLink</span><span class="lesson-number">Lesson 16</span></div>
+    <p class="brand-subtitle">Collocations for Confident Communication</p>
+    <h1>The Media:<br>In Print</h1>
+    <p class="hero-motto">READ <span>•</span> QUESTION <span>•</span> VERIFY <span>•</span> REPORT</p>
+    <div class="lesson-meta" aria-label="Lesson information">
+      <span class="lesson-meta-pill">B2 · Upper-intermediate</span>
+      <span class="lesson-meta-pill">80-minute lesson</span>
+      <span class="lesson-meta-pill">20 target collocations</span>
+    </div>
+    <a class="hero-start" href="#student-profile">Start the lesson <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="hero-side-note">Facts checked.<br>Headlines questioned.<br>Public interest served.</div>
+</header>
+
+<nav class="lesson-jumps" aria-label="Lesson sections">
+  <a href="#vocabulary-zone"><b>1</b> Vocabulary</a>
+  <a href="#reading"><b>2</b> Reading</a>
+  <a href="#reading-questions"><b>3</b> Comprehension</a>
+  <a href="#matching-zone"><b>4</b> Matching</a>
+  <a href="#completion-zone"><b>5</b> Complete</a>
+  <a href="#skell-cluster"><b>6</b> SkELL Investigation</a>
+  <a href="#odd-zone"><b>7</b> Odd One Out</a>
+  <a href="#find-zone"><b>8</b> Find the Collocate</a>
+  <a href="#sorting-zone"><b>9</b> Sorting</a>
+  <a href="#cloze-zone"><b>10</b> Cloze</a>
+  <a href="#repair-zone"><b>11</b> Repair</a>
+  <a href="#writing-zone"><b>12</b> Writing</a>
+</nav>
+<section aria-label="Lesson introduction" class="justice-overview">
+<div class="overview-card objectives-card">
+<h2><span aria-hidden="true">◎</span> Lesson objectives</h2>
+<ul class="objective-list">
+<li>Recognise natural collocations used in newspapers and print journalism.</li>
+<li>Distinguish a verified report from a misleading headline or an unconfirmed rumour.</li>
+<li>Investigate word partnerships and related words with SkELL corpus evidence.</li>
+<li>Explain why accuracy, editorial independence and public interest matter in reporting.</li>
+<li>Use target collocations in a concise, evidence-based news analysis.</li>
+</ul>
+<h3>Key themes</h3>
+<ul class="theme-list"><li>Headlines and front-page stories</li><li>Sources, evidence and fact-checking</li><li>Interviews and news reports</li><li>Press freedom and editorial independence</li><li>Responsible reporting and public interest</li></ul>
+</div>
+<div class="overview-feature">
+<img alt="Printed newspaper pages and news reading materials" loading="eager" src="https://images.unsplash.com/photo-1504270997636-07ddfbd48945?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"/>
+<div class="feature-caption"><span class="feature-kicker">THE PRINT NEWSROOM</span><p>A strong news story does more than attract attention: it verifies information, cites reliable sources and serves the public interest.</p></div>
+</div>
+<div class="overview-card collocation-card">
+<h2><span aria-hidden="true">▤</span> Key collocations</h2>
+<ol class="key-collocations"><li><span>01</span>front-page story</li><li><span>02</span>breaking news</li><li><span>03</span>reliable source</li><li><span>04</span>raise public awareness</li><li><span>05</span>misleading headline</li><li><span>06</span>conduct an interview</li><li><span>07</span>verify information</li><li><span>08</span>media coverage</li><li><span>09</span>editorial independence</li><li><span>10</span>news report</li><li><span>11</span>publish an article</li><li><span>12</span>issue a correction</li><li><span>13</span>cite a source</li><li><span>14</span>gather evidence</li><li><span>15</span>press freedom</li><li><span>16</span>news outlet</li><li><span>17</span>circulate a rumour</li><li><span>18</span>print edition</li><li><span>19</span>investigative journalism</li><li><span>20</span>public interest</li></ol><a class="text-link" href="#vocabulary-zone">Study definitions and synonyms <span aria-hidden="true">→</span></a>
+</div></section>
+<section aria-label="Print journalism themes" class="justice-gallery"><article class="justice-tile"><img alt="A journalist writing and organising notes" loading="lazy" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">▤</span><b>Gather evidence</b></div></article><article class="justice-tile"><img alt="A media microphone and recording equipment" loading="lazy" src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">◉</span><b>Conduct an interview</b></div></article><article class="justice-tile"><img alt="A printed newspaper opened to a news story" loading="lazy" src="https://images.unsplash.com/photo-1504711331083-9c895941bf81?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">▣</span><b>Front-page story</b></div></article><article class="justice-tile"><img alt="Shelves of print publications and reference materials" loading="lazy" src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">⌕</span><b>Reliable source</b></div></article><article class="justice-tile"><img alt="A person checking information on a laptop" loading="lazy" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">✓</span><b>Verify information</b></div></article><article class="justice-tile"><img alt="A notebook and written research notes" loading="lazy" src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">✎</span><b>Investigative journalism</b></div></article></section>
+<div class="justice-quote"><span aria-hidden="true">“</span><p>Responsible print journalism turns attention into understanding: it checks facts, explains context and keeps the public interest in view.</p><a href="#reading">Explore the reading <span aria-hidden="true">→</span></a></div>
+
+<section class="profile" id="student-profile" aria-label="Student profile">
+<div class="profile-head"><div class="avatar" id="avatar-initials">S</div><div><h2 style="margin:0;color:#176b45">Student profile</h2><p style="margin:.2rem 0">LexiLink · The Media: In Print <span class="pill">B2</span> <span class="pill">80 minutes</span></p></div></div>
+<div class="profile-grid" style="margin-top:14px"><div><label for="profile-name">Student name</label><input id="profile-name" placeholder="Enter your name"></div><div><label for="profile-group">Group</label><input id="profile-group" placeholder="Enter group"></div></div>
+<p class="muted" style="margin-bottom:0">Complete the tasks, investigate media collocations in SkELL, and write a short analysis of responsible print journalism.</p>
+</section>
+<section class="card" id="lesson-route"><h2>80-minute lesson route</h2><p class="muted">Teacher-facing timing plan; the tasks below follow this sequence.</p><div class="timeline">
+<div class="slot"><b>0–5 min · Warm-up</b>Compare headlines and discuss what makes a printed news story trustworthy.</div>
+<div class="slot"><b>5–17 min · Reading</b>Read about reporting, source checking and editorial decisions.</div>
+<div class="slot"><b>17–27 min · Noticing</b>Identify collocations that describe headlines, evidence, interviews and publications.</div>
+<div class="slot"><b>27–42 min · DDL with SkELL</b>Investigate four media keywords and verify collocations in corpus examples.</div>
+<div class="slot"><b>42–52 min · Retrieval</b>Use Odd One Out and Find the Collocate to distinguish natural word partnerships.</div>
+<div class="slot"><b>52–62 min · Categorising</b>Practise sorting and lexical cloze with realistic newsroom contexts.</div>
+<div class="slot"><b>62–70 min · Correction</b>Repair awkward collocations and examine misleading or unsupported wording.</div>
+<div class="slot"><b>70–77 min · Production</b>Write at least 100 words evaluating a news report and its evidence.</div>
+<div class="slot"><b>77–80 min · Reflection</b>Review your score and report one collocation you verified in SkELL.</div>
+</div></section>
+<section class="card" id="vocabulary-zone"><h2>Learning outcomes</h2><p>By the end of this lesson, you will be able to use collocations for print journalism, analyse how headlines frame a story, check sources and evidence, and write a short news analysis grounded in responsible reporting.</p><h2>Target collocations: definitions and synonyms</h2><p class="muted">Study each complete word partnership, its meaning and related expressions before starting the tasks.</p><div class="grid" id="target"></div></section>
+<section class="card" id="reading"><h2>Reading: The Media — In Print</h2><p class="muted">Read the text carefully or listen to it. Target collocations are shown in bold.</p>
+
+<div class="audio-panel" role="group" aria-label="Reading audio controls">
+  <div class="audio-heading"><span aria-hidden="true">🎧</span><div><strong>Listen to the reading</strong><div class="muted">Choose your preferred English voice · Browser speech synthesis</div></div></div>
+  <div class="audio-controls">
+    <button type="button" onclick="playReading()" aria-label="Play or resume reading text">▶ Listen / Resume</button>
+    <button type="button" onclick="pauseReading()" aria-label="Pause reading text">Ⅱ Pause</button>
+    <button type="button" onclick="stopReading()" aria-label="Stop and reset reading text">■ Stop</button>
+    <label class="speed-control" for="reading-speed">Speed
+      <select id="reading-speed" aria-label="Reading speed" onchange="updateReadingSpeedNote()">
+        <option value="0.75">0.75× Slow</option><option value="1" selected>1× Normal</option><option value="1.25">1.25× Fast</option>
+      </select>
+    </label>
+  </div>
+  <div class="voice-picker-row">
+    <label for="reading-voice"><strong>Reading voice</strong></label>
+    <select id="reading-voice" aria-label="Choose reading voice" onchange="changeReadingVoice(this.value)">
+      <option value="">Loading available voices…</option>
+    </select>
+    <button type="button" onclick="previewReadingVoice()" aria-label="Preview selected reading voice">🔊 Preview voice</button>
+    <span id="reading-voice-info" class="muted" aria-live="polite">Loading voices from your browser…</span>
+  </div>
+  <div class="audio-progress-wrap">
+    <div class="audio-progress-label"><label for="reading-progress" style="margin:0">Reading progress</label><span id="reading-progress-value">0%</span></div>
+    <input id="reading-progress" class="audio-progress" type="range" min="0" max="100" step="1" value="0" aria-label="Reading progress; move the slider to seek" oninput="previewReadingSeek(this.value)" onchange="seekReading(this.value)">
+    <p class="audio-progress-help">After the title, narration pauses for 3 seconds before continuing. Pause / Resume preserves your place, including during this break, or move the slider to jump to another part of the text.</p>
+  </div>
+  <p id="reading-audio-status" class="muted audio-status" aria-live="polite">Ready to play. Choose an available voice, preview it, then start reading.</p>
+</div>
+<article id="reading-text" style="line-height:1.75">
+<h3>Beyond the Headline: Responsible Print Journalism</h3>
+<p>A newspaper can shape what readers notice first. A <b>front-page story</b> often focuses on an event with major public consequences, while <b>breaking news</b> reports an important development as it happens. Yet a dramatic title is not proof that a story is accurate. A <b>misleading headline</b> may exaggerate a claim, omit essential context or suggest a conclusion that the article itself does not support. Readers should therefore examine the full <b>news report</b>, not judge a story by its headline alone.</p>
+<p>Responsible journalists <b>verify information</b> before publication. They check documents, compare accounts and <b>gather evidence</b> rather than relying on a single social-media post or an anonymous rumour. They try to use a <b>reliable source</b>, explain where a claim came from and <b>cite a source</b> when evidence needs to be traced. When a story includes a serious allegation, reporters may <b>conduct an interview</b> with the people involved and give relevant parties a fair opportunity to respond.</p>
+<p>Editorial choices matter too. A newspaper may <b>publish an article</b> to explain a complex issue, investigate a public concern or <b>raise public awareness</b> of a problem that has received little attention. Good <b>investigative journalism</b> can require time, careful research and the examination of records that are not immediately easy to interpret. Its purpose should be connected to the <b>public interest</b>, not simply to attract attention or embarrass an individual.</p>
+<p>Trust also depends on the organisation behind a story. A responsible <b>news outlet</b> should protect <b>editorial independence</b>, allowing journalists and editors to make evidence-based decisions without improper pressure. <b>Press freedom</b> makes it possible for reporters to ask difficult questions and scrutinise powerful institutions, but freedom does not remove the duty to be accurate and fair. A newspaper’s <b>print edition</b> may reach readers who do not follow its website, while thoughtful <b>media coverage</b> can help communities understand an issue beyond the first announcement.</p>
+<p>Mistakes can still happen. When a newspaper discovers a significant error, it should <b>issue a correction</b> clearly rather than quietly leaving readers with a false impression. Editors should also be cautious before they <b>circulate a rumour</b> or repeat an unverified claim. A publication earns trust over time by separating evidence from speculation, correcting errors openly and treating the reader as someone who deserves context, not just a dramatic headline.</p>
+</article>
+<h3 id="reading-questions">Reading Task A — Choose the best answer</h3><div id="readMCQ"></div><button onclick="checkReading()">Check reading answers</button><button onclick="resetReading()">Try again</button><div id="reading-result"></div>
+<h3>Reading Task B — True or False?</h3><p class="muted">Choose True or False according to the text.</p><div id="readTF"></div><button onclick="checkTF()">Check statements</button><button onclick="resetTF()">Try again</button><div id="tf-result"></div>
+<h3>Reading Task D — Match the idea to the paragraph</h3><p class="muted">Choose the paragraph number (1–5). Some paragraph numbers may be used more than once.</p><div id="readMatch"></div><button onclick="checkReadMatch()">Check paragraph matching</button><button onclick="resetReadMatch()">Try again</button><div id="readmatch-result"></div>
+</section>
+<section class="card" id="matching-zone"><h2>1. Matching · 10 points</h2><p class="muted">Complete each media-related collocation by selecting the missing word or phrase. Feedback appears after you check your answers.</p><div id="matching"></div><button onclick="check('matching')">Check answers</button><button onclick="reset('matching')">Try again</button><div id="matching-result"></div></section>
+<section class="card" id="completion-zone"><h2>2. Complete the Sentence · 10 points</h2><p class="muted">Choose the collocation that best fits each newsroom context. Unanswered items stay unanswered until you check.</p><div id="gaps"></div><button onclick="check('gaps')">Check answers</button><button onclick="reset('gaps')">Try again</button><div id="gaps-result"></div></section>
+<section class="card" id="skell-cluster"><h2>3. SkELL Collocation Investigation · 15 minutes · 10 points (teacher-scored)</h2>
+<p>Open <a href="https://skell.sketchengine.eu/" target="_blank" rel="noopener">SkELL</a>. Search each keyword in <b>Word Sketch</b>, inspect example sentences and open <b>Similar words</b>. For every keyword, record two collocations in different grammatical patterns where possible, write an original sentence for each, add two synonyms or related words, and note a short example or context you checked. A related word is not automatically an interchangeable synonym; test the substitution in context.</p>
+<div class="callout"><b>Investigation routine</b><br>Predict → search in SkELL → inspect examples and grammatical patterns → record two distinct collocations → write original sentences → check Similar words → revise your hypothesis using context evidence.</div>
+<div class="skell-board">
+<div class="skell-cluster" data-keyword="HEADLINE"><div class="skell-cluster-head"><span class="keyword-pill">HEADLINE</span><span class="cluster-type"><b>Search focus:</b> adjective + noun; noun + noun<br>Compare accurate, dramatic and misleading headlines.</span></div><label for="headline-coll-1">Collocation 1</label><input autocomplete="off" class="collocation-line" id="headline-coll-1" placeholder="e.g. misleading headline"/><label for="headline-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="headline-sentence-1" placeholder="Write an original sentence in context."></textarea><label for="headline-coll-2">Collocation 2</label><input autocomplete="off" class="collocation-line" id="headline-coll-2" placeholder="Try another grammatical pattern"/><label for="headline-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="headline-sentence-2" placeholder="Write a second original sentence."></textarea><label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input autocomplete="off" id="headline-syn-1" placeholder="Related word 1"/><input autocomplete="off" id="headline-syn-2" placeholder="Related word 2"/></div><label for="headline-evidence">Corpus example / context checked</label><textarea id="headline-evidence" placeholder="Record the example or explain the context."></textarea></div>
+<div class="skell-cluster" data-keyword="SOURCE"><div class="skell-cluster-head"><span class="keyword-pill">SOURCE</span><span class="cluster-type"><b>Search focus:</b> adjective + noun; verb + noun<br>Explore reliable sources, source attribution and verification.</span></div><label for="source-coll-1">Collocation 1</label><input autocomplete="off" class="collocation-line" id="source-coll-1" placeholder="e.g. reliable source"/><label for="source-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="source-sentence-1" placeholder="Write an original sentence in context."></textarea><label for="source-coll-2">Collocation 2</label><input autocomplete="off" class="collocation-line" id="source-coll-2" placeholder="Try another grammatical pattern"/><label for="source-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="source-sentence-2" placeholder="Write a second original sentence."></textarea><label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input autocomplete="off" id="source-syn-1" placeholder="Related word 1"/><input autocomplete="off" id="source-syn-2" placeholder="Related word 2"/></div><label for="source-evidence">Corpus example / context checked</label><textarea id="source-evidence" placeholder="Record the example or explain the context."></textarea></div>
+<div class="skell-cluster" data-keyword="JOURNALISM"><div class="skell-cluster-head"><span class="keyword-pill">JOURNALISM</span><span class="cluster-type"><b>Search focus:</b> adjective + noun; verb + noun<br>Investigate reporting, interviews and editorial standards.</span></div><label for="journalism-coll-1">Collocation 1</label><input autocomplete="off" class="collocation-line" id="journalism-coll-1" placeholder="e.g. investigative journalism"/><label for="journalism-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="journalism-sentence-1" placeholder="Write an original sentence in context."></textarea><label for="journalism-coll-2">Collocation 2</label><input autocomplete="off" class="collocation-line" id="journalism-coll-2" placeholder="Try another grammatical pattern"/><label for="journalism-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="journalism-sentence-2" placeholder="Write a second original sentence."></textarea><label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input autocomplete="off" id="journalism-syn-1" placeholder="Related word 1"/><input autocomplete="off" id="journalism-syn-2" placeholder="Related word 2"/></div><label for="journalism-evidence">Corpus example / context checked</label><textarea id="journalism-evidence" placeholder="Record the example or explain the context."></textarea></div>
+<div class="skell-cluster" data-keyword="COVERAGE"><div class="skell-cluster-head"><span class="keyword-pill">COVERAGE</span><span class="cluster-type"><b>Search focus:</b> adjective + noun; verb + noun<br>Explore the reach, focus and consequences of news coverage.</span></div><label for="coverage-coll-1">Collocation 1</label><input autocomplete="off" class="collocation-line" id="coverage-coll-1" placeholder="e.g. media coverage"/><label for="coverage-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="coverage-sentence-1" placeholder="Write an original sentence in context."></textarea><label for="coverage-coll-2">Collocation 2</label><input autocomplete="off" class="collocation-line" id="coverage-coll-2" placeholder="Try another grammatical pattern"/><label for="coverage-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="coverage-sentence-2" placeholder="Write a second original sentence."></textarea><label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input autocomplete="off" id="coverage-syn-1" placeholder="Related word 1"/><input autocomplete="off" id="coverage-syn-2" placeholder="Related word 2"/></div><label for="coverage-evidence">Corpus example / context checked</label><textarea id="coverage-evidence" placeholder="Record the example or explain the context."></textarea></div>
+</div></section>
+<section class="card" id="odd-zone"><h2>4. Odd One Out · Based on SkELL · 10 points</h2><p class="muted">Choose the one expression that does not form a natural collocation. The questions cover headlines, sources, interviews, editorial decisions and fact-checking. Each item has three natural combinations and one incorrect combination. Unanswered items stay hidden; explanations appear only after you choose and check.</p><div id="odd"></div><button onclick="check('odd')">Check answers</button><button onclick="reset('odd')">Try again</button><div id="odd-result"></div></section>
+<section class="card" id="find-zone"><h2>5. Find the Verb, Find the Collocate · 10 points</h2><p>Choose the verb or verb phrase that creates a natural collocation about responsible print journalism.</p><div id="find"></div><button onclick="check('find')">Check answers</button><button onclick="reset('find')">Try again</button><div id="find-result"></div></section>
+<section class="card" id="sorting-zone"><h2>6. Collocation Sorting · 10 points</h2><p class="muted">Choose the verb that creates a natural lexical collocation.</p><div id="sorting"></div><button onclick="check('sorting')">Check answers</button><button onclick="reset('sorting')">Try again</button><div id="sorting-result"></div></section>
+<section class="card" id="cloze-zone"><h2>7. Lexical Cloze · 10 points</h2><p class="muted"><b>Word bank:</b> front-page story · breaking news · reliable source · misleading headline · conduct an interview · verify information · issue a correction · gather evidence · editorial independence · public interest</p><div id="cloze"></div><button onclick="check('cloze')">Check answers</button><button onclick="reset('cloze')">Try again</button><div id="cloze-result"></div></section>
+<section class="card" id="repair-zone"><h2>8. Collocation Repair · 10 points</h2><p class="muted">Choose the best correction. Focus on natural lexical word partnerships used in print journalism, source verification, corrections and responsible reporting.</p><div id="repair"></div><button onclick="check('repair')">Check answers</button><button onclick="reset('repair')">Try again</button><div id="repair-result"></div></section>
+<section class="card" id="writing-zone"><h2>9. Productive Recall Challenge · 5 points (teacher-scored)</h2><p>Write at least 100 words evaluating a printed news report or explaining the responsibilities of a newspaper. Use at least eight target collocations from this lesson. Write directly in the box; clipboard paste and drag-and-drop are disabled in this field.</p><p class="writing-anti-paste-note" id="writing-notice">Please compose your paragraph here rather than pasting a prepared text. Normal paste, cut/copy shortcuts and drag-and-drop are blocked in this writing field. This browser restriction supports the task rules but is not a complete plagiarism-detection system.</p><label for="paragraph">Your paragraph</label><textarea id="paragraph" class="writing-area" autocomplete="off" autocapitalize="sentences" spellcheck="true" placeholder="A responsible newspaper should verify information before publishing a story because..."></textarea><p id="word-count" class="muted" aria-live="polite">0 words — 100-word minimum to submit; no maximum</p><p class="muted">Teacher awards up to 5 points for accurate use of distinct target collocations, a clear main idea and relevant examples about print journalism.</p><div class="submission-panel"><h3>Submit your lesson work to the teacher</h3><p class="muted">Your name and group from the student profile above, your SkELL collocations and original sentences, related words, corpus notes, writing paragraph and available exercise scores will be collected in the teacher's spreadsheet.</p><button type="button" id="submitLessonBtn" onclick="submitLessonWork()">Submit lesson work</button><div id="submitStatus" class="submission-status" role="status" aria-live="polite"></div></div></section>
+<section class="card" id="score-zone"><h2>Lesson score</h2><p class="muted">Auto-scored sections: reading MCQ, True/False, paragraph matching, Matching, Sentence Completion, Odd One Out, Find the Collocate, Sorting, Lexical Cloze and Collocation Repair (100 points total). SkELL cluster (10) and productive writing (5) are teacher-scored. Maximum lesson total: 115 points.</p><button onclick="summary()">Show score summary</button><div id="summary"></div></section>
+<p class="muted">Vocabulary bank informed by the Lesson 16 topic, “The Media: In Print,” in the supplied collocation lesson collection. Definitions, reading and interactive exercises were adapted or written for LexiLink.</p>
+<p class="muted">LexiLink · Connect words. Build fluency. Lesson submissions are sent to the configured Google Apps Script collector. The teacher must verify the saved row in Google Sheets because the browser cannot read confirmation in no-cors mode.</p>
+<script>
+let readingUtterance = null;
+let readingTextContent = '';
+let readingCurrentChar = 0;
+let readingRunId = 0;
+let readingSeekWhilePaused = false;
+let readingTitleEnd = 0;
+let readingDelayTimer = null;
+let readingDelayPaused = false;
+let readingDelayRemaining = 3000;
+let readingDelayStartedAt = 0;
+
+function setReadingAudioStatus(message){const el=document.getElementById('reading-audio-status');if(el)el.textContent=message;}
+function readingProgressPercent(){return readingTextContent.length?Math.min(100,Math.round(readingCurrentChar/readingTextContent.length*100)):0;}
+function updateReadingProgress(percent){
+  const slider=document.getElementById('reading-progress');
+  const label=document.getElementById('reading-progress-value');
+  const safe=Math.max(0,Math.min(100,Math.round(percent)));
+  if(slider)slider.value=String(safe);
+  if(label)label.textContent=safe+'%';
+}
+function getReadingText(){
+  const article=document.getElementById('reading-text');
+  if(!article)return '';
+  return (article.innerText||article.textContent||'').replace(/\s+/g,' ').trim();
+}
+function loadReadingText(){
+  const article=document.getElementById('reading-text');
+  readingTextContent=getReadingText();
+  const titleElement=article?article.querySelector('h3'):null;
+  const titleText=titleElement?(titleElement.innerText||titleElement.textContent||'').replace(/\s+/g,' ').trim():'';
+  const titleIndex=titleText?readingTextContent.indexOf(titleText):-1;
+  readingTitleEnd=titleIndex>=0?titleIndex+titleText.length:0;
+  if(readingTitleEnd<=0||readingTitleEnd>=readingTextContent.length)readingTitleEnd=0;
+  return readingTextContent;
+}
+function setProgressFromChar(charIndex){
+  readingCurrentChar=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  updateReadingProgress(readingProgressPercent());
+}
+function clearReadingDelay(){
+  if(readingDelayTimer!==null){clearTimeout(readingDelayTimer);readingDelayTimer=null;}
+  readingDelayStartedAt=0;
+}
+function startReadingDelay(runId, milliseconds){
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=Math.max(0,milliseconds);
+  if(readingDelayRemaining<=0){startReadingFrom(readingTitleEnd);return;}
+  readingDelayStartedAt=Date.now();
+  const seconds=(readingDelayRemaining/1000).toFixed(1).replace(/\.0$/,'');
+  setReadingAudioStatus('Title finished. Pausing for '+seconds+' seconds before the reading continues…');
+  readingDelayTimer=setTimeout(()=>{
+    readingDelayTimer=null;
+    readingDelayStartedAt=0;
+    if(runId!==readingRunId||readingDelayPaused)return;
+    readingDelayRemaining=3000;
+    startReadingFrom(readingTitleEnd);
+  },readingDelayRemaining);
+}
+const READING_VOICE_STORAGE_KEY='lexilink_lesson15_reading_voice';
+function getDefaultEnglishVoice(voices){
+  const english=(voices||[]).filter(v=>/^en(?:-|$)/i.test(v.lang||''));
+  const maleName=/(male|daniel|ryan|thomas|george|james|oliver|arthur|guy|david|alex|fred|aaron|liam|william|lee|mark|andrew|brian|christopher|matthew|rishi|gordon|jamie)/i;
+  return english.find(v=>/^en-GB/i.test(v.lang)&&maleName.test(v.name))
+    ||english.find(v=>maleName.test(v.name))
+    ||english.find(v=>/^en-GB/i.test(v.lang))
+    ||english.find(v=>/^en-US/i.test(v.lang))
+    ||english[0]
+    ||(voices||[])[0]
+    ||null;
+}
+function populateReadingVoices(){
+  const select=document.getElementById('reading-voice');
+  const info=document.getElementById('reading-voice-info');
+  if(!select||!('speechSynthesis' in window))return;
+  const all=window.speechSynthesis.getVoices()||[];
+  if(!all.length){
+    select.innerHTML='<option value="">No voices reported yet — try again shortly</option>';
+    if(info)info.textContent='Your browser has not provided its voice list yet. Wait a moment or reopen the lesson.';
+    return;
+  }
+  const english=all.filter(v=>/^en(?:-|$)/i.test(v.lang||''));
+  const choices=english.length?english:all;
+  let saved='';
+  try{saved=localStorage.getItem(READING_VOICE_STORAGE_KEY)||'';}catch(e){}
+  const current=select.value;
+  const preferred=choices.some(v=>v.voiceURI===current)?current:(choices.some(v=>v.voiceURI===saved)?saved:(getDefaultEnglishVoice(choices)||choices[0]).voiceURI);
+  select.innerHTML='';
+  choices.forEach(v=>{
+    const option=document.createElement('option');
+    option.value=v.voiceURI;
+    const details=[v.lang||'language unknown'];
+    if(v.default)details.push('system default');
+    option.textContent=v.name+' — '+details.join(', ');
+    select.appendChild(option);
+  });
+  select.value=preferred;
+  if(info)info.textContent=english.length+' English voice'+(english.length===1?'':'s')+' available. Choose one and press Preview voice.';
+}
+function changeReadingVoice(uri){
+  try{if(uri)localStorage.setItem(READING_VOICE_STORAGE_KEY,uri);}catch(e){}
+  const select=document.getElementById('reading-voice');
+  const label=select&&select.selectedOptions&&select.selectedOptions[0]?select.selectedOptions[0].textContent:'selected voice';
+  const synth=window.speechSynthesis;
+  const wasSpeaking=!!(synth&&synth.speaking&&!synth.paused);
+  const wasPaused=!!(synth&&synth.paused);
+  const wasInTitleBreak=readingDelayTimer!==null||readingDelayPaused;
+  if(synth&&(wasSpeaking||wasPaused||wasInTitleBreak)){
+    let start=readingCurrentChar;
+    if(wasInTitleBreak)start=readingTitleEnd;
+    clearReadingDelay();
+    readingDelayPaused=false;
+    readingDelayRemaining=3000;
+    synth.cancel();
+    readingRunId++;
+    readingUtterance=null;
+    if(wasSpeaking){setReadingAudioStatus('Voice changed. Restarting from the current position…');startReadingFrom(start);return;}
+    readingSeekWhilePaused=true;
+    setReadingAudioStatus('Voice selected: '+label+'. Press Listen / Resume to continue with this voice.');
+  }else{
+    setReadingAudioStatus('Voice selected: '+label+'. Press Preview voice to hear it, or Listen / Resume to read the passage.');
+  }
+}
+function previewReadingVoice(){
+  if(!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window)){setReadingAudioStatus('Voice preview is not supported by this browser.');return;}
+  const synth=window.speechSynthesis;
+  const voices=synth.getVoices()||[];
+  const select=document.getElementById('reading-voice');
+  const chosen=select&&select.value?voices.find(v=>v.voiceURI===select.value):getDefaultEnglishVoice(voices);
+  if(!chosen){setReadingAudioStatus('No voice is available yet. Wait a moment, then choose a voice again.');return;}
+  const wasReading=!!(synth.speaking||synth.paused||readingDelayTimer!==null||readingDelayPaused);
+  const position=readingCurrentChar;
+  if(wasReading){clearReadingDelay();readingDelayPaused=false;readingDelayRemaining=3000;synth.cancel();readingRunId++;readingUtterance=null;}
+  const sample=new SpeechSynthesisUtterance('Hello! This is a preview of the selected reading voice.');
+  sample.voice=chosen;sample.lang=chosen.lang||'en-GB';sample.rate=Number((document.getElementById('reading-speed')||{}).value)||1;sample.pitch=1;
+  sample.onstart=()=>setReadingAudioStatus('Previewing: '+chosen.name+' ('+chosen.lang+').');
+  sample.onend=()=>{
+    if(wasReading){readingCurrentChar=position;setProgressFromChar(position);setReadingAudioStatus('Voice preview finished. Press Listen / Resume to continue the passage from your previous position.');}
+    else setReadingAudioStatus('Voice preview finished: '+chosen.name+'.');
+  };
+  sample.onerror=(e)=>{if(e.error!=='canceled'&&e.error!=='interrupted')setReadingAudioStatus('Could not preview this voice. Try another available voice.');};
+  synth.speak(sample);
+}
+if('speechSynthesis' in window){
+  populateReadingVoices();
+  window.speechSynthesis.addEventListener?.('voiceschanged',populateReadingVoices);
+  window.speechSynthesis.onvoiceschanged=populateReadingVoices;
+  setTimeout(populateReadingVoices,400);
+  setTimeout(populateReadingVoices,1400);
+}
+
+function startReadingFrom(charIndex){
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  const start=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  if(start>=readingTextContent.length){setProgressFromChar(0);return startReadingFrom(0);}
+  const thisRun=++readingRunId;
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=3000;
+  window.speechSynthesis.cancel();
+  const isTitleSegment=readingTitleEnd>0&&start<readingTitleEnd;
+  const segmentEnd=isTitleSegment?readingTitleEnd:readingTextContent.length;
+  const segmentText=readingTextContent.slice(start,segmentEnd);
+  readingUtterance=new SpeechSynthesisUtterance(segmentText);
+  const voices=window.speechSynthesis.getVoices()||[];
+  const voiceSelect=document.getElementById('reading-voice');
+  const selectedVoice=voiceSelect&&voiceSelect.value?voices.find(v=>v.voiceURI===voiceSelect.value):null;
+  const voice=selectedVoice||getDefaultEnglishVoice(voices);
+  readingUtterance.lang=(voice&&voice.lang)||'en-GB';
+  if(voice)readingUtterance.voice=voice;
+  const rateControl=document.getElementById('reading-speed');
+  readingUtterance.rate=rateControl?Number(rateControl.value):1;
+  readingUtterance.pitch=1;
+  setProgressFromChar(start);
+  readingUtterance.onstart=()=>{if(thisRun===readingRunId)setReadingAudioStatus(isTitleSegment?'Reading the title…':'Reading aloud…');};
+  readingUtterance.onboundary=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(Number.isFinite(event.charIndex))setProgressFromChar(start+event.charIndex);
+  };
+  readingUtterance.onend=()=>{
+    if(thisRun!==readingRunId)return;
+    if(isTitleSegment&&readingTitleEnd<readingTextContent.length){
+      setProgressFromChar(readingTitleEnd);
+      readingUtterance=null;
+      startReadingDelay(thisRun,3000);
+      return;
+    }
+    setProgressFromChar(readingTextContent.length);
+    setReadingAudioStatus('Reading finished. Press Listen to replay, or move the progress line to choose a section.');
+    readingUtterance=null;
+  };
+  readingUtterance.onerror=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(event.error!=='canceled'&&event.error!=='interrupted')setReadingAudioStatus('Audio playback could not start. Try another browser or check your device’s speech settings.');
+  };
+  window.speechSynthesis.speak(readingUtterance);
+  setReadingAudioStatus(isTitleSegment?'Starting with the title…':(start?'Resuming from the selected position…':'Starting playback…'));
+}
+function playReading(){
+  if(!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)){
+    setReadingAudioStatus('Text-to-speech is not supported in this browser. Try opening the lesson in an up-to-date Chrome, Edge or Safari browser.');return;
+  }
+  if(readingDelayPaused){
+    startReadingDelay(readingRunId,readingDelayRemaining);
+    setReadingAudioStatus('Resuming the 3-second pause after the title…');
+    return;
+  }
+  if(readingDelayTimer!==null){setReadingAudioStatus('The 3-second pause after the title is in progress…');return;}
+  if(window.speechSynthesis.paused&&!readingSeekWhilePaused){window.speechSynthesis.resume();setReadingAudioStatus('Reading resumed from the same place.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused)return;
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  if(readingCurrentChar>=readingTextContent.length)readingCurrentChar=0;
+  startReadingFrom(readingCurrentChar);
+}
+function pauseReading(){
+  if(!('speechSynthesis' in window)){setReadingAudioStatus('Text-to-speech is not supported in this browser.');return;}
+  if(readingDelayTimer!==null){
+    const elapsed=Math.max(0,Date.now()-readingDelayStartedAt);
+    readingDelayRemaining=Math.max(0,readingDelayRemaining-elapsed);
+    clearReadingDelay();
+    readingDelayPaused=true;
+    setReadingAudioStatus('Paused during the 3-second break after the title. Press Listen / Resume to continue the countdown.');
+    return;
+  }
+  if(readingDelayPaused){setReadingAudioStatus('The pause after the title is paused. Press Listen / Resume to continue.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused){window.speechSynthesis.pause();setReadingAudioStatus('Reading paused. Press Listen / Resume to continue from the same place.');}
+  else setReadingAudioStatus('There is no reading currently playing. Press Listen / Resume to start.');
+}
+function stopReading(){
+  if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  clearReadingDelay();
+  readingRunId++;
+  readingSeekWhilePaused=false;
+  readingDelayPaused=false;
+  readingDelayRemaining=3000;
+  readingUtterance=null;
+  loadReadingText();
+  readingCurrentChar=0;
+  updateReadingProgress(0);
+  setReadingAudioStatus('Reading stopped and reset to the beginning.');
+}
+function previewReadingSeek(percent){
+  const label=document.getElementById('reading-progress-value');
+  if(label)label.textContent=Math.max(0,Math.min(100,Math.round(Number(percent)||0))+'%');
+}
+function seekReading(percent){
+  if(!('speechSynthesis' in window)){updateReadingProgress(readingProgressPercent());return;}
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent)return;
+  const delayActive=readingDelayTimer!==null;
+  const delayPaused=readingDelayPaused;
+  const wasSpeaking=window.speechSynthesis.speaking&&!window.speechSynthesis.paused;
+  const wasPaused=window.speechSynthesis.paused;
+  const pct=Math.max(0,Math.min(100,Number(percent)||0));
+  let target=Math.round(readingTextContent.length*pct/100);
+  while(target>0&&target<readingTextContent.length&&!/\s/.test(readingTextContent[target-1]))target--;
+  setProgressFromChar(target);
+  if(delayActive){
+    clearReadingDelay();readingDelayPaused=false;readingDelayRemaining=3000;
+    startReadingFrom(target);
+  }else if(delayPaused||wasPaused){
+    clearReadingDelay();
+    if(window.speechSynthesis.speaking||window.speechSynthesis.paused)window.speechSynthesis.cancel();
+    readingRunId++;readingUtterance=null;readingDelayPaused=false;readingDelayRemaining=3000;readingSeekWhilePaused=true;
+    setReadingAudioStatus('Position selected. Press Listen / Resume to continue from here.');
+  }else if(wasSpeaking){startReadingFrom(target);}
+  else {
+    readingDelayPaused=false;readingDelayRemaining=3000;
+    setReadingAudioStatus(pct===0?'Ready to play from the beginning.':'Position selected. Press Listen / Resume to start from here.');
+  }
+}
+function updateReadingSpeedNote(){
+  if(window.speechSynthesis&&window.speechSynthesis.speaking&&!window.speechSynthesis.paused){
+    setReadingAudioStatus('To apply the new speed, stop and start playback again. Pause / Resume keeps the current playback speed.');
+  }
+}
+
+const target=[["front-page story","Definition: a report considered important enough to appear prominently on the first page of a newspaper.","Related expressions: lead story; major news story; top story"],["breaking news","Definition: newly reported information about an event that is happening or has just happened.","Related expressions: latest news; developing story; urgent news update"],["reliable source","Definition: a person, document or organisation that can be trusted to provide accurate information.","Related expressions: credible source; trustworthy source; dependable reference"],["raise public awareness","Definition: to help more people understand an issue or become conscious of its importance.","Related expressions: increase public understanding; draw attention to an issue; inform the public"],["misleading headline","Definition: a title that gives readers a false or incomplete impression of a news story.","Related expressions: deceptive headline; inaccurate title; sensationalised heading"],["conduct an interview","Definition: to ask someone questions in a planned conversation to obtain information or comment.","Related expressions: interview a witness; ask questions; carry out an interview"],["verify information","Definition: to check whether information is accurate before accepting or publishing it.","Related expressions: check the facts; confirm details; establish accuracy"],["media coverage","Definition: the attention and reporting that newspapers and other media give to an event or issue.","Related expressions: press coverage; news attention; reporting on an event"],["editorial independence","Definition: the ability of editors to make content decisions without improper pressure from owners, advertisers or authorities.","Related expressions: independent editorial judgement; freedom from interference; newsroom autonomy"],["news report","Definition: a factual account of an event prepared for publication or broadcast.","Related expressions: news story; factual report; account of an event"],["publish an article","Definition: to make a written piece available to readers in a newspaper, magazine or other publication.","Related expressions: print a story; run an article; release a written report"],["issue a correction","Definition: to publish a clear statement that corrects an error in an earlier report.","Related expressions: correct the record; publish a clarification; amend an inaccurate report"],["cite a source","Definition: to identify where information or a quotation came from so readers can check it.","Related expressions: credit a source; give a reference; attribute information"],["gather evidence","Definition: to collect information, documents or observations that help establish what happened.","Related expressions: collect evidence; assemble supporting facts; obtain documentation"],["press freedom","Definition: the right of journalists and publications to report and question powerful institutions without unjustified restriction.","Related expressions: freedom of the press; journalistic freedom; independent reporting rights"],["news outlet","Definition: an organisation or publication that gathers and publishes news.","Related expressions: news organisation; newspaper publisher; media publisher"],["circulate a rumour","Definition: to spread an unconfirmed story from person to person or across communication channels.","Related expressions: spread a rumour; pass on an unverified claim; repeat hearsay"],["print edition","Definition: the version of a newspaper or magazine produced on paper rather than only online.","Related expressions: paper edition; printed issue; physical copy"],["investigative journalism","Definition: in-depth reporting that examines complex issues or possible wrongdoing using evidence and research.","Related expressions: in-depth reporting; watchdog journalism; evidence-led investigation"],["public interest","Definition: the welfare or concerns of the public that make information important to share.","Related expressions: public concern; community interest; the common good"]];
+document.getElementById('target').innerHTML=target.map((x,i)=>`<div class="box"><b>${i+1}. ${x[0]}</b><p>${x[1]}</p><p class="muted"><b>${x[2].split(':')[0]}:</b>${x[2].split(':').slice(1).join(':')}</p></div>`).join('');
+const profileName=document.getElementById('profile-name'),profileGroup=document.getElementById('profile-group');
+function updateProfile(){const words=profileName.value.trim().split(/\s+/).filter(Boolean);document.getElementById('avatar-initials').textContent=words.length?words.slice(0,2).map(w=>w[0].toUpperCase()).join(''):'S'}
+profileName.addEventListener('input',updateProfile);profileGroup.addEventListener('input',()=>{});
+const clusterIds=['headline','source','journalism','coverage'];
+function lexilinkCountWritingWords(text){
+  const clean=String(text||'').trim();
+  return clean?clean.split(/\s+/).filter(Boolean).length:0;
+}
+function lexilinkUpdateWritingWordCounter(){
+  const field=document.getElementById('paragraph');
+  const counter=document.getElementById('word-count');
+  if(!field||!counter)return;
+  const count=lexilinkCountWritingWords(field.value);
+  if(count<100){
+    counter.className='muted word-count-warn';
+    counter.textContent=`${count} words — ${100-count} more needed to submit (minimum 100; no maximum)`;
+  }else{
+    counter.className='muted word-count-ok';
+    counter.textContent=`${count} words — minimum reached; no maximum`;
+  }
+} const lexilinkWritingCounterField=document.getElementById('paragraph');
+if(lexilinkWritingCounterField){
+  lexilinkWritingCounterField.addEventListener('input',lexilinkUpdateWritingWordCounter);
+  lexilinkUpdateWritingWordCounter();
+}
+
+// Block ordinary clipboard paste/cut/copy shortcuts and drag-drop in the writing field.
+// This is a classroom friction measure, not secure plagiarism prevention.
+(function protectWritingField(){
+  const field=document.getElementById('paragraph');
+  const notice=document.getElementById('writing-notice');
+  const blockedMessage='Please type your own text directly in this writing field; paste and drag-and-drop are disabled.';
+  ['paste','copy','cut','drop'].forEach(eventName=>field.addEventListener(eventName,e=>{
+    e.preventDefault();
+    if(notice){notice.textContent=blockedMessage;notice.classList.add('submission-status','warn');}
+  }));
+  field.addEventListener('dragover',e=>e.preventDefault());
+  field.addEventListener('beforeinput',e=>{
+    if(['insertFromPaste','insertFromDrop','deleteByCut'].includes(e.inputType)){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+  });
+  field.addEventListener('keydown',e=>{
+    const key=e.key.toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['v','c','x'].includes(key)){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+    if(e.shiftKey&&e.key==='Insert'){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+  });
+})();
+
+// Paste the deployed Web App URL for the collector script supplied with this lesson.
+const SUBMISSION_ENDPOINT = "https://script.google.com/macros/s/AKfycbxKwWE0CYJDxrpP60p0A9JRv2sHrSECwzc9IPyYt9e-Kd1XQJsrHPGe2r8VHwlxPZWa/exec";
+function fieldValue(id){return (document.getElementById(id)?.value||'').trim()}
+function collectSkellClusters(){
+  return clusterIds.map(keyword=>({
+    keyword:keyword.toUpperCase(),
+    collocation1:fieldValue(`${keyword}-coll-1`),
+    sentence1:fieldValue(`${keyword}-sentence-1`),
+    collocation2:fieldValue(`${keyword}-coll-2`),
+    sentence2:fieldValue(`${keyword}-sentence-2`),
+    similarWord1:fieldValue(`${keyword}-syn-1`),
+    similarWord2:fieldValue(`${keyword}-syn-2`),
+    evidence:fieldValue(`${keyword}-evidence`)
+  }));
+}
+function collectAnswers(){
+  const answers={};
+  document.querySelectorAll('input,textarea,select').forEach((el,i)=>{
+    if(['profile-name','profile-group','paragraph','submitLessonBtn'].includes(el.id)) return;
+    if(el.type==='radio'&&!el.checked) return;
+    if(el.type==='checkbox'&&!el.checked) return;
+    const key=el.id||el.name||`field_${i+1}`;
+    answers[key]=String(el.value||'').trim();
+  });
+  return answers;
+}
+function getScoreSummary(){
+  const parts=Object.values(scores);
+  return {score:parts.reduce((sum,x)=>sum+Number(x.score||0),0),max:parts.reduce((sum,x)=>sum+Number(x.max||0),0)};
+}
+function validateSubmission(){
+  if(!fieldValue('profile-name')) return {ok:false,message:'Please enter your name in the student profile at the top of the lesson.',id:'profile-name'};
+  if(!fieldValue('profile-group')) return {ok:false,message:'Please enter your group in the student profile at the top of the lesson.',id:'profile-group'};
+  const writing=fieldValue('paragraph');
+  const words=writing?writing.split(/\s+/).length:0;
+  if(words<100) return {ok:false,message:`Please write at least 100 words. Your current paragraph has ${words} words.`,id:'paragraph'};
+  for(const keyword of clusterIds){
+    const fields=[`${keyword}-coll-1`,`${keyword}-sentence-1`,`${keyword}-coll-2`,`${keyword}-sentence-2`,`${keyword}-syn-1`,`${keyword}-syn-2`,`${keyword}-evidence`];
+    const missing=fields.find(id=>!fieldValue(id));
+    if(missing) return {ok:false,message:`Complete both collocations and their own sentences, two Similar words, and a corpus context for ${keyword.toUpperCase()}.`,id:missing};
+  }
+  return {ok:true};
+}
+async function submitLessonWork(){
+  const status=document.getElementById('submitStatus');
+  const button=document.getElementById('submitLessonBtn');
+  const validation=validateSubmission();
+  if(!validation.ok){status.className='submission-status err';status.textContent=validation.message;document.getElementById(validation.id)?.focus();return;}
+  if(SUBMISSION_ENDPOINT.includes('PASTE_LEXILINK_APPS_SCRIPT_WEB_APP_URL_HERE')){
+    status.className='submission-status warn';
+    status.textContent='Submission is not connected yet. The teacher must deploy the shared LexiLink Google Apps Script collector, paste its /exec URL into SUBMISSION_ENDPOINT, and save the HTML file.';
+    return;
+  }
+  const payload={
+    lesson:'Lesson 15 — The Media: In Print',
+    studentName:fieldValue('profile-name'),
+    group:fieldValue('profile-group'),
+    submittedAt:new Date().toISOString(),
+    writing:{prompt:'The Media: In Print',wordCount:fieldValue('paragraph').split(/\s+/).length,text:fieldValue('paragraph')},
+    skellClusters:collectSkellClusters(),
+    scores:{sections:scores,autoTotal:getScoreSummary()},
+    answers:collectAnswers(),
+    userAgent:navigator.userAgent
+  };
+  button.disabled=true;button.textContent='Sending…';status.className='submission-status warn';status.textContent='Sending your work to the teacher’s spreadsheet…';
+  try{
+    await fetch(SUBMISSION_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+    status.className='submission-status ok';status.textContent='Your submission request was sent. The browser cannot read the server confirmation in this mode, so the teacher should verify that the new rows appear in Google Sheets.';
+    button.textContent='Submission sent';
+  }catch(error){
+    status.className='submission-status err';status.textContent='The request could not be sent. Check the internet connection and try again.';
+    button.disabled=false;button.textContent='Try again';
+  }
+}
+const readMCQs=[{"q":"What is the main warning about a front-page story?","ans":"Its headline may attract attention but does not prove that the report is accurate.","opts":["Its headline may attract attention but does not prove that the report is accurate.","It must always be shorter than other stories.","It cannot contain interviews.","It is never part of a print edition."]},{"q":"Why should journalists verify information?","ans":"To check that claims are accurate before publication.","opts":["To make every article sound dramatic.","To check that claims are accurate before publication.","To avoid citing any sources.","To ensure all reports support the same opinion."]},{"q":"What is a misleading headline likely to do?","ans":"Give readers a false or incomplete impression.","opts":["Give readers a false or incomplete impression.","List every source in full.","Correct an earlier error.","Protect editorial independence automatically."]},{"q":"What should a reporter do when making a serious allegation?","ans":"Gather evidence and give relevant parties a fair chance to respond.","opts":["Publish a rumour immediately.","Avoid checking documents.","Gather evidence and give relevant parties a fair chance to respond.","Use only an anonymous social post."]},{"q":"What is one purpose of investigative journalism?","ans":"To examine complex issues through detailed research and evidence.","opts":["To replace all news reports with advertisements.","To examine complex issues through detailed research and evidence.","To hide the source of every claim.","To publish only short headlines."]},{"q":"What does editorial independence allow editors to do?","ans":"Make evidence-based decisions without improper pressure.","opts":["Make evidence-based decisions without improper pressure.","Ignore every correction request.","Publish claims without checks.","Avoid considering public interest."]},{"q":"Why might a newspaper issue a correction?","ans":"To clearly correct a significant error in an earlier report.","opts":["To increase the length of a headline.","To clearly correct a significant error in an earlier report.","To circulate an unverified rumour.","To remove all source references from a story."]},{"q":"What does citing a source help readers do?","ans":"Trace the origin of a claim and check it.","opts":["Trace the origin of a claim and check it.","Assume every claim is true.","Avoid reading the article.","Turn a rumour into confirmed evidence."]},{"q":"How can media coverage serve the public interest?","ans":"By providing context that helps people understand an issue.","opts":["By repeating every rumour without comment.","By providing context that helps people understand an issue.","By relying only on sensational headlines.","By hiding corrections from readers."]},{"q":"What is a print edition?","ans":"A paper version of a newspaper or magazine.","opts":["A list of online comments only.","A paper version of a newspaper or magazine.","A journalist’s private notes.","An unverified headline shared online."]}];;
+const readTFs=[{"q":"A headline alone is not enough to establish that a story is accurate.","ans":"True"},{"q":"The article recommends relying on a single unverified social-media post.","ans":"False"},{"q":"A reliable source is one that can be trusted to provide accurate information.","ans":"True"},{"q":"Journalists should give relevant parties a fair chance to respond to serious allegations.","ans":"True"},{"q":"Investigative journalism may involve examining records and doing careful research.","ans":"True"},{"q":"Editorial independence means editors must follow advertisers’ preferences.","ans":"False"},{"q":"Press freedom removes the duty to be accurate and fair.","ans":"False"},{"q":"A print edition is produced on paper.","ans":"True"},{"q":"The reading says newspapers should quietly hide significant errors.","ans":"False"},{"q":"The public interest can be a reason to investigate a complex issue.","ans":"True"}];;
+const readMatches=[{"q":"A report important enough to appear prominently on page one.","ans":"1"},{"q":"Newly reported information about an event in progress.","ans":"1"},{"q":"Checking whether claims are accurate before publishing.","ans":"2"},{"q":"A person, document or organisation that can be trusted.","ans":"2"},{"q":"A planned conversation in which a reporter asks questions.","ans":"2"},{"q":"Detailed reporting that investigates complex issues using evidence.","ans":"3"},{"q":"The ability to make editorial decisions free from improper pressure.","ans":"4"},{"q":"The welfare or concerns of the public that make information important.","ans":"3"},{"q":"A statement published to correct an earlier error.","ans":"5"},{"q":"The version of a newspaper or magazine produced on paper.","ans":"4"}];;
+function renderReadRadio(id,items,optsFn){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${optsFn(x,i)}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+function renderSelect(id,items,options){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b><label for="${id}-${i}">Choose:</label><select id="${id}-${i}"><option value="">Choose an answer…</option>${options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select><div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+renderReadRadio('readMCQ',readMCQs,(x,i)=>`<div>${x.opts.map(o=>`<label><input type="radio" name="readMCQ-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`);
+renderReadRadio('readTF',readTFs,(x,i)=>`<div><label><input type="radio" name="readTF-${i}" value="True"> True</label><label><input type="radio" name="readTF-${i}" value="False"> False</label></div>`);
+renderSelect('readMatch',readMatches,['1','2','3','4','5']);
+const scores={};
+function markRadioSet(items,namePrefix,id,resultId){let n=0,answered=0;items.forEach((x,i)=>{const chosen=document.querySelector(`input[name="${namePrefix}-${i}"]:checked`)?.value;const f=document.getElementById(`${id}-fb-${i}`);if(!chosen){f.className='fb muted';f.textContent='Choose an answer before checking this question.';return;}answered++;const ok=chosen===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct. '+(x.why||''):'Not quite. Correct answer: '+x.ans+(x.why?' — '+x.why:'')});scores[id]={score:n,max:items.length};document.getElementById(resultId).innerHTML=`<p><b>Score: ${n}/${items.length}</b> · Answered: ${answered}/${items.length}</p>`}
+function checkReading(){markRadioSet(readMCQs,'readMCQ','readMCQ','reading-result')}
+function resetReading(){readMCQs.forEach((x,i)=>{document.querySelectorAll(`input[name="readMCQ-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readMCQ-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('reading-result').innerHTML='';delete scores.readMCQ}
+function checkTF(){markRadioSet(readTFs,'readTF','readTF','tf-result')}
+function resetTF(){readTFs.forEach((x,i)=>{document.querySelectorAll(`input[name="readTF-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readTF-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('tf-result').innerHTML='';delete scores.readTF}
+function checkReadMatch(){let n=0,answered=0;readMatches.forEach((x,i)=>{const v=document.getElementById(`readMatch-${i}`).value;const f=document.getElementById(`readMatch-fb-${i}`);if(!v){f.className='fb muted';f.textContent='Choose a paragraph before checking this question.';return;}answered++;const ok=v===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct.':'Not quite. Correct answer: paragraph '+x.ans+'.'});scores.readMatch={score:n,max:readMatches.length};document.getElementById('readmatch-result').innerHTML=`<p><b>Score: ${n}/${readMatches.length}</b> · Answered: ${answered}/${readMatches.length}</p>`}
+function resetReadMatch(){readMatches.forEach((x,i)=>{document.getElementById(`readMatch-${i}`).value='';const f=document.getElementById(`readMatch-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('readmatch-result').innerHTML='';delete scores.readMatch}
+const data={"matching":{"mode":"select","items":[{"q":"front-page ___","ans":"story"},{"q":"breaking ___","ans":"news"},{"q":"reliable ___","ans":"source"},{"q":"misleading ___","ans":"headline"},{"q":"conduct an ___","ans":"interview"},{"q":"verify ___","ans":"information"},{"q":"editorial ___","ans":"independence"},{"q":"print ___","ans":"edition"},{"q":"investigative ___","ans":"journalism"},{"q":"public ___","ans":"interest"}],"options":["story","news","source","headline","interview","information","independence","edition","journalism","interest"]},"gaps":{"mode":"select","items":[{"q":"A report chosen for the newspaper's first page became a ___. ","ans":"front-page story"},{"q":"Before publishing the allegation, the editor asked the reporter to ___.","ans":"verify information"},{"q":"The article links to a ___ so readers can check the original record.","ans":"reliable source"},{"q":"The dramatic title left out key facts and became a ___.","ans":"misleading headline"},{"q":"The journalist will ___ with the mayor about the housing plan.","ans":"conduct an interview"},{"q":"The newsroom decided to ___ after discovering the date was wrong.","ans":"issue a correction"},{"q":"The reporter continued to ___ by examining public records and documents.","ans":"gather evidence"},{"q":"An independent paper must protect its ___.","ans":"editorial independence"},{"q":"The story aims to ___ about unsafe working conditions.","ans":"raise public awareness"},{"q":"Editors should not ___ before confirming whether it is true.","ans":"circulate a rumour"}],"options":["front-page story","verify information","reliable source","misleading headline","conduct an interview","issue a correction","gather evidence","editorial independence","raise public awareness","circulate a rumour"]},"odd":{"mode":"radio","items":[{"q":"HEADLINES · Which collocation is unnatural?","ans":"do a headline","opts":["write a headline","run a headline","a misleading headline","do a headline"],"why":"Journalists write or editors run headlines; “do a headline” is not the normal collocation."},{"q":"FACT-CHECKING · Choose the unnatural phrase.","ans":"verify a rumour as true without evidence","opts":["verify information","check the facts","confirm a detail","verify a rumour as true without evidence"],"why":"Verification requires evidence; simply declaring a rumour true without checking it defeats that purpose."},{"q":"SOURCES · Which combination is not natural?","ans":"a trust source","opts":["a reliable source","a credible source","a trustworthy source","a trust source"],"why":"Use reliable, credible or trustworthy as adjectives before source."},{"q":"INTERVIEWS · Which phrase is malformed?","ans":"make an interview","opts":["conduct an interview","give an interview","arrange an interview","make an interview"],"why":"Common patterns include conduct, give or arrange an interview."},{"q":"CORRECTIONS · Which is unnatural?","ans":"do a correction in the newspaper","opts":["issue a correction","publish a correction","print a correction","do a correction in the newspaper"],"why":"A newspaper issues, publishes or prints a correction."},{"q":"EDITORIAL POLICY · Choose the unnatural collocation.","ans":"editorial dependence freedom","opts":["editorial independence","independent editorial judgement","freedom from interference","editorial dependence freedom"],"why":"Editorial independence is the idiomatic phrase for decision-making free from improper pressure."},{"q":"NEWS · Which phrase is malformed?","ans":"a news outlet sourceable","opts":["a news outlet","a reputable news outlet","a local news outlet","a news outlet sourceable"],"why":"News outlet is a standard noun phrase; “sourceable” does not fit here."},{"q":"EVIDENCE · Which is not a natural collocation?","ans":"collect a evidence","opts":["gather evidence","collect evidence","review the evidence","collect a evidence"],"why":"Evidence is generally uncountable in this meaning, so “a evidence” is incorrect."},{"q":"PUBLIC INTEREST · Which phrase is unnatural?","ans":"serve to public interest","opts":["serve the public interest","act in the public interest","be in the public interest","serve to public interest"],"why":"Natural patterns include serve the public interest and act in the public interest."},{"q":"PRINT MEDIA · Choose the incorrect combination.","ans":"printly edition","opts":["print edition","daily edition","Sunday edition","printly edition"],"why":"Print edition is the standard phrase; “printly” is not an adjective in this context."}]},"find":{"mode":"select","items":[{"q":"___ a headline","ans":"WRITE"},{"q":"___ information","ans":"VERIFY"},{"q":"___ an interview","ans":"CONDUCT"},{"q":"___ a source","ans":"CITE"},{"q":"___ a correction","ans":"ISSUE"},{"q":"___ evidence","ans":"GATHER"},{"q":"___ public awareness","ans":"RAISE"},{"q":"___ a story","ans":"PUBLISH"},{"q":"___ a rumour","ans":"CIRCULATE"},{"q":"___ editorial independence","ans":"PROTECT"}],"options":["WRITE","VERIFY","CONDUCT","CITE","ISSUE","GATHER","RAISE","PUBLISH","CIRCULATE","PROTECT"]},"sorting":{"mode":"select","items":[{"q":"___ a front-page story","ans":"RUN"},{"q":"___ a reliable source","ans":"USE"},{"q":"___ an article","ans":"PUBLISH"},{"q":"___ a source","ans":"CITE"},{"q":"___ a rumour","ans":"CIRCULATE"},{"q":"___ a correction","ans":"ISSUE"},{"q":"___ an interview","ans":"CONDUCT"},{"q":"___ information","ans":"VERIFY"},{"q":"___ public interest","ans":"SERVE"},{"q":"___ public awareness","ans":"RAISE"}],"options":["RUN","USE","PUBLISH","CITE","CIRCULATE","ISSUE","CONDUCT","VERIFY","SERVE","RAISE"]},"cloze":{"mode":"select","items":[{"q":"The paper gave the housing crisis prominent treatment as a ___.","ans":"front-page story"},{"q":"The desk is checking the facts before it labels the report ___.","ans":"breaking news"},{"q":"Readers should be able to trace each claim to a ___.","ans":"reliable source"},{"q":"The reporter will ___ with a local resident who witnessed the event.","ans":"conduct an interview"},{"q":"The editors must ___ before the story is printed.","ans":"verify information"},{"q":"The paper chose to ___ on the council's spending records.","ans":"publish an article"},{"q":"If a figure is wrong, the newspaper should ___.","ans":"issue a correction"},{"q":"The investigation aimed to ___ about unsafe conditions.","ans":"raise public awareness"},{"q":"The report identified a ___ that overstated what the evidence showed.","ans":"misleading headline"},{"q":"The investigation was carried out in the ___.","ans":"public interest"}],"options":["front-page story","breaking news","reliable source","conduct an interview","verify information","publish an article","issue a correction","raise public awareness","misleading headline","public interest"]},"repair":{"mode":"radio","items":[{"q":"Choose the natural phrase: The reporter must ____ before publishing the claim.","ans":"verify information","opts":["do information verify","verify information","make information verified","give verification on information"],"why":"Verify information is a natural verb–object collocation."},{"q":"The newspaper decided to ____ after finding a factual error.","ans":"issue a correction","opts":["issue a correction","make a correction issued","do a correction out","give a correct"],"why":"Issue a correction is a standard newsroom collocation."},{"q":"The editor rejected the title because it was a ____.","ans":"misleading headline","opts":["misleading headline","wrongly headline","mislead headline","misleading head"],"why":"Misleading headline is the natural adjective–noun combination."},{"q":"The reporter used a ____ rather than an anonymous comment alone.","ans":"reliable source","opts":["reliable source","reliability source","source reliablement","rely source"],"why":"Reliable modifies source."},{"q":"The newspaper aims to ____ about the local health issue.","ans":"raise public awareness","opts":["raise public awareness","rise public awareness","make awareness raised public","lift the awareness public"],"why":"Raise public awareness is the established collocation."},{"q":"A journalist was assigned to ____ with the witness.","ans":"conduct an interview","opts":["conduct an interview","make an interview","perform interview to","do an interviewing"],"why":"Conduct an interview is the expected formal phrase."},{"q":"The reporter gathered documents to ____.","ans":"gather evidence","opts":["gather evidence","collect an evidence","make evidence","do evidences"],"why":"Gather evidence is natural, and evidence is uncountable in this meaning."},{"q":"The editor defended the newsroom's ____ from commercial pressure.","ans":"editorial independence","opts":["editorial independence","editorial independent","independence editorially","independent editorials"],"why":"Editorial independence is the conventional noun phrase."},{"q":"The story was published because it served the ____.","ans":"public interest","opts":["public interest","interest of publicly","public interested","interest public"],"why":"Serve the public interest is idiomatic."},{"q":"The paper should not ____ before confirming it.","ans":"circulate a rumour","opts":["circulate a rumour","do a rumour circulate","pass a rumour roundly","make a rumour to circle"],"why":"Circulate a rumour means to spread an unconfirmed story."}]}};
+function render(id){const d=data[id];document.getElementById(id).innerHTML=d.items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${d.mode==='radio'?`<div>${x.opts.map(o=>`<label><input type="radio" name="${id}-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`:`<select id="${id}-${i}"><option value="">Choose…</option>${d.options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select>`}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+Object.keys(data).forEach(render);
+function check(id){const d=data[id];let n=0,answered=0;d.items.forEach((x,i)=>{const v=d.mode==='radio'?document.querySelector(`input[name="${id}-${i}"]:checked`)?.value:document.getElementById(`${id}-${i}`).value;const f=document.getElementById(`${id}-fb-${i}`);if(!v){f.className='fb muted';f.textContent='Choose an answer before checking this question.';return;}answered++;const ok=v===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=(ok?'Correct. ':'Not quite. Correct answer: '+x.ans+'. ')+(x.why||'')});scores[id]={score:n,max:d.items.length};document.getElementById(id+'-result').innerHTML=`<p><b>Score: ${n}/${d.items.length}</b> · Answered: ${answered}/${d.items.length}</p>`}
+function reset(id){const d=data[id];d.items.forEach((x,i)=>{if(d.mode==='radio')document.querySelectorAll(`input[name="${id}-${i}"]`).forEach(e=>e.checked=false);else document.getElementById(`${id}-${i}`).value='';const f=document.getElementById(`${id}-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById(id+'-result').innerHTML='';delete scores[id]}
+function summary(){let n=0,m=0;Object.values(scores).forEach(x=>{n+=x.score;m+=x.max});document.getElementById('summary').innerHTML=`<p><b>Automatically scored so far: ${n}/${m}.</b><br>Teacher-scored: SkELL cluster 0–10; writing 0–5. Maximum lesson score: 115 points.</p>`}
+</script>
+</body></html>

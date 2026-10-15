@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>LexiLink — Lesson 17: Healthcare and Medical Language</title>
+<style>
+:root{--green:#176b45;--green2:#238657;--mint:#eaf7ef;--line:#cde6d5;--ink:#183326;--muted:#587466}
+*{box-sizing:border-box}body{font:16px/1.55 Arial,sans-serif;max-width:1000px;margin:auto;padding:18px;background:#f2faf4;color:var(--ink)}
+header,.card{background:white;padding:20px;margin:16px 0;border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 12px rgba(23,107,69,.06)}
+header{background:linear-gradient(125deg,#155d3d,#278653);color:white;border:0}header p{margin:.4rem 0}h1{margin-top:0}h2{font-size:1.25rem;color:var(--green)}h3{color:#235c3e}
+a{color:var(--green2);font-weight:700}.q{padding:12px 0;border-bottom:1px solid #e2efe6}label{display:block;margin:6px 0}select,textarea,input{font:inherit;padding:10px;width:100%;max-width:100%;border:1px solid #b9d7c3;border-radius:9px;background:#fcfffd;color:var(--ink)}input[type=radio]{width:auto;margin-right:6px}textarea{min-height:80px}button{padding:10px 14px;margin:8px 6px 0 0;border:0;border-radius:9px;background:var(--green);color:white;font-weight:bold;cursor:pointer}button:hover{background:#104d31}.muted{color:var(--muted);font-size:.92rem}.fb{font-size:.92rem}.ok{color:#167143}.bad{color:#b52e38}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.box{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfffc}.profile{background:var(--mint);border:1px solid #a9d9b8;border-radius:16px;padding:18px;margin:16px 0}.profile h2{margin-top:0}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.avatar{width:54px;height:54px;border-radius:50%;background:#176b45;color:white;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;flex-shrink:0}.profile-head{display:flex;gap:14px;align-items:center}.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px}.slot{background:#f0faf3;border:1px solid #cde6d5;border-left:5px solid #238657;padding:12px;border-radius:10px}.slot b{display:block;color:#176b45}.pill{display:inline-block;background:#d5f0de;color:#145a37;padding:4px 9px;border-radius:999px;font-size:.85rem;font-weight:bold}
+.skell-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:16px 0}.skell-cluster{min-width:0;padding:16px;border:1px solid #d7e5ef;border-radius:16px;background:#fff;box-shadow:0 3px 10px rgba(7,39,84,.06)}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;width:fit-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px 16px;background:#082a65;color:#fff;border-radius:999px;font-weight:800;letter-spacing:.02em;font-size:clamp(.82rem,1.55vw,1.05rem);line-height:1.15;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0;font-size:.86rem;color:#587466;line-height:1.35}.collocation-lines{display:grid;gap:8px;margin:8px 0 14px}.collocation-line{height:44px;width:100%;border-radius:8px;padding:3px 8px;border:1px solid transparent;font-weight:600;color:#142b43}.collocation-line:nth-child(3n+1){background:#fff0a6;border-color:#f0d96b}.collocation-line:nth-child(3n+2){background:#f9d1f7;border-color:#eaa3e7}.collocation-line:nth-child(3n){background:#c9f5d9;border-color:#91d9ad}.collocation-line::placeholder{color:#5a6070;font-weight:400}.student-sentence{min-height:70px;margin:6px 0 12px;background:#fbfffc}.submission-panel{margin-top:16px;padding:16px;border:1px solid #9ecfb0;border-radius:14px;background:#eff9f2}.submission-status{margin-top:10px;font-weight:700}.submission-status.ok{color:#176b45}.submission-status.err{color:#a5222d}.submission-status.warn{color:#805900}.writing-area{min-height:190px}.writing-anti-paste-note{padding:10px 12px;background:#fff7d8;border:1px solid #ead27b;border-radius:9px;color:#624e00;font-size:.92rem}.similar-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.similar-grid input{background:#f6faff}.callout{padding:12px 14px;border-left:4px solid #238657;background:#eff9f2;border-radius:8px}.score-row{display:flex;gap:10px;flex-wrap:wrap}.score-chip{background:#edf7f0;border-radius:9px;padding:8px 12px}@media(max-width:680px){.skell-board{grid-template-columns:1fr}.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;padding:8px 14px}.cluster-type{flex-basis:auto;width:100%}}@media(max-width:560px){.profile-grid{grid-template-columns:1fr}body{padding:8px}header,.card{padding:15px}}@media print{button{display:none}body{background:white}}
+
+.audio-panel{padding:16px;margin:14px 0 18px;border:1px solid #b9dfc5;border-radius:14px;background:linear-gradient(135deg,#f2fbf4,#ffffff)}.audio-heading{display:flex;gap:10px;align-items:center;margin-bottom:10px}.audio-heading>span{font-size:1.7rem}.audio-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.voice-picker-row{display:grid;grid-template-columns:auto minmax(180px,1fr) auto;gap:8px 10px;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid #d5eadb}.voice-picker-row select{width:100%;min-width:0;padding:9px;border:1px solid #a8cdb4;border-radius:8px;background:#fff;color:var(--ink)}.voice-picker-row button{margin:0}.voice-picker-row #reading-voice-info{grid-column:2/-1;font-size:.82rem}.audio-controls button{margin:2px 4px 2px 0}.speed-control{display:flex;gap:8px;align-items:center;margin:2px 0 2px 8px;font-weight:700}.speed-control select{width:auto;min-width:135px;padding:8px}.audio-status{margin:10px 0 0}.audio-progress-wrap{margin:12px 0 4px}.audio-progress-label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.9rem;color:var(--muted);margin-bottom:4px}.audio-progress{width:100%;max-width:none;height:22px;padding:0;margin:0;accent-color:var(--green);cursor:pointer;background:transparent}.audio-progress-help{font-size:.82rem;color:var(--muted);margin:2px 0 0}@media(max-width:560px){.voice-picker-row{grid-template-columns:1fr}.voice-picker-row #reading-voice-info{grid-column:1}.audio-controls{align-items:stretch}.audio-controls button{flex:1}.speed-control{width:100%;margin:6px 0 0}.speed-control select{flex:1}}
+.lesson-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(118deg,#104b32 0%,#176b45 54%,#2c8b5b 100%);color:#fff;border:0;border-radius:22px;padding:25px 27px;margin:16px 0;box-shadow:0 10px 28px rgba(20,90,54,.17)}
+.lesson-hero:before{content:"";position:absolute;z-index:-1;width:300px;height:300px;right:135px;top:-205px;border:1px solid rgba(255,255,255,.11);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 58px rgba(255,255,255,.02)}
+.lesson-header-layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;align-items:center;gap:25px;min-width:0}
+.lesson-header-copy{min-width:0}
+.lesson-kicker{display:flex;align-items:center;gap:9px;margin-bottom:12px;color:#d7f5e1;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.lesson-kicker-mark{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;border-radius:9px;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.26);font-size:.72rem;letter-spacing:-.03em}
+.kicker-divider{padding:0 3px;color:#9edbb5}
+.lesson-header-copy h1{max-width:690px;margin:0 0 10px;color:#fff;font-size:clamp(1.7rem,3.1vw,2.35rem);font-weight:800;line-height:1.12;letter-spacing:-.035em;text-wrap:balance}
+.lesson-subtitle{max-width:650px;margin:0 0 17px!important;color:#e4f7e9;font-size:1.04rem;line-height:1.45}
+.lesson-meta{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.lesson-meta-pill{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:.79rem;font-weight:700;line-height:1.25}
+.lesson-method{margin:14px 0 0!important;color:#d4efdd;font-size:.84rem;letter-spacing:.01em}
+.lesson-header-photo{display:block;width:250px;height:166px;max-width:100%;object-fit:cover;object-position:center 48%;border-radius:17px;border:3px solid rgba(255,255,255,.88);box-shadow:0 12px 24px rgba(0,0,0,.2);background:#dcefe2}
+@media(max-width:760px){.lesson-hero{padding:21px;border-radius:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr) 205px;gap:16px}.lesson-header-photo{width:205px;height:148px}.lesson-header-copy h1{font-size:clamp(1.5rem,4vw,1.9rem)}}
+@media(max-width:560px){.lesson-hero{padding:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr);gap:15px}.lesson-header-photo{width:100%;height:190px;max-width:none;object-position:center 44%;border-radius:14px}.lesson-kicker{margin-bottom:9px}.lesson-header-copy h1{font-size:1.8rem}.lesson-subtitle{font-size:.98rem}.lesson-meta-pill{font-size:.76rem}}
+
+/* Responsive SkELL keyword pills: keep long keywords fully visible inside their ovals. */
+.skell-cluster{min-width:0}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 1 auto;align-items:center;justify-content:center;width:max-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px clamp(10px,1.5vw,16px);box-sizing:border-box;font-size:clamp(.72rem,1.25vw,.98rem);line-height:1.12;letter-spacing:.015em;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0}@media(max-width:680px){.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;font-size:clamp(.72rem,3vw,.94rem);padding:8px 12px}.cluster-type{flex-basis:auto;width:100%}}
+#word-count{font-weight:700}#word-count.word-count-warn{color:#805900}#word-count.word-count-ok{color:#176b45}
+/* Lesson 13 visual redesign: justice photography, editorial typography, compact navigation. */
+:root{--green:#145b45;--green2:#247c5b;--mint:#eaf4ed;--line:#d4e1d6;--ink:#142e3e;--muted:#65766d;--cream:#fbf7ec;--navy:#112d4f}
+body{max-width:1320px;padding:16px 20px 34px;background:#f4f7f4;color:#142e3e;font:16px/1.55 Arial,sans-serif}
+.justice-hero{position:relative;isolation:isolate;overflow:hidden;min-height:365px;margin:4px 0 12px;padding:34px 38px;border:0;border-radius:22px;background:#12392f!important;box-shadow:0 14px 32px rgba(16,51,40,.2);color:#fff}
+.justice-banner-photos{position:absolute;z-index:-3;inset:0 0 0 54%;display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;overflow:hidden;}
+.justice-banner-photos img{display:block;width:100%;height:100%;min-width:0;object-fit:cover;filter:saturate(.86);}
+.justice-banner-photos:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,85,50,.92) 0%,rgba(8,85,50,.48) 24%,rgba(8,45,34,.12) 100%);pointer-events:none;}
+.justice-hero:before{content:"";position:absolute;z-index:-2;inset:0;width:auto;height:auto;right:auto;top:auto;border:0;border-radius:0;box-shadow:none;background:linear-gradient(90deg,rgba(4,32,28,.88) 0%,rgba(5,38,31,.67) 38%,rgba(6,40,34,.14) 75%,rgba(7,37,34,.12) 100%)}
+.justice-hero-shade{position:absolute;z-index:-1;inset:0;background:linear-gradient(0deg,rgba(6,28,25,.5),transparent 50%)}
+.justice-hero-content{position:relative;max-width:780px;z-index:1}
+.brand-row{display:flex;align-items:center;gap:17px;flex-wrap:wrap;margin-bottom:0}
+.brand-name{font:700 2.1rem/1 Georgia,'Times New Roman',serif;letter-spacing:-.04em;color:#fff}
+.lesson-number{display:inline-flex;align-items:center;border-radius:12px;padding:9px 18px;background:#0c5b4a;color:#fff;border:1px solid rgba(255,255,255,.28);font-weight:800;letter-spacing:.04em}
+.brand-subtitle{margin:5px 0 24px!important;color:#e6f1e9;font-size:.81rem;letter-spacing:.06em}
+.justice-hero h1{max-width:750px;margin:0 0 14px;font:700 clamp(2.35rem,4.4vw,4.1rem)/.99 Georgia,'Times New Roman',serif;letter-spacing:-.045em;color:#fff;text-wrap:balance}
+.hero-motto{margin:16px 0!important;font-size:.93rem;letter-spacing:.17em;font-weight:800;color:#f3f5de}
+.hero-motto span{padding:0 .38em;color:#d4c77c}
+.justice-hero .lesson-meta{gap:8px;max-width:700px}
+.justice-hero .lesson-meta-pill{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.33);backdrop-filter:blur(3px)}
+.hero-start{display:inline-flex;align-items:center;gap:15px;margin-top:21px;padding:11px 17px;border-radius:999px;background:#fff;color:#124f40;text-decoration:none;font-weight:800;box-shadow:0 6px 18px rgba(0,0,0,.16)}
+.hero-start:hover{background:#f0f6ec;color:#0c3f33}
+.hero-side-note{position:absolute;right:30px;top:30px;max-width:240px;padding:15px 19px;border:1px solid rgba(255,255,255,.24);border-radius:13px;background:rgba(9,45,35,.42);color:#fff;font:italic 1.13rem/1.5 Georgia,'Times New Roman',serif;text-align:right;backdrop-filter:blur(4px)}
+.lesson-jumps{display:flex;gap:7px;align-items:center;overflow-x:auto;padding:7px 1px 12px;margin:0 0 16px;scrollbar-width:thin}
+.lesson-jumps a{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;padding:9px 12px;border:1px solid #dce4df;border-radius:11px;background:#fff;color:#183548;text-decoration:none;font-size:.82rem;font-weight:700;box-shadow:0 2px 4px rgba(20,50,40,.035);white-space:nowrap}
+.lesson-jumps a:hover{border-color:#7db79a;background:#eff7f0}
+.lesson-jumps b{display:inline-flex;width:23px;height:23px;align-items:center;justify-content:center;border-radius:7px;background:#267b58;color:white;font-size:.78rem}
+.justice-overview{display:grid;grid-template-columns:minmax(230px,1fr) minmax(300px,1.72fr) minmax(330px,1.2fr);gap:15px;margin:0 0 15px;align-items:stretch}
+.overview-card{min-width:0;padding:18px;border:1px solid #e2e8e0;border-radius:16px;background:#fff;box-shadow:0 4px 14px rgba(21,53,38,.045)}
+.objectives-card{background:linear-gradient(160deg,#f0f7f1,#fff 78%)}
+.collocation-card{background:linear-gradient(160deg,#fcf8eb,#fff 90%)}
+.overview-card h2{margin:0 0 13px;color:#123354;font:700 1.3rem/1.2 Georgia,'Times New Roman',serif;letter-spacing:-.02em}
+.overview-card h2 span{display:inline-flex;margin-right:7px;color:#2d8058}
+.overview-card h3{margin:18px 0 8px;color:#155840;font-size:1rem}
+.objective-list,.theme-list{padding-left:0;margin:0;list-style:none}
+.objective-list li{position:relative;padding:0 0 8px 25px;font-size:.91rem;line-height:1.42}
+.objective-list li:before{content:"✓";position:absolute;left:0;top:1px;display:inline-flex;width:18px;height:18px;align-items:center;justify-content:center;border-radius:50%;background:#55a766;color:white;font-size:.77rem;font-weight:900}
+.theme-list{padding-left:18px;list-style:disc;font-size:.88rem;line-height:1.42}
+.overview-feature{position:relative;min-height:370px;overflow:hidden;border-radius:16px;background:#0f4b53;box-shadow:0 8px 22px rgba(9,50,56,.12)}
+.overview-feature>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center}
+.overview-feature:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,27,41,.86) 0%,rgba(3,27,41,.08) 68%,transparent 100%)}
+.feature-caption{position:absolute;z-index:1;left:22px;right:22px;bottom:19px;color:white}
+.feature-kicker{font-size:.72rem;letter-spacing:.16em;font-weight:800;color:#c7e6a6}
+.feature-caption p{max-width:380px;margin:6px 0 0;font:1.45rem/1.18 Georgia,'Times New Roman',serif}
+.key-collocations{columns:2;column-gap:14px;list-style:none;padding:0;margin:0}
+.key-collocations li{display:flex;align-items:flex-start;gap:7px;margin:0 0 8px;break-inside:avoid;font-size:.79rem;line-height:1.29;color:#1b3042}
+.key-collocations li span{flex:0 0 21px;width:21px;height:21px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:#e0efe3;color:#176b45;font-size:.67rem;font-weight:900}
+.text-link{display:inline-flex;gap:7px;align-items:center;margin-top:7px;color:#176b45;font-size:.84rem;text-decoration:none}
+.justice-gallery{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:11px;margin:0 0 14px}
+.justice-tile{min-width:0;overflow:hidden;border:1px solid #e0e6e0;border-radius:13px;background:#fff;box-shadow:0 3px 11px rgba(16,49,35,.05)}
+.justice-tile img{display:block;width:100%;height:112px;object-fit:cover}
+.justice-tile>div{display:flex;gap:7px;align-items:center;padding:9px 10px;min-height:45px;background:linear-gradient(90deg,#eef6ee,#f8faf8);font-size:.77rem;line-height:1.2;color:#173a34}
+.justice-tile>div span{font-size:1.15rem;color:#2a7e4f}
+.justice-quote{display:flex;align-items:center;gap:13px;margin:0 0 18px;padding:15px 22px;border-radius:15px;background:#e5f0e7;border:1px solid #d3e5d7;color:#174536}
+.justice-quote>span{font:700 3.3rem/.6 Georgia,serif;color:#65a27c}
+.justice-quote p{flex:1;margin:0;font:italic 1.14rem/1.4 Georgia,'Times New Roman',serif}
+.justice-quote a{flex:0 0 auto;display:inline-flex;gap:8px;align-items:center;color:#145b45;text-decoration:none;font-weight:800;font-size:.88rem}
+body>section.card,body>section.profile{scroll-margin-top:18px}
+.card{border-color:#e0e8e0;box-shadow:0 4px 15px rgba(20,62,42,.045)}
+.card h2{color:#143b53;font-family:Georgia,'Times New Roman',serif;font-size:1.35rem}
+.q{border-bottom-color:#edf0e9}
+@media(max-width:1050px){.justice-overview{grid-template-columns:minmax(230px,.9fr) minmax(300px,1.3fr)}.collocation-card{grid-column:1/-1}.key-collocations{columns:3}.justice-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}.justice-tile img{height:140px}}
+@media(max-width:700px){body{padding:10px}.justice-banner-photos{left:36%;opacity:.72}.justice-hero{min-height:0;padding:25px 20px;border-radius:18px}.justice-hero h1{font-size:clamp(2rem,9vw,3rem)}.brand-name{font-size:1.75rem}.brand-subtitle{margin-bottom:18px!important}.hero-side-note{display:none}.hero-motto{font-size:.75rem;letter-spacing:.09em}.justice-overview{grid-template-columns:1fr}.collocation-card{grid-column:auto}.overview-feature{min-height:285px;grid-row:1}.key-collocations{columns:2}.justice-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.justice-tile img{height:130px}.justice-quote{align-items:flex-start;flex-wrap:wrap;padding:14px}.justice-quote p{flex-basis:calc(100% - 45px)}.justice-quote a{margin-left:43px}}
+@media(max-width:400px){.key-collocations{columns:1}.justice-gallery{gap:8px}.justice-tile img{height:108px}.justice-tile>div{font-size:.72rem;padding:7px}}
+@media print{.lesson-jumps,.hero-start{display:none}.justice-hero{min-height:240px;print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+</style>
+</head>
+<body>
+<header class="lesson-hero justice-hero media-hero">
+<div aria-label="Healthcare professionals, clinical care and patient support" class="justice-banner-photos">
+<img alt="Healthcare professional preparing for a patient consultation" fetchpriority="high" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/>
+<img alt="Medical tools and clinical equipment" loading="eager" src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/>
+<img alt="Hospital corridor and patient-care environment" loading="eager" src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/>
+</div>
+<div aria-hidden="true" class="justice-hero-shade"></div>
+<div class="justice-hero-content">
+<div class="brand-row"><span class="brand-name">LexiLink</span><span class="lesson-number">Lesson 17</span></div>
+<p class="brand-subtitle">Collocations for Confident Communication</p>
+<h1>Healthcare and<br/>Medical Language</h1>
+<p class="hero-motto">NOTICE <span>•</span> ASK <span>•</span> CHECK <span>•</span> RECOVER</p>
+<div aria-label="Lesson information" class="lesson-meta">
+<span class="lesson-meta-pill">B2 · Upper-intermediate</span>
+<span class="lesson-meta-pill">80-minute lesson</span>
+<span class="lesson-meta-pill">20 target collocations</span>
+</div>
+<a class="hero-start" href="#student-profile">Start the lesson <span aria-hidden="true">→</span></a>
+</div>
+<div class="hero-side-note">Care explained.<br/>Patients heard.<br/>Evidence matters.</div>
+</header>
+<nav aria-label="Lesson sections" class="lesson-jumps">
+<a href="#vocabulary-zone"><b>1</b> Vocabulary</a>
+<a href="#reading"><b>2</b> Reading</a>
+<a href="#reading-questions"><b>3</b> Comprehension</a>
+<a href="#matching-zone"><b>4</b> Matching</a>
+<a href="#completion-zone"><b>5</b> Complete</a>
+<a href="#skell-cluster"><b>6</b> SkELL Investigation</a>
+<a href="#odd-zone"><b>7</b> Odd One Out</a>
+<a href="#find-zone"><b>8</b> Find the Collocate</a>
+<a href="#sorting-zone"><b>9</b> Sorting</a>
+<a href="#cloze-zone"><b>10</b> Cloze</a>
+<a href="#repair-zone"><b>11</b> Repair</a>
+<a href="#writing-zone"><b>12</b> Writing</a>
+</nav>
+<section aria-label="Lesson introduction" class="justice-overview">
+<div class="overview-card objectives-card">
+<h2><span aria-hidden="true">◎</span> Lesson objectives</h2>
+<ul class="objective-list"><li>Recognise and use natural collocations for symptoms, diagnosis, treatment and recovery.</li><li>Understand how patients and healthcare professionals exchange information during care.</li><li>Use SkELL corpus examples to test collocation hypotheses rather than relying only on intuition.</li><li>Discuss prevention, side effects and patient safety in clear, careful English.</li><li>Write a short, evidence-aware paragraph using target medical collocations.</li></ul>
+<h3>Key themes</h3>
+<ul class="theme-list"><li>Describing symptoms and health concerns</li><li>Diagnosis and medical evidence</li><li>Treatment, medication and side effects</li><li>Preventing the spread of infection</li><li>Recovery, follow-up and patient safety</li></ul>
+</div>
+<div class="overview-feature">
+<img alt="Doctor reviewing a patient record in a clinical setting" loading="lazy" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"/>
+<div class="feature-caption"><span class="feature-kicker">CLEAR HEALTHCARE COMMUNICATION</span><p>Accurate descriptions of symptoms and clear questions can help patients and healthcare professionals make informed decisions together.</p></div>
+</div>
+<div class="overview-card collocation-card">
+<h2><span aria-hidden="true">▤</span> Key collocations</h2>
+<ol class="key-collocations"><li><span>01</span>seek medical advice</li><li><span>02</span>undergo treatment</li><li><span>03</span>show symptoms</li><li><span>04</span>make a full recovery</li><li><span>05</span>prevent the spread</li><li><span>06</span>chronic condition</li><li><span>07</span>prescribe medication</li><li><span>08</span>medical evidence</li><li><span>09</span>diagnose a condition</li><li><span>10</span>receive a diagnosis</li><li><span>11</span>manage pain</li><li><span>12</span>relieve symptoms</li><li><span>13</span>side effects</li><li><span>14</span>follow medical advice</li><li><span>15</span>book an appointment</li><li><span>16</span>emergency care</li><li><span>17</span>routine check-up</li><li><span>18</span>clinical trial</li><li><span>19</span>patient safety</li><li><span>20</span>healthcare provider</li></ol><a class="text-link" href="#vocabulary-zone">Study definitions and synonyms <span aria-hidden="true">→</span></a>
+</div></section>
+<section aria-label="Healthcare and medical language themes" class="justice-gallery"><article class="justice-tile"><img alt="Healthcare professional speaking with a patient" loading="lazy" src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">⌕</span><b>Seek medical advice</b></div></article><article class="justice-tile"><img alt="Medical team working together in a healthcare facility" loading="lazy" src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">✚</span><b>Patient safety</b></div></article><article class="justice-tile"><img alt="Medical research and diagnostic work" loading="lazy" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">⌁</span><b>Medical evidence</b></div></article><article class="justice-tile"><img alt="Clinical equipment prepared for patient care" loading="lazy" src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">♡</span><b>Support recovery</b></div></article><article class="justice-tile"><img alt="Healthcare professional discussing care with a patient" loading="lazy" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">＋</span><b>Emergency care</b></div></article><article class="justice-tile"><img alt="Medical professional preparing for a clinical consultation" loading="lazy" src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">◎</span><b>Routine check-up</b></div></article></section>
+<div class="justice-quote"><span aria-hidden="true">“</span><p>Good healthcare communication helps people understand symptoms, discuss care options and ask questions when information is unclear.</p><a href="#reading">Explore the reading <span aria-hidden="true">→</span></a></div>
+<section aria-label="Student profile" class="profile" id="student-profile">
+<div class="profile-head"><div class="avatar" id="avatar-initials">S</div><div><h2 style="margin:0;color:#176b45">Student profile</h2><p style="margin:.2rem 0">LexiLink · Healthcare and Medical Language <span class="pill">B2</span> <span class="pill">80 minutes</span></p></div></div>
+<div class="profile-grid" style="margin-top:14px"><div><label for="profile-name">Student name</label><input id="profile-name" placeholder="Enter your name"/></div><div><label for="profile-group">Group</label><input id="profile-group" placeholder="Enter group"/></div></div>
+<p class="muted" style="margin-bottom:0">Complete the tasks, investigate medical collocations in SkELL, and write about clear communication between patients and healthcare professionals.</p>
+</section>
+<section class="card" id="lesson-route"><h2>80-minute lesson route</h2><p class="muted">Teacher-facing timing plan; the tasks below follow this sequence.</p><div class="timeline">
+<div class="slot"><b>0–5 min · Warm-up</b>Discuss how people describe symptoms and decide when to seek professional medical advice.</div>
+<div class="slot"><b>5–17 min · Reading</b>Read about symptoms, diagnosis, treatment and patient safety.</div>
+<div class="slot"><b>17–27 min · Noticing</b>Identify collocations used to discuss symptoms, treatment, prevention and recovery.</div>
+<div class="slot"><b>27–42 min · DDL with SkELL</b>Investigate four healthcare keywords and verify collocations in corpus examples.</div>
+<div class="slot"><b>42–52 min · Retrieval</b>Use Odd One Out and Find the Collocate to distinguish natural medical word partnerships.</div>
+<div class="slot"><b>52–62 min · Categorising</b>Practise sorting and lexical cloze with realistic healthcare contexts.</div>
+<div class="slot"><b>62–70 min · Correction</b>Repair awkward collocations and distinguish clear medical wording from unnatural combinations.</div>
+<div class="slot"><b>70–77 min · Production</b>Write at least 100 words explaining how patients can communicate clearly with healthcare professionals.</div>
+<div class="slot"><b>77–80 min · Reflection</b>Review your score and report one medical collocation you verified in SkELL.</div>
+</div></section>
+<section class="card" id="vocabulary-zone"><h2>Learning outcomes</h2><p>By the end of this lesson, you will be able to use natural collocations for symptoms, diagnosis, treatment, prevention and recovery; interpret healthcare information carefully; and communicate questions clearly to a healthcare professional.</p><h2>Target collocations: definitions and synonyms</h2><p class="muted">Study each complete medical word partnership, its meaning and related expressions before starting the tasks.</p><div class="grid" id="target"></div></section>
+<section class="card" id="reading"><h2>Reading: Healthcare and Medical Language</h2><p class="muted">Read the text carefully or listen to it. Target collocations are shown in bold.</p>
+<div aria-label="Reading audio controls" class="audio-panel" role="group">
+<div class="audio-heading"><span aria-hidden="true">🎧</span><div><strong>Listen to the reading</strong><div class="muted">Choose your preferred English voice · Browser speech synthesis</div></div></div>
+<div class="audio-controls">
+<button aria-label="Play or resume reading text" onclick="playReading()" type="button">▶ Listen / Resume</button>
+<button aria-label="Pause reading text" onclick="pauseReading()" type="button">Ⅱ Pause</button>
+<button aria-label="Stop and reset reading text" onclick="stopReading()" type="button">■ Stop</button>
+<label class="speed-control" for="reading-speed">Speed
+      <select aria-label="Reading speed" id="reading-speed" onchange="updateReadingSpeedNote()">
+<option value="0.75">0.75× Slow</option><option selected="" value="1">1× Normal</option><option value="1.25">1.25× Fast</option>
+</select>
+</label>
+</div>
+<div class="voice-picker-row">
+<label for="reading-voice"><strong>Reading voice</strong></label>
+<select aria-label="Choose reading voice" id="reading-voice" onchange="changeReadingVoice(this.value)">
+<option value="">Loading available voices…</option>
+</select>
+<button aria-label="Preview selected reading voice" onclick="previewReadingVoice()" type="button">🔊 Preview voice</button>
+<span aria-live="polite" class="muted" id="reading-voice-info">Loading voices from your browser…</span>
+</div>
+<div class="audio-progress-wrap">
+<div class="audio-progress-label"><label for="reading-progress" style="margin:0">Reading progress</label><span id="reading-progress-value">0%</span></div>
+<input aria-label="Reading progress; move the slider to seek" class="audio-progress" id="reading-progress" max="100" min="0" onchange="seekReading(this.value)" oninput="previewReadingSeek(this.value)" step="1" type="range" value="0"/>
+<p class="audio-progress-help">After the title, narration pauses for 3 seconds before continuing. Pause / Resume preserves your place, including during this break, or move the slider to jump to another part of the text.</p>
+</div>
+<p aria-live="polite" class="muted audio-status" id="reading-audio-status">Ready to play. Choose an available voice, preview it, then start reading.</p>
+</div>
+<article id="reading-text" style="line-height:1.75"><h3>From Symptoms to Recovery: Clear Communication in Healthcare</h3><p>Health problems can be difficult to describe, especially when symptoms develop gradually. People may <b>show symptoms</b> such as persistent pain, fatigue or a change in breathing, but a symptom alone does not always identify its cause. When a concern persists or becomes worse, it is sensible to <b>seek medical advice</b> from a qualified healthcare professional rather than relying only on online comments or another person’s experience.</p><p>During a consultation, a clinician may ask questions, examine the patient and order tests before they <b>diagnose a condition</b>. A patient may later <b>receive a diagnosis</b> and discuss what it means, which options are suitable and what further checks may be needed. Decisions should take account of the person’s history and relevant <b>medical evidence</b>, not a single detail viewed in isolation.</p><p>Depending on the condition, a person may <b>undergo treatment</b> such as a prescribed therapy or a procedure. An authorised professional may <b>prescribe medication</b> and explain how to use it safely. Patients should ask about possible <b>side effects</b>, expected benefits and when to seek further help. Suitable care can <b>relieve symptoms</b> or help a person <b>manage pain</b>, but the results and the right approach differ from one individual to another.</p><p>Prevention is also important. Hand hygiene, vaccination when appropriate, ventilation and staying home when infectious can help <b>prevent the spread</b> of some illnesses. Public health teams use current evidence to explain risks, while healthcare organisations make <b>patient safety</b> a priority by checking procedures, medicines and communication. People living with a <b>chronic condition</b> may need regular reviews and support rather than a single visit.</p><p>Recovery is rarely identical for everyone. Some people <b>make a full recovery</b>; others need time, rehabilitation or ongoing management. It can help to <b>follow medical advice</b>, <b>book an appointment</b> for follow-up when advised and attend a <b>routine check-up</b> when appropriate. Urgent problems may require <b>emergency care</b>, while new treatments are evaluated through carefully designed <b>clinical trials</b>. Clear questions, honest answers and a respectful relationship with a <b>healthcare provider</b> help patients take part in decisions about their care.</p></article>
+<h3 id="reading-questions">Reading Task A — Choose the best answer</h3><div id="readMCQ"></div><button onclick="checkReading()">Check reading answers</button><button onclick="resetReading()">Try again</button><div id="reading-result"></div>
+<h3>Reading Task B — True or False?</h3><p class="muted">Choose True or False according to the text.</p><div id="readTF"></div><button onclick="checkTF()">Check statements</button><button onclick="resetTF()">Try again</button><div id="tf-result"></div>
+<h3>Reading Task D — Match the idea to the paragraph</h3><p class="muted">Choose the paragraph number (1–5). Some paragraph numbers may be used more than once.</p><div id="readMatch"></div><button onclick="checkReadMatch()">Check paragraph matching</button><button onclick="resetReadMatch()">Try again</button><div id="readmatch-result"></div>
+</section>
+<section class="card" id="matching-zone"><h2>1. Matching · 10 points</h2><p class="muted">Complete each media-related collocation by selecting the missing word or phrase. Feedback appears after you check your answers.</p><div id="matching"></div><button onclick="check('matching')">Check answers</button><button onclick="reset('matching')">Try again</button><div id="matching-result"></div></section>
+<section class="card" id="completion-zone"><h2>2. Complete the Sentence · 10 points</h2><p class="muted">Choose the collocation that best fits each patient-care or public-health context. Unanswered items stay unanswered until you check.</p><div id="gaps"></div><button onclick="check('gaps')">Check answers</button><button onclick="reset('gaps')">Try again</button><div id="gaps-result"></div></section>
+<section class="card" id="skell-cluster"><h2>3. SkELL Collocation Investigation · 15 minutes · 10 points (teacher-scored)</h2>
+<p>Open <a href="https://skell.sketchengine.eu/" rel="noopener" target="_blank">SkELL</a>. Search each keyword in <b>Word Sketch</b>, inspect example sentences and open <b>Similar words</b>. For every keyword, record two collocations in different grammatical patterns where possible, write an original sentence for each, add two synonyms or related words, and note a short context you checked. A related word is not automatically an interchangeable synonym; test possible substitutions in context.</p>
+<div class="callout"><b>Investigation routine</b><br/>Predict → search in SkELL → inspect examples and grammatical patterns → record two distinct collocations → write original sentences → check Similar words → revise your hypothesis using context evidence.</div>
+<div class="skell-board">
+<div class="skell-cluster" data-keyword="SYMPTOMS"><div class="skell-cluster-head"><span class="keyword-pill">SYMPTOMS</span><span class="cluster-type"><b>Search focus:</b> adjective + noun; verb + noun<br/>Explore how people describe symptoms, signs and changes in health.</span></div><label for="symptoms-coll-1">Collocation 1</label><input autocomplete="off" class="collocation-line" id="symptoms-coll-1" placeholder="e.g. show symptoms"/><label for="symptoms-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="symptoms-sentence-1" placeholder="Write an original sentence in context."></textarea><label for="symptoms-coll-2">Collocation 2</label><input autocomplete="off" class="collocation-line" id="symptoms-coll-2" placeholder="Try another grammatical pattern"/><label for="symptoms-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="symptoms-sentence-2" placeholder="Write an original sentence in context."></textarea><label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input autocomplete="off" id="symptoms-syn-1" placeholder="Related word 1"/><input autocomplete="off" id="symptoms-syn-2" placeholder="Related word 2"/></div><label for="symptoms-evidence">Corpus example / context checked</label><textarea id="symptoms-evidence" placeholder="Record the example or explain the context."></textarea></div>
+<div class="skell-cluster" data-keyword="TREATMENT"><div class="skell-cluster-head"><span class="keyword-pill">TREATMENT</span><span class="cluster-type"><b>Search focus:</b> verb + noun; adjective + noun<br/>Explore treatment choices and words used to describe receiving care.</span></div><label for="treatment-coll-1">Collocation 1</label><input autocomplete="off" class="collocation-line" id="treatment-coll-1" placeholder="e.g. undergo treatment"/><label for="treatment-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="treatment-sentence-1" placeholder="Write an original sentence in context."></textarea><label for="treatment-coll-2">Collocation 2</label><input autocomplete="off" class="collocation-line" id="treatment-coll-2" placeholder="Try another grammatical pattern"/><label for="treatment-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="treatment-sentence-2" placeholder="Write an original sentence in context."></textarea><label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input autocomplete="off" id="treatment-syn-1" placeholder="Related word 1"/><input autocomplete="off" id="treatment-syn-2" placeholder="Related word 2"/></div><label for="treatment-evidence">Corpus example / context checked</label><textarea id="treatment-evidence" placeholder="Record the example or explain the context."></textarea></div>
+<div class="skell-cluster" data-keyword="PREVENTION"><div class="skell-cluster-head"><span class="keyword-pill">PREVENTION</span><span class="cluster-type"><b>Search focus:</b> verb + noun; noun + noun<br/>Investigate infection prevention, patient safety and risk reduction.</span></div><label for="prevention-coll-1">Collocation 1</label><input autocomplete="off" class="collocation-line" id="prevention-coll-1" placeholder="e.g. prevent the spread"/><label for="prevention-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="prevention-sentence-1" placeholder="Write an original sentence in context."></textarea><label for="prevention-coll-2">Collocation 2</label><input autocomplete="off" class="collocation-line" id="prevention-coll-2" placeholder="Try another grammatical pattern"/><label for="prevention-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="prevention-sentence-2" placeholder="Write an original sentence in context."></textarea><label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input autocomplete="off" id="prevention-syn-1" placeholder="Related word 1"/><input autocomplete="off" id="prevention-syn-2" placeholder="Related word 2"/></div><label for="prevention-evidence">Corpus example / context checked</label><textarea id="prevention-evidence" placeholder="Record the example or explain the context."></textarea></div>
+<div class="skell-cluster" data-keyword="RECOVERY"><div class="skell-cluster-head"><span class="keyword-pill">RECOVERY</span><span class="cluster-type"><b>Search focus:</b> verb + noun; adjective + noun<br/>Find collocations about improving health and returning to usual activities.</span></div><label for="recovery-coll-1">Collocation 1</label><input autocomplete="off" class="collocation-line" id="recovery-coll-1" placeholder="e.g. make a full recovery"/><label for="recovery-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="recovery-sentence-1" placeholder="Write an original sentence in context."></textarea><label for="recovery-coll-2">Collocation 2</label><input autocomplete="off" class="collocation-line" id="recovery-coll-2" placeholder="Try another grammatical pattern"/><label for="recovery-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="recovery-sentence-2" placeholder="Write an original sentence in context."></textarea><label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input autocomplete="off" id="recovery-syn-1" placeholder="Related word 1"/><input autocomplete="off" id="recovery-syn-2" placeholder="Related word 2"/></div><label for="recovery-evidence">Corpus example / context checked</label><textarea id="recovery-evidence" placeholder="Record the example or explain the context."></textarea></div>
+</div></section>
+<section class="card" id="odd-zone"><h2>4. Odd One Out · Based on SkELL · 10 points</h2><p class="muted">Choose the expression that does not form a natural medical collocation. Each item has three natural combinations and one incorrect combination. Explanations appear after you choose and check.</p><div id="odd"></div><button onclick="check('odd')">Check answers</button><button onclick="reset('odd')">Try again</button><div id="odd-result"></div></section>
+<section class="card" id="find-zone"><h2>5. Find the Verb, Find the Collocate · 10 points</h2><p>Choose the verb or verb phrase that creates a natural collocation about responsible healthcare communication.</p><div id="find"></div><button onclick="check('find')">Check answers</button><button onclick="reset('find')">Try again</button><div id="find-result"></div></section>
+<section class="card" id="sorting-zone"><h2>6. Collocation Sorting · 10 points</h2><p class="muted">Choose the verb or verb phrase that creates a natural collocation in a healthcare context.</p><div id="sorting"></div><button onclick="check('sorting')">Check answers</button><button onclick="reset('sorting')">Try again</button><div id="sorting-result"></div></section>
+<section class="card" id="cloze-zone"><h2>7. Lexical Cloze · 10 points</h2><p class="muted"><b>Word bank:</b> seek medical advice · undergo treatment · show symptoms · make a full recovery · prevent the spread · chronic condition · prescribe medication · medical evidence · side effects · patient safety</p><div id="cloze"></div><button onclick="check('cloze')">Check answers</button><button onclick="reset('cloze')">Try again</button><div id="cloze-result"></div></section>
+<section class="card" id="repair-zone"><h2>8. Collocation Repair · 10 points</h2><p class="muted">Choose the best correction. Focus on natural lexical word partnerships used to discuss medical care, symptom management, prevention and recovery.</p><div id="repair"></div><button onclick="check('repair')">Check answers</button><button onclick="reset('repair')">Try again</button><div id="repair-result"></div></section>
+<section class="card" id="writing-zone"><h2>9. Productive Recall Challenge · 5 points (teacher-scored)</h2><p>Write at least 100 words about communicating with healthcare professionals, understanding treatment and supporting recovery. Use at least eight target collocations from this lesson. Write directly in the box; clipboard paste and drag-and-drop are disabled in this field.</p><p class="writing-anti-paste-note" id="writing-notice">Please compose your paragraph here rather than pasting a prepared text. Normal paste, cut/copy shortcuts and drag-and-drop are blocked in this writing field. This browser restriction supports the task rules but is not a complete plagiarism-detection system.</p><label for="paragraph">Your paragraph</label><textarea autocapitalize="sentences" autocomplete="off" class="writing-area" id="paragraph" placeholder="Clear communication with a healthcare provider can help patients understand their options because..." spellcheck="true"></textarea><p aria-live="polite" class="muted" id="word-count">0 words — 100-word minimum to submit; no maximum</p><p class="muted">Teacher awards up to 5 points for accurate use of distinct target collocations, a clear main idea and relevant examples about healthcare communication.</p><div class="submission-panel"><h3>Submit your lesson work to the teacher</h3><p class="muted">Your name and group from the student profile above, your SkELL collocations and original sentences, related words, corpus notes, writing paragraph and available exercise scores will be collected in the teacher's spreadsheet.</p><button id="submitLessonBtn" onclick="submitLessonWork()" type="button">Submit lesson work</button><div aria-live="polite" class="submission-status" id="submitStatus" role="status"></div></div></section>
+<section class="card" id="score-zone"><h2>Lesson score</h2><p class="muted">Auto-scored sections: reading MCQ, True/False, paragraph matching, Matching, Sentence Completion, Odd One Out, Find the Collocate, Sorting, Lexical Cloze and Collocation Repair (100 points total). SkELL cluster (10) and productive writing (5) are teacher-scored. Maximum lesson total: 115 points.</p><button onclick="summary()">Show score summary</button><div id="summary"></div></section>
+<p class="muted">Vocabulary bank informed by the Lesson 17 topic, “Healthcare and Medical Language,” in the supplied collocation lesson collection. Definitions, reading and interactive exercises were adapted or written for LexiLink.</p>
+<p class="muted">LexiLink · Connect words. Build fluency. Lesson submissions are sent to the configured Google Apps Script collector. The teacher must verify the saved row in Google Sheets because the browser cannot read confirmation in no-cors mode.</p>
+<script>
+let readingUtterance = null;
+let readingTextContent = '';
+let readingCurrentChar = 0;
+let readingRunId = 0;
+let readingSeekWhilePaused = false;
+let readingTitleEnd = 0;
+let readingDelayTimer = null;
+let readingDelayPaused = false;
+let readingDelayRemaining = 3000;
+let readingDelayStartedAt = 0;
+
+function setReadingAudioStatus(message){const el=document.getElementById('reading-audio-status');if(el)el.textContent=message;}
+function readingProgressPercent(){return readingTextContent.length?Math.min(100,Math.round(readingCurrentChar/readingTextContent.length*100)):0;}
+function updateReadingProgress(percent){
+  const slider=document.getElementById('reading-progress');
+  const label=document.getElementById('reading-progress-value');
+  const safe=Math.max(0,Math.min(100,Math.round(percent)));
+  if(slider)slider.value=String(safe);
+  if(label)label.textContent=safe+'%';
+}
+function getReadingText(){
+  const article=document.getElementById('reading-text');
+  if(!article)return '';
+  return (article.innerText||article.textContent||'').replace(/\s+/g,' ').trim();
+}
+function loadReadingText(){
+  const article=document.getElementById('reading-text');
+  readingTextContent=getReadingText();
+  const titleElement=article?article.querySelector('h3'):null;
+  const titleText=titleElement?(titleElement.innerText||titleElement.textContent||'').replace(/\s+/g,' ').trim():'';
+  const titleIndex=titleText?readingTextContent.indexOf(titleText):-1;
+  readingTitleEnd=titleIndex>=0?titleIndex+titleText.length:0;
+  if(readingTitleEnd<=0||readingTitleEnd>=readingTextContent.length)readingTitleEnd=0;
+  return readingTextContent;
+}
+function setProgressFromChar(charIndex){
+  readingCurrentChar=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  updateReadingProgress(readingProgressPercent());
+}
+function clearReadingDelay(){
+  if(readingDelayTimer!==null){clearTimeout(readingDelayTimer);readingDelayTimer=null;}
+  readingDelayStartedAt=0;
+}
+function startReadingDelay(runId, milliseconds){
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=Math.max(0,milliseconds);
+  if(readingDelayRemaining<=0){startReadingFrom(readingTitleEnd);return;}
+  readingDelayStartedAt=Date.now();
+  const seconds=(readingDelayRemaining/1000).toFixed(1).replace(/\.0$/,'');
+  setReadingAudioStatus('Title finished. Pausing for '+seconds+' seconds before the reading continues…');
+  readingDelayTimer=setTimeout(()=>{
+    readingDelayTimer=null;
+    readingDelayStartedAt=0;
+    if(runId!==readingRunId||readingDelayPaused)return;
+    readingDelayRemaining=3000;
+    startReadingFrom(readingTitleEnd);
+  },readingDelayRemaining);
+}
+const READING_VOICE_STORAGE_KEY='lexilink_lesson15_reading_voice';
+function getDefaultEnglishVoice(voices){
+  const english=(voices||[]).filter(v=>/^en(?:-|$)/i.test(v.lang||''));
+  const maleName=/(male|daniel|ryan|thomas|george|james|oliver|arthur|guy|david|alex|fred|aaron|liam|william|lee|mark|andrew|brian|christopher|matthew|rishi|gordon|jamie)/i;
+  return english.find(v=>/^en-GB/i.test(v.lang)&&maleName.test(v.name))
+    ||english.find(v=>maleName.test(v.name))
+    ||english.find(v=>/^en-GB/i.test(v.lang))
+    ||english.find(v=>/^en-US/i.test(v.lang))
+    ||english[0]
+    ||(voices||[])[0]
+    ||null;
+}
+function populateReadingVoices(){
+  const select=document.getElementById('reading-voice');
+  const info=document.getElementById('reading-voice-info');
+  if(!select||!('speechSynthesis' in window))return;
+  const all=window.speechSynthesis.getVoices()||[];
+  if(!all.length){
+    select.innerHTML='<option value="">No voices reported yet — try again shortly</option>';
+    if(info)info.textContent='Your browser has not provided its voice list yet. Wait a moment or reopen the lesson.';
+    return;
+  }
+  const english=all.filter(v=>/^en(?:-|$)/i.test(v.lang||''));
+  const choices=english.length?english:all;
+  let saved='';
+  try{saved=localStorage.getItem(READING_VOICE_STORAGE_KEY)||'';}catch(e){}
+  const current=select.value;
+  const preferred=choices.some(v=>v.voiceURI===current)?current:(choices.some(v=>v.voiceURI===saved)?saved:(getDefaultEnglishVoice(choices)||choices[0]).voiceURI);
+  select.innerHTML='';
+  choices.forEach(v=>{
+    const option=document.createElement('option');
+    option.value=v.voiceURI;
+    const details=[v.lang||'language unknown'];
+    if(v.default)details.push('system default');
+    option.textContent=v.name+' — '+details.join(', ');
+    select.appendChild(option);
+  });
+  select.value=preferred;
+  if(info)info.textContent=english.length+' English voice'+(english.length===1?'':'s')+' available. Choose one and press Preview voice.';
+}
+function changeReadingVoice(uri){
+  try{if(uri)localStorage.setItem(READING_VOICE_STORAGE_KEY,uri);}catch(e){}
+  const select=document.getElementById('reading-voice');
+  const label=select&&select.selectedOptions&&select.selectedOptions[0]?select.selectedOptions[0].textContent:'selected voice';
+  const synth=window.speechSynthesis;
+  const wasSpeaking=!!(synth&&synth.speaking&&!synth.paused);
+  const wasPaused=!!(synth&&synth.paused);
+  const wasInTitleBreak=readingDelayTimer!==null||readingDelayPaused;
+  if(synth&&(wasSpeaking||wasPaused||wasInTitleBreak)){
+    let start=readingCurrentChar;
+    if(wasInTitleBreak)start=readingTitleEnd;
+    clearReadingDelay();
+    readingDelayPaused=false;
+    readingDelayRemaining=3000;
+    synth.cancel();
+    readingRunId++;
+    readingUtterance=null;
+    if(wasSpeaking){setReadingAudioStatus('Voice changed. Restarting from the current position…');startReadingFrom(start);return;}
+    readingSeekWhilePaused=true;
+    setReadingAudioStatus('Voice selected: '+label+'. Press Listen / Resume to continue with this voice.');
+  }else{
+    setReadingAudioStatus('Voice selected: '+label+'. Press Preview voice to hear it, or Listen / Resume to read the passage.');
+  }
+}
+function previewReadingVoice(){
+  if(!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window)){setReadingAudioStatus('Voice preview is not supported by this browser.');return;}
+  const synth=window.speechSynthesis;
+  const voices=synth.getVoices()||[];
+  const select=document.getElementById('reading-voice');
+  const chosen=select&&select.value?voices.find(v=>v.voiceURI===select.value):getDefaultEnglishVoice(voices);
+  if(!chosen){setReadingAudioStatus('No voice is available yet. Wait a moment, then choose a voice again.');return;}
+  const wasReading=!!(synth.speaking||synth.paused||readingDelayTimer!==null||readingDelayPaused);
+  const position=readingCurrentChar;
+  if(wasReading){clearReadingDelay();readingDelayPaused=false;readingDelayRemaining=3000;synth.cancel();readingRunId++;readingUtterance=null;}
+  const sample=new SpeechSynthesisUtterance('Hello! This is a preview of the selected reading voice.');
+  sample.voice=chosen;sample.lang=chosen.lang||'en-GB';sample.rate=Number((document.getElementById('reading-speed')||{}).value)||1;sample.pitch=1;
+  sample.onstart=()=>setReadingAudioStatus('Previewing: '+chosen.name+' ('+chosen.lang+').');
+  sample.onend=()=>{
+    if(wasReading){readingCurrentChar=position;setProgressFromChar(position);setReadingAudioStatus('Voice preview finished. Press Listen / Resume to continue the passage from your previous position.');}
+    else setReadingAudioStatus('Voice preview finished: '+chosen.name+'.');
+  };
+  sample.onerror=(e)=>{if(e.error!=='canceled'&&e.error!=='interrupted')setReadingAudioStatus('Could not preview this voice. Try another available voice.');};
+  synth.speak(sample);
+}
+if('speechSynthesis' in window){
+  populateReadingVoices();
+  window.speechSynthesis.addEventListener?.('voiceschanged',populateReadingVoices);
+  window.speechSynthesis.onvoiceschanged=populateReadingVoices;
+  setTimeout(populateReadingVoices,400);
+  setTimeout(populateReadingVoices,1400);
+}
+
+function startReadingFrom(charIndex){
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  const start=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  if(start>=readingTextContent.length){setProgressFromChar(0);return startReadingFrom(0);}
+  const thisRun=++readingRunId;
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=3000;
+  window.speechSynthesis.cancel();
+  const isTitleSegment=readingTitleEnd>0&&start<readingTitleEnd;
+  const segmentEnd=isTitleSegment?readingTitleEnd:readingTextContent.length;
+  const segmentText=readingTextContent.slice(start,segmentEnd);
+  readingUtterance=new SpeechSynthesisUtterance(segmentText);
+  const voices=window.speechSynthesis.getVoices()||[];
+  const voiceSelect=document.getElementById('reading-voice');
+  const selectedVoice=voiceSelect&&voiceSelect.value?voices.find(v=>v.voiceURI===voiceSelect.value):null;
+  const voice=selectedVoice||getDefaultEnglishVoice(voices);
+  readingUtterance.lang=(voice&&voice.lang)||'en-GB';
+  if(voice)readingUtterance.voice=voice;
+  const rateControl=document.getElementById('reading-speed');
+  readingUtterance.rate=rateControl?Number(rateControl.value):1;
+  readingUtterance.pitch=1;
+  setProgressFromChar(start);
+  readingUtterance.onstart=()=>{if(thisRun===readingRunId)setReadingAudioStatus(isTitleSegment?'Reading the title…':'Reading aloud…');};
+  readingUtterance.onboundary=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(Number.isFinite(event.charIndex))setProgressFromChar(start+event.charIndex);
+  };
+  readingUtterance.onend=()=>{
+    if(thisRun!==readingRunId)return;
+    if(isTitleSegment&&readingTitleEnd<readingTextContent.length){
+      setProgressFromChar(readingTitleEnd);
+      readingUtterance=null;
+      startReadingDelay(thisRun,3000);
+      return;
+    }
+    setProgressFromChar(readingTextContent.length);
+    setReadingAudioStatus('Reading finished. Press Listen to replay, or move the progress line to choose a section.');
+    readingUtterance=null;
+  };
+  readingUtterance.onerror=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(event.error!=='canceled'&&event.error!=='interrupted')setReadingAudioStatus('Audio playback could not start. Try another browser or check your device’s speech settings.');
+  };
+  window.speechSynthesis.speak(readingUtterance);
+  setReadingAudioStatus(isTitleSegment?'Starting with the title…':(start?'Resuming from the selected position…':'Starting playback…'));
+}
+function playReading(){
+  if(!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)){
+    setReadingAudioStatus('Text-to-speech is not supported in this browser. Try opening the lesson in an up-to-date Chrome, Edge or Safari browser.');return;
+  }
+  if(readingDelayPaused){
+    startReadingDelay(readingRunId,readingDelayRemaining);
+    setReadingAudioStatus('Resuming the 3-second pause after the title…');
+    return;
+  }
+  if(readingDelayTimer!==null){setReadingAudioStatus('The 3-second pause after the title is in progress…');return;}
+  if(window.speechSynthesis.paused&&!readingSeekWhilePaused){window.speechSynthesis.resume();setReadingAudioStatus('Reading resumed from the same place.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused)return;
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  if(readingCurrentChar>=readingTextContent.length)readingCurrentChar=0;
+  startReadingFrom(readingCurrentChar);
+}
+function pauseReading(){
+  if(!('speechSynthesis' in window)){setReadingAudioStatus('Text-to-speech is not supported in this browser.');return;}
+  if(readingDelayTimer!==null){
+    const elapsed=Math.max(0,Date.now()-readingDelayStartedAt);
+    readingDelayRemaining=Math.max(0,readingDelayRemaining-elapsed);
+    clearReadingDelay();
+    readingDelayPaused=true;
+    setReadingAudioStatus('Paused during the 3-second break after the title. Press Listen / Resume to continue the countdown.');
+    return;
+  }
+  if(readingDelayPaused){setReadingAudioStatus('The pause after the title is paused. Press Listen / Resume to continue.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused){window.speechSynthesis.pause();setReadingAudioStatus('Reading paused. Press Listen / Resume to continue from the same place.');}
+  else setReadingAudioStatus('There is no reading currently playing. Press Listen / Resume to start.');
+}
+function stopReading(){
+  if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  clearReadingDelay();
+  readingRunId++;
+  readingSeekWhilePaused=false;
+  readingDelayPaused=false;
+  readingDelayRemaining=3000;
+  readingUtterance=null;
+  loadReadingText();
+  readingCurrentChar=0;
+  updateReadingProgress(0);
+  setReadingAudioStatus('Reading stopped and reset to the beginning.');
+}
+function previewReadingSeek(percent){
+  const label=document.getElementById('reading-progress-value');
+  if(label)label.textContent=Math.max(0,Math.min(100,Math.round(Number(percent)||0))+'%');
+}
+function seekReading(percent){
+  if(!('speechSynthesis' in window)){updateReadingProgress(readingProgressPercent());return;}
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent)return;
+  const delayActive=readingDelayTimer!==null;
+  const delayPaused=readingDelayPaused;
+  const wasSpeaking=window.speechSynthesis.speaking&&!window.speechSynthesis.paused;
+  const wasPaused=window.speechSynthesis.paused;
+  const pct=Math.max(0,Math.min(100,Number(percent)||0));
+  let target=Math.round(readingTextContent.length*pct/100);
+  while(target>0&&target<readingTextContent.length&&!/\s/.test(readingTextContent[target-1]))target--;
+  setProgressFromChar(target);
+  if(delayActive){
+    clearReadingDelay();readingDelayPaused=false;readingDelayRemaining=3000;
+    startReadingFrom(target);
+  }else if(delayPaused||wasPaused){
+    clearReadingDelay();
+    if(window.speechSynthesis.speaking||window.speechSynthesis.paused)window.speechSynthesis.cancel();
+    readingRunId++;readingUtterance=null;readingDelayPaused=false;readingDelayRemaining=3000;readingSeekWhilePaused=true;
+    setReadingAudioStatus('Position selected. Press Listen / Resume to continue from here.');
+  }else if(wasSpeaking){startReadingFrom(target);}
+  else {
+    readingDelayPaused=false;readingDelayRemaining=3000;
+    setReadingAudioStatus(pct===0?'Ready to play from the beginning.':'Position selected. Press Listen / Resume to start from here.');
+  }
+}
+function updateReadingSpeedNote(){
+  if(window.speechSynthesis&&window.speechSynthesis.speaking&&!window.speechSynthesis.paused){
+    setReadingAudioStatus('To apply the new speed, stop and start playback again. Pause / Resume keeps the current playback speed.');
+  }
+}
+
+const target=[["seek medical advice","Definition: to ask a qualified healthcare professional for guidance about a symptom, condition or treatment.","Related expressions: consult a doctor; get professional medical guidance; ask for clinical advice"],["undergo treatment","Definition: to receive a planned medical procedure, therapy or course of care.","Related expressions: receive treatment; have therapy; be treated for a condition"],["show symptoms","Definition: to display signs that may indicate an illness or health condition.","Related expressions: develop symptoms; exhibit signs; present with symptoms"],["make a full recovery","Definition: to return to usual health or functioning after an illness or injury.","Related expressions: recover completely; regain one’s health; return to normal health"],["prevent the spread","Definition: to take action that stops an illness or infection from passing to more people.","Related expressions: limit transmission; reduce the spread; stop an infection spreading"],["chronic condition","Definition: a health problem that lasts for a long time and may need ongoing care.","Related expressions: long-term illness; ongoing health condition; persistent medical problem"],["prescribe medication","Definition: for an authorised healthcare professional to order medicine for a patient.","Related expressions: prescribe medicine; write a prescription; recommend prescribed drugs"],["medical evidence","Definition: information from clinical research, examination or observation that supports a medical conclusion.","Related expressions: clinical evidence; research findings; evidence from medical studies"],["diagnose a condition","Definition: to identify an illness or health problem from symptoms, examinations and tests.","Related expressions: identify a disorder; determine the cause; make a diagnosis"],["receive a diagnosis","Definition: to be told by a healthcare professional which condition explains a person’s symptoms.","Related expressions: be diagnosed with; get a diagnosis; learn the medical explanation"],["manage pain","Definition: to reduce or control pain using suitable approaches recommended for the individual.","Related expressions: control pain; relieve discomfort; keep pain under control"],["relieve symptoms","Definition: to make the signs or discomfort of an illness less severe.","Related expressions: ease symptoms; reduce discomfort; alleviate symptoms"],["side effects","Definition: additional effects of a medicine or treatment beyond its intended benefit; these can vary by person.","Related expressions: unwanted effects; adverse effects; reactions to medication"],["follow medical advice","Definition: to act according to guidance given by a qualified healthcare professional.","Related expressions: follow a clinician’s instructions; adhere to medical guidance; stick to the care plan"],["book an appointment","Definition: to arrange a time to see a healthcare professional.","Related expressions: schedule a consultation; make an appointment; arrange a visit"],["emergency care","Definition: urgent medical assessment or treatment for a serious or potentially life-threatening problem.","Related expressions: urgent medical care; emergency treatment; immediate clinical attention"],["routine check-up","Definition: a planned health visit to review general health, even when there is no immediate problem.","Related expressions: regular health check; routine examination; preventive visit"],["clinical trial","Definition: a research study involving people that evaluates a medical intervention under a defined protocol.","Related expressions: clinical study; medical research trial; treatment study"],["patient safety","Definition: the prevention of avoidable harm to people receiving healthcare.","Related expressions: safe patient care; prevention of medical harm; care quality and safety"],["healthcare provider","Definition: a person or organisation that delivers medical services or care.","Related expressions: health professional; medical practitioner; care provider"]];
+document.getElementById('target').innerHTML=target.map((x,i)=>`<div class="box"><b>${i+1}. ${x[0]}</b><p>${x[1]}</p><p class="muted"><b>${x[2].split(':')[0]}:</b>${x[2].split(':').slice(1).join(':')}</p></div>`).join('');
+const profileName=document.getElementById('profile-name'),profileGroup=document.getElementById('profile-group');
+function updateProfile(){const words=profileName.value.trim().split(/\s+/).filter(Boolean);document.getElementById('avatar-initials').textContent=words.length?words.slice(0,2).map(w=>w[0].toUpperCase()).join(''):'S'}
+profileName.addEventListener('input',updateProfile);profileGroup.addEventListener('input',()=>{});
+const clusterIds=['symptoms','treatment','prevention','recovery'];
+function lexilinkCountWritingWords(text){
+  const clean=String(text||'').trim();
+  return clean?clean.split(/\s+/).filter(Boolean).length:0;
+}
+function lexilinkUpdateWritingWordCounter(){
+  const field=document.getElementById('paragraph');
+  const counter=document.getElementById('word-count');
+  if(!field||!counter)return;
+  const count=lexilinkCountWritingWords(field.value);
+  if(count<100){
+    counter.className='muted word-count-warn';
+    counter.textContent=`${count} words — ${100-count} more needed to submit (minimum 100; no maximum)`;
+  }else{
+    counter.className='muted word-count-ok';
+    counter.textContent=`${count} words — minimum reached; no maximum`;
+  }
+} const lexilinkWritingCounterField=document.getElementById('paragraph');
+if(lexilinkWritingCounterField){
+  lexilinkWritingCounterField.addEventListener('input',lexilinkUpdateWritingWordCounter);
+  lexilinkUpdateWritingWordCounter();
+}
+
+// Block ordinary clipboard paste/cut/copy shortcuts and drag-drop in the writing field.
+// This is a classroom friction measure, not secure plagiarism prevention.
+(function protectWritingField(){
+  const field=document.getElementById('paragraph');
+  const notice=document.getElementById('writing-notice');
+  const blockedMessage='Please type your own text directly in this writing field; paste and drag-and-drop are disabled.';
+  ['paste','copy','cut','drop'].forEach(eventName=>field.addEventListener(eventName,e=>{
+    e.preventDefault();
+    if(notice){notice.textContent=blockedMessage;notice.classList.add('submission-status','warn');}
+  }));
+  field.addEventListener('dragover',e=>e.preventDefault());
+  field.addEventListener('beforeinput',e=>{
+    if(['insertFromPaste','insertFromDrop','deleteByCut'].includes(e.inputType)){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+  });
+  field.addEventListener('keydown',e=>{
+    const key=e.key.toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['v','c','x'].includes(key)){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+    if(e.shiftKey&&e.key==='Insert'){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+  });
+})();
+
+// Paste the deployed Web App URL for the collector script supplied with this lesson.
+const SUBMISSION_ENDPOINT = "https://script.google.com/macros/s/AKfycbxKwWE0CYJDxrpP60p0A9JRv2sHrSECwzc9IPyYt9e-Kd1XQJsrHPGe2r8VHwlxPZWa/exec";
+function fieldValue(id){return (document.getElementById(id)?.value||'').trim()}
+function collectSkellClusters(){
+  return clusterIds.map(keyword=>({
+    keyword:keyword.toUpperCase(),
+    collocation1:fieldValue(`${keyword}-coll-1`),
+    sentence1:fieldValue(`${keyword}-sentence-1`),
+    collocation2:fieldValue(`${keyword}-coll-2`),
+    sentence2:fieldValue(`${keyword}-sentence-2`),
+    similarWord1:fieldValue(`${keyword}-syn-1`),
+    similarWord2:fieldValue(`${keyword}-syn-2`),
+    evidence:fieldValue(`${keyword}-evidence`)
+  }));
+}
+function collectAnswers(){
+  const answers={};
+  document.querySelectorAll('input,textarea,select').forEach((el,i)=>{
+    if(['profile-name','profile-group','paragraph','submitLessonBtn'].includes(el.id)) return;
+    if(el.type==='radio'&&!el.checked) return;
+    if(el.type==='checkbox'&&!el.checked) return;
+    const key=el.id||el.name||`field_${i+1}`;
+    answers[key]=String(el.value||'').trim();
+  });
+  return answers;
+}
+function getScoreSummary(){
+  const parts=Object.values(scores);
+  return {score:parts.reduce((sum,x)=>sum+Number(x.score||0),0),max:parts.reduce((sum,x)=>sum+Number(x.max||0),0)};
+}
+function validateSubmission(){
+  if(!fieldValue('profile-name')) return {ok:false,message:'Please enter your name in the student profile at the top of the lesson.',id:'profile-name'};
+  if(!fieldValue('profile-group')) return {ok:false,message:'Please enter your group in the student profile at the top of the lesson.',id:'profile-group'};
+  const writing=fieldValue('paragraph');
+  const words=writing?writing.split(/\s+/).length:0;
+  if(words<100) return {ok:false,message:`Please write at least 100 words. Your current paragraph has ${words} words.`,id:'paragraph'};
+  for(const keyword of clusterIds){
+    const fields=[`${keyword}-coll-1`,`${keyword}-sentence-1`,`${keyword}-coll-2`,`${keyword}-sentence-2`,`${keyword}-syn-1`,`${keyword}-syn-2`,`${keyword}-evidence`];
+    const missing=fields.find(id=>!fieldValue(id));
+    if(missing) return {ok:false,message:`Complete both collocations and their own sentences, two Similar words, and a corpus context for ${keyword.toUpperCase()}.`,id:missing};
+  }
+  return {ok:true};
+}
+async function submitLessonWork(){
+  const status=document.getElementById('submitStatus');
+  const button=document.getElementById('submitLessonBtn');
+  const validation=validateSubmission();
+  if(!validation.ok){status.className='submission-status err';status.textContent=validation.message;document.getElementById(validation.id)?.focus();return;}
+  if(SUBMISSION_ENDPOINT.includes('PASTE_LEXILINK_APPS_SCRIPT_WEB_APP_URL_HERE')){
+    status.className='submission-status warn';
+    status.textContent='Submission is not connected yet. The teacher must deploy the shared LexiLink Google Apps Script collector, paste its /exec URL into SUBMISSION_ENDPOINT, and save the HTML file.';
+    return;
+  }
+  const payload={
+    lesson:'Lesson 17 — Healthcare and Medical Language',
+    studentName:fieldValue('profile-name'),
+    group:fieldValue('profile-group'),
+    submittedAt:new Date().toISOString(),
+    writing:{prompt:'Healthcare and Medical Language',wordCount:fieldValue('paragraph').split(/\s+/).length,text:fieldValue('paragraph')},
+    skellClusters:collectSkellClusters(),
+    scores:{sections:scores,autoTotal:getScoreSummary()},
+    answers:collectAnswers(),
+    userAgent:navigator.userAgent
+  };
+  button.disabled=true;button.textContent='Sending…';status.className='submission-status warn';status.textContent='Sending your work to the teacher’s spreadsheet…';
+  try{
+    await fetch(SUBMISSION_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+    status.className='submission-status ok';status.textContent='Your submission request was sent. The browser cannot read the server confirmation in this mode, so the teacher should verify that the new rows appear in Google Sheets.';
+    button.textContent='Submission sent';
+  }catch(error){
+    status.className='submission-status err';status.textContent='The request could not be sent. Check the internet connection and try again.';
+    button.disabled=false;button.textContent='Try again';
+  }
+}
+const readMCQs=[{"q":"Why is it useful to describe symptoms clearly?","ans":"It gives a healthcare professional relevant information to assess the concern.","opts":["It guarantees a diagnosis without an examination.","It gives a healthcare professional relevant information to assess the concern.","It means tests are never needed.","It replaces professional medical advice."]},{"q":"What may a clinician do before diagnosing a condition?","ans":"Ask questions, examine the patient and consider relevant tests.","opts":["Choose a treatment without considering any information.","Ask questions, examine the patient and consider relevant tests.","Rely only on social media posts.","Promise the same outcome for everyone."]},{"q":"Why should patients ask about side effects?","ans":"To understand possible unwanted effects and how to use treatment safely.","opts":["To avoid telling the clinician about other medicines.","To understand possible unwanted effects and how to use treatment safely.","To ensure every treatment works immediately.","To diagnose themselves."]},{"q":"Which action may help prevent the spread of some infections?","ans":"Practising suitable hygiene and following relevant public-health guidance.","opts":["Sharing unverified health claims.","Ignoring all prevention guidance.","Practising suitable hygiene and following relevant public-health guidance.","Taking medication prescribed to another person."]},{"q":"What is patient safety concerned with?","ans":"Preventing avoidable harm during healthcare.","opts":["Preventing avoidable harm during healthcare.","Making every appointment shorter.","Guaranteeing a full recovery for every patient.","Replacing clinical evidence with personal opinion."]},{"q":"What is a chronic condition?","ans":"A health problem that lasts for a long time and may need ongoing care.","opts":["An illness that always disappears within a day.","A health problem that lasts for a long time and may need ongoing care.","A single routine check-up.","A type of appointment booking."]},{"q":"How should a patient respond if something about a treatment is unclear?","ans":"Ask the healthcare provider for an explanation.","opts":["Guess and change the treatment independently.","Ask the healthcare provider for an explanation.","Use a friend’s prescription.","Ignore possible side effects."]},{"q":"What is the purpose of a clinical trial?","ans":"To study a medical intervention under a defined research protocol.","opts":["To promise a cure to every participant.","To study a medical intervention under a defined research protocol.","To replace all routine care.","To diagnose every chronic condition immediately."]},{"q":"When might emergency care be needed?","ans":"When a problem is serious or potentially life-threatening and requires urgent attention.","opts":["Only when booking a routine check-up.","When a problem is serious or potentially life-threatening and requires urgent attention.","Whenever a patient has a mild question about wording.","For every planned follow-up visit."]},{"q":"What does making a full recovery mean?","ans":"Returning to usual health or functioning after illness or injury.","opts":["Returning to usual health or functioning after illness or injury.","Receiving a diagnosis for the first time.","Taking medication without instructions.","Avoiding all follow-up care."]}];;
+const readTFs=[{"q":"A symptom by itself does not always identify the cause of a health problem.","ans":"True"},{"q":"The reading recommends relying only on online comments instead of professional advice.","ans":"False"},{"q":"A clinician may consider examinations and tests before making a diagnosis.","ans":"True"},{"q":"The possible side effects of a medicine can be worth discussing with a healthcare professional.","ans":"True"},{"q":"A chronic condition may require ongoing care.","ans":"True"},{"q":"The same treatment has exactly the same results for every individual.","ans":"False"},{"q":"Prevention measures can help reduce the spread of some infections.","ans":"True"},{"q":"Patient safety includes preventing avoidable harm.","ans":"True"},{"q":"The reading says a clinical trial guarantees success for every participant.","ans":"False"},{"q":"Clear questions and respectful communication can help patients take part in care decisions.","ans":"True"}];;
+const readMatches=[{"q":"Signs or changes that may indicate an illness.","ans":"1"},{"q":"Asking a qualified professional for guidance about a health concern.","ans":"1"},{"q":"Identifying a health problem using symptoms, examination and tests.","ans":"2"},{"q":"Information from clinical research or observation that supports a conclusion.","ans":"2"},{"q":"Receiving a planned medical procedure, therapy or course of care.","ans":"3"},{"q":"Additional effects of a medicine or treatment beyond its intended benefit.","ans":"3"},{"q":"Actions designed to stop an illness from passing to more people.","ans":"4"},{"q":"Preventing avoidable harm during the delivery of healthcare.","ans":"4"},{"q":"Returning to usual health or functioning after an illness or injury.","ans":"5"},{"q":"A research study that evaluates a medical intervention under a protocol.","ans":"5"}];;
+function renderReadRadio(id,items,optsFn){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${optsFn(x,i)}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+function renderSelect(id,items,options){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b><label for="${id}-${i}">Choose:</label><select id="${id}-${i}"><option value="">Choose an answer…</option>${options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select><div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+renderReadRadio('readMCQ',readMCQs,(x,i)=>`<div>${x.opts.map(o=>`<label><input type="radio" name="readMCQ-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`);
+renderReadRadio('readTF',readTFs,(x,i)=>`<div><label><input type="radio" name="readTF-${i}" value="True"> True</label><label><input type="radio" name="readTF-${i}" value="False"> False</label></div>`);
+renderSelect('readMatch',readMatches,['1','2','3','4','5']);
+const scores={};
+function markRadioSet(items,namePrefix,id,resultId){let n=0,answered=0;items.forEach((x,i)=>{const chosen=document.querySelector(`input[name="${namePrefix}-${i}"]:checked`)?.value;const f=document.getElementById(`${id}-fb-${i}`);if(!chosen){f.className='fb muted';f.textContent='Choose an answer before checking this question.';return;}answered++;const ok=chosen===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct. '+(x.why||''):'Not quite. Correct answer: '+x.ans+(x.why?' — '+x.why:'')});scores[id]={score:n,max:items.length};document.getElementById(resultId).innerHTML=`<p><b>Score: ${n}/${items.length}</b> · Answered: ${answered}/${items.length}</p>`}
+function checkReading(){markRadioSet(readMCQs,'readMCQ','readMCQ','reading-result')}
+function resetReading(){readMCQs.forEach((x,i)=>{document.querySelectorAll(`input[name="readMCQ-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readMCQ-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('reading-result').innerHTML='';delete scores.readMCQ}
+function checkTF(){markRadioSet(readTFs,'readTF','readTF','tf-result')}
+function resetTF(){readTFs.forEach((x,i)=>{document.querySelectorAll(`input[name="readTF-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readTF-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('tf-result').innerHTML='';delete scores.readTF}
+function checkReadMatch(){let n=0,answered=0;readMatches.forEach((x,i)=>{const v=document.getElementById(`readMatch-${i}`).value;const f=document.getElementById(`readMatch-fb-${i}`);if(!v){f.className='fb muted';f.textContent='Choose a paragraph before checking this question.';return;}answered++;const ok=v===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct.':'Not quite. Correct answer: paragraph '+x.ans+'.'});scores.readMatch={score:n,max:readMatches.length};document.getElementById('readmatch-result').innerHTML=`<p><b>Score: ${n}/${readMatches.length}</b> · Answered: ${answered}/${readMatches.length}</p>`}
+function resetReadMatch(){readMatches.forEach((x,i)=>{document.getElementById(`readMatch-${i}`).value='';const f=document.getElementById(`readMatch-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('readmatch-result').innerHTML='';delete scores.readMatch}
+const data={"matching":{"mode":"select","items":[{"q":"seek medical ___","ans":"advice"},{"q":"undergo ___","ans":"treatment"},{"q":"show ___","ans":"symptoms"},{"q":"make a full ___","ans":"recovery"},{"q":"prevent the ___","ans":"spread"},{"q":"chronic ___","ans":"condition"},{"q":"prescribe ___","ans":"medication"},{"q":"medical ___","ans":"evidence"},{"q":"side ___","ans":"effects"},{"q":"patient ___","ans":"safety"}],"options":["advice","treatment","symptoms","recovery","spread","condition","medication","evidence","effects","safety"]},"gaps":{"mode":"select","items":[{"q":"If a symptom persists, it is sensible to ___. ","ans":"seek medical advice"},{"q":"Before starting a new course of care, the patient discussed what it meant to ___. ","ans":"undergo treatment"},{"q":"A clinician asked when the patient first began to ___. ","ans":"show symptoms"},{"q":"After rehabilitation, she was able to ___. ","ans":"make a full recovery"},{"q":"Hand hygiene can help __ of some infections.","ans":"prevent the spread"},{"q":"Asthma can be a ___ that requires long-term management.","ans":"chronic condition"},{"q":"An authorised clinician may ___ when appropriate.","ans":"prescribe medication"},{"q":"Researchers reviewed the ___ before drawing conclusions.","ans":"medical evidence"},{"q":"The pharmacist explained possible ___ of the medicine.","ans":"side effects"},{"q":"Clear checks and safe procedures are important for ___. ","ans":"patient safety"}],"options":["seek medical advice","undergo treatment","show symptoms","make a full recovery","prevent the spread","chronic condition","prescribe medication","medical evidence","side effects","patient safety"]},"odd":{"mode":"radio","items":[{"q":"SYMPTOMS · Which phrase is unnatural?","ans":"make symptoms","opts":["show symptoms","develop symptoms","relieve symptoms","make symptoms"],"why":"Natural verbs include show, develop and relieve; “make symptoms” is not idiomatic in this meaning."},{"q":"TREATMENT · Choose the incorrect phrase.","ans":"do a treatment","opts":["undergo treatment","receive treatment","prescribe treatment","do a treatment"],"why":"Use undergo or receive treatment; clinicians may prescribe a treatment or medication."},{"q":"DIAGNOSIS · Which combination is malformed?","ans":"make a condition diagnosis to someone","opts":["diagnose a condition","receive a diagnosis","make a diagnosis","make a condition diagnosis to someone"],"why":"Diagnose a condition and receive/make a diagnosis are natural patterns."},{"q":"MEDICATION · Which phrase is incorrect?","ans":"prescribe a side effect","opts":["prescribe medication","take medication as directed","experience side effects","prescribe a side effect"],"why":"Medication may be prescribed; side effects are effects a person may experience."},{"q":"PREVENTION · Choose the unnatural collocation.","ans":"prevent the transmission to happen","opts":["prevent the spread","reduce transmission","limit the spread","prevent the transmission to happen"],"why":"Prevent the spread and reduce/limit transmission are natural; the final phrase is awkward."},{"q":"RECOVERY · Which phrase is not natural?","ans":"do a full recovery","opts":["make a full recovery","recover fully","regain one’s health","do a full recovery"],"why":"The conventional collocation is make a full recovery."},{"q":"HEALTHCARE VISIT · Choose the incorrect phrase.","ans":"reserve a doctor appointment","opts":["book an appointment","make an appointment","schedule a consultation","reserve a doctor appointment"],"why":"Book or make an appointment are common phrases in this context."},{"q":"EVIDENCE · Which phrase is malformed?","ans":"a medical evidences","opts":["medical evidence","clinical evidence","review the evidence","a medical evidences"],"why":"Evidence is usually uncountable in this meaning."},{"q":"PATIENT SAFETY · Choose the unnatural combination.","ans":"patient safeness protocol","opts":["patient safety","patient safety protocol","safe patient care","patient safeness protocol"],"why":"Patient safety is the established noun phrase."},{"q":"ONGOING CARE · Which phrase is unnatural?","ans":"follow a chronic condition","opts":["manage a chronic condition","live with a chronic condition","monitor a chronic condition","follow a chronic condition"],"why":"People manage, monitor or live with a chronic condition; follow is not the natural verb here."}]},"find":{"mode":"select","items":[{"q":"___ medical advice","ans":"SEEK"},{"q":"___ treatment","ans":"UNDERGO"},{"q":"___ symptoms","ans":"SHOW"},{"q":"___ a condition","ans":"DIAGNOSE"},{"q":"___ medication","ans":"PRESCRIBE"},{"q":"___ pain","ans":"MANAGE"},{"q":"___ symptoms","ans":"RELIEVE"},{"q":"___ an appointment","ans":"BOOK"},{"q":"___ the spread","ans":"PREVENT"},{"q":"___ a full recovery","ans":"MAKE"}],"options":["SEEK","UNDERGO","SHOW","DIAGNOSE","PRESCRIBE","MANAGE","RELIEVE","BOOK","PREVENT","MAKE"]},"sorting":{"mode":"select","items":[{"q":"___ medical evidence","ans":"REVIEW"},{"q":"___ a diagnosis","ans":"RECEIVE"},{"q":"___ side effects","ans":"EXPERIENCE"},{"q":"___ medical advice","ans":"FOLLOW"},{"q":"___ a routine check-up","ans":"HAVE"},{"q":"___ emergency care","ans":"NEED"},{"q":"___ patient safety","ans":"PRIORITISE"},{"q":"___ a clinical trial","ans":"CONDUCT"},{"q":"___ a chronic condition","ans":"MANAGE"},{"q":"___ the spread","ans":"LIMIT"}],"options":["REVIEW","RECEIVE","EXPERIENCE","FOLLOW","HAVE","NEED","PRIORITISE","CONDUCT","MANAGE","LIMIT"]},"cloze":{"mode":"select","items":[{"q":"If the symptom does not improve, the person should ___. ","ans":"seek medical advice"},{"q":"The clinician explained what to expect before the patient would ___. ","ans":"undergo treatment"},{"q":"A patient may ___ after exposure to an infection.","ans":"show symptoms"},{"q":"A rehabilitation plan helped him ___ after the injury.","ans":"make a full recovery"},{"q":"Ventilation and hand hygiene can help __ of some infections.","ans":"prevent the spread"},{"q":"Diabetes is an example of a ___ that may need ongoing care.","ans":"chronic condition"},{"q":"An authorised healthcare professional may ___ when appropriate.","ans":"prescribe medication"},{"q":"The research team reviewed ___ before reporting its findings.","ans":"medical evidence"},{"q":"The leaflet explained possible ___ and when to ask for help.","ans":"side effects"},{"q":"The organisation reviewed its procedures to strengthen ___. ","ans":"patient safety"}],"options":["seek medical advice","undergo treatment","show symptoms","make a full recovery","prevent the spread","chronic condition","prescribe medication","medical evidence","side effects","patient safety"]},"repair":{"mode":"radio","items":[{"q":"Choose the natural phrase: If the problem persists, you should ___. ","ans":"seek medical advice","opts":["search medical advice","seek medical advice","make medical advice","look medical advice"],"why":"Seek medical advice is the conventional verb–noun collocation."},{"q":"Before receiving care, the patient was told what it means to ___. ","ans":"undergo treatment","opts":["do a treatment","undergo treatment","make treatment","pass a treatment"],"why":"Undergo treatment is natural when someone receives a planned course of care."},{"q":"The child began to ___ two days after exposure.","ans":"show symptoms","opts":["show symptoms","make symptoms","put symptoms","do symptoms"],"why":"Show symptoms is the correct collocation."},{"q":"Following rehabilitation, the athlete hoped to ___. ","ans":"make a full recovery","opts":["do a full recovery","make a full recovery","create a full recovery","take a full recovery"],"why":"Make a full recovery is the established phrase."},{"q":"Public-health measures can help __ of some infections.","ans":"prevent the spread","opts":["prevent the spread","stop to spread","prevent spreading it to happen","avoid the spread happen"],"why":"Prevent the spread is concise and natural."},{"q":"A long-term health problem may be described as a ___. ","ans":"chronic condition","opts":["chronically condition","chronic condition","chronicity condition","condition chronic"],"why":"Chronic condition is the standard adjective–noun combination."},{"q":"An authorised clinician may ___ after assessing the patient.","ans":"prescribe medication","opts":["prescribe medication","write a medication","make medication prescribed","do medication"],"why":"Prescribe medication is a natural collocation."},{"q":"A conclusion should be supported by relevant ___. ","ans":"medical evidence","opts":["medical evidences","medical evidence","evidence medicals","a medical evidence"],"why":"Medical evidence is the natural phrase; evidence is uncountable here."},{"q":"The patient asked the pharmacist about possible ___. ","ans":"side effects","opts":["side effects","side affectations","effects side","side effective"],"why":"Side effects is the standard noun phrase for additional effects of treatment."},{"q":"Checking procedures and avoiding preventable harm are parts of ___. ","ans":"patient safety","opts":["patient safe","patient safeness","patient safety","safety patienting"],"why":"Patient safety is the standard term."}]}};
+function render(id){const d=data[id];document.getElementById(id).innerHTML=d.items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${d.mode==='radio'?`<div>${x.opts.map(o=>`<label><input type="radio" name="${id}-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`:`<select id="${id}-${i}"><option value="">Choose…</option>${d.options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select>`}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+Object.keys(data).forEach(render);
+function check(id){const d=data[id];let n=0,answered=0;d.items.forEach((x,i)=>{const v=d.mode==='radio'?document.querySelector(`input[name="${id}-${i}"]:checked`)?.value:document.getElementById(`${id}-${i}`).value;const f=document.getElementById(`${id}-fb-${i}`);if(!v){f.className='fb muted';f.textContent='Choose an answer before checking this question.';return;}answered++;const ok=v===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=(ok?'Correct. ':'Not quite. Correct answer: '+x.ans+'. ')+(x.why||'')});scores[id]={score:n,max:d.items.length};document.getElementById(id+'-result').innerHTML=`<p><b>Score: ${n}/${d.items.length}</b> · Answered: ${answered}/${d.items.length}</p>`}
+function reset(id){const d=data[id];d.items.forEach((x,i)=>{if(d.mode==='radio')document.querySelectorAll(`input[name="${id}-${i}"]`).forEach(e=>e.checked=false);else document.getElementById(`${id}-${i}`).value='';const f=document.getElementById(`${id}-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById(id+'-result').innerHTML='';delete scores[id]}
+function summary(){let n=0,m=0;Object.values(scores).forEach(x=>{n+=x.score;m+=x.max});document.getElementById('summary').innerHTML=`<p><b>Automatically scored so far: ${n}/${m}.</b><br>Teacher-scored: SkELL cluster 0–10; writing 0–5. Maximum lesson score: 115 points.</p>`}
+</script>
+</body></html>
