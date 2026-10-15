@@ -482,21 +482,6 @@ function lexilinkGetScoreSummary(){
 function lexilinkValidateSubmission(){
   if(!lexilinkFieldValue('profile-name')) return {ok:false,message:'Please enter your name in the student profile at the top of the lesson.',id:'profile-name'};
   if(!lexilinkFieldValue('profile-group')) return {ok:false,message:'Please enter your group in the student profile at the top of the lesson.',id:'profile-group'};
-  const writing=lexilinkFieldValue('paragraph');
-  const wordCount=writing?writing.split(/\s+/).filter(Boolean).length:0;
-  if(wordCount<100) return {ok:false,message:`Please write at least 100 words. Your current paragraph has ${wordCount} words.`,id:'paragraph'};
-  const clusters=Array.from(document.querySelectorAll('.skell-cluster'));
-  if(clusters.length!==4) return {ok:false,message:'The lesson should contain four SkELL keyword clusters. Please contact your teacher if one is missing.'};
-  for(const card of clusters){
-    const keyword=(card.querySelector('.keyword-pill')?.textContent||'this keyword').trim().toUpperCase();
-    const c=Array.from(card.querySelectorAll('.collocation-lines .collocation-line'));
-    const s=Array.from(card.querySelectorAll('.cluster-sentence'));
-    const sim=Array.from(card.querySelectorAll('.similar-grid input, .similar-grid textarea'));
-    const evidence=card.querySelector('textarea[id$="-evidence"]');
-    const required=[c[0],s[0],c[1],s[1],sim[0],sim[1],evidence];
-    const missing=required.find(el=>!el||!String(el.value||'').trim());
-    if(missing){return {ok:false,message:`Complete two collocations, your own sentence for each, two Similar words, and a SkELL example/context for ${keyword}.`,id:missing?.id};}
-  }
   return {ok:true};
 }
 async function submitLessonWork(){

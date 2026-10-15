@@ -595,14 +595,6 @@ function getScoreSummary(){
 function validateSubmission(){
   if(!fieldValue('profile-name')) return {ok:false,message:'Please enter your name in the student profile at the top of the lesson.',id:'profile-name'};
   if(!fieldValue('profile-group')) return {ok:false,message:'Please enter your group in the student profile at the top of the lesson.',id:'profile-group'};
-  const writing=fieldValue('paragraph');
-  const words=writing?writing.split(/\s+/).length:0;
-  if(words<100) return {ok:false,message:`Please write at least 100 words. Your current paragraph has ${words} words.`,id:'paragraph'};
-  for(const keyword of clusterIds){
-    const fields=[`${keyword}-coll-1`,`${keyword}-sentence-1`,`${keyword}-coll-2`,`${keyword}-sentence-2`,`${keyword}-syn-1`,`${keyword}-syn-2`,`${keyword}-evidence`];
-    const missing=fields.find(id=>!fieldValue(id));
-    if(missing) return {ok:false,message:`Complete both collocations and their own sentences, two Similar words, and a corpus context for ${keyword.toUpperCase()}.`,id:missing};
-  }
   return {ok:true};
 }
 async function submitLessonWork(){
