@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LexiLink — Festivals in Their Cultural Context</title>
+<style>
+:root{--green:#176b45;--green2:#238657;--mint:#eaf7ef;--line:#cde6d5;--ink:#183326;--muted:#587466}
+*{box-sizing:border-box}body{font:16px/1.55 Arial,sans-serif;max-width:1000px;margin:auto;padding:18px;background:#f2faf4;color:var(--ink)}
+header,.card{background:white;padding:20px;margin:16px 0;border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 12px rgba(23,107,69,.06)}
+header{background:linear-gradient(125deg,#155d3d,#278653);color:white;border:0}header p{margin:.4rem 0}h1{margin-top:0}h2{font-size:1.25rem;color:var(--green)}h3{color:#235c3e}
+a{color:var(--green2);font-weight:700}.q{padding:12px 0;border-bottom:1px solid #e2efe6}label{display:block;margin:6px 0}select,textarea,input{font:inherit;padding:10px;width:100%;max-width:100%;border:1px solid #b9d7c3;border-radius:9px;background:#fcfffd;color:var(--ink)}input[type=radio]{width:auto;margin-right:6px}textarea{min-height:80px}button{padding:10px 14px;margin:8px 6px 0 0;border:0;border-radius:9px;background:var(--green);color:white;font-weight:bold;cursor:pointer}button:hover{background:#104d31}.muted{color:var(--muted);font-size:.92rem}.fb{font-size:.92rem}.ok{color:#167143}.bad{color:#b52e38}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.box{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfffc}.profile{background:var(--mint);border:1px solid #a9d9b8;border-radius:16px;padding:18px;margin:16px 0}.profile h2{margin-top:0}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.avatar{width:54px;height:54px;border-radius:50%;background:#176b45;color:white;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;flex-shrink:0}.profile-head{display:flex;gap:14px;align-items:center}.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px}.slot{background:#f0faf3;border:1px solid #cde6d5;border-left:5px solid #238657;padding:12px;border-radius:10px}.slot b{display:block;color:#176b45}.pill{display:inline-block;background:#d5f0de;color:#145a37;padding:4px 9px;border-radius:999px;font-size:.85rem;font-weight:bold}
+.skell-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:16px 0}.skell-cluster{min-width:0;padding:16px;border:1px solid #d7e5ef;border-radius:16px;background:#fff;box-shadow:0 3px 10px rgba(7,39,84,.06)}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;width:fit-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px 16px;background:#082a65;color:#fff;border-radius:999px;font-weight:800;letter-spacing:.02em;font-size:clamp(.82rem,1.55vw,1.05rem);line-height:1.15;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0;font-size:.86rem;color:#587466;line-height:1.35}.collocation-lines{display:grid;gap:8px;margin:8px 0 14px}.collocation-line{height:44px;width:100%;border-radius:8px;padding:3px 8px;border:1px solid transparent;font-weight:600;color:#142b43}.collocation-line:nth-child(3n+1){background:#fff0a6;border-color:#f0d96b}.collocation-line:nth-child(3n+2){background:#f9d1f7;border-color:#eaa3e7}.collocation-line:nth-child(3n){background:#c9f5d9;border-color:#91d9ad}.collocation-line::placeholder{color:#5a6070;font-weight:400}.student-sentence{min-height:70px;margin:6px 0 12px;background:#fbfffc}.submission-panel{margin-top:16px;padding:16px;border:1px solid #9ecfb0;border-radius:14px;background:#eff9f2}.submission-status{margin-top:10px;font-weight:700}.submission-status.ok{color:#176b45}.submission-status.err{color:#a5222d}.submission-status.warn{color:#805900}.writing-area{min-height:190px}.writing-anti-paste-note{padding:10px 12px;background:#fff7d8;border:1px solid #ead27b;border-radius:9px;color:#624e00;font-size:.92rem}.similar-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.similar-grid input{background:#f6faff}.callout{padding:12px 14px;border-left:4px solid #238657;background:#eff9f2;border-radius:8px}.score-row{display:flex;gap:10px;flex-wrap:wrap}.score-chip{background:#edf7f0;border-radius:9px;padding:8px 12px}@media(max-width:680px){.skell-board{grid-template-columns:1fr}.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;padding:8px 14px}.cluster-type{flex-basis:auto;width:100%}}@media(max-width:560px){.profile-grid{grid-template-columns:1fr}body{padding:8px}header,.card{padding:15px}}@media print{button{display:none}body{background:white}}
+
+.audio-panel{padding:16px;margin:14px 0 18px;border:1px solid #b9dfc5;border-radius:14px;background:linear-gradient(135deg,#f2fbf4,#ffffff)}.audio-heading{display:flex;gap:10px;align-items:center;margin-bottom:10px}.audio-heading>span{font-size:1.7rem}.audio-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.audio-controls button{margin:2px 4px 2px 0}.speed-control{display:flex;gap:8px;align-items:center;margin:2px 0 2px 8px;font-weight:700}.speed-control select{width:auto;min-width:135px;padding:8px}.audio-status{margin:10px 0 0}.audio-progress-wrap{margin:12px 0 4px}.audio-progress-label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.9rem;color:var(--muted);margin-bottom:4px}.audio-progress{width:100%;max-width:none;height:22px;padding:0;margin:0;accent-color:var(--green);cursor:pointer;background:transparent}.audio-progress-help{font-size:.82rem;color:var(--muted);margin:2px 0 0}@media(max-width:560px){.audio-controls{align-items:stretch}.audio-controls button{flex:1}.speed-control{width:100%;margin:6px 0 0}.speed-control select{flex:1}}
+.lesson-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(118deg,#104b32 0%,#176b45 54%,#2c8b5b 100%);color:#fff;border:0;border-radius:22px;padding:25px 27px;margin:16px 0;box-shadow:0 10px 28px rgba(20,90,54,.17)}
+.lesson-hero:before{content:"";position:absolute;z-index:-1;width:300px;height:300px;right:135px;top:-205px;border:1px solid rgba(255,255,255,.11);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 58px rgba(255,255,255,.02)}
+.lesson-header-layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;align-items:center;gap:25px;min-width:0}
+.lesson-header-copy{min-width:0}
+.lesson-kicker{display:flex;align-items:center;gap:9px;margin-bottom:12px;color:#d7f5e1;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.lesson-kicker-mark{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;border-radius:9px;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.26);font-size:.72rem;letter-spacing:-.03em}
+.kicker-divider{padding:0 3px;color:#9edbb5}
+.lesson-header-copy h1{max-width:690px;margin:0 0 10px;color:#fff;font-size:clamp(1.7rem,3.1vw,2.35rem);font-weight:800;line-height:1.12;letter-spacing:-.035em;text-wrap:balance}
+.lesson-subtitle{max-width:650px;margin:0 0 17px!important;color:#e4f7e9;font-size:1.04rem;line-height:1.45}
+.lesson-meta{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.lesson-meta-pill{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:.79rem;font-weight:700;line-height:1.25}
+.lesson-method{margin:14px 0 0!important;color:#d4efdd;font-size:.84rem;letter-spacing:.01em}
+.lesson-header-photo{display:block;width:250px;height:166px;max-width:100%;object-fit:cover;object-position:center 48%;border-radius:17px;border:3px solid rgba(255,255,255,.88);box-shadow:0 12px 24px rgba(0,0,0,.2);background:#dcefe2}
+@media(max-width:760px){.lesson-hero{padding:21px;border-radius:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr) 205px;gap:16px}.lesson-header-photo{width:205px;height:148px}.lesson-header-copy h1{font-size:clamp(1.5rem,4vw,1.9rem)}}
+@media(max-width:560px){.lesson-hero{padding:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr);gap:15px}.lesson-header-photo{width:100%;height:190px;max-width:none;object-position:center 44%;border-radius:14px}.lesson-kicker{margin-bottom:9px}.lesson-header-copy h1{font-size:1.8rem}.lesson-subtitle{font-size:.98rem}.lesson-meta-pill{font-size:.76rem}}
+
+/* Responsive SkELL keyword pills: keep long keywords fully visible inside their ovals. */
+.skell-cluster{min-width:0}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 1 auto;align-items:center;justify-content:center;width:max-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px clamp(10px,1.5vw,16px);box-sizing:border-box;font-size:clamp(.72rem,1.25vw,.98rem);line-height:1.12;letter-spacing:.015em;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0}@media(max-width:680px){.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;font-size:clamp(.72rem,3vw,.94rem);padding:8px 12px}.cluster-type{flex-basis:auto;width:100%}}
+#word-count{font-weight:700}#word-count.word-count-warn{color:#805900}#word-count.word-count-ok{color:#176b45}
+/* Lesson 13 visual redesign: justice photography, editorial typography, compact navigation. */
+:root{--green:#145b45;--green2:#247c5b;--mint:#eaf4ed;--line:#d4e1d6;--ink:#142e3e;--muted:#65766d;--cream:#fbf7ec;--navy:#112d4f}
+body{max-width:1320px;padding:16px 20px 34px;background:#f4f7f4;color:#142e3e;font:16px/1.55 Arial,sans-serif}
+.justice-hero{position:relative;isolation:isolate;overflow:hidden;min-height:365px;margin:4px 0 12px;padding:34px 38px;border:0;border-radius:22px;background:#12392f!important;box-shadow:0 14px 32px rgba(16,51,40,.2);color:#fff}
+.justice-banner-photos{position:absolute;z-index:-3;inset:0 0 0 54%;display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;overflow:hidden;}
+.justice-banner-photos img{display:block;width:100%;height:100%;min-width:0;object-fit:cover;filter:saturate(.86);}
+.justice-banner-photos:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,85,50,.92) 0%,rgba(8,85,50,.48) 24%,rgba(8,45,34,.12) 100%);pointer-events:none;}
+.justice-hero:before{content:"";position:absolute;z-index:-2;inset:0;width:auto;height:auto;right:auto;top:auto;border:0;border-radius:0;box-shadow:none;background:linear-gradient(90deg,rgba(4,32,28,.88) 0%,rgba(5,38,31,.67) 38%,rgba(6,40,34,.14) 75%,rgba(7,37,34,.12) 100%)}
+.justice-hero-shade{position:absolute;z-index:-1;inset:0;background:linear-gradient(0deg,rgba(6,28,25,.5),transparent 50%)}
+.justice-hero-content{position:relative;max-width:780px;z-index:1}
+.brand-row{display:flex;align-items:center;gap:17px;flex-wrap:wrap;margin-bottom:0}
+.brand-name{font:700 2.1rem/1 Georgia,'Times New Roman',serif;letter-spacing:-.04em;color:#fff}
+.lesson-number{display:inline-flex;align-items:center;border-radius:12px;padding:9px 18px;background:#0c5b4a;color:#fff;border:1px solid rgba(255,255,255,.28);font-weight:800;letter-spacing:.04em}
+.brand-subtitle{margin:5px 0 24px!important;color:#e6f1e9;font-size:.81rem;letter-spacing:.06em}
+.justice-hero h1{max-width:750px;margin:0 0 14px;font:700 clamp(2.35rem,4.4vw,4.1rem)/.99 Georgia,'Times New Roman',serif;letter-spacing:-.045em;color:#fff;text-wrap:balance}
+.hero-motto{margin:16px 0!important;font-size:.93rem;letter-spacing:.17em;font-weight:800;color:#f3f5de}
+.hero-motto span{padding:0 .38em;color:#d4c77c}
+.justice-hero .lesson-meta{gap:8px;max-width:700px}
+.justice-hero .lesson-meta-pill{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.33);backdrop-filter:blur(3px)}
+.hero-start{display:inline-flex;align-items:center;gap:15px;margin-top:21px;padding:11px 17px;border-radius:999px;background:#fff;color:#124f40;text-decoration:none;font-weight:800;box-shadow:0 6px 18px rgba(0,0,0,.16)}
+.hero-start:hover{background:#f0f6ec;color:#0c3f33}
+.hero-side-note{position:absolute;right:30px;top:30px;max-width:240px;padding:15px 19px;border:1px solid rgba(255,255,255,.24);border-radius:13px;background:rgba(9,45,35,.42);color:#fff;font:italic 1.13rem/1.5 Georgia,'Times New Roman',serif;text-align:right;backdrop-filter:blur(4px)}
+.lesson-jumps{display:flex;gap:7px;align-items:center;overflow-x:auto;padding:7px 1px 12px;margin:0 0 16px;scrollbar-width:thin}
+.lesson-jumps a{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;padding:9px 12px;border:1px solid #dce4df;border-radius:11px;background:#fff;color:#183548;text-decoration:none;font-size:.82rem;font-weight:700;box-shadow:0 2px 4px rgba(20,50,40,.035);white-space:nowrap}
+.lesson-jumps a:hover{border-color:#7db79a;background:#eff7f0}
+.lesson-jumps b{display:inline-flex;width:23px;height:23px;align-items:center;justify-content:center;border-radius:7px;background:#267b58;color:white;font-size:.78rem}
+.justice-overview{display:grid;grid-template-columns:minmax(230px,1fr) minmax(300px,1.72fr) minmax(330px,1.2fr);gap:15px;margin:0 0 15px;align-items:stretch}
+.overview-card{min-width:0;padding:18px;border:1px solid #e2e8e0;border-radius:16px;background:#fff;box-shadow:0 4px 14px rgba(21,53,38,.045)}
+.objectives-card{background:linear-gradient(160deg,#f0f7f1,#fff 78%)}
+.collocation-card{background:linear-gradient(160deg,#fcf8eb,#fff 90%)}
+.overview-card h2{margin:0 0 13px;color:#123354;font:700 1.3rem/1.2 Georgia,'Times New Roman',serif;letter-spacing:-.02em}
+.overview-card h2 span{display:inline-flex;margin-right:7px;color:#2d8058}
+.overview-card h3{margin:18px 0 8px;color:#155840;font-size:1rem}
+.objective-list,.theme-list{padding-left:0;margin:0;list-style:none}
+.objective-list li{position:relative;padding:0 0 8px 25px;font-size:.91rem;line-height:1.42}
+.objective-list li:before{content:"✓";position:absolute;left:0;top:1px;display:inline-flex;width:18px;height:18px;align-items:center;justify-content:center;border-radius:50%;background:#55a766;color:white;font-size:.77rem;font-weight:900}
+.theme-list{padding-left:18px;list-style:disc;font-size:.88rem;line-height:1.42}
+.overview-feature{position:relative;min-height:370px;overflow:hidden;border-radius:16px;background:#0f4b53;box-shadow:0 8px 22px rgba(9,50,56,.12)}
+.overview-feature>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center}
+.overview-feature:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,27,41,.86) 0%,rgba(3,27,41,.08) 68%,transparent 100%)}
+.feature-caption{position:absolute;z-index:1;left:22px;right:22px;bottom:19px;color:white}
+.feature-kicker{font-size:.72rem;letter-spacing:.16em;font-weight:800;color:#c7e6a6}
+.feature-caption p{max-width:380px;margin:6px 0 0;font:1.45rem/1.18 Georgia,'Times New Roman',serif}
+.key-collocations{columns:2;column-gap:14px;list-style:none;padding:0;margin:0}
+.key-collocations li{display:flex;align-items:flex-start;gap:7px;margin:0 0 8px;break-inside:avoid;font-size:.79rem;line-height:1.29;color:#1b3042}
+.key-collocations li span{flex:0 0 21px;width:21px;height:21px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:#e0efe3;color:#176b45;font-size:.67rem;font-weight:900}
+.text-link{display:inline-flex;gap:7px;align-items:center;margin-top:7px;color:#176b45;font-size:.84rem;text-decoration:none}
+.justice-gallery{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:11px;margin:0 0 14px}
+.justice-tile{min-width:0;overflow:hidden;border:1px solid #e0e6e0;border-radius:13px;background:#fff;box-shadow:0 3px 11px rgba(16,49,35,.05)}
+.justice-tile img{display:block;width:100%;height:112px;object-fit:cover}
+.justice-tile>div{display:flex;gap:7px;align-items:center;padding:9px 10px;min-height:45px;background:linear-gradient(90deg,#eef6ee,#f8faf8);font-size:.77rem;line-height:1.2;color:#173a34}
+.justice-tile>div span{font-size:1.15rem;color:#2a7e4f}
+.justice-quote{display:flex;align-items:center;gap:13px;margin:0 0 18px;padding:15px 22px;border-radius:15px;background:#e5f0e7;border:1px solid #d3e5d7;color:#174536}
+.justice-quote>span{font:700 3.3rem/.6 Georgia,serif;color:#65a27c}
+.justice-quote p{flex:1;margin:0;font:italic 1.14rem/1.4 Georgia,'Times New Roman',serif}
+.justice-quote a{flex:0 0 auto;display:inline-flex;gap:8px;align-items:center;color:#145b45;text-decoration:none;font-weight:800;font-size:.88rem}
+body>section.card,body>section.profile{scroll-margin-top:18px}
+.card{border-color:#e0e8e0;box-shadow:0 4px 15px rgba(20,62,42,.045)}
+.card h2{color:#143b53;font-family:Georgia,'Times New Roman',serif;font-size:1.35rem}
+.q{border-bottom-color:#edf0e9}
+@media(max-width:1050px){.justice-overview{grid-template-columns:minmax(230px,.9fr) minmax(300px,1.3fr)}.collocation-card{grid-column:1/-1}.key-collocations{columns:3}.justice-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}.justice-tile img{height:140px}}
+@media(max-width:700px){body{padding:10px}.justice-banner-photos{left:36%;opacity:.72}.justice-hero{min-height:0;padding:25px 20px;border-radius:18px}.justice-hero h1{font-size:clamp(2rem,9vw,3rem)}.brand-name{font-size:1.75rem}.brand-subtitle{margin-bottom:18px!important}.hero-side-note{display:none}.hero-motto{font-size:.75rem;letter-spacing:.09em}.justice-overview{grid-template-columns:1fr}.collocation-card{grid-column:auto}.overview-feature{min-height:285px;grid-row:1}.key-collocations{columns:2}.justice-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.justice-tile img{height:130px}.justice-quote{align-items:flex-start;flex-wrap:wrap;padding:14px}.justice-quote p{flex-basis:calc(100% - 45px)}.justice-quote a{margin-left:43px}}
+@media(max-width:400px){.key-collocations{columns:1}.justice-gallery{gap:8px}.justice-tile img{height:108px}.justice-tile>div{font-size:.72rem;padding:7px}}
+@media print{.lesson-jumps,.hero-start{display:none}.justice-hero{min-height:240px;print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+</style>
+</head>
+<body>
+<header class="lesson-hero justice-hero">
+  <div class="justice-banner-photos" aria-label="Festivals, cultural celebrations and community traditions">
+    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=85" alt="People gathering at a cultural festival" fetchpriority="high">
+    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=85" alt="Festival lights and a public celebration" loading="eager">
+    <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=900&q=85" alt="Crowds participating in a community festival" loading="eager">
+  </div>
+  <div class="justice-hero-shade" aria-hidden="true"></div>
+  <div class="justice-hero-content">
+    <div class="brand-row"><span class="brand-name">LexiLink</span><span class="lesson-number">Lesson 13</span></div>
+    <p class="brand-subtitle">Collocations for Confident Communication</p>
+    <h1>Festivals in Their<br>Cultural Context</h1>
+    <p class="hero-motto">EXPLORE <span>•</span> ANALYSE <span>•</span> USE <span>•</span> COMMUNICATE</p>
+    <div class="lesson-meta" aria-label="Lesson information">
+      <span class="lesson-meta-pill">B2 · Upper-intermediate</span>
+      <span class="lesson-meta-pill">80-minute lesson</span>
+      <span class="lesson-meta-pill">20 target collocations</span>
+    </div>
+    <a class="hero-start" href="#student-profile">Start the lesson <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="hero-side-note">Shared traditions.<br>Living heritage.<br>Stronger communities.</div>
+</header>
+
+<nav class="lesson-jumps" aria-label="Lesson sections">
+  <a href="#vocabulary-zone"><b>1</b> Vocabulary</a>
+  <a href="#reading"><b>2</b> Reading</a>
+  <a href="#reading-questions"><b>3</b> Comprehension</a>
+  <a href="#matching-zone"><b>4</b> Matching</a>
+  <a href="#completion-zone"><b>5</b> Complete</a>
+  <a href="#skell-cluster"><b>6</b> SkELL Investigation</a>
+  <a href="#odd-zone"><b>7</b> Odd One Out</a>
+  <a href="#find-zone"><b>8</b> Find the Collocate</a>
+  <a href="#sorting-zone"><b>9</b> Sorting</a>
+  <a href="#cloze-zone"><b>10</b> Cloze</a>
+  <a href="#repair-zone"><b>11</b> Repair</a>
+  <a href="#writing-zone"><b>12</b> Writing</a>
+</nav>
+<section class="justice-overview" aria-label="Lesson introduction">
+  <div class="overview-card objectives-card">
+    <h2><span aria-hidden="true">◎</span> Lesson objectives</h2>
+    <ul class="objective-list">
+      <li>Recognise natural collocations used to discuss festivals and cultural practices.</li>
+      <li>Explain how traditions, rituals and symbols carry cultural meaning.</li>
+      <li>Investigate real examples and related words with SkELL.</li>
+      <li>Discuss how festivals preserve cultural identity and strengthen community ties.</li>
+      <li>Use target collocations in a clear, evidence-based paragraph.</li>
+    </ul>
+    <h3>Key themes</h3>
+    <ul class="theme-list"><li>Cultural heritage and shared memory</li><li>Traditions passed between generations</li><li>Festive food, dress and performance</li><li>Rituals and symbolic meaning</li><li>Community participation and tourism</li></ul>
+  </div>
+  <div class="overview-feature">
+    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1800&q=90" alt="A crowd gathered at a lively public festival" loading="eager">
+    <div class="feature-caption"><span class="feature-kicker">CULTURAL HERITAGE</span><p>Festivals turn shared memories into living traditions, connecting generations through food, music, dress and ritual.</p></div>
+  </div>
+  <div class="overview-card collocation-card">
+    <h2><span aria-hidden="true">▤</span> Key collocations</h2>
+    <ol class="key-collocations"><li><span>01</span>observe a tradition</li><li><span>02</span>hold a celebration</li><li><span>03</span>wear traditional dress</li><li><span>04</span>pass down traditions</li><li><span>05</span>symbolic meaning</li><li><span>06</span>cultural heritage</li><li><span>07</span>mark an occasion</li><li><span>08</span>preserve cultural identity</li><li><span>09</span>celebrate a festival</li><li><span>10</span>take part in a procession</li><li><span>11</span>perform a traditional dance</li><li><span>12</span>prepare festive dishes</li><li><span>13</span>decorate public spaces</li><li><span>14</span>gather with family</li><li><span>15</span>exchange gifts</li><li><span>16</span>commemorate a historic event</li><li><span>17</span>attract visitors</li><li><span>18</span>strengthen community ties</li><li><span>19</span>follow a ritual</li><li><span>20</span>keep a tradition alive</li></ol>
+    <a href="#vocabulary-zone" class="text-link">Study definitions and synonyms <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+<section class="justice-gallery" aria-label="Festival and cultural heritage themes">
+<article class="justice-tile"><img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=900&q=85" alt="Festive decorations and a cultural gathering" loading="lazy"><div><span aria-hidden="true">✿</span><b>Celebrate a festival</b></div></article>
+<article class="justice-tile"><img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=900&q=85" alt="People attending a large outdoor festival" loading="lazy"><div><span aria-hidden="true">♧</span><b>Hold a celebration</b></div></article>
+<article class="justice-tile"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=85" alt="Guests gathered for a shared celebration" loading="lazy"><div><span aria-hidden="true">❧</span><b>Gather with family</b></div></article>
+<article class="justice-tile"><img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=85" alt="Music and performance at a public cultural event" loading="lazy"><div><span aria-hidden="true">♫</span><b>Perform a traditional dance</b></div></article>
+<article class="justice-tile"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85" alt="A table of food prepared for a gathering" loading="lazy"><div><span aria-hidden="true">✦</span><b>Prepare festive dishes</b></div></article>
+<article class="justice-tile"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85" alt="Visitors exploring a cultural destination" loading="lazy"><div><span aria-hidden="true">◌</span><b>Attract visitors</b></div></article>
+</section>
+<div class="justice-quote"><span aria-hidden="true">“</span><p>A festival is more than a public event: it can preserve cultural identity, carry symbolic meaning and strengthen the ties between generations.</p><a href="#reading">Explore the reading <span aria-hidden="true">→</span></a></div>
+
+<section class="profile" id="student-profile" aria-label="Student profile">
+<div class="profile-head"><div class="avatar" id="avatar-initials">S</div><div><h2 style="margin:0;color:#176b45">Student profile</h2><p style="margin:.2rem 0">LexiLink · Festivals in Their Cultural Context <span class="pill">B2</span> <span class="pill">80 minutes</span></p></div></div>
+<div class="profile-grid" style="margin-top:14px"><div><label for="profile-name">Student name</label><input id="profile-name" placeholder="Enter your name"></div><div><label for="profile-group">Group</label><input id="profile-group" placeholder="Enter group"></div></div>
+<p class="muted" style="margin-bottom:0">Complete the tasks, investigate festival and cultural collocations in SkELL, and write about a festival’s cultural significance.</p>
+</section>
+<section class="card" id="lesson-route"><h2>80-minute lesson route</h2><p class="muted">Teacher-facing timing plan; the tasks below follow this sequence.</p><div class="timeline">
+<div class="slot"><b>0–5 min · Warm-up</b>Discuss festivals you know, the traditions they include and how they bring people together.</div>
+<div class="slot"><b>5–17 min · Reading</b>Read about the meanings of festivals, the customs they preserve and their role in community life.</div>
+<div class="slot"><b>17–27 min · Noticing</b>Notice and practise collocations related to traditions, celebrations, rituals and cultural heritage.</div>
+<div class="slot"><b>27–42 min · DDL with SkELL</b>Investigate four festival-related keywords and verify lexical patterns with corpus examples.</div>
+<div class="slot"><b>42–52 min · Retrieval</b>Use Odd One Out and Find the Collocate to notice natural word partnerships.</div>
+<div class="slot"><b>52–62 min · Categorising</b>Practise collocation sorting and lexical cloze in festival and cultural contexts.</div>
+<div class="slot"><b>62–70 min · Correction</b>Repair unnatural word partnerships and choose natural English collocations for festivals and cultural practices.</div>
+<div class="slot"><b>70–77 min · Production</b>Write at least 100 words about a festival and explain its cultural significance.</div>
+<div class="slot"><b>77–80 min · Reflection</b>Review your score and share one festival-related collocation you verified in SkELL.</div>
+</div></section>
+<section class="card" id="vocabulary-zone"><h2>Learning outcomes</h2><p>By the end of this lesson, you will be able to recognise and use collocations related to festivals, customs and cultural identity; interpret them in context; test your hypotheses with SkELL evidence; and write about the cultural role of festivals using natural English word partnerships.</p><h2>Target collocations: definitions and synonyms</h2><p class="muted">Study each complete word partnership, its meaning and related expressions before starting the tasks.</p><div class="grid" id="target"></div></section>
+<section class="card" id="reading"><h2>Reading: Festivals in Their Cultural Context</h2><p class="muted">Read the text carefully or listen to it. Target collocations are shown in bold.</p>
+
+<div class="audio-panel" role="group" aria-label="Reading audio controls">
+  <div class="audio-heading"><span aria-hidden="true">🎧</span><div><strong>Listen to the reading</strong><div class="muted">Browser voice · English pronunciation</div></div></div>
+  <div class="audio-controls">
+    <button type="button" onclick="playReading()" aria-label="Play or resume reading text">▶ Listen / Resume</button>
+    <button type="button" onclick="pauseReading()" aria-label="Pause reading text">Ⅱ Pause</button>
+    <button type="button" onclick="stopReading()" aria-label="Stop and reset reading text">■ Stop</button>
+    <label class="speed-control" for="reading-speed">Speed
+      <select id="reading-speed" aria-label="Reading speed" onchange="updateReadingSpeedNote()">
+        <option value="0.75">0.75× Slow</option><option value="1" selected>1× Normal</option><option value="1.25">1.25× Fast</option>
+      </select>
+    </label>
+  </div>
+  <div class="audio-progress-wrap">
+    <div class="audio-progress-label"><label for="reading-progress" style="margin:0">Reading progress</label><span id="reading-progress-value">0%</span></div>
+    <input id="reading-progress" class="audio-progress" type="range" min="0" max="100" step="1" value="0" aria-label="Reading progress; move the slider to seek" oninput="previewReadingSeek(this.value)" onchange="seekReading(this.value)">
+    <p class="audio-progress-help">After the title, narration pauses for 3 seconds before continuing. Pause / Resume preserves your place, including during this break, or move the slider to jump to another part of the text.</p>
+  </div>
+  <p id="reading-audio-status" class="muted audio-status" aria-live="polite">Ready to play. The voice available depends on your browser and device.</p>
+</div>
+<article id="reading-text" style="line-height:1.75">
+<h3>Festivals as Living Cultural Heritage</h3>
+<p>Festivals are more than days of entertainment. They often <b>mark an occasion</b>, bring people together and express the values a community shares. Many families <b>observe a tradition</b> because it connects them with previous generations. In some places, people <b>hold a celebration</b> in a town square; elsewhere, a festival may take place at home or in a religious or historic setting. Whether large or small, festivals can give people a chance to <b>celebrate a festival</b> with neighbours, relatives and visitors.</p>
+<p>Customs make these events recognisable. Participants may <b>wear traditional dress</b>, <b>perform a traditional dance</b>, <b>take part in a procession</b> or <b>prepare festive dishes</b> associated with the occasion. Decorations, colours, songs and foods may have <b>symbolic meaning</b> that is understood by people who share the tradition. A particular dish, for example, might represent hospitality, good fortune or the arrival of a new season. Such practices are often taught informally at home and help families <b>pass down traditions</b> to younger members.</p>
+<p>Festivals also contribute to <b>cultural heritage</b> and can help communities <b>preserve cultural identity</b>. Stories, rituals and performances remind people of where their customs come from and why they matter. Some communities <b>follow a ritual</b> at a specific moment in the celebration, while others <b>exchange gifts</b> or <b>gather with family</b> to share a meal. By continuing these practices, people can <b>keep a tradition alive</b> even when their daily lives change. At the same time, traditions are not fixed forever: communities may adapt the way they celebrate while keeping the practice's central meaning.</p>
+<p>Public festivals can also have an economic and social effect. They may <b>attract visitors</b>, support local craftspeople and encourage people to explore a region's history. Organisers sometimes <b>decorate public spaces</b>, arrange performances and invite residents to join activities. A shared celebration can <b>strengthen community ties</b> because people cooperate, meet neighbours and feel part of a wider group. Some events <b>commemorate a historic event</b> or remember people whose actions shaped a community's story.</p>
+<p>Respect matters when festivals are shared with people from other backgrounds. Visitors should learn what a custom means rather than treating it as a costume or spectacle, and organisers can explain the background of unfamiliar practices. Commercial events can bring opportunities, but they should not reduce a living tradition to a performance for tourists. When communities decide how their heritage is represented, festivals can welcome new audiences while respecting local values. In this way, celebrations connect past and present, help people understand each other and keep cultural knowledge active.</p>
+</article>
+<h3 id="reading-questions">Reading Task A — Choose the best answer</h3><div id="readMCQ"></div><button onclick="checkReading()">Check reading answers</button><button onclick="resetReading()">Try again</button><div id="reading-result"></div>
+<h3>Reading Task B — True or False?</h3><p class="muted">Choose True or False according to the text.</p><div id="readTF"></div><button onclick="checkTF()">Check statements</button><button onclick="resetTF()">Try again</button><div id="tf-result"></div>
+<h3>Reading Task D — Match the idea to the paragraph</h3><p class="muted">Choose the paragraph number (1–5). Some paragraph numbers may be used more than once.</p><div id="readMatch"></div><button onclick="checkReadMatch()">Check paragraph matching</button><button onclick="resetReadMatch()">Try again</button><div id="readmatch-result"></div>
+</section>
+<section class="card" id="matching-zone"><h2>1. Matching · 10 points</h2><p class="muted">Choose the correct ending. Feedback and the correct answer appear only after you select an answer and check it.</p><div id="matching"></div><button onclick="check('matching')">Check answers</button><button onclick="reset('matching')">Try again</button><div id="matching-result"></div></section>
+<section class="card" id="completion-zone"><h2>2. Complete the Sentence · 10 points</h2><p class="muted">Choose the lexical collocation that best completes each sentence. Unanswered items will not reveal their answers.</p><div id="gaps"></div><button onclick="check('gaps')">Check answers</button><button onclick="reset('gaps')">Try again</button><div id="gaps-result"></div></section>
+<section class="card" id="skell-cluster"><h2>3. SkELL Collocation Investigation · 10 minutes · 10 points (teacher-scored)</h2>
+<p>Open <a href="https://skell.sketchengine.eu/" target="_blank" rel="noopener">SkELL</a>. Search each festival-related keyword in <b>Word Sketch</b>, inspect example sentences and open <b>Similar words</b>. For every keyword, record two collocations and try to use <b>different grammatical patterns</b>: for example, verb + noun, adjective + noun, noun + noun, or verb + preposition. Write one original sentence for each collocation, add two candidate synonyms or related words, and note a short example or context that you checked in SkELL. A word that appears in a similar context is not automatically a synonym, so explain whether it can replace the original word in your example. Your notes will be saved in the teacher's spreadsheet when you submit the lesson.</p>
+<div class="callout"><b>Investigation routine</b><br>Predict a word partnership → search it in SkELL → compare examples and grammatical patterns → record two distinct collocations where possible → write your own examples → inspect Similar words → decide whether a related word fits the same context.</div>
+ <div class="skell-board">
+<div class="skell-cluster" data-keyword="FESTIVALS">
+<div class="skell-cluster-head"><span class="keyword-pill">FESTIVALS</span><span class="cluster-type"><b>Search focus:</b> Verb + noun; adjective + noun; noun + noun<br>Search for collocations describing festivals and public celebrations.</span></div>
+<label for="festival-coll-1">Collocation 1</label><input autocomplete="off" class="collocation-line" id="festival-coll-1" placeholder="e.g. celebrate a festival"/>
+<label for="festival-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="festival-sentence-1" placeholder="Write a new sentence of your own."></textarea>
+<label for="festival-coll-2">Collocation 2</label><input autocomplete="off" class="collocation-line" id="festival-coll-2" placeholder="Choose a different pattern if possible"/>
+<label for="festival-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="festival-sentence-2" placeholder="Write a new sentence of your own."></textarea>
+<label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input autocomplete="off" id="festival-syn-1" placeholder="Related word 1"/><input autocomplete="off" id="festival-syn-2" placeholder="Related word 2"/></div>
+<label for="festival-evidence">Corpus example / context checked in SkELL</label><textarea id="festival-evidence" placeholder="Write a short example or explain the context you checked."></textarea>
+</div>
+<div class="skell-cluster" data-keyword="TRADITIONS">
+<div class="skell-cluster-head"><span class="keyword-pill">TRADITIONS</span><span class="cluster-type"><b>Search focus:</b> Verb + noun; verb + preposition; noun + noun<br>Compare words used for customs, rituals and practices shared between generations.</span></div>
+<label for="traditions-coll-1">Collocation 1</label><input autocomplete="off" class="collocation-line" id="traditions-coll-1" placeholder="e.g. pass down traditions"/>
+<label for="traditions-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="traditions-sentence-1" placeholder="Write a new sentence of your own."></textarea>
+<label for="traditions-coll-2">Collocation 2</label><input autocomplete="off" class="collocation-line" id="traditions-coll-2" placeholder="Choose a different pattern if possible"/>
+<label for="traditions-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="traditions-sentence-2" placeholder="Write a new sentence of your own."></textarea>
+<label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input autocomplete="off" id="traditions-syn-1" placeholder="Related word 1"/><input autocomplete="off" id="traditions-syn-2" placeholder="Related word 2"/></div>
+<label for="traditions-evidence">Corpus example / context checked in SkELL</label><textarea id="traditions-evidence" placeholder="Write a short example or explain the context you checked."></textarea>
+</div>
+<div class="skell-cluster" data-keyword="CULTURAL HERITAGE">
+<div class="skell-cluster-head"><span class="keyword-pill">CULTURAL HERITAGE</span><span class="cluster-type"><b>Search focus:</b> Verb + noun; adjective + noun; noun + noun<br>Find language for heritage, symbols, identity and cultural continuity.</span></div>
+<label for="heritage-coll-1">Collocation 1</label><input autocomplete="off" class="collocation-line" id="heritage-coll-1" placeholder="e.g. preserve cultural identity"/>
+<label for="heritage-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="heritage-sentence-1" placeholder="Write a new sentence of your own."></textarea>
+<label for="heritage-coll-2">Collocation 2</label><input autocomplete="off" class="collocation-line" id="heritage-coll-2" placeholder="Choose a different pattern if possible"/>
+<label for="heritage-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="heritage-sentence-2" placeholder="Write a new sentence of your own."></textarea>
+<label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input autocomplete="off" id="heritage-syn-1" placeholder="Related word 1"/><input autocomplete="off" id="heritage-syn-2" placeholder="Related word 2"/></div>
+<label for="heritage-evidence">Corpus example / context checked in SkELL</label><textarea id="heritage-evidence" placeholder="Write a short example or explain the context you checked."></textarea>
+</div>
+<div class="skell-cluster" data-keyword="CELEBRATIONS">
+<div class="skell-cluster-head"><span class="keyword-pill">CELEBRATIONS</span><span class="cluster-type"><b>Search focus:</b> Verb + noun; adjective + noun; noun + noun<br>Explore how people gather, perform, prepare food and take part in celebrations.</span></div>
+<label for="celebration-coll-1">Collocation 1</label><input autocomplete="off" class="collocation-line" id="celebration-coll-1" placeholder="e.g. hold a celebration"/>
+<label for="celebration-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="celebration-sentence-1" placeholder="Write a new sentence of your own."></textarea>
+<label for="celebration-coll-2">Collocation 2</label><input autocomplete="off" class="collocation-line" id="celebration-coll-2" placeholder="Choose a different pattern if possible"/>
+<label for="celebration-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="celebration-sentence-2" placeholder="Write a new sentence of your own."></textarea>
+<label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input autocomplete="off" id="celebration-syn-1" placeholder="Related word 1"/><input autocomplete="off" id="celebration-syn-2" placeholder="Related word 2"/></div>
+<label for="celebration-evidence">Corpus example / context checked in SkELL</label><textarea id="celebration-evidence" placeholder="Write a short example or explain the context you checked."></textarea>
+</div>
+</div>
+<p class="muted">Teacher scoring: up to 10 points for accurate, distinct festival and cultural collocations, original sentences showing meaningful use, and evidence from SkELL. Similar words are assessed for relevance and contextual interpretation.</p>
+<p class="muted">Teacher scoring: up to 10 points for accurate, distinct festival and cultural collocations, original sentences showing meaningful use, and evidence from SkELL. Similar words are assessed for relevance and contextual interpretation.</p>
+<p class="muted">No separate “Copy cluster notes” button is needed: these structured fields are included in the lesson submission and appear as individual records in the teacher's spreadsheet.</p></section>
+<section class="card" id="odd-zone"><h2>4. Odd One Out · Based on SkELL · 10 points</h2><p class="muted">Choose the one expression that does not form a natural collocation. The questions cover festival and cultural vocabulary and grammatical patterns. Each item has three natural combinations and one incorrect combination. Unanswered items stay hidden; explanations appear only after you choose and check.</p><div id="odd"></div><button onclick="check('odd')">Check answers</button><button onclick="reset('odd')">Try again</button><div id="odd-result"></div></section>
+<section class="card" id="find-zone"><h2>5. Find the Verb, Find the Collocate · 10 points</h2><p>Choose the verb or verb phrase that creates a natural collocation about festivals and cultural practices.</p><div id="find"></div><button onclick="check('find')">Check answers</button><button onclick="reset('find')">Try again</button><div id="find-result"></div></section>
+<section class="card" id="sorting-zone"><h2>6. Collocation Sorting · 10 points</h2><p class="muted">Choose the verb that creates a natural lexical collocation.</p><div id="sorting"></div><button onclick="check('sorting')">Check answers</button><button onclick="reset('sorting')">Try again</button><div id="sorting-result"></div></section>
+<section class="card" id="cloze-zone"><h2>7. Lexical Cloze · 10 points</h2><p class="muted"><b>Word bank:</b> observe a tradition · hold a celebration · wear traditional dress · pass down traditions · symbolic meaning · cultural heritage · preserve cultural identity · take part in a procession · prepare festive dishes · strengthen community ties</p><div id="cloze"></div><button onclick="check('cloze')">Check answers</button><button onclick="reset('cloze')">Try again</button><div id="cloze-result"></div></section>
+<section class="card" id="repair-zone"><h2>8. Collocation Repair · 10 points</h2><p class="muted">Choose the best correction. Focus on natural lexical word partnerships used to discuss festivals, customs, cultural heritage and community life.</p><div id="repair"></div><button onclick="check('repair')">Check answers</button><button onclick="reset('repair')">Try again</button><div id="repair-result"></div></section>
+<section class="card" id="writing-zone"><h2>9. Productive Recall Challenge · 5 points (teacher-scored)</h2><p>Write at least 100 words on <b>Festivals in Their Cultural Context</b>. Use at least eight target collocations from this lesson. Write directly in the box; clipboard paste and drag-and-drop are disabled in this field.</p><p class="writing-anti-paste-note" id="writing-notice">Please compose your paragraph here rather than pasting a prepared text. Normal paste, cut/copy shortcuts and drag-and-drop are blocked in this writing field. This browser restriction supports the task rules but is not a complete plagiarism-detection system.</p><label for="paragraph">Your paragraph</label><textarea id="paragraph" class="writing-area" autocomplete="off" autocapitalize="sentences" spellcheck="true" placeholder="Festivals help communities preserve their cultural identity because..."></textarea><p id="word-count" class="muted" aria-live="polite">0 words — 100-word minimum to submit; no maximum</p><p class="muted">Teacher awards up to 5 points for accurate use of distinct target collocations, a clear main idea and relevant examples.</p><div class="submission-panel"><h3>Submit your lesson work to the teacher</h3><p class="muted">Your name and group from the student profile above, your SkELL collocations and original sentences, related words, corpus notes, writing paragraph and available exercise scores will be collected in the teacher's spreadsheet.</p><button type="button" id="submitLessonBtn" onclick="submitLessonWork()">Submit lesson work</button><div id="submitStatus" class="submission-status" role="status" aria-live="polite"></div></div></section>
+<section class="card" id="score-zone"><h2>Lesson score</h2><p class="muted">Auto-scored sections: reading MCQ, True/False, paragraph matching, Matching, Sentence Completion, Odd One Out, Find the Collocate, Sorting, Lexical Cloze and Collocation Repair (100 points total). SkELL cluster (10) and productive writing (5) are teacher-scored. Maximum lesson total: 115 points.</p><button onclick="summary()">Show score summary</button><div id="summary"></div></section>
+<p class="muted">Vocabulary reference: IELTS Jacky, “Environment Vocabulary: Topic vocabulary for the IELTS exam” (2018), based on the material supplied for this lesson. Reading and interactive exercises were adapted or written for LexiLink.</p>
+<p class="muted">LexiLink · Connect words. Build fluency. Lesson submissions are sent to the configured Google Apps Script collector. The teacher must verify the saved row in Google Sheets because the browser cannot read confirmation in no-cors mode.</p>
+<script>
+let readingUtterance = null;
+let readingTextContent = '';
+let readingCurrentChar = 0;
+let readingRunId = 0;
+let readingSeekWhilePaused = false;
+let readingTitleEnd = 0;
+let readingDelayTimer = null;
+let readingDelayPaused = false;
+let readingDelayRemaining = 3000;
+let readingDelayStartedAt = 0;
+
+function setReadingAudioStatus(message){const el=document.getElementById('reading-audio-status');if(el)el.textContent=message;}
+function readingProgressPercent(){return readingTextContent.length?Math.min(100,Math.round(readingCurrentChar/readingTextContent.length*100)):0;}
+function updateReadingProgress(percent){
+  const slider=document.getElementById('reading-progress');
+  const label=document.getElementById('reading-progress-value');
+  const safe=Math.max(0,Math.min(100,Math.round(percent)));
+  if(slider)slider.value=String(safe);
+  if(label)label.textContent=safe+'%';
+}
+function getReadingText(){
+  const article=document.getElementById('reading-text');
+  if(!article)return '';
+  return (article.innerText||article.textContent||'').replace(/\s+/g,' ').trim();
+}
+function loadReadingText(){
+  const article=document.getElementById('reading-text');
+  readingTextContent=getReadingText();
+  const titleElement=article?article.querySelector('h3'):null;
+  const titleText=titleElement?(titleElement.innerText||titleElement.textContent||'').replace(/\s+/g,' ').trim():'';
+  const titleIndex=titleText?readingTextContent.indexOf(titleText):-1;
+  readingTitleEnd=titleIndex>=0?titleIndex+titleText.length:0;
+  if(readingTitleEnd<=0||readingTitleEnd>=readingTextContent.length)readingTitleEnd=0;
+  return readingTextContent;
+}
+function setProgressFromChar(charIndex){
+  readingCurrentChar=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  updateReadingProgress(readingProgressPercent());
+}
+function clearReadingDelay(){
+  if(readingDelayTimer!==null){clearTimeout(readingDelayTimer);readingDelayTimer=null;}
+  readingDelayStartedAt=0;
+}
+function startReadingDelay(runId, milliseconds){
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=Math.max(0,milliseconds);
+  if(readingDelayRemaining<=0){startReadingFrom(readingTitleEnd);return;}
+  readingDelayStartedAt=Date.now();
+  const seconds=(readingDelayRemaining/1000).toFixed(1).replace(/\.0$/,'');
+  setReadingAudioStatus('Title finished. Pausing for '+seconds+' seconds before the reading continues…');
+  readingDelayTimer=setTimeout(()=>{
+    readingDelayTimer=null;
+    readingDelayStartedAt=0;
+    if(runId!==readingRunId||readingDelayPaused)return;
+    readingDelayRemaining=3000;
+    startReadingFrom(readingTitleEnd);
+  },readingDelayRemaining);
+}
+function startReadingFrom(charIndex){
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  const start=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  if(start>=readingTextContent.length){setProgressFromChar(0);return startReadingFrom(0);}
+  const thisRun=++readingRunId;
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=3000;
+  window.speechSynthesis.cancel();
+  const isTitleSegment=readingTitleEnd>0&&start<readingTitleEnd;
+  const segmentEnd=isTitleSegment?readingTitleEnd:readingTextContent.length;
+  const segmentText=readingTextContent.slice(start,segmentEnd);
+  readingUtterance=new SpeechSynthesisUtterance(segmentText);
+  readingUtterance.lang='en-GB';
+  const rateControl=document.getElementById('reading-speed');
+  readingUtterance.rate=rateControl?Number(rateControl.value):1;
+  readingUtterance.pitch=1;
+  const voices=window.speechSynthesis.getVoices();
+  const englishVoice=voices.find(v=>/^en-GB$/i.test(v.lang))||voices.find(v=>/^en-US$/i.test(v.lang))||voices.find(v=>/^en/i.test(v.lang));
+  if(englishVoice)readingUtterance.voice=englishVoice;
+  setProgressFromChar(start);
+  readingUtterance.onstart=()=>{if(thisRun===readingRunId)setReadingAudioStatus(isTitleSegment?'Reading the title…':'Reading aloud…');};
+  readingUtterance.onboundary=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(Number.isFinite(event.charIndex))setProgressFromChar(start+event.charIndex);
+  };
+  readingUtterance.onend=()=>{
+    if(thisRun!==readingRunId)return;
+    if(isTitleSegment&&readingTitleEnd<readingTextContent.length){
+      setProgressFromChar(readingTitleEnd);
+      readingUtterance=null;
+      startReadingDelay(thisRun,3000);
+      return;
+    }
+    setProgressFromChar(readingTextContent.length);
+    setReadingAudioStatus('Reading finished. Press Listen to replay, or move the progress line to choose a section.');
+    readingUtterance=null;
+  };
+  readingUtterance.onerror=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(event.error!=='canceled'&&event.error!=='interrupted')setReadingAudioStatus('Audio playback could not start. Try another browser or check your device’s speech settings.');
+  };
+  window.speechSynthesis.speak(readingUtterance);
+  setReadingAudioStatus(isTitleSegment?'Starting with the title…':(start?'Resuming from the selected position…':'Starting playback…'));
+}
+function playReading(){
+  if(!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)){
+    setReadingAudioStatus('Text-to-speech is not supported in this browser. Try opening the lesson in an up-to-date Chrome, Edge or Safari browser.');return;
+  }
+  if(readingDelayPaused){
+    startReadingDelay(readingRunId,readingDelayRemaining);
+    setReadingAudioStatus('Resuming the 3-second pause after the title…');
+    return;
+  }
+  if(readingDelayTimer!==null){setReadingAudioStatus('The 3-second pause after the title is in progress…');return;}
+  if(window.speechSynthesis.paused&&!readingSeekWhilePaused){window.speechSynthesis.resume();setReadingAudioStatus('Reading resumed from the same place.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused)return;
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  if(readingCurrentChar>=readingTextContent.length)readingCurrentChar=0;
+  startReadingFrom(readingCurrentChar);
+}
+function pauseReading(){
+  if(!('speechSynthesis' in window)){setReadingAudioStatus('Text-to-speech is not supported in this browser.');return;}
+  if(readingDelayTimer!==null){
+    const elapsed=Math.max(0,Date.now()-readingDelayStartedAt);
+    readingDelayRemaining=Math.max(0,readingDelayRemaining-elapsed);
+    clearReadingDelay();
+    readingDelayPaused=true;
+    setReadingAudioStatus('Paused during the 3-second break after the title. Press Listen / Resume to continue the countdown.');
+    return;
+  }
+  if(readingDelayPaused){setReadingAudioStatus('The pause after the title is paused. Press Listen / Resume to continue.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused){window.speechSynthesis.pause();setReadingAudioStatus('Reading paused. Press Listen / Resume to continue from the same place.');}
+  else setReadingAudioStatus('There is no reading currently playing. Press Listen / Resume to start.');
+}
+function stopReading(){
+  if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  clearReadingDelay();
+  readingRunId++;
+  readingSeekWhilePaused=false;
+  readingDelayPaused=false;
+  readingDelayRemaining=3000;
+  readingUtterance=null;
+  loadReadingText();
+  readingCurrentChar=0;
+  updateReadingProgress(0);
+  setReadingAudioStatus('Reading stopped and reset to the beginning.');
+}
+function previewReadingSeek(percent){
+  const label=document.getElementById('reading-progress-value');
+  if(label)label.textContent=Math.max(0,Math.min(100,Math.round(Number(percent)||0))+'%');
+}
+function seekReading(percent){
+  if(!('speechSynthesis' in window)){updateReadingProgress(readingProgressPercent());return;}
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent)return;
+  const delayActive=readingDelayTimer!==null;
+  const delayPaused=readingDelayPaused;
+  const wasSpeaking=window.speechSynthesis.speaking&&!window.speechSynthesis.paused;
+  const wasPaused=window.speechSynthesis.paused;
+  const pct=Math.max(0,Math.min(100,Number(percent)||0));
+  let target=Math.round(readingTextContent.length*pct/100);
+  while(target>0&&target<readingTextContent.length&&!/\s/.test(readingTextContent[target-1]))target--;
+  setProgressFromChar(target);
+  if(delayActive){
+    clearReadingDelay();readingDelayPaused=false;readingDelayRemaining=3000;
+    startReadingFrom(target);
+  }else if(delayPaused||wasPaused){
+    clearReadingDelay();
+    if(window.speechSynthesis.speaking||window.speechSynthesis.paused)window.speechSynthesis.cancel();
+    readingRunId++;readingUtterance=null;readingDelayPaused=false;readingDelayRemaining=3000;readingSeekWhilePaused=true;
+    setReadingAudioStatus('Position selected. Press Listen / Resume to continue from here.');
+  }else if(wasSpeaking){startReadingFrom(target);}
+  else {
+    readingDelayPaused=false;readingDelayRemaining=3000;
+    setReadingAudioStatus(pct===0?'Ready to play from the beginning.':'Position selected. Press Listen / Resume to start from here.');
+  }
+}
+function updateReadingSpeedNote(){
+  if(window.speechSynthesis&&window.speechSynthesis.speaking&&!window.speechSynthesis.paused){
+    setReadingAudioStatus('To apply the new speed, stop and start playback again. Pause / Resume keeps the current playback speed.');
+  }
+}
+
+const target=[["observe a tradition","Definition: to follow a custom that a community has maintained over time.","Synonyms: follow a custom; honour a tradition; keep to an established practice"],["hold a celebration","Definition: to organise and carry out an event for a special occasion.","Synonyms: host a celebration; organise festivities; stage a celebration"],["wear traditional dress","Definition: to put on clothing associated with a particular culture or community.","Synonyms: wear national costume; dress in traditional attire; wear customary clothing"],["pass down traditions","Definition: to transmit customs and practices from older generations to younger ones.","Synonyms: hand down customs; transmit traditions; pass on cultural practices"],["symbolic meaning","Definition: the idea or value represented by an object, action, colour or ritual.","Synonyms: cultural significance; symbolic significance; meaning represented by a symbol"],["cultural heritage","Definition: traditions, practices, places and objects inherited from earlier generations.","Synonyms: shared heritage; cultural legacy; inherited cultural traditions"],["mark an occasion","Definition: to do something special to recognise an important event or date.","Synonyms: celebrate an occasion; commemorate an event; observe a milestone"],["preserve cultural identity","Definition: to protect the customs and values that help a group maintain its distinct identity.","Synonyms: maintain cultural identity; safeguard traditions; retain cultural distinctiveness"],["celebrate a festival","Definition: to take part in activities that recognise a cultural, religious or seasonal festival.","Synonyms: observe a festival; join the festivities; celebrate a cultural event"],["take part in a procession","Definition: to participate in an organised group moving along a route as part of an event.","Synonyms: join a parade; participate in a procession; march in a festival parade"],["perform a traditional dance","Definition: to present a dance that has been passed down within a culture.","Synonyms: perform a folk dance; present a cultural dance; dance a customary dance"],["prepare festive dishes","Definition: to cook foods that are traditionally served during a celebration.","Synonyms: prepare special dishes; cook traditional foods; make food for a celebration"],["decorate public spaces","Definition: to add ornaments, lights or other decorations to shared places for an event.","Synonyms: adorn streets; put up festive decorations; decorate communal areas"],["gather with family","Definition: to come together with relatives, often for a special meal or occasion.","Synonyms: come together as a family; reunite with relatives; meet with family members"],["exchange gifts","Definition: to give presents to one another as part of a custom or celebration.","Synonyms: give presents to one another; swap gifts; exchange presents"],["commemorate a historic event","Definition: to remember and honour an important event from the past.","Synonyms: honour a historical event; remember an important occasion; mark a historic anniversary"],["attract visitors","Definition: to cause people from other places to come to an event or location.","Synonyms: draw tourists; bring in visitors; appeal to travellers"],["strengthen community ties","Definition: to make relationships and feelings of belonging within a community stronger.","Synonyms: build social bonds; foster community spirit; deepen local connections"],["follow a ritual","Definition: to carry out a set of actions performed according to a custom or ceremony.","Synonyms: carry out a ritual; observe a ceremony; perform customary actions"],["keep a tradition alive","Definition: to continue practising a custom so that it survives over time.","Synonyms: sustain a custom; maintain a living tradition; ensure a tradition continues"]];
+document.getElementById('target').innerHTML=target.map((x,i)=>`<div class="box"><b>${i+1}. ${x[0]}</b><p>${x[1]}</p><p class="muted"><b>${x[2].split(':')[0]}:</b>${x[2].split(':').slice(1).join(':')}</p></div>`).join('');
+const profileName=document.getElementById('profile-name'),profileGroup=document.getElementById('profile-group');
+function updateProfile(){const words=profileName.value.trim().split(/\s+/).filter(Boolean);document.getElementById('avatar-initials').textContent=words.length?words.slice(0,2).map(w=>w[0].toUpperCase()).join(''):'S'}
+profileName.addEventListener('input',updateProfile);profileGroup.addEventListener('input',()=>{});
+const clusterIds=['festival','traditions','heritage','celebration'];
+function lexilinkCountWritingWords(text){
+  const clean=String(text||'').trim();
+  return clean?clean.split(/\s+/).filter(Boolean).length:0;
+}
+function lexilinkUpdateWritingWordCounter(){
+  const field=document.getElementById('paragraph');
+  const counter=document.getElementById('word-count');
+  if(!field||!counter)return;
+  const count=lexilinkCountWritingWords(field.value);
+  if(count<100){
+    counter.className='muted word-count-warn';
+    counter.textContent=`${count} words — ${100-count} more needed to submit (minimum 100; no maximum)`;
+  }else{
+    counter.className='muted word-count-ok';
+    counter.textContent=`${count} words — minimum reached; no maximum`;
+  }
+} const lexilinkWritingCounterField=document.getElementById('paragraph');
+if(lexilinkWritingCounterField){
+  lexilinkWritingCounterField.addEventListener('input',lexilinkUpdateWritingWordCounter);
+  lexilinkUpdateWritingWordCounter();
+}
+
+// Block ordinary clipboard paste/cut/copy shortcuts and drag-drop in the writing field.
+// This is a classroom friction measure, not secure plagiarism prevention.
+(function protectWritingField(){
+  const field=document.getElementById('paragraph');
+  const notice=document.getElementById('writing-notice');
+  const blockedMessage='Please type your own text directly in this writing field; paste and drag-and-drop are disabled.';
+  ['paste','copy','cut','drop'].forEach(eventName=>field.addEventListener(eventName,e=>{
+    e.preventDefault();
+    if(notice){notice.textContent=blockedMessage;notice.classList.add('submission-status','warn');}
+  }));
+  field.addEventListener('dragover',e=>e.preventDefault());
+  field.addEventListener('beforeinput',e=>{
+    if(['insertFromPaste','insertFromDrop','deleteByCut'].includes(e.inputType)){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+  });
+  field.addEventListener('keydown',e=>{
+    const key=e.key.toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['v','c','x'].includes(key)){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+    if(e.shiftKey&&e.key==='Insert'){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+  });
+})();
+
+// Paste the deployed Web App URL for the collector script supplied with this lesson.
+const SUBMISSION_ENDPOINT = "https://script.google.com/macros/s/AKfycbxKwWE0CYJDxrpP60p0A9JRv2sHrSECwzc9IPyYt9e-Kd1XQJsrHPGe2r8VHwlxPZWa/exec";
+function fieldValue(id){return (document.getElementById(id)?.value||'').trim()}
+function collectSkellClusters(){
+  return clusterIds.map(keyword=>({
+    keyword:keyword.toUpperCase(),
+    collocation1:fieldValue(`${keyword}-coll-1`),
+    sentence1:fieldValue(`${keyword}-sentence-1`),
+    collocation2:fieldValue(`${keyword}-coll-2`),
+    sentence2:fieldValue(`${keyword}-sentence-2`),
+    similarWord1:fieldValue(`${keyword}-syn-1`),
+    similarWord2:fieldValue(`${keyword}-syn-2`),
+    evidence:fieldValue(`${keyword}-evidence`)
+  }));
+}
+function collectAnswers(){
+  const answers={};
+  document.querySelectorAll('input,textarea,select').forEach((el,i)=>{
+    if(['profile-name','profile-group','paragraph','submitLessonBtn'].includes(el.id)) return;
+    if(el.type==='radio'&&!el.checked) return;
+    if(el.type==='checkbox'&&!el.checked) return;
+    const key=el.id||el.name||`field_${i+1}`;
+    answers[key]=String(el.value||'').trim();
+  });
+  return answers;
+}
+function getScoreSummary(){
+  const parts=Object.values(scores);
+  return {score:parts.reduce((sum,x)=>sum+Number(x.score||0),0),max:parts.reduce((sum,x)=>sum+Number(x.max||0),0)};
+}
+function validateSubmission(){
+  if(!fieldValue('profile-name')) return {ok:false,message:'Please enter your name in the student profile at the top of the lesson.',id:'profile-name'};
+  if(!fieldValue('profile-group')) return {ok:false,message:'Please enter your group in the student profile at the top of the lesson.',id:'profile-group'};
+  const writing=fieldValue('paragraph');
+  const words=writing?writing.split(/\s+/).length:0;
+  if(words<100) return {ok:false,message:`Please write at least 100 words. Your current paragraph has ${words} words.`,id:'paragraph'};
+  for(const keyword of clusterIds){
+    const fields=[`${keyword}-coll-1`,`${keyword}-sentence-1`,`${keyword}-coll-2`,`${keyword}-sentence-2`,`${keyword}-syn-1`,`${keyword}-syn-2`,`${keyword}-evidence`];
+    const missing=fields.find(id=>!fieldValue(id));
+    if(missing) return {ok:false,message:`Complete both collocations and their own sentences, two Similar words, and a corpus context for ${keyword.toUpperCase()}.`,id:missing};
+  }
+  return {ok:true};
+}
+async function submitLessonWork(){
+  const status=document.getElementById('submitStatus');
+  const button=document.getElementById('submitLessonBtn');
+  const validation=validateSubmission();
+  if(!validation.ok){status.className='submission-status err';status.textContent=validation.message;document.getElementById(validation.id)?.focus();return;}
+  if(SUBMISSION_ENDPOINT.includes('PASTE_LEXILINK_APPS_SCRIPT_WEB_APP_URL_HERE')){
+    status.className='submission-status warn';
+    status.textContent='Submission is not connected yet. The teacher must deploy the shared LexiLink Google Apps Script collector, paste its /exec URL into SUBMISSION_ENDPOINT, and save the HTML file.';
+    return;
+  }
+  const payload={
+    lesson:'Lesson 13 — Festivals in Their Cultural Context',
+    studentName:fieldValue('profile-name'),
+    group:fieldValue('profile-group'),
+    submittedAt:new Date().toISOString(),
+    writing:{prompt:'Festivals in Their Cultural Context',wordCount:fieldValue('paragraph').split(/\s+/).length,text:fieldValue('paragraph')},
+    skellClusters:collectSkellClusters(),
+    scores:{sections:scores,autoTotal:getScoreSummary()},
+    answers:collectAnswers(),
+    userAgent:navigator.userAgent
+  };
+  button.disabled=true;button.textContent='Sending…';status.className='submission-status warn';status.textContent='Sending your work to the teacher’s spreadsheet…';
+  try{
+    await fetch(SUBMISSION_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+    status.className='submission-status ok';status.textContent='Your submission request was sent. The browser cannot read the server confirmation in this mode, so the teacher should verify that the new rows appear in Google Sheets.';
+    button.textContent='Submission sent';
+  }catch(error){
+    status.className='submission-status err';status.textContent='The request could not be sent. Check the internet connection and try again.';
+    button.disabled=false;button.textContent='Try again';
+  }
+}
+const readMCQs=[{"q":"What is one important role of many festivals?","ans":"They connect people with shared customs and values.","opts":["They remove all differences between cultures.","They connect people with shared customs and values.","They replace everyday family life.","They exist only to attract tourists."]},{"q":"Why might people observe a tradition?","ans":"To maintain a link with earlier generations.","opts":["To stop young people learning new things.","To maintain a link with earlier generations.","To make every festival identical.","To avoid meeting other people."]},{"q":"What can traditional dress, food and dances communicate?","ans":"They can carry symbolic meaning.","opts":["They always have exactly the same meaning worldwide.","They can carry symbolic meaning.","They are unrelated to cultural identity.","They are used only for commercial purposes."]},{"q":"How are traditions often passed down?","ans":"Through families and community participation.","opts":["Only through formal written laws.","Through families and community participation.","Only through visitors from abroad.","By removing rituals from celebrations."]},{"q":"How can festivals support cultural identity?","ans":"They keep practices, stories and shared memories visible.","opts":["They prevent communities from changing at all.","They keep practices, stories and shared memories visible.","They make all languages disappear.","They stop people from learning about the past."]},{"q":"What is one possible economic effect of a public festival?","ans":"It may attract visitors and support local craftspeople.","opts":["It always guarantees profit for every resident.","It may attract visitors and support local craftspeople.","It prevents people from visiting a region.","It removes the need to preserve heritage."]},{"q":"Why might a community adapt a tradition?","ans":"To respond to changing lives while keeping its central meaning.","opts":["To ensure the tradition has no symbolic meaning.","To respond to changing lives while keeping its central meaning.","To make the custom impossible to continue.","To ensure no younger people take part."]},{"q":"What should visitors do when they encounter an unfamiliar custom?","ans":"Try to understand its meaning and cultural background.","opts":["Treat it only as entertainment.","Assume it means the same everywhere.","Try to understand its meaning and cultural background.","Ignore the people who practise it."]},{"q":"How can a shared celebration strengthen community ties?","ans":"People cooperate and feel part of a wider group.","opts":["People avoid all interaction.","People cooperate and feel part of a wider group.","It guarantees that disagreements disappear permanently.","It stops families from meeting."]},{"q":"What is the main idea of the reading?","ans":"Festivals can connect generations and keep cultural knowledge active.","opts":["Festivals are valuable only when tourists attend.","Festivals can connect generations and keep cultural knowledge active.","Traditions should never adapt to changing circumstances.","Food and dress are the only parts of cultural heritage."]}];;
+const readTFs=[{"q":"The reading says that festivals can connect people with earlier generations.","ans":"True"},{"q":"Every festival has exactly the same customs and meaning in every culture.","ans":"False"},{"q":"Traditional dress, dances and food may carry symbolic meaning.","ans":"True"},{"q":"The reading says traditions are always fixed and can never change.","ans":"False"},{"q":"Families and communities can help pass traditions on to younger generations.","ans":"True"},{"q":"Public festivals may attract visitors and support local craftspeople.","ans":"True"},{"q":"The article recommends treating unfamiliar customs only as entertainment.","ans":"False"},{"q":"A festival can strengthen community ties by encouraging people to cooperate.","ans":"True"},{"q":"A tradition can adapt while keeping its central meaning.","ans":"True"},{"q":"The reading argues that cultural knowledge can remain active through celebrations.","ans":"True"}];;
+const readMatches=[{"q":"Festivals can connect people with customs maintained over time.","ans":"1"},{"q":"Participants may wear customary clothing, dance and join a procession.","ans":"2"},{"q":"Rituals and shared practices help maintain cultural identity.","ans":"3"},{"q":"Public celebrations can attract visitors and bring community members together.","ans":"4"},{"q":"The reading explains that visitors should respect the meaning of unfamiliar customs.","ans":"5"},{"q":"Traditional foods or colours may represent values such as hospitality or good fortune.","ans":"2"},{"q":"Families help teach customs to younger members.","ans":"2"},{"q":"Festivals can support craftspeople and regional tourism.","ans":"4"},{"q":"Communities can adapt a custom without losing its central meaning.","ans":"3"},{"q":"A tradition should not be reduced to a performance for tourists.","ans":"5"}];
+function renderReadRadio(id,items,optsFn){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${optsFn(x,i)}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+function renderSelect(id,items,options){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b><label for="${id}-${i}">Choose:</label><select id="${id}-${i}"><option value="">Choose an answer…</option>${options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select><div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+renderReadRadio('readMCQ',readMCQs,(x,i)=>`<div>${x.opts.map(o=>`<label><input type="radio" name="readMCQ-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`);
+renderReadRadio('readTF',readTFs,(x,i)=>`<div><label><input type="radio" name="readTF-${i}" value="True"> True</label><label><input type="radio" name="readTF-${i}" value="False"> False</label></div>`);
+renderSelect('readMatch',readMatches,['1','2','3','4','5']);
+const scores={};
+function markRadioSet(items,namePrefix,id,resultId){let n=0,answered=0;items.forEach((x,i)=>{const chosen=document.querySelector(`input[name="${namePrefix}-${i}"]:checked`)?.value;const f=document.getElementById(`${id}-fb-${i}`);if(!chosen){f.className='fb muted';f.textContent='Choose an answer before checking this question.';return;}answered++;const ok=chosen===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct. '+(x.why||''):'Not quite. Correct answer: '+x.ans+(x.why?' — '+x.why:'')});scores[id]={score:n,max:items.length};document.getElementById(resultId).innerHTML=`<p><b>Score: ${n}/${items.length}</b> · Answered: ${answered}/${items.length}</p>`}
+function checkReading(){markRadioSet(readMCQs,'readMCQ','readMCQ','reading-result')}
+function resetReading(){readMCQs.forEach((x,i)=>{document.querySelectorAll(`input[name="readMCQ-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readMCQ-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('reading-result').innerHTML='';delete scores.readMCQ}
+function checkTF(){markRadioSet(readTFs,'readTF','readTF','tf-result')}
+function resetTF(){readTFs.forEach((x,i)=>{document.querySelectorAll(`input[name="readTF-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readTF-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('tf-result').innerHTML='';delete scores.readTF}
+function checkReadMatch(){let n=0,answered=0;readMatches.forEach((x,i)=>{const v=document.getElementById(`readMatch-${i}`).value;const f=document.getElementById(`readMatch-fb-${i}`);if(!v){f.className='fb muted';f.textContent='Choose a paragraph before checking this question.';return;}answered++;const ok=v===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct.':'Not quite. Correct answer: paragraph '+x.ans+'.'});scores.readMatch={score:n,max:readMatches.length};document.getElementById('readmatch-result').innerHTML=`<p><b>Score: ${n}/${readMatches.length}</b> · Answered: ${answered}/${readMatches.length}</p>`}
+function resetReadMatch(){readMatches.forEach((x,i)=>{document.getElementById(`readMatch-${i}`).value='';const f=document.getElementById(`readMatch-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('readmatch-result').innerHTML='';delete scores.readMatch}
+const data={"matching":{"mode":"select","items":[{"q":"observe a ___","ans":"tradition"},{"q":"hold a ___","ans":"celebration"},{"q":"wear traditional ___","ans":"dress"},{"q":"pass down ___","ans":"traditions"},{"q":"symbolic ___","ans":"meaning"},{"q":"cultural ___","ans":"heritage"},{"q":"mark an ___","ans":"occasion"},{"q":"preserve cultural ___","ans":"identity"},{"q":"exchange ___","ans":"gifts"},{"q":"strengthen community ___","ans":"ties"}],"options":["tradition","celebration","dress","traditions","meaning","heritage","occasion","identity","gifts","ties"]},"gaps":{"mode":"select","items":[{"q":"Many families ___ that has been practised for generations.","ans":"observe a tradition"},{"q":"The town will ___ to welcome the beginning of spring.","ans":"hold a celebration"},{"q":"During the ceremony, dancers ___ associated with the region.","ans":"wear traditional dress"},{"q":"Grandparents often ___ through stories and shared activities.","ans":"pass down traditions"},{"q":"The colours and patterns have a special ___.","ans":"symbolic meaning"},{"q":"Historic buildings and customs form part of the community’s ___.","ans":"cultural heritage"},{"q":"The annual ceremony helps the community ___ and remember its history.","ans":"preserve cultural identity"},{"q":"People from different neighbourhoods ___ during the city festival.","ans":"take part in a procession"},{"q":"Families prepare and share ___ for the holiday meal.","ans":"festive dishes"},{"q":"The celebration brings neighbours together and helps ___.","ans":"strengthen community ties"}],"options":["observe a tradition","hold a celebration","wear traditional dress","pass down traditions","symbolic meaning","cultural heritage","preserve cultural identity","take part in a procession","festive dishes","strengthen community ties"]},"odd":{"mode":"radio","items":[{"q":"TRADITIONS · Which combination is unnatural?","ans":"do a tradition","opts":["observe a tradition","follow a tradition","honour a tradition","do a tradition"],"why":"English commonly uses observe, follow or honour a tradition, not “do a tradition.”"},{"q":"CELEBRATIONS · Choose the unnatural collocation.","ans":"make a celebration","opts":["hold a celebration","organise a celebration","join a celebration","make a celebration"],"why":"We normally hold, organise or join a celebration. “Make a celebration” is not the usual phrase for organising an event."},{"q":"CULTURAL DRESS · Which phrase is incorrect?","ans":"put on a traditional dressing","opts":["wear traditional dress","wear national costume","dress in traditional attire","put on a traditional dressing"],"why":"“Traditional dress” is a noun phrase; “traditional dressing” does not name customary clothing in this context."},{"q":"HERITAGE · Choose the incorrect collocation.","ans":"pass traditions downwards to","opts":["pass down traditions","hand down customs","transmit traditions","pass traditions downwards to"],"why":"“Pass down traditions” and “hand down customs” are established combinations."},{"q":"FESTIVE FOOD · Which combination is unnatural?","ans":"cook a ritual","opts":["prepare festive dishes","cook traditional food","serve a festive meal","cook a ritual"],"why":"Dishes and meals can be prepared, cooked or served; a ritual is followed or performed."},{"q":"RITUALS · Choose the incorrect phrase.","ans":"follow a tradition to a ritual","opts":["follow a ritual","perform a ritual","carry out a ritual","follow a tradition to a ritual"],"why":"The natural patterns are “follow a ritual” and “perform/carry out a ritual.”"},{"q":"PUBLIC EVENTS · Which phrase is unnatural?","ans":"make visitors attract","opts":["attract visitors","draw tourists","bring in visitors","make visitors attract"],"why":"A festival or event can attract or draw visitors; “make visitors attract” does not have the intended meaning."},{"q":"COMMUNITY · Which collocation is incorrect?","ans":"strengthen community connections strongly","opts":["strengthen community ties","build social bonds","foster community spirit","strengthen community connections strongly"],"why":"“Strengthen community ties” is the target collocation; the option adds an awkward and unnecessary adverb."},{"q":"OCCASIONS · Which phrase is incorrect?","ans":"mark up an occasion","opts":["mark an occasion","commemorate an event","celebrate an occasion","mark up an occasion"],"why":"We say “mark an occasion” without “up.”"},{"q":"TRADITIONS · Choose the unnatural phrase.","ans":"keep a tradition awake","opts":["keep a tradition alive","preserve a custom","maintain a living tradition","keep a tradition awake"],"why":"The idiomatic phrase is “keep a tradition alive.”"}]},"find":{"mode":"select","items":[{"q":"___ a tradition","ans":"OBSERVE"},{"q":"___ a celebration","ans":"HOLD"},{"q":"___ traditional dress","ans":"WEAR"},{"q":"___ traditions down","ans":"PASS"},{"q":"___ symbolic meaning","ans":"CARRY"},{"q":"___ cultural identity","ans":"PRESERVE"},{"q":"___ a festival","ans":"CELEBRATE"},{"q":"___ in a procession","ans":"TAKE PART"},{"q":"___ festive dishes","ans":"PREPARE"},{"q":"___ community ties","ans":"STRENGTHEN"}],"options":["OBSERVE","HOLD","WEAR","PASS","CARRY","PRESERVE","CELEBRATE","TAKE PART","PREPARE","STRENGTHEN"]},"sorting":{"mode":"select","items":[{"q":"___ an occasion","ans":"MARK"},{"q":"___ a traditional dance","ans":"PERFORM"},{"q":"___ public spaces","ans":"DECORATE"},{"q":"___ with family","ans":"GATHER"},{"q":"___ gifts","ans":"EXCHANGE"},{"q":"___ a historic event","ans":"COMMEMORATE"},{"q":"___ visitors","ans":"ATTRACT"},{"q":"___ a ritual","ans":"FOLLOW"},{"q":"___ a tradition alive","ans":"KEEP"},{"q":"___ community ties","ans":"STRENGTHEN"}],"options":["MARK","PERFORM","DECORATE","GATHER","EXCHANGE","COMMEMORATE","ATTRACT","FOLLOW","KEEP","STRENGTHEN"]},"cloze":{"mode":"select","items":[{"q":"The family will ___ by cooking the same dish each year.","ans":"observe a tradition"},{"q":"The village plans to ___ in the main square.","ans":"hold a celebration"},{"q":"Participants often ___ during the national holiday.","ans":"wear traditional dress"},{"q":"Stories and songs help older generations ___.","ans":"pass down traditions"},{"q":"The special pattern has a strong ___.","ans":"symbolic meaning"},{"q":"Traditional music and crafts are part of our ___.","ans":"cultural heritage"},{"q":"The annual festival helps ___ across generations.","ans":"preserve cultural identity"},{"q":"Hundreds of residents will ___ through the old town.","ans":"take part in a procession"},{"q":"Local cooks gather early to ___.","ans":"prepare festive dishes"},{"q":"The event gives neighbours a chance to ___.","ans":"strengthen community ties"}],"options":["observe a tradition","hold a celebration","wear traditional dress","pass down traditions","symbolic meaning","cultural heritage","preserve cultural identity","take part in a procession","prepare festive dishes","strengthen community ties"]},"repair":{"mode":"radio","items":[{"q":"The family follows a custom each New Year.","ans":"observe a tradition","opts":["observe a tradition","do a tradition","make a tradition observed","watch a tradition to"],"why":"“Observe a tradition” means follow a custom."},{"q":"The organisers arranged an event for the harvest season.","ans":"hold a celebration","opts":["hold a celebration","make a celebration","do a celebration","give a celebrating"],"why":"“Hold a celebration” is a natural way to say that an event is organised."},{"q":"The dancers wore clothing associated with their region.","ans":"wear traditional dress","opts":["wear traditional dress","put traditional dresses","use a traditional clothing","wear tradition clothes"],"why":"“Wear traditional dress” is the standard collocation for culturally specific clothing."},{"q":"Grandparents teach customs to younger relatives.","ans":"pass down traditions","opts":["pass down traditions","send traditions down below","give down the traditions","pass traditions over down"],"why":"“Pass down traditions” means transmit customs across generations."},{"q":"The colours represent an important idea in the ceremony.","ans":"symbolic meaning","opts":["symbolic meaning","symbolical sense meaning","symbol meaningly","meaning symbol"],"why":"“Symbolic meaning” is a natural noun phrase for the idea represented by an object or action."},{"q":"Historic customs and crafts are part of what a society inherits.","ans":"cultural heritage","opts":["cultural heritage","culture inheritance things","heritage culturality","culture inherit"],"why":"“Cultural heritage” refers to practices, places and objects passed down through generations."},{"q":"Residents decorate streets with lights and flags for the event.","ans":"decorate public spaces","opts":["decorate public spaces","make public spaces decorated up","put decorations to the public spaces","decorate publics"],"why":"“Decorate public spaces” is a natural way to describe preparing shared areas for a festival."},{"q":"People give presents to one another as part of the holiday custom.","ans":"exchange gifts","opts":["exchange gifts","change the gifts each other","exchange with a gift","make gift exchange to"],"why":"“Exchange gifts” means give presents to one another."},{"q":"The event remembers an important moment from the region’s past.","ans":"commemorate a historic event","opts":["commemorate a historic event","celebrate a historical of event","remember to a history event","commemorate an historical"],"why":"“Commemorate a historic event” means remember and honour an important event from the past."},{"q":"The festival helps people feel more connected to their local community.","ans":"strengthen community ties","opts":["strengthen community ties","make community relations stronger ties","strong the community ties","increase ties strong community"],"why":"“Strengthen community ties” is an established collocation for making social bonds stronger."}]}};
+function render(id){const d=data[id];document.getElementById(id).innerHTML=d.items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${d.mode==='radio'?`<div>${x.opts.map(o=>`<label><input type="radio" name="${id}-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`:`<select id="${id}-${i}"><option value="">Choose…</option>${d.options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select>`}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+Object.keys(data).forEach(render);
+function check(id){const d=data[id];let n=0,answered=0;d.items.forEach((x,i)=>{const v=d.mode==='radio'?document.querySelector(`input[name="${id}-${i}"]:checked`)?.value:document.getElementById(`${id}-${i}`).value;const f=document.getElementById(`${id}-fb-${i}`);if(!v){f.className='fb muted';f.textContent='Choose an answer before checking this question.';return;}answered++;const ok=v===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=(ok?'Correct. ':'Not quite. Correct answer: '+x.ans+'. ')+(x.why||'')});scores[id]={score:n,max:d.items.length};document.getElementById(id+'-result').innerHTML=`<p><b>Score: ${n}/${d.items.length}</b> · Answered: ${answered}/${d.items.length}</p>`}
+function reset(id){const d=data[id];d.items.forEach((x,i)=>{if(d.mode==='radio')document.querySelectorAll(`input[name="${id}-${i}"]`).forEach(e=>e.checked=false);else document.getElementById(`${id}-${i}`).value='';const f=document.getElementById(`${id}-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById(id+'-result').innerHTML='';delete scores[id]}
+function summary(){let n=0,m=0;Object.values(scores).forEach(x=>{n+=x.score;m+=x.max});document.getElementById('summary').innerHTML=`<p><b>Automatically scored so far: ${n}/${m}.</b><br>Teacher-scored: SkELL cluster 0–10; writing 0–5. Maximum lesson score: 115 points.</p>`}
+</script>
+</body></html>

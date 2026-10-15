@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LexiLink — Environmental Challenges and Sustainable Living</title>
+<style>
+:root{--green:#176b45;--green2:#238657;--mint:#eaf7ef;--line:#cde6d5;--ink:#183326;--muted:#587466}
+*{box-sizing:border-box}body{font:16px/1.55 Arial,sans-serif;max-width:1000px;margin:auto;padding:18px;background:#f2faf4;color:var(--ink)}
+header,.card{background:white;padding:20px;margin:16px 0;border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 12px rgba(23,107,69,.06)}
+header{background:linear-gradient(125deg,#155d3d,#278653);color:white;border:0}header p{margin:.4rem 0}h1{margin-top:0}h2{font-size:1.25rem;color:var(--green)}h3{color:#235c3e}
+a{color:var(--green2);font-weight:700}.q{padding:12px 0;border-bottom:1px solid #e2efe6}label{display:block;margin:6px 0}select,textarea,input{font:inherit;padding:10px;width:100%;max-width:100%;border:1px solid #b9d7c3;border-radius:9px;background:#fcfffd;color:var(--ink)}input[type=radio]{width:auto;margin-right:6px}textarea{min-height:80px}button{padding:10px 14px;margin:8px 6px 0 0;border:0;border-radius:9px;background:var(--green);color:white;font-weight:bold;cursor:pointer}button:hover{background:#104d31}.muted{color:var(--muted);font-size:.92rem}.fb{font-size:.92rem}.ok{color:#167143}.bad{color:#b52e38}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.box{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfffc}.profile{background:var(--mint);border:1px solid #a9d9b8;border-radius:16px;padding:18px;margin:16px 0}.profile h2{margin-top:0}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.avatar{width:54px;height:54px;border-radius:50%;background:#176b45;color:white;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;flex-shrink:0}.profile-head{display:flex;gap:14px;align-items:center}.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px}.slot{background:#f0faf3;border:1px solid #cde6d5;border-left:5px solid #238657;padding:12px;border-radius:10px}.slot b{display:block;color:#176b45}.pill{display:inline-block;background:#d5f0de;color:#145a37;padding:4px 9px;border-radius:999px;font-size:.85rem;font-weight:bold}
+.skell-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:16px 0}.skell-cluster{min-width:0;padding:16px;border:1px solid #d7e5ef;border-radius:16px;background:#fff;box-shadow:0 3px 10px rgba(7,39,84,.06)}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;width:fit-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px 16px;background:#082a65;color:#fff;border-radius:999px;font-weight:800;letter-spacing:.02em;font-size:clamp(.82rem,1.55vw,1.05rem);line-height:1.15;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0;font-size:.86rem;color:#587466;line-height:1.35}.collocation-lines{display:grid;gap:8px;margin:8px 0 14px}.collocation-line{height:44px;width:100%;border-radius:8px;padding:3px 8px;border:1px solid transparent;font-weight:600;color:#142b43}.collocation-line:nth-child(3n+1){background:#fff0a6;border-color:#f0d96b}.collocation-line:nth-child(3n+2){background:#f9d1f7;border-color:#eaa3e7}.collocation-line:nth-child(3n){background:#c9f5d9;border-color:#91d9ad}.collocation-line::placeholder{color:#5a6070;font-weight:400}.student-sentence{min-height:70px;margin:6px 0 12px;background:#fbfffc}.submission-panel{margin-top:16px;padding:16px;border:1px solid #9ecfb0;border-radius:14px;background:#eff9f2}.submission-status{margin-top:10px;font-weight:700}.submission-status.ok{color:#176b45}.submission-status.err{color:#a5222d}.submission-status.warn{color:#805900}.writing-area{min-height:190px}.writing-anti-paste-note{padding:10px 12px;background:#fff7d8;border:1px solid #ead27b;border-radius:9px;color:#624e00;font-size:.92rem}.similar-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.similar-grid input{background:#f6faff}.callout{padding:12px 14px;border-left:4px solid #238657;background:#eff9f2;border-radius:8px}.score-row{display:flex;gap:10px;flex-wrap:wrap}.score-chip{background:#edf7f0;border-radius:9px;padding:8px 12px}@media(max-width:680px){.skell-board{grid-template-columns:1fr}.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;padding:8px 14px}.cluster-type{flex-basis:auto;width:100%}}@media(max-width:560px){.profile-grid{grid-template-columns:1fr}body{padding:8px}header,.card{padding:15px}}@media print{button{display:none}body{background:white}}
+
+.audio-panel{padding:16px;margin:14px 0 18px;border:1px solid #b9dfc5;border-radius:14px;background:linear-gradient(135deg,#f2fbf4,#ffffff)}.audio-heading{display:flex;gap:10px;align-items:center;margin-bottom:10px}.audio-heading>span{font-size:1.7rem}.audio-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.audio-controls button{margin:2px 4px 2px 0}.speed-control{display:flex;gap:8px;align-items:center;margin:2px 0 2px 8px;font-weight:700}.speed-control select{width:auto;min-width:135px;padding:8px}.audio-status{margin:10px 0 0}.audio-progress-wrap{margin:12px 0 4px}.audio-progress-label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.9rem;color:var(--muted);margin-bottom:4px}.audio-progress{width:100%;max-width:none;height:22px;padding:0;margin:0;accent-color:var(--green);cursor:pointer;background:transparent}.audio-progress-help{font-size:.82rem;color:var(--muted);margin:2px 0 0}@media(max-width:560px){.audio-controls{align-items:stretch}.audio-controls button{flex:1}.speed-control{width:100%;margin:6px 0 0}.speed-control select{flex:1}}
+.lesson-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(118deg,#104b32 0%,#176b45 54%,#2c8b5b 100%);color:#fff;border:0;border-radius:22px;padding:25px 27px;margin:16px 0;box-shadow:0 10px 28px rgba(20,90,54,.17)}
+.lesson-hero:before{content:"";position:absolute;z-index:-1;width:300px;height:300px;right:135px;top:-205px;border:1px solid rgba(255,255,255,.11);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 58px rgba(255,255,255,.02)}
+.lesson-header-layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;align-items:center;gap:25px;min-width:0}
+.lesson-header-copy{min-width:0}
+.lesson-kicker{display:flex;align-items:center;gap:9px;margin-bottom:12px;color:#d7f5e1;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.lesson-kicker-mark{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;border-radius:9px;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.26);font-size:.72rem;letter-spacing:-.03em}
+.kicker-divider{padding:0 3px;color:#9edbb5}
+.lesson-header-copy h1{max-width:690px;margin:0 0 10px;color:#fff;font-size:clamp(1.7rem,3.1vw,2.35rem);font-weight:800;line-height:1.12;letter-spacing:-.035em;text-wrap:balance}
+.lesson-subtitle{max-width:650px;margin:0 0 17px!important;color:#e4f7e9;font-size:1.04rem;line-height:1.45}
+.lesson-meta{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.lesson-meta-pill{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:.79rem;font-weight:700;line-height:1.25}
+.lesson-method{margin:14px 0 0!important;color:#d4efdd;font-size:.84rem;letter-spacing:.01em}
+.lesson-header-photo{display:block;width:250px;height:166px;max-width:100%;object-fit:cover;object-position:center 48%;border-radius:17px;border:3px solid rgba(255,255,255,.88);box-shadow:0 12px 24px rgba(0,0,0,.2);background:#dcefe2}
+@media(max-width:760px){.lesson-hero{padding:21px;border-radius:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr) 205px;gap:16px}.lesson-header-photo{width:205px;height:148px}.lesson-header-copy h1{font-size:clamp(1.5rem,4vw,1.9rem)}}
+@media(max-width:560px){.lesson-hero{padding:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr);gap:15px}.lesson-header-photo{width:100%;height:190px;max-width:none;object-position:center 44%;border-radius:14px}.lesson-kicker{margin-bottom:9px}.lesson-header-copy h1{font-size:1.8rem}.lesson-subtitle{font-size:.98rem}.lesson-meta-pill{font-size:.76rem}}
+
+/* Responsive SkELL keyword pills: keep long keywords fully visible inside their ovals. */
+.skell-cluster{min-width:0}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 1 auto;align-items:center;justify-content:center;width:max-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px clamp(10px,1.5vw,16px);box-sizing:border-box;font-size:clamp(.72rem,1.25vw,.98rem);line-height:1.12;letter-spacing:.015em;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0}@media(max-width:680px){.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;font-size:clamp(.72rem,3vw,.94rem);padding:8px 12px}.cluster-type{flex-basis:auto;width:100%}}
+#word-count{font-weight:700}#word-count.word-count-warn{color:#805900}#word-count.word-count-ok{color:#176b45}</style>
+</head>
+<body>
+<header class="lesson-hero">
+  <div class="lesson-header-layout">
+    <div class="lesson-header-copy">
+      <div class="lesson-kicker"><span class="lesson-kicker-mark">LL</span><span>LEXILINK <span class="kicker-divider">/</span> LESSON 10</span></div>
+      <h1>Environmental Challenges and Sustainable Living</h1>
+      <p class="lesson-subtitle">Understanding environmental pressures and making sustainable choices</p>
+      <div class="lesson-meta" aria-label="Lesson information">
+        <span class="lesson-meta-pill">B2 · Upper-intermediate</span>
+        <span class="lesson-meta-pill">80-minute lesson</span>
+        <span class="lesson-meta-pill">20 target collocations</span>
+      </div>
+      <p class="lesson-method">SkELL investigation <span aria-hidden="true">·</span> Lexical approach</p>
+    </div>
+    <!-- Header photo: forest landscape representing the natural environment -->
+<img class="lesson-header-photo" src="https://images.pexels.com/photos/957024/forest-trees-perspective-bright-957024.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" alt="Sunlight passing through a forest, representing the natural environment" title="Forest landscape" loading="eager" decoding="async">
+  </div>
+</header>
+<section class="profile" aria-label="Student profile">
+<div class="profile-head"><div class="avatar" id="avatar-initials">S</div><div><h2 style="margin:0;color:#176b45">Student profile</h2><p style="margin:.2rem 0">LexiLink · Environmental Challenges and Sustainable Living <span class="pill">B2</span> <span class="pill">80 minutes</span></p></div></div>
+<div class="profile-grid" style="margin-top:14px"><div><label for="profile-name">Student name</label><input id="profile-name" placeholder="Enter your name"></div><div><label for="profile-group">Group</label><input id="profile-group" placeholder="Enter group"></div></div>
+<p class="muted" style="margin-bottom:0">Complete the tasks, investigate environmental collocations in SkELL and write about environmental challenges and sustainable living.</p>
+</section>
+<section class="card"><h2>80-minute lesson route</h2><p class="muted">Teacher-facing timing plan; the tasks below follow this sequence.</p><div class="timeline">
+<div class="slot"><b>0–5 min · Warm-up</b>Discuss environmental problems in your area and actions that can make daily life more sustainable.</div>
+<div class="slot"><b>5–17 min · Reading</b>Read about environmental impact, biodiversity, climate change and sustainable choices.</div>
+<div class="slot"><b>17–27 min · Noticing</b>Notice and practise collocations related to ecosystems, pollution, climate and conservation.</div>
+<div class="slot"><b>27–42 min · DDL with SkELL</b>Investigate four keywords and verify natural lexical collocations in SkELL.</div>
+<div class="slot"><b>42–52 min · Retrieval</b>Use Odd One Out and Find the Collocate to notice word partnerships.</div>
+<div class="slot"><b>52–62 min · Categorising</b>Practise collocation sorting and lexical cloze in environmental contexts.</div>
+<div class="slot"><b>62–70 min · Correction</b>Repair unnatural word partnerships and choose natural English environmental collocations.</div>
+<div class="slot"><b>70–77 min · Production</b>Write at least 100 words about an environmental challenge and realistic ways to address it.</div>
+<div class="slot"><b>77–80 min · Reflection</b>Review your score and share one environmental collocation you verified in SkELL.</div>
+</div></section>
+<section class="card"><h2>Learning outcomes</h2><p>By the end of the lesson, you will be able to recognise and use lexical collocations related to environmental impact, wildlife conservation, climate change, pollution and sustainable living; verify word partnerships with SkELL; interpret related words in context; and discuss environmental choices with precision.</p><h2>Target collocations: definitions and synonyms</h2><p class="muted">Study the English definitions and compare the synonyms. No translations are provided.</p><div class="grid" id="target"></div></section>
+<section class="card" id="reading"><h2>Reading: Environmental Challenges and Sustainable Living</h2><p class="muted">Read the text carefully or listen to it. Target collocations are shown in bold.</p>
+
+<div class="audio-panel" role="group" aria-label="Reading audio controls">
+  <div class="audio-heading"><span aria-hidden="true">🎧</span><div><strong>Listen to the reading</strong><div class="muted">Browser voice · English pronunciation</div></div></div>
+  <div class="audio-controls">
+    <button type="button" onclick="playReading()" aria-label="Play or resume reading text">▶ Listen / Resume</button>
+    <button type="button" onclick="pauseReading()" aria-label="Pause reading text">Ⅱ Pause</button>
+    <button type="button" onclick="stopReading()" aria-label="Stop and reset reading text">■ Stop</button>
+    <label class="speed-control" for="reading-speed">Speed
+      <select id="reading-speed" aria-label="Reading speed" onchange="updateReadingSpeedNote()">
+        <option value="0.75">0.75× Slow</option><option value="1" selected>1× Normal</option><option value="1.25">1.25× Fast</option>
+      </select>
+    </label>
+  </div>
+  <div class="audio-progress-wrap">
+    <div class="audio-progress-label"><label for="reading-progress" style="margin:0">Reading progress</label><span id="reading-progress-value">0%</span></div>
+    <input id="reading-progress" class="audio-progress" type="range" min="0" max="100" step="1" value="0" aria-label="Reading progress; move the slider to seek" oninput="previewReadingSeek(this.value)" onchange="seekReading(this.value)">
+    <p class="audio-progress-help">After the title, narration pauses for 3 seconds before continuing. Pause / Resume preserves your place, including during this break, or move the slider to jump to another part of the text.</p>
+  </div>
+  <p id="reading-audio-status" class="muted audio-status" aria-live="polite">Ready to play. The voice available depends on your browser and device.</p>
+</div>
+<article id="reading-text" style="line-height:1.75">
+<h3>Small Choices, Systemic Change</h3>
+<p>Environmental challenges are often described as distant problems, yet they are connected to decisions made by households, businesses and public institutions. A new road, factory or housing project can have a serious <b>environmental impact</b> if it damages the <b>natural environment</b> or fragments a habitat. People can help <b>protect the environment</b> by reducing unnecessary waste, using energy carefully and choosing <b>environmentally friendly</b> products when the evidence supports their claims. Daily choices also affect a person's <b>carbon footprint</b>, although lasting progress requires changes in infrastructure and industry as well as individual behaviour.</p>
+<p>Healthy habitats depend on relationships among plants, animals, water, soil and climate. A <b>fragile ecosystem</b> can be disturbed by pollution, intensive land use or the arrival of non-native species. When a habitat is destroyed, wildlife may lose food and shelter, and the <b>loss of biodiversity</b> can weaken the system's ability to recover. <b>Endangered species</b> need careful protection, while <b>wildlife conservation</b> projects may restore habitats, reduce illegal hunting or monitor populations. A well-planned <b>conservation programme</b> uses evidence to identify a threat and evaluate whether action is working.</p>
+<p>Climate change is another major challenge. Burning <b>fossil fuels</b> releases <b>greenhouse gas emissions</b> that contribute to warming. Governments, industries and communities can <b>combat climate change</b> by reducing these emissions, improving public transport and investing in cleaner technologies. The use of <b>natural resources</b> also requires care: deforestation and poorly managed farming can expose soil to rain and wind, causing <b>soil erosion</b>. Pollution adds further pressure. Untreated sewage, plastic waste and <b>toxic waste</b> are serious <b>environmental hazards</b> because they can contaminate rivers and land, while traffic and industry may reduce <b>air quality</b>.</p>
+<p>Sustainable living means meeting present needs without unnecessarily limiting the choices available to future generations. Cities can expand public transport, protect green spaces and improve recycling systems. Homes and workplaces can use <b>renewable energy</b> and install <b>energy-efficient appliances</b> that perform the same tasks with less electricity. These actions are most effective when their results are measured: for example, communities can track energy use, waste and air quality over time. No single action solves every problem, but coordinated decisions can reduce harm, protect biodiversity and make communities more resilient.</p>
+</article>
+<h3>Reading Task A — Choose the best answer</h3><div id="readMCQ"></div><button onclick="checkReading()">Check reading answers</button><button onclick="resetReading()">Try again</button><div id="reading-result"></div>
+<h3>Reading Task B — True or False?</h3><p class="muted">Choose True or False according to the text.</p><div id="readTF"></div><button onclick="checkTF()">Check statements</button><button onclick="resetTF()">Try again</button><div id="tf-result"></div>
+<h3>Reading Task D — Match the idea to the paragraph</h3><p class="muted">Choose the paragraph number (1–4). Some paragraph numbers may be used more than once.</p><div id="readMatch"></div><button onclick="checkReadMatch()">Check paragraph matching</button><button onclick="resetReadMatch()">Try again</button><div id="readmatch-result"></div>
+</section>
+<section class="card"><h2>1. Matching · 10 points</h2><p class="muted">Choose the correct ending. Feedback and the correct answer appear only after you select an answer and check it.</p><div id="matching"></div><button onclick="check('matching')">Check answers</button><button onclick="reset('matching')">Try again</button><div id="matching-result"></div></section>
+<section class="card"><h2>2. Complete the Sentence · 10 points</h2><p class="muted">Choose the lexical collocation that best completes each sentence. Unanswered items will not reveal their answers.</p><div id="gaps"></div><button onclick="check('gaps')">Check answers</button><button onclick="reset('gaps')">Try again</button><div id="gaps-result"></div></section>
+<section class="card" id="skell-cluster"><h2>3. SkELL Collocation Investigation · 10 minutes · 10 points (teacher-scored)</h2>
+<p>Open <a href="https://skell.sketchengine.eu/" target="_blank" rel="noopener">SkELL</a>. Search each keyword in <b>Word Sketch</b>, inspect example sentences and open <b>Similar words</b>. For every keyword, record two collocations and, where possible, choose <b>different grammatical patterns</b> rather than writing only verb + noun combinations. Across the four searches, look for verb + noun, adjective + noun, noun + noun, verb + preposition and cause/result patterns. Write one original sentence for each collocation, add two candidate synonyms or related words, and record a short corpus example or explain its context. Check whether the combinations are natural in the example, not only whether the words appear together. Your notes will be saved separately in the teacher's spreadsheet when you submit the lesson.</p>
+<div class="callout"><b>Investigation routine</b><br>Predict a word partnership → search it in SkELL → compare examples and grammatical patterns → record two collocations from different patterns where possible → write your own examples → inspect Similar words → decide whether a related word fits the same context. Related words are not automatically interchangeable.</div>
+<div class="skell-board">
+  <div class="skell-cluster" data-keyword="ENVIRONMENT">
+    <div class="skell-cluster-head"><span class="keyword-pill">ENVIRONMENT</span><span class="cluster-type"><b>Search focus:</b> Verb + noun; adjective + noun; noun + noun<br>Look for actions, impacts and policies connected with the natural world.</span></div>
+    <label for="environment-coll-1">Collocation 1</label><input class="collocation-line" id="environment-coll-1" placeholder="e.g. protect the environment" autocomplete="off">
+    <label for="environment-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="environment-sentence-1" placeholder="Write a new sentence of your own."></textarea>
+    <label for="environment-coll-2">Collocation 2</label><input class="collocation-line" id="environment-coll-2" placeholder="Choose a different pattern if possible" autocomplete="off">
+    <label for="environment-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="environment-sentence-2" placeholder="Write a new sentence of your own."></textarea>
+    <label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input id="environment-syn-1" placeholder="Related word 1" autocomplete="off"><input id="environment-syn-2" placeholder="Related word 2" autocomplete="off"></div>
+    <label for="environment-evidence">Corpus example / context checked in SkELL</label><textarea id="environment-evidence" placeholder="Write a short example or note the context you checked in SkELL."></textarea>
+  </div>
+  <div class="skell-cluster" data-keyword="WILDLIFE">
+    <div class="skell-cluster-head"><span class="keyword-pill">WILDLIFE</span><span class="cluster-type"><b>Search focus:</b> Verb + noun; adjective + noun; noun + noun<br>Investigate species, habitats, protection and conservation work.</span></div>
+    <label for="wildlife-coll-1">Collocation 1</label><input class="collocation-line" id="wildlife-coll-1" placeholder="e.g. wildlife conservation" autocomplete="off">
+    <label for="wildlife-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="wildlife-sentence-1" placeholder="Write a new sentence of your own."></textarea>
+    <label for="wildlife-coll-2">Collocation 2</label><input class="collocation-line" id="wildlife-coll-2" placeholder="Choose a different pattern if possible" autocomplete="off">
+    <label for="wildlife-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="wildlife-sentence-2" placeholder="Write a new sentence of your own."></textarea>
+    <label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input id="wildlife-syn-1" placeholder="Related word 1" autocomplete="off"><input id="wildlife-syn-2" placeholder="Related word 2" autocomplete="off"></div>
+    <label for="wildlife-evidence">Corpus example / context checked in SkELL</label><textarea id="wildlife-evidence" placeholder="Write a short example or note the context you checked in SkELL."></textarea>
+  </div>
+  <div class="skell-cluster" data-keyword="CLIMATE">
+    <div class="skell-cluster-head"><span class="keyword-pill">CLIMATE</span><span class="cluster-type"><b>Search focus:</b> Verb + noun; noun + noun; verb + preposition<br>Compare actions, causes and results linked to climate change.</span></div>
+    <label for="climate-coll-1">Collocation 1</label><input class="collocation-line" id="climate-coll-1" placeholder="e.g. combat climate change" autocomplete="off">
+    <label for="climate-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="climate-sentence-1" placeholder="Write a new sentence of your own."></textarea>
+    <label for="climate-coll-2">Collocation 2</label><input class="collocation-line" id="climate-coll-2" placeholder="Choose a different pattern if possible" autocomplete="off">
+    <label for="climate-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="climate-sentence-2" placeholder="Write a new sentence of your own."></textarea>
+    <label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input id="climate-syn-1" placeholder="Related word 1" autocomplete="off"><input id="climate-syn-2" placeholder="Related word 2" autocomplete="off"></div>
+    <label for="climate-evidence">Corpus example / context checked in SkELL</label><textarea id="climate-evidence" placeholder="Write a short example or note the context you checked in SkELL."></textarea>
+  </div>
+  <div class="skell-cluster" data-keyword="POLLUTION">
+    <div class="skell-cluster-head"><span class="keyword-pill">POLLUTION</span><span class="cluster-type"><b>Search focus:</b> Adjective + noun; verb + noun; cause + result<br>Investigate air, water and waste; distinguish terms that are related but not interchangeable.</span></div>
+    <label for="pollution-coll-1">Collocation 1</label><input class="collocation-line" id="pollution-coll-1" placeholder="e.g. air pollution" autocomplete="off">
+    <label for="pollution-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="pollution-sentence-1" placeholder="Write a new sentence of your own."></textarea>
+    <label for="pollution-coll-2">Collocation 2</label><input class="collocation-line" id="pollution-coll-2" placeholder="Choose a different pattern if possible" autocomplete="off">
+    <label for="pollution-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="pollution-sentence-2" placeholder="Write a new sentence of your own."></textarea>
+    <label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input id="pollution-syn-1" placeholder="Related word 1" autocomplete="off"><input id="pollution-syn-2" placeholder="Related word 2" autocomplete="off"></div>
+    <label for="pollution-evidence">Corpus example / context checked in SkELL</label><textarea id="pollution-evidence" placeholder="Write a short example or note the context you checked in SkELL."></textarea>
+  </div>
+</div>
+<p class="muted">Teacher scoring: up to 10 points for accurate, distinct collocations, sentences showing meaningful use, and evidence from SkELL. Similar words are assessed for relevance and contextual interpretation.</p>
+<p class="muted">Teacher scoring: up to 10 points for accurate, distinct collocations, sentences showing meaningful use, and evidence from SkELL. Similar words are assessed for relevance and contextual interpretation.</p>
+<p class="muted">No separate “Copy cluster notes” button is needed: these structured fields are included in the lesson submission and appear as individual records in the teacher's spreadsheet.</p></section>
+<section class="card"><h2>4. Odd One Out · Based on SkELL · 10 points</h2><p class="muted">Choose the one expression that does not form a natural collocation. The questions cover a range of environmental vocabulary and grammatical patterns. Each item has three natural combinations and one incorrect combination. Unanswered items stay hidden; explanations appear only after you choose and check.</p><div id="odd"></div><button onclick="check('odd')">Check answers</button><button onclick="reset('odd')">Try again</button><div id="odd-result"></div></section>
+<section class="card"><h2>5. Find the Verb, Find the Collocate · 10 points</h2><p>Choose the verb or verb phrase that creates a natural environmental collocation.</p><div id="find"></div><button onclick="check('find')">Check answers</button><button onclick="reset('find')">Try again</button><div id="find-result"></div></section>
+<section class="card"><h2>6. Collocation Sorting · 10 points</h2><p class="muted">Choose the verb that creates a natural lexical collocation.</p><div id="sorting"></div><button onclick="check('sorting')">Check answers</button><button onclick="reset('sorting')">Try again</button><div id="sorting-result"></div></section>
+<section class="card"><h2>7. Lexical Cloze · 10 points</h2><p class="muted"><b>Word bank:</b> protect the environment · environmental impact · wildlife conservation · endangered species · fragile ecosystem · loss of biodiversity · combat climate change · natural resources · fossil fuels · renewable energy</p><div id="cloze"></div><button onclick="check('cloze')">Check answers</button><button onclick="reset('cloze')">Try again</button><div id="cloze-result"></div></section>
+<section class="card"><h2>8. Collocation Repair · 10 points</h2><p class="muted">Choose the best correction. Focus on natural lexical word partnerships used to discuss environmental challenges and sustainable living.</p><div id="repair"></div><button onclick="check('repair')">Check answers</button><button onclick="reset('repair')">Try again</button><div id="repair-result"></div></section>
+<section class="card" id="writing-zone"><h2>9. Productive Recall Challenge · 5 points (teacher-scored)</h2><p>Write at least 100 words on <b>Environmental Challenges and Sustainable Living</b>. Use at least eight target collocations from this lesson. Write directly in the box; clipboard paste and drag-and-drop are disabled in this field.</p><p class="writing-anti-paste-note" id="writing-notice">Please compose your paragraph here rather than pasting a prepared text. Normal paste, cut/copy shortcuts and drag-and-drop are blocked in this writing field. This browser restriction supports the task rules but is not a complete plagiarism-detection system.</p><label for="paragraph">Your paragraph</label><textarea id="paragraph" class="writing-area" autocomplete="off" autocapitalize="sentences" spellcheck="true" placeholder="One environmental challenge in my area is..."></textarea><p id="word-count" class="muted" aria-live="polite">0 words — 100-word minimum to submit; no maximum</p><p class="muted">Teacher awards up to 5 points for accurate use of distinct target collocations, a clear main idea and relevant examples.</p><div class="submission-panel"><h3>Submit your lesson work to the teacher</h3><p class="muted">Your name and group from the student profile above, your SkELL collocations and original sentences, related words, corpus notes, writing paragraph and available exercise scores will be collected in the teacher's spreadsheet.</p><button type="button" id="submitLessonBtn" onclick="submitLessonWork()">Submit lesson work</button><div id="submitStatus" class="submission-status" role="status" aria-live="polite"></div></div></section>
+<section class="card"><h2>Lesson score</h2><p class="muted">Auto-scored sections: reading MCQ, True/False, paragraph matching, Matching, Sentence Completion, Odd One Out, Find the Collocate, Sorting, Lexical Cloze and Collocation Repair (100 points total). SkELL cluster (10) and productive writing (5) are teacher-scored. Maximum lesson total: 115 points.</p><button onclick="summary()">Show score summary</button><div id="summary"></div></section>
+<p class="muted">Vocabulary reference: IELTS Jacky, “Environment Vocabulary: Topic vocabulary for the IELTS exam” (2018), based on the material supplied for this lesson. Reading and interactive exercises were adapted or written for LexiLink.</p>
+<p class="muted">LexiLink · Connect words. Build fluency. Lesson submissions are sent to the configured Google Apps Script collector. The teacher must verify the saved row in Google Sheets because the browser cannot read confirmation in no-cors mode.</p>
+<script>
+let readingUtterance = null;
+let readingTextContent = '';
+let readingCurrentChar = 0;
+let readingRunId = 0;
+let readingSeekWhilePaused = false;
+let readingTitleEnd = 0;
+let readingDelayTimer = null;
+let readingDelayPaused = false;
+let readingDelayRemaining = 3000;
+let readingDelayStartedAt = 0;
+
+function setReadingAudioStatus(message){const el=document.getElementById('reading-audio-status');if(el)el.textContent=message;}
+function readingProgressPercent(){return readingTextContent.length?Math.min(100,Math.round(readingCurrentChar/readingTextContent.length*100)):0;}
+function updateReadingProgress(percent){
+  const slider=document.getElementById('reading-progress');
+  const label=document.getElementById('reading-progress-value');
+  const safe=Math.max(0,Math.min(100,Math.round(percent)));
+  if(slider)slider.value=String(safe);
+  if(label)label.textContent=safe+'%';
+}
+function getReadingText(){
+  const article=document.getElementById('reading-text');
+  if(!article)return '';
+  return (article.innerText||article.textContent||'').replace(/\s+/g,' ').trim();
+}
+function loadReadingText(){
+  const article=document.getElementById('reading-text');
+  readingTextContent=getReadingText();
+  const titleElement=article?article.querySelector('h3'):null;
+  const titleText=titleElement?(titleElement.innerText||titleElement.textContent||'').replace(/\s+/g,' ').trim():'';
+  const titleIndex=titleText?readingTextContent.indexOf(titleText):-1;
+  readingTitleEnd=titleIndex>=0?titleIndex+titleText.length:0;
+  if(readingTitleEnd<=0||readingTitleEnd>=readingTextContent.length)readingTitleEnd=0;
+  return readingTextContent;
+}
+function setProgressFromChar(charIndex){
+  readingCurrentChar=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  updateReadingProgress(readingProgressPercent());
+}
+function clearReadingDelay(){
+  if(readingDelayTimer!==null){clearTimeout(readingDelayTimer);readingDelayTimer=null;}
+  readingDelayStartedAt=0;
+}
+function startReadingDelay(runId, milliseconds){
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=Math.max(0,milliseconds);
+  if(readingDelayRemaining<=0){startReadingFrom(readingTitleEnd);return;}
+  readingDelayStartedAt=Date.now();
+  const seconds=(readingDelayRemaining/1000).toFixed(1).replace(/\.0$/,'');
+  setReadingAudioStatus('Title finished. Pausing for '+seconds+' seconds before the reading continues…');
+  readingDelayTimer=setTimeout(()=>{
+    readingDelayTimer=null;
+    readingDelayStartedAt=0;
+    if(runId!==readingRunId||readingDelayPaused)return;
+    readingDelayRemaining=3000;
+    startReadingFrom(readingTitleEnd);
+  },readingDelayRemaining);
+}
+function startReadingFrom(charIndex){
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  const start=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  if(start>=readingTextContent.length){setProgressFromChar(0);return startReadingFrom(0);}
+  const thisRun=++readingRunId;
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=3000;
+  window.speechSynthesis.cancel();
+  const isTitleSegment=readingTitleEnd>0&&start<readingTitleEnd;
+  const segmentEnd=isTitleSegment?readingTitleEnd:readingTextContent.length;
+  const segmentText=readingTextContent.slice(start,segmentEnd);
+  readingUtterance=new SpeechSynthesisUtterance(segmentText);
+  readingUtterance.lang='en-GB';
+  const rateControl=document.getElementById('reading-speed');
+  readingUtterance.rate=rateControl?Number(rateControl.value):1;
+  readingUtterance.pitch=1;
+  const voices=window.speechSynthesis.getVoices();
+  const englishVoice=voices.find(v=>/^en-GB$/i.test(v.lang))||voices.find(v=>/^en-US$/i.test(v.lang))||voices.find(v=>/^en/i.test(v.lang));
+  if(englishVoice)readingUtterance.voice=englishVoice;
+  setProgressFromChar(start);
+  readingUtterance.onstart=()=>{if(thisRun===readingRunId)setReadingAudioStatus(isTitleSegment?'Reading the title…':'Reading aloud…');};
+  readingUtterance.onboundary=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(Number.isFinite(event.charIndex))setProgressFromChar(start+event.charIndex);
+  };
+  readingUtterance.onend=()=>{
+    if(thisRun!==readingRunId)return;
+    if(isTitleSegment&&readingTitleEnd<readingTextContent.length){
+      setProgressFromChar(readingTitleEnd);
+      readingUtterance=null;
+      startReadingDelay(thisRun,3000);
+      return;
+    }
+    setProgressFromChar(readingTextContent.length);
+    setReadingAudioStatus('Reading finished. Press Listen to replay, or move the progress line to choose a section.');
+    readingUtterance=null;
+  };
+  readingUtterance.onerror=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(event.error!=='canceled'&&event.error!=='interrupted')setReadingAudioStatus('Audio playback could not start. Try another browser or check your device’s speech settings.');
+  };
+  window.speechSynthesis.speak(readingUtterance);
+  setReadingAudioStatus(isTitleSegment?'Starting with the title…':(start?'Resuming from the selected position…':'Starting playback…'));
+}
+function playReading(){
+  if(!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)){
+    setReadingAudioStatus('Text-to-speech is not supported in this browser. Try opening the lesson in an up-to-date Chrome, Edge or Safari browser.');return;
+  }
+  if(readingDelayPaused){
+    startReadingDelay(readingRunId,readingDelayRemaining);
+    setReadingAudioStatus('Resuming the 3-second pause after the title…');
+    return;
+  }
+  if(readingDelayTimer!==null){setReadingAudioStatus('The 3-second pause after the title is in progress…');return;}
+  if(window.speechSynthesis.paused&&!readingSeekWhilePaused){window.speechSynthesis.resume();setReadingAudioStatus('Reading resumed from the same place.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused)return;
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  if(readingCurrentChar>=readingTextContent.length)readingCurrentChar=0;
+  startReadingFrom(readingCurrentChar);
+}
+function pauseReading(){
+  if(!('speechSynthesis' in window)){setReadingAudioStatus('Text-to-speech is not supported in this browser.');return;}
+  if(readingDelayTimer!==null){
+    const elapsed=Math.max(0,Date.now()-readingDelayStartedAt);
+    readingDelayRemaining=Math.max(0,readingDelayRemaining-elapsed);
+    clearReadingDelay();
+    readingDelayPaused=true;
+    setReadingAudioStatus('Paused during the 3-second break after the title. Press Listen / Resume to continue the countdown.');
+    return;
+  }
+  if(readingDelayPaused){setReadingAudioStatus('The pause after the title is paused. Press Listen / Resume to continue.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused){window.speechSynthesis.pause();setReadingAudioStatus('Reading paused. Press Listen / Resume to continue from the same place.');}
+  else setReadingAudioStatus('There is no reading currently playing. Press Listen / Resume to start.');
+}
+function stopReading(){
+  if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  clearReadingDelay();
+  readingRunId++;
+  readingSeekWhilePaused=false;
+  readingDelayPaused=false;
+  readingDelayRemaining=3000;
+  readingUtterance=null;
+  loadReadingText();
+  readingCurrentChar=0;
+  updateReadingProgress(0);
+  setReadingAudioStatus('Reading stopped and reset to the beginning.');
+}
+function previewReadingSeek(percent){
+  const label=document.getElementById('reading-progress-value');
+  if(label)label.textContent=Math.max(0,Math.min(100,Math.round(Number(percent)||0))+'%');
+}
+function seekReading(percent){
+  if(!('speechSynthesis' in window)){updateReadingProgress(readingProgressPercent());return;}
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent)return;
+  const delayActive=readingDelayTimer!==null;
+  const delayPaused=readingDelayPaused;
+  const wasSpeaking=window.speechSynthesis.speaking&&!window.speechSynthesis.paused;
+  const wasPaused=window.speechSynthesis.paused;
+  const pct=Math.max(0,Math.min(100,Number(percent)||0));
+  let target=Math.round(readingTextContent.length*pct/100);
+  while(target>0&&target<readingTextContent.length&&!/\s/.test(readingTextContent[target-1]))target--;
+  setProgressFromChar(target);
+  if(delayActive){
+    clearReadingDelay();readingDelayPaused=false;readingDelayRemaining=3000;
+    startReadingFrom(target);
+  }else if(delayPaused||wasPaused){
+    clearReadingDelay();
+    if(window.speechSynthesis.speaking||window.speechSynthesis.paused)window.speechSynthesis.cancel();
+    readingRunId++;readingUtterance=null;readingDelayPaused=false;readingDelayRemaining=3000;readingSeekWhilePaused=true;
+    setReadingAudioStatus('Position selected. Press Listen / Resume to continue from here.');
+  }else if(wasSpeaking){startReadingFrom(target);}
+  else {
+    readingDelayPaused=false;readingDelayRemaining=3000;
+    setReadingAudioStatus(pct===0?'Ready to play from the beginning.':'Position selected. Press Listen / Resume to start from here.');
+  }
+}
+function updateReadingSpeedNote(){
+  if(window.speechSynthesis&&window.speechSynthesis.speaking&&!window.speechSynthesis.paused){
+    setReadingAudioStatus('To apply the new speed, stop and start playback again. Pause / Resume keeps the current playback speed.');
+  }
+}
+
+const target=[["protect the environment","Definition: to keep the natural world safe from damage or harm.","Synonyms: safeguard the environment; prevent environmental damage; preserve nature"],["environmental impact","Definition: the effect an activity, project or decision has on the natural world.","Synonyms: ecological effect; environmental consequence; impact on the environment"],["environmentally friendly","Definition: causing little or no harm to the natural environment.","Synonyms: eco-friendly; low-impact; less damaging to the environment"],["natural environment","Definition: the surroundings in which plants and animals live naturally, rather than a place created by people.","Synonyms: natural surroundings; native habitat; the non-built environment"],["environmental hazard","Definition: a substance or event that may cause harm to the environment.","Synonyms: ecological risk; environmental danger; source of environmental harm"],["wildlife conservation","Definition: the protection of wild animals and the places they depend on.","Synonyms: wildlife protection; conservation of wild species; safeguarding animal life"],["conservation programme","Definition: an organised set of actions designed to protect a species, habitat or natural resource.","Synonyms: conservation project; protection scheme; organised conservation effort"],["endangered species","Definition: a type of animal or plant at serious risk of extinction.","Synonyms: species at risk; threatened species; species facing extinction"],["fragile ecosystem","Definition: an ecological system that can be easily damaged by environmental changes.","Synonyms: vulnerable ecosystem; sensitive ecosystem; easily disrupted natural system"],["loss of biodiversity","Definition: a reduction in the variety of living things in a place or across the planet.","Synonyms: biodiversity decline; reduction in species variety; decrease in biological diversity"],["combat climate change","Definition: to take action to reduce the causes or limit the effects of climate change.","Synonyms: tackle climate change; address climate change; take action on global warming"],["natural resources","Definition: materials and substances found in nature that people use, such as water, timber and minerals.","Synonyms: resources from nature; raw natural materials; naturally occurring resources"],["fossil fuels","Definition: coal, oil and natural gas formed over millions of years from ancient organic matter.","Synonyms: coal, oil and gas; non-renewable fuels; carbon-based fuels"],["greenhouse gas emissions","Definition: gases released into the atmosphere that contribute to the greenhouse effect.","Synonyms: greenhouse gases released; heat-trapping gas emissions; emissions that warm the atmosphere"],["carbon footprint","Definition: the amount of greenhouse gas emissions associated with a person, activity, product or organisation.","Synonyms: emissions footprint; climate impact from emissions; total carbon emissions linked to an activity"],["soil erosion","Definition: the removal of the upper layer of soil by wind, water or other forces.","Synonyms: topsoil loss; wearing away of soil; soil loss caused by wind or water"],["toxic waste","Definition: waste containing poisonous substances that can harm people, animals or the environment.","Synonyms: hazardous waste; poisonous waste; harmful industrial waste"],["air quality","Definition: how clean or polluted the air is in a particular place.","Synonyms: cleanliness of the air; level of air pollution; condition of the air"],["renewable energy","Definition: energy produced from sources that naturally replenish, such as sunlight and wind.","Synonyms: energy from renewable sources; replenishable energy; solar and wind power"],["energy-efficient appliances","Definition: devices that provide a service while using relatively little energy.","Synonyms: energy-saving appliances; efficient household devices; low-energy equipment"]];
+document.getElementById('target').innerHTML=target.map((x,i)=>`<div class="box"><b>${i+1}. ${x[0]}</b><p>${x[1]}</p><p class="muted"><b>${x[2].split(':')[0]}:</b>${x[2].split(':').slice(1).join(':')}</p></div>`).join('');
+const profileName=document.getElementById('profile-name'),profileGroup=document.getElementById('profile-group');
+function updateProfile(){const words=profileName.value.trim().split(/\s+/).filter(Boolean);document.getElementById('avatar-initials').textContent=words.length?words.slice(0,2).map(w=>w[0].toUpperCase()).join(''):'S'}
+profileName.addEventListener('input',updateProfile);profileGroup.addEventListener('input',()=>{});
+const clusterIds=['environment','wildlife','climate','pollution'];
+function lexilinkCountWritingWords(text){
+  const clean=String(text||'').trim();
+  return clean?clean.split(/\s+/).filter(Boolean).length:0;
+}
+function lexilinkUpdateWritingWordCounter(){
+  const field=document.getElementById('paragraph');
+  const counter=document.getElementById('word-count');
+  if(!field||!counter)return;
+  const count=lexilinkCountWritingWords(field.value);
+  if(count<100){
+    counter.className='muted word-count-warn';
+    counter.textContent=`${count} words — ${100-count} more needed to submit (minimum 100; no maximum)`;
+  }else{
+    counter.className='muted word-count-ok';
+    counter.textContent=`${count} words — minimum reached; no maximum`;
+  }
+} const lexilinkWritingCounterField=document.getElementById('paragraph');
+if(lexilinkWritingCounterField){
+  lexilinkWritingCounterField.addEventListener('input',lexilinkUpdateWritingWordCounter);
+  lexilinkUpdateWritingWordCounter();
+}
+
+// Block ordinary clipboard paste/cut/copy shortcuts and drag-drop in the writing field.
+// This is a classroom friction measure, not secure plagiarism prevention.
+(function protectWritingField(){
+  const field=document.getElementById('paragraph');
+  const notice=document.getElementById('writing-notice');
+  const blockedMessage='Please type your own text directly in this writing field; paste and drag-and-drop are disabled.';
+  ['paste','copy','cut','drop'].forEach(eventName=>field.addEventListener(eventName,e=>{
+    e.preventDefault();
+    if(notice){notice.textContent=blockedMessage;notice.classList.add('submission-status','warn');}
+  }));
+  field.addEventListener('dragover',e=>e.preventDefault());
+  field.addEventListener('beforeinput',e=>{
+    if(['insertFromPaste','insertFromDrop','deleteByCut'].includes(e.inputType)){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+  });
+  field.addEventListener('keydown',e=>{
+    const key=e.key.toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['v','c','x'].includes(key)){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+    if(e.shiftKey&&e.key==='Insert'){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+  });
+})();
+
+// Paste the deployed Web App URL for the collector script supplied with this lesson.
+const SUBMISSION_ENDPOINT = "https://script.google.com/macros/s/AKfycbxKwWE0CYJDxrpP60p0A9JRv2sHrSECwzc9IPyYt9e-Kd1XQJsrHPGe2r8VHwlxPZWa/exec";
+function fieldValue(id){return (document.getElementById(id)?.value||'').trim()}
+function collectSkellClusters(){
+  return clusterIds.map(keyword=>({
+    keyword:keyword.toUpperCase(),
+    collocation1:fieldValue(`${keyword}-coll-1`),
+    sentence1:fieldValue(`${keyword}-sentence-1`),
+    collocation2:fieldValue(`${keyword}-coll-2`),
+    sentence2:fieldValue(`${keyword}-sentence-2`),
+    similarWord1:fieldValue(`${keyword}-syn-1`),
+    similarWord2:fieldValue(`${keyword}-syn-2`),
+    evidence:fieldValue(`${keyword}-evidence`)
+  }));
+}
+function collectAnswers(){
+  const answers={};
+  document.querySelectorAll('input,textarea,select').forEach((el,i)=>{
+    if(['profile-name','profile-group','paragraph','submitLessonBtn'].includes(el.id)) return;
+    if(el.type==='radio'&&!el.checked) return;
+    if(el.type==='checkbox'&&!el.checked) return;
+    const key=el.id||el.name||`field_${i+1}`;
+    answers[key]=String(el.value||'').trim();
+  });
+  return answers;
+}
+function getScoreSummary(){
+  const parts=Object.values(scores);
+  return {score:parts.reduce((sum,x)=>sum+Number(x.score||0),0),max:parts.reduce((sum,x)=>sum+Number(x.max||0),0)};
+}
+function validateSubmission(){
+  if(!fieldValue('profile-name')) return {ok:false,message:'Please enter your name in the student profile at the top of the lesson.',id:'profile-name'};
+  if(!fieldValue('profile-group')) return {ok:false,message:'Please enter your group in the student profile at the top of the lesson.',id:'profile-group'};
+  const writing=fieldValue('paragraph');
+  const words=writing?writing.split(/\s+/).length:0;
+  if(words<100) return {ok:false,message:`Please write at least 100 words. Your current paragraph has ${words} words.`,id:'paragraph'};
+  for(const keyword of clusterIds){
+    const fields=[`${keyword}-coll-1`,`${keyword}-sentence-1`,`${keyword}-coll-2`,`${keyword}-sentence-2`,`${keyword}-syn-1`,`${keyword}-syn-2`,`${keyword}-evidence`];
+    const missing=fields.find(id=>!fieldValue(id));
+    if(missing) return {ok:false,message:`Complete both collocations and their own sentences, two Similar words, and a corpus context for ${keyword.toUpperCase()}.`,id:missing};
+  }
+  return {ok:true};
+}
+async function submitLessonWork(){
+  const status=document.getElementById('submitStatus');
+  const button=document.getElementById('submitLessonBtn');
+  const validation=validateSubmission();
+  if(!validation.ok){status.className='submission-status err';status.textContent=validation.message;document.getElementById(validation.id)?.focus();return;}
+  if(SUBMISSION_ENDPOINT.includes('PASTE_LEXILINK_APPS_SCRIPT_WEB_APP_URL_HERE')){
+    status.className='submission-status warn';
+    status.textContent='Submission is not connected yet. The teacher must deploy the shared LexiLink Google Apps Script collector, paste its /exec URL into SUBMISSION_ENDPOINT, and save the HTML file.';
+    return;
+  }
+  const payload={
+    lesson:'Lesson 10 — Environmental Challenges and Sustainable Living',
+    studentName:fieldValue('profile-name'),
+    group:fieldValue('profile-group'),
+    submittedAt:new Date().toISOString(),
+    writing:{prompt:'Environmental Challenges and Sustainable Living',wordCount:fieldValue('paragraph').split(/\s+/).length,text:fieldValue('paragraph')},
+    skellClusters:collectSkellClusters(),
+    scores:{sections:scores,autoTotal:getScoreSummary()},
+    answers:collectAnswers(),
+    userAgent:navigator.userAgent
+  };
+  button.disabled=true;button.textContent='Sending…';status.className='submission-status warn';status.textContent='Sending your work to the teacher’s spreadsheet…';
+  try{
+    await fetch(SUBMISSION_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+    status.className='submission-status ok';status.textContent='Your submission request was sent. The browser cannot read the server confirmation in this mode, so the teacher should verify that the new rows appear in Google Sheets.';
+    button.textContent='Submission sent';
+  }catch(error){
+    status.className='submission-status err';status.textContent='The request could not be sent. Check the internet connection and try again.';
+    button.disabled=false;button.textContent='Try again';
+  }
+}
+const readMCQs=[{"q":"What can be one result of a new road or factory if it is poorly planned?","ans":"It may damage habitats or the natural environment.","opts":["It always increases biodiversity.","It may damage habitats or the natural environment.","It immediately removes greenhouse gases from the atmosphere.","It prevents all forms of pollution."]},{"q":"What does a carbon footprint describe?","ans":"Greenhouse gas emissions linked to a person, activity, product or organisation.","opts":["The amount of land covered by a building.","The number of species in a forest.","Greenhouse gas emissions linked to a person, activity, product or organisation.","The weight of rubbish collected in one day."]},{"q":"Why can a fragile ecosystem be harmed by habitat loss?","ans":"The relationships among species and their surroundings can be disrupted.","opts":["All species can always move to a different habitat.","The relationships among species and their surroundings can be disrupted.","Habitat loss automatically creates new natural resources.","A fragile ecosystem does not contain living things."]},{"q":"What might a conservation programme do?","ans":"Restore habitats or monitor wildlife populations.","opts":["Restore habitats or monitor wildlife populations.","Increase illegal hunting.","Replace every natural habitat with a road.","Prevent scientists from collecting evidence."]},{"q":"What releases greenhouse gas emissions in the reading?","ans":"Burning fossil fuels.","opts":["Only planting native trees.","Using less electricity in an efficient home.","Burning fossil fuels.","Monitoring air quality."]},{"q":"How can poorly managed land contribute to soil erosion?","ans":"It can leave soil exposed to wind and rain.","opts":["It makes all soil permanently fertile.","It can leave soil exposed to wind and rain.","It stops rainfall from reaching the ground.","It converts toxic waste into clean water."]},{"q":"Which issue may reduce air quality?","ans":"Pollution from traffic and industry.","opts":["A conservation programme protecting wetlands.","Pollution from traffic and industry.","The presence of renewable energy sources alone.","A decline in the use of fossil fuels."]},{"q":"What is one way to make household energy use more sustainable?","ans":"Use renewable energy and energy-efficient appliances.","opts":["Leave all appliances running all day.","Use renewable energy and energy-efficient appliances.","Increase the use of fossil fuels.","Avoid measuring energy use."]},{"q":"According to the reading, who needs to be involved in environmental progress?","ans":"Individuals, businesses and public institutions.","opts":["Individuals, businesses and public institutions.","Only school students.","Only people who live in forests.","Only tourists visiting national parks."]},{"q":"What is the main message of the reading?","ans":"Environmental protection works best when practical actions are coordinated and evaluated.","opts":["Environmental problems can be solved by one action alone.","Only individual behaviour matters; infrastructure is unimportant.","Environmental protection works best when practical actions are coordinated and evaluated.","Renewable energy has no role in sustainable living."]}];
+const readTFs=[{"q":"The reading says that individual choices can affect a person's carbon footprint.","ans":"True"},{"q":"The text claims environmental protection is solely the responsibility of individuals.","ans":"False"},{"q":"A fragile ecosystem may be disturbed by pollution or intensive land use.","ans":"True"},{"q":"Loss of biodiversity can weaken an ecosystem's ability to recover.","ans":"True"},{"q":"A conservation programme should identify threats and evaluate its results.","ans":"True"},{"q":"Burning fossil fuels releases greenhouse gas emissions.","ans":"True"},{"q":"Soil erosion can occur when soil is exposed to wind and rain.","ans":"True"},{"q":"Toxic waste is harmless if it is released into a river in small amounts.","ans":"False"},{"q":"Renewable energy sources naturally replenish.","ans":"True"},{"q":"The reading recommends tracking environmental results over time.","ans":"True"}];
+const readMatches=[{"q":"Choices and projects that may affect the natural world","ans":"1"},{"q":"Emissions linked to an individual or product","ans":"1"},{"q":"Protecting animals and the places where they live","ans":"2"},{"q":"An organised effort to safeguard a species or habitat","ans":"2"},{"q":"Gases released by burning coal, oil or gas","ans":"3"},{"q":"The removal of exposed topsoil by wind or water","ans":"3"},{"q":"Waste that contains poisonous substances","ans":"3"},{"q":"Using sources such as sunlight or wind to produce power","ans":"4"},{"q":"Devices that complete tasks while using less electricity","ans":"4"},{"q":"Measuring results so communities can adjust environmental action","ans":"4"}];
+function renderReadRadio(id,items,optsFn){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${optsFn(x,i)}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+function renderSelect(id,items,options){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b><label for="${id}-${i}">Choose:</label><select id="${id}-${i}"><option value="">Choose an answer…</option>${options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select><div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+renderReadRadio('readMCQ',readMCQs,(x,i)=>`<div>${x.opts.map(o=>`<label><input type="radio" name="readMCQ-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`);
+renderReadRadio('readTF',readTFs,(x,i)=>`<div><label><input type="radio" name="readTF-${i}" value="True"> True</label><label><input type="radio" name="readTF-${i}" value="False"> False</label></div>`);
+renderSelect('readMatch',readMatches,['1','2','3','4']);
+const scores={};
+function markRadioSet(items,namePrefix,id,resultId){let n=0,answered=0;items.forEach((x,i)=>{const chosen=document.querySelector(`input[name="${namePrefix}-${i}"]:checked`)?.value;const f=document.getElementById(`${id}-fb-${i}`);if(!chosen){f.className='fb muted';f.textContent='Choose an answer before checking this question.';return;}answered++;const ok=chosen===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct. '+(x.why||''):'Not quite. Correct answer: '+x.ans+(x.why?' — '+x.why:'')});scores[id]={score:n,max:items.length};document.getElementById(resultId).innerHTML=`<p><b>Score: ${n}/${items.length}</b> · Answered: ${answered}/${items.length}</p>`}
+function checkReading(){markRadioSet(readMCQs,'readMCQ','readMCQ','reading-result')}
+function resetReading(){readMCQs.forEach((x,i)=>{document.querySelectorAll(`input[name="readMCQ-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readMCQ-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('reading-result').innerHTML='';delete scores.readMCQ}
+function checkTF(){markRadioSet(readTFs,'readTF','readTF','tf-result')}
+function resetTF(){readTFs.forEach((x,i)=>{document.querySelectorAll(`input[name="readTF-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readTF-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('tf-result').innerHTML='';delete scores.readTF}
+function checkReadMatch(){let n=0,answered=0;readMatches.forEach((x,i)=>{const v=document.getElementById(`readMatch-${i}`).value;const f=document.getElementById(`readMatch-fb-${i}`);if(!v){f.className='fb muted';f.textContent='Choose a paragraph before checking this question.';return;}answered++;const ok=v===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct.':'Not quite. Correct answer: paragraph '+x.ans+'.'});scores.readMatch={score:n,max:readMatches.length};document.getElementById('readmatch-result').innerHTML=`<p><b>Score: ${n}/${readMatches.length}</b> · Answered: ${answered}/${readMatches.length}</p>`}
+function resetReadMatch(){readMatches.forEach((x,i)=>{document.getElementById(`readMatch-${i}`).value='';const f=document.getElementById(`readMatch-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('readmatch-result').innerHTML='';delete scores.readMatch}
+const data={"matching":{"mode":"select","items":[{"q":"protect the ___","ans":"environment"},{"q":"environmental ___","ans":"impact"},{"q":"wildlife ___","ans":"conservation"},{"q":"endangered ___","ans":"species"},{"q":"fragile ___","ans":"ecosystem"},{"q":"loss of ___","ans":"biodiversity"},{"q":"combat climate ___","ans":"change"},{"q":"natural ___","ans":"resources"},{"q":"fossil ___","ans":"fuels"},{"q":"renewable ___","ans":"energy"}],"options":["environment","impact","conservation","species","ecosystem","biodiversity","change","resources","fuels","energy"]},"gaps":{"mode":"select","items":[{"q":"Local residents organised a clean-up to ___. ","ans":"protect the environment"},{"q":"Before approving the project, the council assessed its likely ___. ","ans":"environmental impact"},{"q":"The charity funds ___ to protect wild animals and their habitats.","ans":"wildlife conservation"},{"q":"The programme monitors ___ whose numbers are falling rapidly.","ans":"endangered species"},{"q":"Coral reefs are a ___ that can be damaged by changes in water temperature.","ans":"fragile ecosystem"},{"q":"Habitat destruction can contribute to the ___. ","ans":"loss of biodiversity"},{"q":"Governments need to cooperate to ___. ","ans":"combat climate change"},{"q":"Forests, minerals and fresh water are examples of ___. ","ans":"natural resources"},{"q":"Coal, oil and gas are commonly known as ___. ","ans":"fossil fuels"},{"q":"Solar and wind power are forms of ___. ","ans":"renewable energy"}],"options":["protect the environment","environmental impact","wildlife conservation","endangered species","fragile ecosystem","loss of biodiversity","combat climate change","natural resources","fossil fuels","renewable energy"]},"odd":{"mode":"radio","items":[{"q":"CLIMATE CHANGE · Which combination is incorrect?","ans":"comply with climate change","opts":["combat climate change","adapt to climate change","the effects of climate change","comply with climate change"],"why":"“Combat climate change”, “adapt to climate change” and “the effects of climate change” are natural combinations. “Comply with” is used with rules or requests, not normally with climate change."},{"q":"NATURAL RESOURCES · Which combination is incorrect?","ans":"rely natural resources","opts":["exploit natural resources","conserve natural resources","deplete natural resources","rely natural resources"],"why":"“Exploit”, “conserve” and “deplete natural resources” are established collocations. The verb “rely” requires the preposition “on”: “rely on natural resources”."},{"q":"FOSSIL FUELS · Which combination is incorrect?","ans":"depend fossil fuels","opts":["burn fossil fuels","phase out fossil fuels","fossil fuel consumption","depend fossil fuels"],"why":"“Burn fossil fuels”, “phase out fossil fuels” and “fossil fuel consumption” are natural. Say “depend on fossil fuels”, not “depend fossil fuels”."},{"q":"ENDANGERED SPECIES · Which combination is incorrect?","ans":"discuss about endangered species","opts":["protect endangered species","an endangered species list","the survival of endangered species","discuss about endangered species"],"why":"The first three combinations are natural. “Discuss” takes a direct object, so say “discuss endangered species”, not “discuss about endangered species”."},{"q":"CARBON FOOTPRINT · Which combination is incorrect?","ans":"reduce of a carbon footprint","opts":["reduce a carbon footprint","measure a carbon footprint","a product's carbon footprint","reduce of a carbon footprint"],"why":"“Reduce a carbon footprint”, “measure a carbon footprint” and “a product's carbon footprint” are natural. “Reduce” takes a direct object here; no “of” is used."},{"q":"SOIL EROSION · Which combination is incorrect?","ans":"soil erosion with wind","opts":["prevent soil erosion","severe soil erosion","soil erosion caused by wind","soil erosion with wind"],"why":"The first three are natural collocations or descriptions. The usual forms are “soil erosion by wind” or “soil erosion caused by wind”, not “soil erosion with wind”."},{"q":"GREENHOUSE GAS · Which combination is incorrect?","ans":"greenhouse gases contribute for global warming","opts":["greenhouse gas emissions","greenhouse gases trap heat","reduce greenhouse gas levels","greenhouse gases contribute for global warming"],"why":"“Greenhouse gas emissions”, “greenhouse gases trap heat” and “reduce greenhouse gas levels” are natural combinations. The standard pattern is “greenhouse gases contribute to global warming”, not “contribute for global warming”."},{"q":"RENEWABLE ENERGY · Which combination is incorrect?","ans":"depend renewable energy","opts":["generate renewable energy","switch to renewable energy","a renewable energy source","depend renewable energy"],"why":"“Generate renewable energy”, “switch to renewable energy” and “a renewable energy source” are natural. Say “depend on renewable energy”."},{"q":"TOXIC WASTE · Which combination is incorrect?","ans":"dispose toxic waste","opts":["dispose of toxic waste","toxic waste disposal","toxic waste can contaminate groundwater","dispose toxic waste"],"why":"The first three are natural. “Dispose” requires “of” before the thing being discarded: “dispose of toxic waste”."},{"q":"AIR QUALITY · Which combination is incorrect?","ans":"air quality depends of traffic","opts":["improve air quality","monitor air quality","poor air quality","air quality depends of traffic"],"why":"“Improve air quality”, “monitor air quality” and “poor air quality” are natural. Say “air quality depends on traffic”, not “depends of traffic”."}]},"find":{"mode":"select","items":[{"q":"___ the environment","ans":"SAVE"},{"q":"___ climate change","ans":"COMBAT"},{"q":"___ natural resources","ans":"CONSERVE"},{"q":"___ greenhouse gases","ans":"EMIT"},{"q":"___ soil erosion","ans":"PREVENT"},{"q":"___ emissions","ans":"REDUCE"},{"q":"___ in a natural habitat","ans":"THRIVE"},{"q":"___ an endangered species","ans":"SAVE"},{"q":"___ renewable energy","ans":"GENERATE"},{"q":"___ a carbon footprint","ans":"MEASURE"}],"options":["PROTECT","SAVE","COMBAT","CONSERVE","EMIT","PREVENT","REDUCE","THRIVE","GENERATE","MEASURE"]},"sorting":{"mode":"select","items":[{"q":"___ a conservation programme","ans":"RUN"},{"q":"___ toxic waste","ans":"DISPOSE OF"},{"q":"___ the effects of climate change","ans":"MITIGATE"},{"q":"___ an environmental impact assessment","ans":"CARRY OUT"},{"q":"___ renewable energy","ans":"GENERATE"},{"q":"___ endangered species","ans":"PROTECT"},{"q":"___ air quality","ans":"MONITOR"},{"q":"___ natural resources","ans":"DEPLETE"},{"q":"___ a carbon footprint","ans":"REDUCE"},{"q":"___ soil erosion","ans":"PREVENT"}],"options":["RUN","DISPOSE OF","MITIGATE","CARRY OUT","GENERATE","PROTECT","MONITOR","DEPLETE","REDUCE","PREVENT"]},"cloze":{"mode":"select","items":[{"q":"A local group encourages residents to ___ by sorting waste and reducing unnecessary purchases.","ans":"protect the environment"},{"q":"The report measured the ___ of the new road on nearby wetlands.","ans":"environmental impact"},{"q":"The reserve supports ___ by protecting animals and their habitats.","ans":"wildlife conservation"},{"q":"The researchers recorded the number of ___ living in the forest.","ans":"endangered species"},{"q":"A coral reef is a ___ that can be affected by pollution and warming water.","ans":"fragile ecosystem"},{"q":"Habitat destruction is one cause of the ___. ","ans":"loss of biodiversity"},{"q":"International cooperation is needed to ___. ","ans":"combat climate change"},{"q":"Water, timber and minerals are valuable ___. ","ans":"natural resources"},{"q":"Burning ___ releases gases that contribute to global warming.","ans":"fossil fuels"},{"q":"Wind and solar power are examples of ___. ","ans":"renewable energy"}],"options":["protect the environment","environmental impact","wildlife conservation","endangered species","fragile ecosystem","loss of biodiversity","combat climate change","natural resources","fossil fuels","renewable energy"]},"repair":{"mode":"radio","items":[{"q":"The new development may have a negative ___ on the wetland.","ans":"environmental impact","opts":["environmental impact","environmental impacted","impact for environment","environmental impact to"],"why":"“Have a negative environmental impact on” is the natural collocation and pattern. The other choices use the wrong form or preposition."},{"q":"The organisation has launched a ___ to monitor sea turtles.","ans":"wildlife conservation programme","opts":["wildlife conservation programme","wildlife conserving programme","programme wildlife conservation","wildlife conservation to programme"],"why":"“Wildlife conservation programme” is a natural noun phrase describing an organised protection effort."},{"q":"The birds are losing their natural ___ as wetlands are drained.","ans":"habitat","opts":["habitat","habit","inhabit","habitation to"],"why":"“Natural habitat” means the place where an animal or plant normally lives. “Habit” is a repeated behaviour; “inhabit” is a verb."},{"q":"Several rare animals are now at risk of ___. ","ans":"extinction","opts":["extinction","extincting","extinguishing","extinctioning"],"why":"The established expression is “at risk of extinction”. The other options are not standard nouns in this context."},{"q":"Because it is easily damaged by change, scientists describe the reef as a ___. ","ans":"fragile ecosystem","opts":["fragile ecosystem","fragility ecosystem","fragile ecology","fragile ecological"],"why":"“Fragile ecosystem” is the natural noun phrase. “Fragility” is a noun, while “ecological” is an adjective and needs a noun after it."},{"q":"Burning coal and oil produces greenhouse gas ___. ","ans":"emissions","opts":["emissions","emittances","emitting","emitters"],"why":"“Greenhouse gas emissions” is the standard phrase for gases released into the atmosphere."},{"q":"The government plans to ___ climate change by cutting emissions.","ans":"combat","opts":["combat","combat to","combat against of","make combat"],"why":"“Combat climate change” is a natural verb + noun collocation. “Combat” takes a direct object in this use."},{"q":"Factory operators must dispose ___ toxic waste safely.","ans":"of","opts":["of","to","with","for"],"why":"The verb is “dispose of something”. The preposition “of” is required."},{"q":"Solar and wind power are types of ___ energy.","ans":"renewable","opts":["renewable","renewing","replenishment","replenished to"],"why":"“Renewable energy” is the standard term for energy from sources that naturally replenish."},{"q":"Installing energy-efficient appliances can help households ___ electricity use.","ans":"reduce","opts":["reduce","decrease down","make lower","reduce of"],"why":"“Reduce electricity use” is a natural verb + noun combination. “Reduce” takes a direct object without “of”."}]}};
+function render(id){const d=data[id];document.getElementById(id).innerHTML=d.items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${d.mode==='radio'?`<div>${x.opts.map(o=>`<label><input type="radio" name="${id}-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`:`<select id="${id}-${i}"><option value="">Choose…</option>${d.options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select>`}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+Object.keys(data).forEach(render);
+function check(id){const d=data[id];let n=0,answered=0;d.items.forEach((x,i)=>{const v=d.mode==='radio'?document.querySelector(`input[name="${id}-${i}"]:checked`)?.value:document.getElementById(`${id}-${i}`).value;const f=document.getElementById(`${id}-fb-${i}`);if(!v){f.className='fb muted';f.textContent='Choose an answer before checking this question.';return;}answered++;const ok=v===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=(ok?'Correct. ':'Not quite. Correct answer: '+x.ans+'. ')+(x.why||'')});scores[id]={score:n,max:d.items.length};document.getElementById(id+'-result').innerHTML=`<p><b>Score: ${n}/${d.items.length}</b> · Answered: ${answered}/${d.items.length}</p>`}
+function reset(id){const d=data[id];d.items.forEach((x,i)=>{if(d.mode==='radio')document.querySelectorAll(`input[name="${id}-${i}"]`).forEach(e=>e.checked=false);else document.getElementById(`${id}-${i}`).value='';const f=document.getElementById(`${id}-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById(id+'-result').innerHTML='';delete scores[id]}
+function summary(){let n=0,m=0;Object.values(scores).forEach(x=>{n+=x.score;m+=x.max});document.getElementById('summary').innerHTML=`<p><b>Automatically scored so far: ${n}/${m}.</b><br>Teacher-scored: SkELL cluster 0–10; writing 0–5. Maximum lesson score: 115 points.</p>`}
+</script>
+</body></html>
