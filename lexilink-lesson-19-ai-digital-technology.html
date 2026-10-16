@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>LexiLink — Lesson 19: Artificial Intelligence and Digital Technology</title>
+<style>
+:root{--green:#176b45;--green2:#238657;--mint:#eaf7ef;--line:#cde6d5;--ink:#183326;--muted:#587466}
+*{box-sizing:border-box}body{font:16px/1.55 Arial,sans-serif;max-width:1000px;margin:auto;padding:18px;background:#f2faf4;color:var(--ink)}
+header,.card{background:white;padding:20px;margin:16px 0;border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 12px rgba(23,107,69,.06)}
+header{background:linear-gradient(125deg,#155d3d,#278653);color:white;border:0}header p{margin:.4rem 0}h1{margin-top:0}h2{font-size:1.25rem;color:var(--green)}h3{color:#235c3e}
+a{color:var(--green2);font-weight:700}.q{padding:12px 0;border-bottom:1px solid #e2efe6}label{display:block;margin:6px 0}select,textarea,input{font:inherit;padding:10px;width:100%;max-width:100%;border:1px solid #b9d7c3;border-radius:9px;background:#fcfffd;color:var(--ink)}input[type=radio]{width:auto;margin-right:6px}textarea{min-height:80px}button{padding:10px 14px;margin:8px 6px 0 0;border:0;border-radius:9px;background:var(--green);color:white;font-weight:bold;cursor:pointer}button:hover{background:#104d31}.muted{color:var(--muted);font-size:.92rem}.fb{font-size:.92rem}.ok{color:#167143}.bad{color:#b52e38}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.box{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfffc}.profile{background:var(--mint);border:1px solid #a9d9b8;border-radius:16px;padding:18px;margin:16px 0}.profile h2{margin-top:0}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.avatar{width:54px;height:54px;border-radius:50%;background:#176b45;color:white;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;flex-shrink:0}.profile-head{display:flex;gap:14px;align-items:center}.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px}.slot{background:#f0faf3;border:1px solid #cde6d5;border-left:5px solid #238657;padding:12px;border-radius:10px}.slot b{display:block;color:#176b45}.pill{display:inline-block;background:#d5f0de;color:#145a37;padding:4px 9px;border-radius:999px;font-size:.85rem;font-weight:bold}
+.skell-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:16px 0}.skell-cluster{min-width:0;padding:16px;border:1px solid #d7e5ef;border-radius:16px;background:#fff;box-shadow:0 3px 10px rgba(7,39,84,.06)}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;width:fit-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px 16px;background:#082a65;color:#fff;border-radius:999px;font-weight:800;letter-spacing:.02em;font-size:clamp(.82rem,1.55vw,1.05rem);line-height:1.15;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0;font-size:.86rem;color:#587466;line-height:1.35}.collocation-lines{display:grid;gap:8px;margin:8px 0 14px}.collocation-line{height:44px;width:100%;border-radius:8px;padding:3px 8px;border:1px solid transparent;font-weight:600;color:#142b43}.collocation-line:nth-child(3n+1){background:#fff0a6;border-color:#f0d96b}.collocation-line:nth-child(3n+2){background:#f9d1f7;border-color:#eaa3e7}.collocation-line:nth-child(3n){background:#c9f5d9;border-color:#91d9ad}.collocation-line::placeholder{color:#5a6070;font-weight:400}.student-sentence{min-height:70px;margin:6px 0 12px;background:#fbfffc}.submission-panel{margin-top:16px;padding:16px;border:1px solid #9ecfb0;border-radius:14px;background:#eff9f2}.submission-status{margin-top:10px;font-weight:700}.submission-status.ok{color:#176b45}.submission-status.err{color:#a5222d}.submission-status.warn{color:#805900}.writing-area{min-height:190px}.writing-anti-paste-note{padding:10px 12px;background:#fff7d8;border:1px solid #ead27b;border-radius:9px;color:#624e00;font-size:.92rem}.similar-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.similar-grid input{background:#f6faff}.callout{padding:12px 14px;border-left:4px solid #238657;background:#eff9f2;border-radius:8px}.score-row{display:flex;gap:10px;flex-wrap:wrap}.score-chip{background:#edf7f0;border-radius:9px;padding:8px 12px}@media(max-width:680px){.skell-board{grid-template-columns:1fr}.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;padding:8px 14px}.cluster-type{flex-basis:auto;width:100%}}@media(max-width:560px){.profile-grid{grid-template-columns:1fr}body{padding:8px}header,.card{padding:15px}}@media print{button{display:none}body{background:white}}
+
+.audio-panel{padding:16px;margin:14px 0 18px;border:1px solid #b9dfc5;border-radius:14px;background:linear-gradient(135deg,#f2fbf4,#ffffff)}.audio-heading{display:flex;gap:10px;align-items:center;margin-bottom:10px}.audio-heading>span{font-size:1.7rem}.audio-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.voice-picker-row{display:grid;grid-template-columns:auto minmax(180px,1fr) auto;gap:8px 10px;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid #d5eadb}.voice-picker-row select{width:100%;min-width:0;padding:9px;border:1px solid #a8cdb4;border-radius:8px;background:#fff;color:var(--ink)}.voice-picker-row button{margin:0}.voice-picker-row #reading-voice-info{grid-column:2/-1;font-size:.82rem}.audio-controls button{margin:2px 4px 2px 0}.speed-control{display:flex;gap:8px;align-items:center;margin:2px 0 2px 8px;font-weight:700}.speed-control select{width:auto;min-width:135px;padding:8px}.audio-status{margin:10px 0 0}.audio-progress-wrap{margin:12px 0 4px}.audio-progress-label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.9rem;color:var(--muted);margin-bottom:4px}.audio-progress{width:100%;max-width:none;height:22px;padding:0;margin:0;accent-color:var(--green);cursor:pointer;background:transparent}.audio-progress-help{font-size:.82rem;color:var(--muted);margin:2px 0 0}@media(max-width:560px){.voice-picker-row{grid-template-columns:1fr}.voice-picker-row #reading-voice-info{grid-column:1}.audio-controls{align-items:stretch}.audio-controls button{flex:1}.speed-control{width:100%;margin:6px 0 0}.speed-control select{flex:1}}
+.lesson-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(118deg,#104b32 0%,#176b45 54%,#2c8b5b 100%);color:#fff;border:0;border-radius:22px;padding:25px 27px;margin:16px 0;box-shadow:0 10px 28px rgba(20,90,54,.17)}
+.lesson-hero:before{content:"";position:absolute;z-index:-1;width:300px;height:300px;right:135px;top:-205px;border:1px solid rgba(255,255,255,.11);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 58px rgba(255,255,255,.02)}
+.lesson-header-layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;align-items:center;gap:25px;min-width:0}
+.lesson-header-copy{min-width:0}
+.lesson-kicker{display:flex;align-items:center;gap:9px;margin-bottom:12px;color:#d7f5e1;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.lesson-kicker-mark{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;border-radius:9px;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.26);font-size:.72rem;letter-spacing:-.03em}
+.kicker-divider{padding:0 3px;color:#9edbb5}
+.lesson-header-copy h1{max-width:690px;margin:0 0 10px;color:#fff;font-size:clamp(1.7rem,3.1vw,2.35rem);font-weight:800;line-height:1.12;letter-spacing:-.035em;text-wrap:balance}
+.lesson-subtitle{max-width:650px;margin:0 0 17px!important;color:#e4f7e9;font-size:1.04rem;line-height:1.45}
+.lesson-meta{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.lesson-meta-pill{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:.79rem;font-weight:700;line-height:1.25}
+.lesson-method{margin:14px 0 0!important;color:#d4efdd;font-size:.84rem;letter-spacing:.01em}
+.lesson-header-photo{display:block;width:250px;height:166px;max-width:100%;object-fit:cover;object-position:center 48%;border-radius:17px;border:3px solid rgba(255,255,255,.88);box-shadow:0 12px 24px rgba(0,0,0,.2);background:#dcefe2}
+@media(max-width:760px){.lesson-hero{padding:21px;border-radius:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr) 205px;gap:16px}.lesson-header-photo{width:205px;height:148px}.lesson-header-copy h1{font-size:clamp(1.5rem,4vw,1.9rem)}}
+@media(max-width:560px){.lesson-hero{padding:18px}.lesson-header-layout{grid-template-columns:minmax(0,1fr);gap:15px}.lesson-header-photo{width:100%;height:190px;max-width:none;object-position:center 44%;border-radius:14px}.lesson-kicker{margin-bottom:9px}.lesson-header-copy h1{font-size:1.8rem}.lesson-subtitle{font-size:.98rem}.lesson-meta-pill{font-size:.76rem}}
+
+/* Responsive SkELL keyword pills: keep long keywords fully visible inside their ovals. */
+.skell-cluster{min-width:0}.skell-cluster-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;min-width:0}.keyword-pill{display:inline-flex;flex:0 1 auto;align-items:center;justify-content:center;width:max-content;min-width:min(126px,100%);max-width:100%;min-height:56px;padding:8px clamp(10px,1.5vw,16px);box-sizing:border-box;font-size:clamp(.72rem,1.25vw,.98rem);line-height:1.12;letter-spacing:.015em;text-align:center;white-space:normal;overflow-wrap:anywhere;word-break:normal}.cluster-type{flex:1 1 180px;min-width:0}@media(max-width:680px){.skell-cluster-head{align-items:flex-start;flex-direction:column}.keyword-pill{min-width:min(120px,100%);min-height:48px;font-size:clamp(.72rem,3vw,.94rem);padding:8px 12px}.cluster-type{flex-basis:auto;width:100%}}
+#word-count{font-weight:700}#word-count.word-count-warn{color:#805900}#word-count.word-count-ok{color:#176b45}
+/* Lesson 13 visual redesign: justice photography, editorial typography, compact navigation. */
+:root{--green:#145b45;--green2:#247c5b;--mint:#eaf4ed;--line:#d4e1d6;--ink:#142e3e;--muted:#65766d;--cream:#fbf7ec;--navy:#112d4f}
+body{max-width:1320px;padding:16px 20px 34px;background:#f4f7f4;color:#142e3e;font:16px/1.55 Arial,sans-serif}
+.justice-hero{position:relative;isolation:isolate;overflow:hidden;min-height:365px;margin:4px 0 12px;padding:34px 38px;border:0;border-radius:22px;background:#12392f!important;box-shadow:0 14px 32px rgba(16,51,40,.2);color:#fff}
+.justice-banner-photos{position:absolute;z-index:-3;inset:0 0 0 54%;display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;overflow:hidden;}
+.justice-banner-photos img{display:block;width:100%;height:100%;min-width:0;object-fit:cover;filter:saturate(.86);}
+.justice-banner-photos:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,85,50,.92) 0%,rgba(8,85,50,.48) 24%,rgba(8,45,34,.12) 100%);pointer-events:none;}
+.justice-hero:before{content:"";position:absolute;z-index:-2;inset:0;width:auto;height:auto;right:auto;top:auto;border:0;border-radius:0;box-shadow:none;background:linear-gradient(90deg,rgba(4,32,28,.88) 0%,rgba(5,38,31,.67) 38%,rgba(6,40,34,.14) 75%,rgba(7,37,34,.12) 100%)}
+.justice-hero-shade{position:absolute;z-index:-1;inset:0;background:linear-gradient(0deg,rgba(6,28,25,.5),transparent 50%)}
+.justice-hero-content{position:relative;max-width:780px;z-index:1}
+.brand-row{display:flex;align-items:center;gap:17px;flex-wrap:wrap;margin-bottom:0}
+.brand-name{font:700 2.1rem/1 Georgia,'Times New Roman',serif;letter-spacing:-.04em;color:#fff}
+.lesson-number{display:inline-flex;align-items:center;border-radius:12px;padding:9px 18px;background:#0c5b4a;color:#fff;border:1px solid rgba(255,255,255,.28);font-weight:800;letter-spacing:.04em}
+.brand-subtitle{margin:5px 0 24px!important;color:#e6f1e9;font-size:.81rem;letter-spacing:.06em}
+.justice-hero h1{max-width:750px;margin:0 0 14px;font:700 clamp(2.35rem,4.4vw,4.1rem)/.99 Georgia,'Times New Roman',serif;letter-spacing:-.045em;color:#fff;text-wrap:balance}
+.hero-motto{margin:16px 0!important;font-size:.93rem;letter-spacing:.17em;font-weight:800;color:#f3f5de}
+.hero-motto span{padding:0 .38em;color:#d4c77c}
+.justice-hero .lesson-meta{gap:8px;max-width:700px}
+.justice-hero .lesson-meta-pill{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.33);backdrop-filter:blur(3px)}
+.hero-start{display:inline-flex;align-items:center;gap:15px;margin-top:21px;padding:11px 17px;border-radius:999px;background:#fff;color:#124f40;text-decoration:none;font-weight:800;box-shadow:0 6px 18px rgba(0,0,0,.16)}
+.hero-start:hover{background:#f0f6ec;color:#0c3f33}
+.hero-side-note{position:absolute;right:30px;top:30px;max-width:240px;padding:15px 19px;border:1px solid rgba(255,255,255,.24);border-radius:13px;background:rgba(9,45,35,.42);color:#fff;font:italic 1.13rem/1.5 Georgia,'Times New Roman',serif;text-align:right;backdrop-filter:blur(4px)}
+.lesson-jumps{display:flex;gap:7px;align-items:center;overflow-x:auto;padding:7px 1px 12px;margin:0 0 16px;scrollbar-width:thin}
+.lesson-jumps a{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;padding:9px 12px;border:1px solid #dce4df;border-radius:11px;background:#fff;color:#183548;text-decoration:none;font-size:.82rem;font-weight:700;box-shadow:0 2px 4px rgba(20,50,40,.035);white-space:nowrap}
+.lesson-jumps a:hover{border-color:#7db79a;background:#eff7f0}
+.lesson-jumps b{display:inline-flex;width:23px;height:23px;align-items:center;justify-content:center;border-radius:7px;background:#267b58;color:white;font-size:.78rem}
+.justice-overview{display:grid;grid-template-columns:minmax(230px,1fr) minmax(300px,1.72fr) minmax(330px,1.2fr);gap:15px;margin:0 0 15px;align-items:stretch}
+.overview-card{min-width:0;padding:18px;border:1px solid #e2e8e0;border-radius:16px;background:#fff;box-shadow:0 4px 14px rgba(21,53,38,.045)}
+.objectives-card{background:linear-gradient(160deg,#f0f7f1,#fff 78%)}
+.collocation-card{background:linear-gradient(160deg,#fcf8eb,#fff 90%)}
+.overview-card h2{margin:0 0 13px;color:#123354;font:700 1.3rem/1.2 Georgia,'Times New Roman',serif;letter-spacing:-.02em}
+.overview-card h2 span{display:inline-flex;margin-right:7px;color:#2d8058}
+.overview-card h3{margin:18px 0 8px;color:#155840;font-size:1rem}
+.objective-list,.theme-list{padding-left:0;margin:0;list-style:none}
+.objective-list li{position:relative;padding:0 0 8px 25px;font-size:.91rem;line-height:1.42}
+.objective-list li:before{content:"✓";position:absolute;left:0;top:1px;display:inline-flex;width:18px;height:18px;align-items:center;justify-content:center;border-radius:50%;background:#55a766;color:white;font-size:.77rem;font-weight:900}
+.theme-list{padding-left:18px;list-style:disc;font-size:.88rem;line-height:1.42}
+.overview-feature{position:relative;min-height:370px;overflow:hidden;border-radius:16px;background:#0f4b53;box-shadow:0 8px 22px rgba(9,50,56,.12)}
+.overview-feature>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center}
+.overview-feature:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,27,41,.86) 0%,rgba(3,27,41,.08) 68%,transparent 100%)}
+.feature-caption{position:absolute;z-index:1;left:22px;right:22px;bottom:19px;color:white}
+.feature-kicker{font-size:.72rem;letter-spacing:.16em;font-weight:800;color:#c7e6a6}
+.feature-caption p{max-width:380px;margin:6px 0 0;font:1.45rem/1.18 Georgia,'Times New Roman',serif}
+.key-collocations{columns:2;column-gap:14px;list-style:none;padding:0;margin:0}
+.key-collocations li{display:flex;align-items:flex-start;gap:7px;margin:0 0 8px;break-inside:avoid;font-size:.79rem;line-height:1.29;color:#1b3042}
+.key-collocations li span{flex:0 0 21px;width:21px;height:21px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:#e0efe3;color:#176b45;font-size:.67rem;font-weight:900}
+.text-link{display:inline-flex;gap:7px;align-items:center;margin-top:7px;color:#176b45;font-size:.84rem;text-decoration:none}
+.justice-gallery{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:11px;margin:0 0 14px}
+.justice-tile{min-width:0;overflow:hidden;border:1px solid #e0e6e0;border-radius:13px;background:#fff;box-shadow:0 3px 11px rgba(16,49,35,.05)}
+.justice-tile img{display:block;width:100%;height:112px;object-fit:cover}
+.justice-tile>div{display:flex;gap:7px;align-items:center;padding:9px 10px;min-height:45px;background:linear-gradient(90deg,#eef6ee,#f8faf8);font-size:.77rem;line-height:1.2;color:#173a34}
+.justice-tile>div span{font-size:1.15rem;color:#2a7e4f}
+.justice-quote{display:flex;align-items:center;gap:13px;margin:0 0 18px;padding:15px 22px;border-radius:15px;background:#e5f0e7;border:1px solid #d3e5d7;color:#174536}
+.justice-quote>span{font:700 3.3rem/.6 Georgia,serif;color:#65a27c}
+.justice-quote p{flex:1;margin:0;font:italic 1.14rem/1.4 Georgia,'Times New Roman',serif}
+.justice-quote a{flex:0 0 auto;display:inline-flex;gap:8px;align-items:center;color:#145b45;text-decoration:none;font-weight:800;font-size:.88rem}
+body>section.card,body>section.profile{scroll-margin-top:18px}
+.card{border-color:#e0e8e0;box-shadow:0 4px 15px rgba(20,62,42,.045)}
+.card h2{color:#143b53;font-family:Georgia,'Times New Roman',serif;font-size:1.35rem}
+.q{border-bottom-color:#edf0e9}
+@media(max-width:1050px){.justice-overview{grid-template-columns:minmax(230px,.9fr) minmax(300px,1.3fr)}.collocation-card{grid-column:1/-1}.key-collocations{columns:3}.justice-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}.justice-tile img{height:140px}}
+@media(max-width:700px){body{padding:10px}.justice-banner-photos{left:36%;opacity:.72}.justice-hero{min-height:0;padding:25px 20px;border-radius:18px}.justice-hero h1{font-size:clamp(2rem,9vw,3rem)}.brand-name{font-size:1.75rem}.brand-subtitle{margin-bottom:18px!important}.hero-side-note{display:none}.hero-motto{font-size:.75rem;letter-spacing:.09em}.justice-overview{grid-template-columns:1fr}.collocation-card{grid-column:auto}.overview-feature{min-height:285px;grid-row:1}.key-collocations{columns:2}.justice-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.justice-tile img{height:130px}.justice-quote{align-items:flex-start;flex-wrap:wrap;padding:14px}.justice-quote p{flex-basis:calc(100% - 45px)}.justice-quote a{margin-left:43px}}
+@media(max-width:400px){.key-collocations{columns:1}.justice-gallery{gap:8px}.justice-tile img{height:108px}.justice-tile>div{font-size:.72rem;padding:7px}}
+@media print{.lesson-jumps,.hero-start{display:none}.justice-hero{min-height:240px;print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+</style>
+</head>
+<body>
+<header class="lesson-hero justice-hero">
+<div aria-label="Artificial intelligence and digital technology" class="justice-banner-photos">
+<img alt="Artificial intelligence and digital innovation" fetchpriority="high" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"/>
+<img alt="Digital technology and computer hardware" loading="eager" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"/>
+<img alt="People exploring emerging digital technology" loading="eager" src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"/>
+</div>
+<div aria-hidden="true" class="justice-hero-shade"></div>
+<div class="justice-hero-content">
+<div class="brand-row"><span class="brand-name">LexiLink</span><span class="lesson-number">Lesson 19</span></div>
+<p class="brand-subtitle">Collocations for Confident Communication</p>
+<h1>Artificial Intelligence and<br/>Digital Technology</h1>
+<p class="hero-motto">DISCOVER <span>•</span> INVESTIGATE <span>•</span> PRACTISE <span>•</span> REFLECT</p>
+<div aria-label="Lesson information" class="lesson-meta">
+<span class="lesson-meta-pill">B2 · Upper-intermediate</span>
+<span class="lesson-meta-pill">80-minute lesson</span>
+<span class="lesson-meta-pill">28 target collocations</span>
+</div>
+<a class="hero-start" href="#student-profile">Start the lesson <span aria-hidden="true">→</span></a>
+</div>
+<div class="hero-side-note">Technology with purpose.<br/>Evidence before trust.<br/>People stay in control.</div>
+</header>
+<nav aria-label="Lesson sections" class="lesson-jumps"><a href="#vocabulary-zone"><b>1</b> Collocation bank</a><a href="#reading"><b>2</b> Reading &amp; listening</a><a href="#reading-questions"><b>3</b> Comprehension</a><a href="#skell-cluster"><b>4</b> SkELL Investigation</a><a href="#matching-zone"><b>5</b> Matching</a><a href="#completion-zone"><b>6</b> Complete</a><a href="#find-zone"><b>7</b> Find the Collocate</a><a href="#sorting-zone"><b>8</b> Sorting</a><a href="#cloze-zone"><b>9</b> Cloze</a><a href="#odd-zone"><b>10</b> Odd One Out</a><a href="#repair-zone"><b>11</b> Repair</a><a href="#interference-zone"><b>12</b> Interference</a><a href="#context-zone"><b>13</b> Context precision</a><a href="#writing-zone"><b>14</b> Writing</a></nav>
+<section aria-label="Lesson introduction" class="justice-overview">
+<div class="overview-card objectives-card">
+<h2><span aria-hidden="true">◎</span> Lesson objectives</h2>
+<ul class="objective-list"><li>Recognise and use natural collocations for artificial intelligence, data and digital safety.</li><li>Interpret collocations whose meaning may not be predictable from individual words.</li><li>Investigate authentic word partnerships and related words in SkELL after reading.</li><li>Identify and correct collocation choices influenced by direct translation from other languages.</li><li>Evaluate AI-related claims and express a balanced view using accurate English collocations.</li></ul>
+<h3>Key themes</h3>
+<ul class="theme-list"><li>AI models and data processing</li><li>Trust, bias and reliable information</li><li>Privacy, security and digital footprints</li><li>Transparency and human oversight</li><li>Responsible use of digital tools</li></ul>
+</div>
+<div class="overview-feature">
+<img alt="Robot representing artificial intelligence and human technology" loading="eager" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"/>
+<div class="feature-caption"><span class="feature-kicker">RESPONSIBLE INNOVATION</span><p>AI can process information quickly, but reliable decisions still depend on good data, human oversight and responsible use.</p></div>
+</div>
+<div class="overview-card collocation-card">
+<h2><span aria-hidden="true">▤</span> Key collocations</h2>
+<ol class="key-collocations"><li><span>01</span> train an AI model</li><li><span>02</span> process large datasets</li><li><span>03</span> detect patterns</li><li><span>04</span> generate predictions</li><li><span>05</span> generate content</li><li><span>06</span> verify a claim</li><li><span>07</span> cross-check information</li><li><span>08</span> consult a reliable source</li><li><span>09</span> biased training data</li><li><span>10</span> pose a risk</li><li><span>11</span> raise concerns</li><li><span>12</span> protect personal data</li><li><span>13</span> store data securely</li><li><span>14</span> data breach</li><li><span>15</span> digital footprint</li><li><span>16</span> compromise privacy</li><li><span>17</span> human oversight</li><li><span>18</span> ensure transparency</li><li><span>19</span> comply with regulations</li><li><span>20</span> implement safeguards</li><li><span>21</span> take a screenshot</li><li><span>22</span> run a program</li><li><span>23</span> install software</li><li><span>24</span> update an app</li><li><span>25</span> make an informed decision</li><li><span>26</span> spread misinformation</li><li><span>27</span> identify a bias</li><li><span>28</span> user-friendly interface</li></ol><a class="text-link" href="#vocabulary-zone">Study definitions and synonyms <span aria-hidden="true">→</span></a>
+</div></section>
+<section aria-label="Artificial intelligence and digital technology themes" class="justice-gallery">
+<article class="justice-tile"><img alt="Data analytics dashboard" loading="lazy" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">▤</span><b>Data processing</b></div></article>
+<article class="justice-tile"><img alt="Programmer working with code" loading="lazy" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">⌘</span><b>Run a program</b></div></article>
+<article class="justice-tile"><img alt="Cybersecurity and digital privacy" loading="lazy" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">▣</span><b>Protect personal data</b></div></article>
+<article class="justice-tile"><img alt="Person using digital technology" loading="lazy" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">↔</span><b>Digital footprint</b></div></article>
+<article class="justice-tile"><img alt="Team collaborating around computers" loading="lazy" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">✓</span><b>Human oversight</b></div></article>
+<article class="justice-tile"><img alt="Modern laptop and digital workspace" loading="lazy" src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/><div><span aria-hidden="true">✦</span><b>User-friendly interface</b></div></article>
+</section>
+<div class="justice-quote"><span aria-hidden="true">“</span><p>Use technology thoughtfully: check the evidence, protect personal data, and keep people involved in important decisions.</p><a href="#reading">Explore the reading <span aria-hidden="true">→</span></a></div>
+<section aria-label="Student profile" class="profile" id="student-profile">
+<div class="profile-head"><div class="avatar" id="avatar-initials">S</div><div><h2 style="margin:0;color:#176b45">Student profile</h2><p style="margin:.2rem 0">LexiLink · Artificial Intelligence and Digital Technology <span class="pill">B2</span><span class="pill">80 minutes</span></p></div></div>
+<div class="profile-grid" style="margin-top:14px"><div><label for="profile-name">Student name</label><input id="profile-name" placeholder="Enter your name"/></div><div><label for="profile-group">Group</label><input id="profile-group" placeholder="Enter group"/></div></div>
+<p class="muted" style="margin-bottom:0">Complete the reading and listening tasks, investigate AI and digital technology collocations in SkELL, and submit your answers and short argument about responsible AI use.</p>
+</section>
+<section class="card" id="lesson-route"><h2>80-minute lesson route</h2><p class="muted">Teacher-facing timing plan; the tasks below follow this sequence.</p><div class="timeline">
+<div class="slot"><b>0–5 min · Warm-up</b> Discuss one useful and one risky use of AI in everyday life.</div>
+<div class="slot"><b>5–17 min · Reading and listening</b> Read and listen to the text about AI, data quality, privacy and human oversight; complete the comprehension tasks.</div>
+<div class="slot"><b>17–32 min · DDL with SkELL</b> Investigate AI, data, algorithm and privacy collocations in Word Sketch, concordance examples and Similar words.</div>
+<div class="slot"><b>32–40 min · Recognition</b> Match collocation components and select precise expressions in context.</div>
+<div class="slot"><b>40–52 min · Retrieval and discrimination</b> Identify unnatural collocations, select appropriate verbs and distinguish similar expressions.</div>
+<div class="slot"><b>52–64 min · Contextual practice</b> Complete the lexical cloze and repair collocations that may reflect direct translation.</div>
+<div class="slot"><b>64–72 min · Interference challenge</b> Correct high-risk collocation choices and justify which English word partnership fits the meaning.</div>
+<div class="slot"><b>72–78 min · Production</b> Write a short argument using at least eight target collocations.</div>
+<div class="slot"><b>78–80 min · Reflection</b> Review the score and name one collocation verified in SkELL.</div>
+</div></section>
+<section class="card" id="vocabulary-zone"><h2>Learning outcomes</h2><p>By the end of this lesson, you will be able to interpret and use collocations about AI, data quality, privacy and digital safety; distinguish conventional English word partnerships from direct-translation errors; test hypotheses with SkELL evidence; and communicate a balanced view of responsible AI use.</p><h2>Target collocations: definitions and synonyms</h2><p class="muted">Study the whole word partnership, its meaning and close alternatives. Some expressions are easy to translate word for word but require a different English collocation.</p><div class="grid" id="target"></div></section>
+<section class="card" id="reading"><h2>Reading: Artificial Intelligence and Digital Technology</h2><p class="muted">Read the text carefully or listen to it. Target collocations are shown in bold.</p>
+<div aria-label="Reading audio controls" class="audio-panel" role="group">
+<div class="audio-heading"><span aria-hidden="true">🎧</span><div><strong>Listen to the reading</strong><div class="muted">Choose your preferred English voice · Browser speech synthesis</div></div></div>
+<div class="audio-controls">
+<button aria-label="Play or resume reading text" onclick="playReading()" type="button">▶ Listen / Resume</button>
+<button aria-label="Pause reading text" onclick="pauseReading()" type="button">Ⅱ Pause</button>
+<button aria-label="Stop and reset reading text" onclick="stopReading()" type="button">■ Stop</button>
+<label class="speed-control" for="reading-speed">Speed
+      <select aria-label="Reading speed" id="reading-speed" onchange="updateReadingSpeedNote()">
+<option value="0.75">0.75× Slow</option><option selected="" value="1">1× Normal</option><option value="1.25">1.25× Fast</option>
+</select>
+</label>
+</div>
+<div class="voice-picker-row">
+<label for="reading-voice"><strong>Reading voice</strong></label>
+<select aria-label="Choose reading voice" id="reading-voice" onchange="changeReadingVoice(this.value)">
+<option value="">Loading available voices…</option>
+</select>
+<button aria-label="Preview selected reading voice" onclick="previewReadingVoice()" type="button">🔊 Preview voice</button>
+<span aria-live="polite" class="muted" id="reading-voice-info">Loading voices from your browser…</span>
+</div>
+<div class="audio-progress-wrap">
+<div class="audio-progress-label"><label for="reading-progress" style="margin:0">Reading progress</label><span id="reading-progress-value">0%</span></div>
+<input aria-label="Reading progress; move the slider to seek" class="audio-progress" id="reading-progress" max="100" min="0" onchange="seekReading(this.value)" oninput="previewReadingSeek(this.value)" step="1" type="range" value="0"/>
+<p class="audio-progress-help">After the title, narration pauses for 3 seconds before continuing. Pause / Resume preserves your place, including during this break, or move the slider to jump to another part of the text.</p>
+</div>
+<p aria-live="polite" class="muted audio-status" id="reading-audio-status">Ready to play. Choose an available voice, preview it, then start reading.</p>
+</div>
+<article id="reading-text" style="line-height:1.75"><h3>AI in Everyday Life: Opportunity, Evidence and Responsibility</h3><p>Artificial intelligence (AI) is already part of everyday digital life. Recommendation systems suggest music and films, navigation tools estimate travel times, and chatbots generate answers to questions. Many systems use algorithms to <b>process large datasets</b>, <b>detect patterns</b> and <b>generate predictions</b>. A developer may <b>train an AI model</b> on examples so that it can recognise images, classify messages or produce content. These tools can enhance productivity, but their results are not automatically accurate or fair.</p><p>One challenge is the quality of the data used to train a system. If the examples leave out certain groups or repeat old stereotypes, the system may reproduce that bias. <b>Biased training data</b> can affect decisions about recruitment, lending or access to services. For this reason, developers need to <b>identify a bias</b>, test the system with varied examples and keep <b>human oversight</b> where decisions may affect people’s lives. A polished answer or a confident-looking prediction is not proof that the result is correct.</p><p>Users also need to <b>verify a claim</b> and <b>cross-check information</b> before sharing AI-generated content. It is sensible to <b>consult a reliable source</b>, especially when information concerns health, money, law or public events. AI tools can <b>spread misinformation</b> if users repost fabricated content without checking it. Deepfake images and audio may look convincing, so people should ask where an item came from and whether independent evidence supports it. A well-informed user does not assume that every result produced by technology is trustworthy.</p><p>Privacy and cybersecurity are equally important. Apps and websites may collect details about location, searches and online behaviour, adding to a person’s <b>digital footprint</b>. Organisations should <b>protect personal data</b>, <b>store data securely</b> and explain how information will be used. If private records are exposed, the incident may become a <b>data breach</b> and <b>compromise privacy</b>. Users can take practical steps: <b>install software</b> updates, use strong passwords and think carefully before granting access to personal information.</p><p>Responsible technology requires more than technical performance. Companies should <b>ensure transparency</b>, <b>comply with regulations</b> and <b>implement safeguards</b> that reduce foreseeable harm. A <b>user-friendly interface</b> helps people understand what a tool can and cannot do, while clear explanations make it easier to question an unexpected result. When a system raises concerns or poses a risk, organisations should investigate rather than dismiss the problem. People can benefit from AI while still making an informed decision about when to use it and when to seek human expertise. The aim is not to trust every tool or reject every innovation, but to use digital technology critically, safely and responsibly.</p></article>
+<h3 id="reading-questions">Reading Task A — Choose the best answer</h3><div id="readMCQ"></div><button onclick="checkReading()">Check reading answers</button><button onclick="resetReading()">Try again</button><div id="reading-result"></div>
+<h3>Reading Task B — True or False?</h3><p class="muted">Choose True or False according to the text.</p><div id="readTF"></div><button onclick="checkTF()">Check statements</button><button onclick="resetTF()">Try again</button><div id="tf-result"></div>
+<h3>Reading Task D — Match the idea to the paragraph</h3><p class="muted">Choose the paragraph number (1–5). Some paragraph numbers may be used more than once.</p><div id="readMatch"></div><button onclick="checkReadMatch()">Check paragraph matching</button><button onclick="resetReadMatch()">Try again</button><div id="readmatch-result"></div>
+</section>
+<section class="card" id="skell-cluster"><h2>1. SkELL Collocation Investigation · 15 minutes · 10 points (teacher-scored)</h2>
+<p>Open <a href="https://skell.sketchengine.eu/" rel="noopener" target="_blank">SkELL</a>. Search each AI, data, algorithm or privacy keyword in <b>Word Sketch</b>, inspect concordance examples and open <b>Similar words</b>. For each keyword, record two collocations, write an original sentence for each, add two candidate synonyms or related words, and note a short example or context that you checked. Similar words are not automatically interchangeable: test whether a proposed alternative preserves the meaning and fits the sentence. Your notes will be included in the lesson submission.</p>
+<div class="callout"><b>Investigation routine</b><br/>Predict → search in SkELL → inspect examples and grammatical patterns → record two distinct collocations → write your own sentences → check Similar words → revise your hypothesis using context.</div><div class="skell-board"><div class="skell-cluster" data-keyword="AI">
+<div class="skell-cluster-head"><span class="keyword-pill">AI</span><span class="cluster-type"><b>Search focus:</b> Noun + verb; verb + noun<br/>Explore expressions describing AI systems, model training and generated content.</span></div>
+<label for="ai-coll-1">Collocation 1</label><input autocomplete="off" class="collocation-line" id="ai-coll-1" placeholder="e.g. train an AI model"/>
+<label for="ai-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="ai-sentence-1" placeholder="Write an original sentence in context."></textarea>
+<label for="ai-coll-2">Collocation 2</label><input autocomplete="off" class="collocation-line" id="ai-coll-2" placeholder="Use a different grammatical pattern if possible"/>
+<label for="ai-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="ai-sentence-2" placeholder="Write a second original sentence."></textarea>
+<label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input autocomplete="off" id="ai-syn-1" placeholder="Related word 1"/><input autocomplete="off" id="ai-syn-2" placeholder="Related word 2"/></div>
+<label for="ai-evidence">Corpus example / context checked in SkELL</label><textarea id="ai-evidence" placeholder="Record a short example or explain the context that supports your choice."></textarea></div><div class="skell-cluster" data-keyword="DATA">
+<div class="skell-cluster-head"><span class="keyword-pill">DATA</span><span class="cluster-type"><b>Search focus:</b> Verb + noun; adjective + noun<br/>Investigate data quality, large datasets and information security.</span></div>
+<label for="data-coll-1">Collocation 1</label><input autocomplete="off" class="collocation-line" id="data-coll-1" placeholder="e.g. process large datasets"/>
+<label for="data-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="data-sentence-1" placeholder="Write an original sentence in context."></textarea>
+<label for="data-coll-2">Collocation 2</label><input autocomplete="off" class="collocation-line" id="data-coll-2" placeholder="Use a different grammatical pattern if possible"/>
+<label for="data-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="data-sentence-2" placeholder="Write a second original sentence."></textarea>
+<label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input autocomplete="off" id="data-syn-1" placeholder="Related word 1"/><input autocomplete="off" id="data-syn-2" placeholder="Related word 2"/></div>
+<label for="data-evidence">Corpus example / context checked in SkELL</label><textarea id="data-evidence" placeholder="Record a short example or explain the context that supports your choice."></textarea></div><div class="skell-cluster" data-keyword="ALGORITHM">
+<div class="skell-cluster-head"><span class="keyword-pill">ALGORITHM</span><span class="cluster-type"><b>Search focus:</b> Adjective + noun; verb + noun<br/>Explore patterns, bias and algorithmic decisions.</span></div>
+<label for="algorithm-coll-1">Collocation 1</label><input autocomplete="off" class="collocation-line" id="algorithm-coll-1" placeholder="e.g. detect patterns"/>
+<label for="algorithm-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="algorithm-sentence-1" placeholder="Write an original sentence in context."></textarea>
+<label for="algorithm-coll-2">Collocation 2</label><input autocomplete="off" class="collocation-line" id="algorithm-coll-2" placeholder="Use a different grammatical pattern if possible"/>
+<label for="algorithm-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="algorithm-sentence-2" placeholder="Write a second original sentence."></textarea>
+<label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input autocomplete="off" id="algorithm-syn-1" placeholder="Related word 1"/><input autocomplete="off" id="algorithm-syn-2" placeholder="Related word 2"/></div>
+<label for="algorithm-evidence">Corpus example / context checked in SkELL</label><textarea id="algorithm-evidence" placeholder="Record a short example or explain the context that supports your choice."></textarea></div><div class="skell-cluster" data-keyword="PRIVACY">
+<div class="skell-cluster-head"><span class="keyword-pill">PRIVACY</span><span class="cluster-type"><b>Search focus:</b> Verb + noun; noun + noun<br/>Find conventional word partnerships about data protection and privacy risks.</span></div>
+<label for="privacy-coll-1">Collocation 1</label><input autocomplete="off" class="collocation-line" id="privacy-coll-1" placeholder="e.g. compromise privacy"/>
+<label for="privacy-sentence-1">Your own sentence with collocation 1</label><textarea class="student-sentence" id="privacy-sentence-1" placeholder="Write an original sentence in context."></textarea>
+<label for="privacy-coll-2">Collocation 2</label><input autocomplete="off" class="collocation-line" id="privacy-coll-2" placeholder="Use a different grammatical pattern if possible"/>
+<label for="privacy-sentence-2">Your own sentence with collocation 2</label><textarea class="student-sentence" id="privacy-sentence-2" placeholder="Write a second original sentence."></textarea>
+<label>SkELL Similar words — synonyms / related words</label><div class="similar-grid"><input autocomplete="off" id="privacy-syn-1" placeholder="Related word 1"/><input autocomplete="off" id="privacy-syn-2" placeholder="Related word 2"/></div>
+<label for="privacy-evidence">Corpus example / context checked in SkELL</label><textarea id="privacy-evidence" placeholder="Record a short example or explain the context that supports your choice."></textarea></div></div><p class="muted">Teacher scoring: up to 10 points for accurate and varied collocations, original contextual sentences, relevant related words and evidence-based revision of a language hypothesis.</p><p class="muted">The structured fields are included in the lesson submission and appear as individual records in the teacher's spreadsheet.</p></section><section class="card" id="matching-zone"><h2>2. Matching · 10 points</h2><p class="muted">Match each beginning with the ending that completes a conventional English collocation. Several options are semantically close, so attend to the word partnership rather than translating each word separately.</p><div id="matching"></div><button onclick="check('matching')">Check answers</button><button onclick="reset('matching')">Try again</button><div id="matching-result"></div></section><section class="card" id="completion-zone"><h2>3. Complete the Sentence · 10 points</h2><p class="muted">Choose the collocation that best fits the whole situation. The options are intentionally close in meaning; use context and conventional word partnerships to decide.</p><div id="gaps"></div><button onclick="check('gaps')">Check answers</button><button onclick="reset('gaps')">Try again</button><div id="gaps-result"></div></section><section class="card" id="find-zone"><h2>4. Find the Verb, Find the Collocate · 10 points</h2><p>Choose the verb that completes each collocation naturally. The verbs may be translated similarly in other languages, but they are not interchangeable in English.</p><div id="find"></div><button onclick="check('find')">Check answers</button><button onclick="reset('find')">Try again</button><div id="find-result"></div></section><section class="card" id="sorting-zone"><h2>5. Collocation Sorting · 10 points</h2><p class="muted">Select the most precise collocation for each scenario. Use the meaning of the full sentence to distinguish related expressions.</p><div id="sorting"></div><button onclick="check('sorting')">Check answers</button><button onclick="reset('sorting')">Try again</button><div id="sorting-result"></div></section><section class="card" id="cloze-zone"><h2>6. Lexical Cloze · 10 points</h2><p class="muted"><b>Word bank: </b>detect patterns · cross-check information · raise concerns · consult a reliable source · human oversight · implement safeguards · digital footprint · ensure transparency · protect personal data · pose a risk</p><div id="cloze"></div><button onclick="check('cloze')">Check answers</button><button onclick="reset('cloze')">Try again</button><div id="cloze-result"></div></section><section class="card" id="odd-zone"><h2>7. Odd One Out · 10 points</h2><p class="muted">Choose the one phrase that is not a natural English collocation. The other three may all be possible in other contexts; focus on the exact wording and meaning in this lesson.</p><div id="odd"></div><button onclick="check('odd')">Check answers</button><button onclick="reset('odd')">Try again</button><div id="odd-result"></div></section><section class="card" id="repair-zone"><h2>8. Collocation Repair · 10 points</h2><p class="muted">Choose the best correction for a sentence containing an unnatural word partnership or a direct-translation error. The corrected sentence must fit the intended meaning.</p><div id="repair"></div><button onclick="check('repair')">Check answers</button><button onclick="reset('repair')">Try again</button><div id="repair-result"></div></section><section class="card" id="interference-zone"><h2>9. Interference Challenge · 10 points</h2><p class="muted">Each sentence contains a collocation choice influenced by direct translation. Select the natural English version without changing the intended meaning.</p><div id="interference"></div><button onclick="check('interference')" type="button">Check answers</button><button onclick="reset('interference')" type="button">Try again</button><div id="interference-result"></div></section><section class="card" id="context-zone"><h2>10. Contextual Precision · 10 points</h2><p class="muted">Choose the best collocation for each realistic AI and digital technology scenario. The final items require you to distinguish close meanings, not just identify a familiar phrase.</p><div id="context"></div><button onclick="check('context')" type="button">Check answers</button><button onclick="reset('context')" type="button">Try again</button><div id="context-result"></div></section><section class="card" id="writing-zone"><h2>11. Productive Recall Challenge · 5 points (teacher-scored)</h2><p>Write at least 100 words on <b>Responsible Use of Artificial Intelligence and Digital Technology</b>. Use at least eight target collocations, including two that express a risk or a safeguard. Present a clear argument and one concrete example. Write directly in the box; paste and drag-and-drop are disabled in this field.</p><p class="writing-anti-paste-note" id="writing-notice">Please compose your paragraph here rather than pasting a prepared text. Normal paste, cut/copy shortcuts and drag-and-drop are blocked in this writing field. This browser restriction supports the task rules but is not a complete plagiarism-detection system.</p><label for="paragraph">Your paragraph</label><textarea autocapitalize="sentences" autocomplete="off" class="writing-area" id="paragraph" placeholder="AI can improve productivity, but responsible use requires..." spellcheck="true"></textarea><p aria-live="polite" class="muted" id="word-count">0 words — 100-word minimum to submit; no maximum</p><p class="muted">Teacher awards up to 5 points for accurate use of distinct target collocations, a balanced argument and relevant examples about responsible AI use.</p><div class="submission-panel"><h3>Submit your lesson work to the teacher</h3><p class="muted">Your name and group, SkELL collocations and original sentences, related words, corpus notes, writing paragraph and available exercise scores will be collected in the teacher’s spreadsheet.</p><button id="submitLessonBtn" onclick="submitLessonWork()" type="button">Submit lesson work</button><div aria-live="polite" class="submission-status" id="submitStatus" role="status"></div></div></section>
+<section class="card" id="score-zone"><h2>Lesson score</h2><p class="muted">Auto-scored sections: reading multiple choice, True/False, paragraph matching, Matching, Complete the Sentence, Find the Collocate, Collocation Sorting, Lexical Cloze, Odd One Out, Collocation Repair, Interference Challenge and Contextual Precision (120 points total). SkELL investigation (10) and productive writing (5) are teacher-scored. Maximum lesson total: 135 points.</p><button onclick="summary()">Show score summary</button><div id="summary"></div></section>
+<p class="muted">Vocabulary bank, reading and interactive exercises developed for Lesson 19: Artificial Intelligence and Digital Technology.</p>
+<p class="muted">LexiLink · Connect words. Build fluency. Lesson submissions are sent to the configured Google Apps Script collector. The teacher must verify the saved row in Google Sheets because the browser cannot read confirmation in no-cors mode.</p>
+<script>
+let readingUtterance = null;
+let readingTextContent = '';
+let readingCurrentChar = 0;
+let readingRunId = 0;
+let readingSeekWhilePaused = false;
+let readingTitleEnd = 0;
+let readingDelayTimer = null;
+let readingDelayPaused = false;
+let readingDelayRemaining = 3000;
+let readingDelayStartedAt = 0;
+
+function setReadingAudioStatus(message){const el=document.getElementById('reading-audio-status');if(el)el.textContent=message;}
+function readingProgressPercent(){return readingTextContent.length?Math.min(100,Math.round(readingCurrentChar/readingTextContent.length*100)):0;}
+function updateReadingProgress(percent){
+  const slider=document.getElementById('reading-progress');
+  const label=document.getElementById('reading-progress-value');
+  const safe=Math.max(0,Math.min(100,Math.round(percent)));
+  if(slider)slider.value=String(safe);
+  if(label)label.textContent=safe+'%';
+}
+function getReadingText(){
+  const article=document.getElementById('reading-text');
+  if(!article)return '';
+  return (article.innerText||article.textContent||'').replace(/\s+/g,' ').trim();
+}
+function loadReadingText(){
+  const article=document.getElementById('reading-text');
+  readingTextContent=getReadingText();
+  const titleElement=article?article.querySelector('h3'):null;
+  const titleText=titleElement?(titleElement.innerText||titleElement.textContent||'').replace(/\s+/g,' ').trim():'';
+  const titleIndex=titleText?readingTextContent.indexOf(titleText):-1;
+  readingTitleEnd=titleIndex>=0?titleIndex+titleText.length:0;
+  if(readingTitleEnd<=0||readingTitleEnd>=readingTextContent.length)readingTitleEnd=0;
+  return readingTextContent;
+}
+function setProgressFromChar(charIndex){
+  readingCurrentChar=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  updateReadingProgress(readingProgressPercent());
+}
+function clearReadingDelay(){
+  if(readingDelayTimer!==null){clearTimeout(readingDelayTimer);readingDelayTimer=null;}
+  readingDelayStartedAt=0;
+}
+function startReadingDelay(runId, milliseconds){
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=Math.max(0,milliseconds);
+  if(readingDelayRemaining<=0){startReadingFrom(readingTitleEnd);return;}
+  readingDelayStartedAt=Date.now();
+  const seconds=(readingDelayRemaining/1000).toFixed(1).replace(/\.0$/,'');
+  setReadingAudioStatus('Title finished. Pausing for '+seconds+' seconds before the reading continues…');
+  readingDelayTimer=setTimeout(()=>{
+    readingDelayTimer=null;
+    readingDelayStartedAt=0;
+    if(runId!==readingRunId||readingDelayPaused)return;
+    readingDelayRemaining=3000;
+    startReadingFrom(readingTitleEnd);
+  },readingDelayRemaining);
+}
+const READING_VOICE_STORAGE_KEY='lexilink_lesson19_reading_voice';
+function getDefaultEnglishVoice(voices){
+  const english=(voices||[]).filter(v=>/^en(?:-|$)/i.test(v.lang||''));
+  const maleName=/(male|daniel|ryan|thomas|george|james|oliver|arthur|guy|david|alex|fred|aaron|liam|william|lee|mark|andrew|brian|christopher|matthew|rishi|gordon|jamie)/i;
+  return english.find(v=>/^en-GB/i.test(v.lang)&&maleName.test(v.name))
+    ||english.find(v=>maleName.test(v.name))
+    ||english.find(v=>/^en-GB/i.test(v.lang))
+    ||english.find(v=>/^en-US/i.test(v.lang))
+    ||english[0]
+    ||(voices||[])[0]
+    ||null;
+}
+function populateReadingVoices(){
+  const select=document.getElementById('reading-voice');
+  const info=document.getElementById('reading-voice-info');
+  if(!select||!('speechSynthesis' in window))return;
+  const all=window.speechSynthesis.getVoices()||[];
+  if(!all.length){
+    select.innerHTML='<option value="">No voices reported yet — try again shortly</option>';
+    if(info)info.textContent='Your browser has not provided its voice list yet. Wait a moment or reopen the lesson.';
+    return;
+  }
+  const english=all.filter(v=>/^en(?:-|$)/i.test(v.lang||''));
+  const choices=english.length?english:all;
+  let saved='';
+  try{saved=localStorage.getItem(READING_VOICE_STORAGE_KEY)||'';}catch(e){}
+  const current=select.value;
+  const preferred=choices.some(v=>v.voiceURI===current)?current:(choices.some(v=>v.voiceURI===saved)?saved:(getDefaultEnglishVoice(choices)||choices[0]).voiceURI);
+  select.innerHTML='';
+  choices.forEach(v=>{
+    const option=document.createElement('option');
+    option.value=v.voiceURI;
+    const details=[v.lang||'language unknown'];
+    if(v.default)details.push('system default');
+    option.textContent=v.name+' — '+details.join(', ');
+    select.appendChild(option);
+  });
+  select.value=preferred;
+  if(info)info.textContent=english.length+' English voice'+(english.length===1?'':'s')+' available. Choose one and press Preview voice.';
+}
+function changeReadingVoice(uri){
+  try{if(uri)localStorage.setItem(READING_VOICE_STORAGE_KEY,uri);}catch(e){}
+  const select=document.getElementById('reading-voice');
+  const label=select&&select.selectedOptions&&select.selectedOptions[0]?select.selectedOptions[0].textContent:'selected voice';
+  const synth=window.speechSynthesis;
+  const wasSpeaking=!!(synth&&synth.speaking&&!synth.paused);
+  const wasPaused=!!(synth&&synth.paused);
+  const wasInTitleBreak=readingDelayTimer!==null||readingDelayPaused;
+  if(synth&&(wasSpeaking||wasPaused||wasInTitleBreak)){
+    let start=readingCurrentChar;
+    if(wasInTitleBreak)start=readingTitleEnd;
+    clearReadingDelay();
+    readingDelayPaused=false;
+    readingDelayRemaining=3000;
+    synth.cancel();
+    readingRunId++;
+    readingUtterance=null;
+    if(wasSpeaking){setReadingAudioStatus('Voice changed. Restarting from the current position…');startReadingFrom(start);return;}
+    readingSeekWhilePaused=true;
+    setReadingAudioStatus('Voice selected: '+label+'. Press Listen / Resume to continue with this voice.');
+  }else{
+    setReadingAudioStatus('Voice selected: '+label+'. Press Preview voice to hear it, or Listen / Resume to read the passage.');
+  }
+}
+function previewReadingVoice(){
+  if(!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window)){setReadingAudioStatus('Voice preview is not supported by this browser.');return;}
+  const synth=window.speechSynthesis;
+  const voices=synth.getVoices()||[];
+  const select=document.getElementById('reading-voice');
+  const chosen=select&&select.value?voices.find(v=>v.voiceURI===select.value):getDefaultEnglishVoice(voices);
+  if(!chosen){setReadingAudioStatus('No voice is available yet. Wait a moment, then choose a voice again.');return;}
+  const wasReading=!!(synth.speaking||synth.paused||readingDelayTimer!==null||readingDelayPaused);
+  const position=readingCurrentChar;
+  if(wasReading){clearReadingDelay();readingDelayPaused=false;readingDelayRemaining=3000;synth.cancel();readingRunId++;readingUtterance=null;}
+  const sample=new SpeechSynthesisUtterance('Hello! This is a preview of the selected reading voice.');
+  sample.voice=chosen;sample.lang=chosen.lang||'en-GB';sample.rate=Number((document.getElementById('reading-speed')||{}).value)||1;sample.pitch=1;
+  sample.onstart=()=>setReadingAudioStatus('Previewing: '+chosen.name+' ('+chosen.lang+').');
+  sample.onend=()=>{
+    if(wasReading){readingCurrentChar=position;setProgressFromChar(position);setReadingAudioStatus('Voice preview finished. Press Listen / Resume to continue the passage from your previous position.');}
+    else setReadingAudioStatus('Voice preview finished: '+chosen.name+'.');
+  };
+  sample.onerror=(e)=>{if(e.error!=='canceled'&&e.error!=='interrupted')setReadingAudioStatus('Could not preview this voice. Try another available voice.');};
+  synth.speak(sample);
+}
+if('speechSynthesis' in window){
+  populateReadingVoices();
+  window.speechSynthesis.addEventListener?.('voiceschanged',populateReadingVoices);
+  window.speechSynthesis.onvoiceschanged=populateReadingVoices;
+  setTimeout(populateReadingVoices,400);
+  setTimeout(populateReadingVoices,1400);
+}
+
+function startReadingFrom(charIndex){
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  const start=Math.max(0,Math.min(readingTextContent.length,charIndex||0));
+  if(start>=readingTextContent.length){setProgressFromChar(0);return startReadingFrom(0);}
+  const thisRun=++readingRunId;
+  clearReadingDelay();
+  readingDelayPaused=false;
+  readingDelayRemaining=3000;
+  window.speechSynthesis.cancel();
+  const isTitleSegment=readingTitleEnd>0&&start<readingTitleEnd;
+  const segmentEnd=isTitleSegment?readingTitleEnd:readingTextContent.length;
+  const segmentText=readingTextContent.slice(start,segmentEnd);
+  readingUtterance=new SpeechSynthesisUtterance(segmentText);
+  const voices=window.speechSynthesis.getVoices()||[];
+  const voiceSelect=document.getElementById('reading-voice');
+  const selectedVoice=voiceSelect&&voiceSelect.value?voices.find(v=>v.voiceURI===voiceSelect.value):null;
+  const voice=selectedVoice||getDefaultEnglishVoice(voices);
+  readingUtterance.lang=(voice&&voice.lang)||'en-GB';
+  if(voice)readingUtterance.voice=voice;
+  const rateControl=document.getElementById('reading-speed');
+  readingUtterance.rate=rateControl?Number(rateControl.value):1;
+  readingUtterance.pitch=1;
+  setProgressFromChar(start);
+  readingUtterance.onstart=()=>{if(thisRun===readingRunId)setReadingAudioStatus(isTitleSegment?'Reading the title…':'Reading aloud…');};
+  readingUtterance.onboundary=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(Number.isFinite(event.charIndex))setProgressFromChar(start+event.charIndex);
+  };
+  readingUtterance.onend=()=>{
+    if(thisRun!==readingRunId)return;
+    if(isTitleSegment&&readingTitleEnd<readingTextContent.length){
+      setProgressFromChar(readingTitleEnd);
+      readingUtterance=null;
+      startReadingDelay(thisRun,3000);
+      return;
+    }
+    setProgressFromChar(readingTextContent.length);
+    setReadingAudioStatus('Reading finished. Press Listen to replay, or move the progress line to choose a section.');
+    readingUtterance=null;
+  };
+  readingUtterance.onerror=(event)=>{
+    if(thisRun!==readingRunId)return;
+    if(event.error!=='canceled'&&event.error!=='interrupted')setReadingAudioStatus('Audio playback could not start. Try another browser or check your device’s speech settings.');
+  };
+  window.speechSynthesis.speak(readingUtterance);
+  setReadingAudioStatus(isTitleSegment?'Starting with the title…':(start?'Resuming from the selected position…':'Starting playback…'));
+}
+function playReading(){
+  if(!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)){
+    setReadingAudioStatus('Text-to-speech is not supported in this browser. Try opening the lesson in an up-to-date Chrome, Edge or Safari browser.');return;
+  }
+  if(readingDelayPaused){
+    startReadingDelay(readingRunId,readingDelayRemaining);
+    setReadingAudioStatus('Resuming the 3-second pause after the title…');
+    return;
+  }
+  if(readingDelayTimer!==null){setReadingAudioStatus('The 3-second pause after the title is in progress…');return;}
+  if(window.speechSynthesis.paused&&!readingSeekWhilePaused){window.speechSynthesis.resume();setReadingAudioStatus('Reading resumed from the same place.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused)return;
+  readingSeekWhilePaused=false;
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent){setReadingAudioStatus('Reading text could not be found.');return;}
+  if(readingCurrentChar>=readingTextContent.length)readingCurrentChar=0;
+  startReadingFrom(readingCurrentChar);
+}
+function pauseReading(){
+  if(!('speechSynthesis' in window)){setReadingAudioStatus('Text-to-speech is not supported in this browser.');return;}
+  if(readingDelayTimer!==null){
+    const elapsed=Math.max(0,Date.now()-readingDelayStartedAt);
+    readingDelayRemaining=Math.max(0,readingDelayRemaining-elapsed);
+    clearReadingDelay();
+    readingDelayPaused=true;
+    setReadingAudioStatus('Paused during the 3-second break after the title. Press Listen / Resume to continue the countdown.');
+    return;
+  }
+  if(readingDelayPaused){setReadingAudioStatus('The pause after the title is paused. Press Listen / Resume to continue.');return;}
+  if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused){window.speechSynthesis.pause();setReadingAudioStatus('Reading paused. Press Listen / Resume to continue from the same place.');}
+  else setReadingAudioStatus('There is no reading currently playing. Press Listen / Resume to start.');
+}
+function stopReading(){
+  if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  clearReadingDelay();
+  readingRunId++;
+  readingSeekWhilePaused=false;
+  readingDelayPaused=false;
+  readingDelayRemaining=3000;
+  readingUtterance=null;
+  loadReadingText();
+  readingCurrentChar=0;
+  updateReadingProgress(0);
+  setReadingAudioStatus('Reading stopped and reset to the beginning.');
+}
+function previewReadingSeek(percent){
+  const label=document.getElementById('reading-progress-value');
+  if(label)label.textContent=Math.max(0,Math.min(100,Math.round(Number(percent)||0))+'%');
+}
+function seekReading(percent){
+  if(!('speechSynthesis' in window)){updateReadingProgress(readingProgressPercent());return;}
+  if(!readingTextContent)loadReadingText();
+  if(!readingTextContent)return;
+  const delayActive=readingDelayTimer!==null;
+  const delayPaused=readingDelayPaused;
+  const wasSpeaking=window.speechSynthesis.speaking&&!window.speechSynthesis.paused;
+  const wasPaused=window.speechSynthesis.paused;
+  const pct=Math.max(0,Math.min(100,Number(percent)||0));
+  let target=Math.round(readingTextContent.length*pct/100);
+  while(target>0&&target<readingTextContent.length&&!/\s/.test(readingTextContent[target-1]))target--;
+  setProgressFromChar(target);
+  if(delayActive){
+    clearReadingDelay();readingDelayPaused=false;readingDelayRemaining=3000;
+    startReadingFrom(target);
+  }else if(delayPaused||wasPaused){
+    clearReadingDelay();
+    if(window.speechSynthesis.speaking||window.speechSynthesis.paused)window.speechSynthesis.cancel();
+    readingRunId++;readingUtterance=null;readingDelayPaused=false;readingDelayRemaining=3000;readingSeekWhilePaused=true;
+    setReadingAudioStatus('Position selected. Press Listen / Resume to continue from here.');
+  }else if(wasSpeaking){startReadingFrom(target);}
+  else {
+    readingDelayPaused=false;readingDelayRemaining=3000;
+    setReadingAudioStatus(pct===0?'Ready to play from the beginning.':'Position selected. Press Listen / Resume to start from here.');
+  }
+}
+function updateReadingSpeedNote(){
+  if(window.speechSynthesis&&window.speechSynthesis.speaking&&!window.speechSynthesis.paused){
+    setReadingAudioStatus('To apply the new speed, stop and start playback again. Pause / Resume keeps the current playback speed.');
+  }
+}
+
+const target=[["train an AI model","Definition: to expose an AI system to examples so it can learn patterns.","Related expressions: train a machine-learning model; fit a model to data; develop a model"],["process large datasets","Definition: to handle and analyse very large collections of information.","Related expressions: analyse large datasets; process data at scale; handle large data volumes"],["detect patterns","Definition: to identify repeated features or relationships in information.","Related expressions: identify patterns; recognise recurring trends; discover patterns"],["generate predictions","Definition: to produce an estimate of what may happen or what a system may classify.","Related expressions: produce predictions; make predictions; forecast likely outcomes"],["generate content","Definition: to create text, images, audio or other material with a system.","Related expressions: create digital content; produce text; generate an output"],["verify a claim","Definition: to check whether a statement is supported by reliable evidence.","Related expressions: fact-check a claim; check a statement; establish whether a claim is true"],["cross-check information","Definition: to compare information with another source or independent evidence.","Related expressions: corroborate information; compare sources; verify details independently"],["consult a reliable source","Definition: to refer to a source that is trustworthy and provides sound evidence.","Related expressions: consult a credible source; refer to a trusted source; check an authoritative source"],["biased training data","Definition: training examples that systematically over-represent some groups or perspectives.","Related expressions: unrepresentative data; skewed training data; data that reflects bias"],["pose a risk","Definition: to create or present a possibility of harm or loss.","Related expressions: present a risk; create a risk; expose someone to risk"],["raise concerns","Definition: to cause people to worry about a possible problem or consequence.","Related expressions: prompt concern; cause concern; lead people to question something"],["protect personal data","Definition: to prevent personal information from being misused or accessed without permission.","Related expressions: safeguard personal information; keep personal data secure; protect sensitive information"],["store data securely","Definition: to keep information in a way that reduces the chance of unauthorised access or loss.","Related expressions: store information safely; secure stored data; keep records secure"],["data breach","Definition: an incident in which protected or confidential data is accessed or disclosed without authorisation.","Related expressions: unauthorised data exposure; security breach involving data; data leak"],["digital footprint","Definition: the record of traces a person leaves through online activity.","Related expressions: online trail; digital trace; record of online activity"],["compromise privacy","Definition: to weaken or put at risk a person’s ability to control their private information.","Related expressions: undermine privacy; put privacy at risk; invade someone’s privacy"],["human oversight","Definition: supervision by people who review or can intervene in a system’s work.","Related expressions: human supervision; human review; oversight by a person"],["ensure transparency","Definition: to make processes, decisions or data use clear enough to be understood.","Related expressions: promote transparency; make processes transparent; provide clear explanations"],["comply with regulations","Definition: to act according to official rules or legal requirements.","Related expressions: follow regulations; meet regulatory requirements; adhere to rules"],["implement safeguards","Definition: to put protective measures into operation.","Related expressions: introduce protections; put safeguards in place; apply safety measures"],["take a screenshot","Definition: to capture an image of what is currently displayed on a screen.","Related expressions: capture a screenshot; take a screen capture; save a screen image"],["run a program","Definition: to start and execute a computer program.","Related expressions: execute a program; run software; launch an application"],["install software","Definition: to place and configure a program so it can be used on a device.","Related expressions: install an application; set up software; install a program"],["update an app","Definition: to install a newer version of an application, often to improve features or security.","Related expressions: update an application; install an app update; keep an app up to date"],["make an informed decision","Definition: to choose after considering relevant information, evidence and consequences.","Related expressions: make a well-informed choice; decide based on evidence; make an evidence-based decision"],["spread misinformation","Definition: to circulate false or inaccurate information, whether intentionally or not.","Related expressions: disseminate misinformation; circulate false information; spread misleading claims"],["identify a bias","Definition: to recognise a systematic preference or distortion that may affect a result.","Related expressions: detect bias; recognise a bias; identify systematic unfairness"],["user-friendly interface","Definition: a layout and set of controls that people can understand and use easily.","Related expressions: intuitive interface; easy-to-use interface; accessible user interface"]];
+document.getElementById('target').innerHTML=target.map((x,i)=>`<div class="box"><b>${i+1}. ${x[0]}</b><p>${x[1]}</p><p class="muted"><b>${x[2].split(':')[0]}:</b>${x[2].split(':').slice(1).join(':')}</p></div>`).join('');
+const profileName=document.getElementById('profile-name'),profileGroup=document.getElementById('profile-group');
+function updateProfile(){const words=profileName.value.trim().split(/\s+/).filter(Boolean);document.getElementById('avatar-initials').textContent=words.length?words.slice(0,2).map(w=>w[0].toUpperCase()).join(''):'S'}
+profileName.addEventListener('input',updateProfile);profileGroup.addEventListener('input',()=>{});
+const clusterIds=['ai','data','algorithm','privacy'];
+function lexilinkCountWritingWords(text){
+  const clean=String(text||'').trim();
+  return clean?clean.split(/\s+/).filter(Boolean).length:0;
+}
+function lexilinkUpdateWritingWordCounter(){
+  const field=document.getElementById('paragraph');
+  const counter=document.getElementById('word-count');
+  if(!field||!counter)return;
+  const count=lexilinkCountWritingWords(field.value);
+  if(count<100){
+    counter.className='muted word-count-warn';
+    counter.textContent=`${count} words — ${100-count} more needed to submit (minimum 100; no maximum)`;
+  }else{
+    counter.className='muted word-count-ok';
+    counter.textContent=`${count} words — minimum reached; no maximum`;
+  }
+} const lexilinkWritingCounterField=document.getElementById('paragraph');
+if(lexilinkWritingCounterField){
+  lexilinkWritingCounterField.addEventListener('input',lexilinkUpdateWritingWordCounter);
+  lexilinkUpdateWritingWordCounter();
+}
+
+// Block ordinary clipboard paste/cut/copy shortcuts and drag-drop in the writing field.
+// This is a classroom friction measure, not secure plagiarism prevention.
+(function protectWritingField(){
+  const field=document.getElementById('paragraph');
+  const notice=document.getElementById('writing-notice');
+  const blockedMessage='Please type your own text directly in this writing field; paste and drag-and-drop are disabled.';
+  ['paste','copy','cut','drop'].forEach(eventName=>field.addEventListener(eventName,e=>{
+    e.preventDefault();
+    if(notice){notice.textContent=blockedMessage;notice.classList.add('submission-status','warn');}
+  }));
+  field.addEventListener('dragover',e=>e.preventDefault());
+  field.addEventListener('beforeinput',e=>{
+    if(['insertFromPaste','insertFromDrop','deleteByCut'].includes(e.inputType)){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+  });
+  field.addEventListener('keydown',e=>{
+    const key=e.key.toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['v','c','x'].includes(key)){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+    if(e.shiftKey&&e.key==='Insert'){
+      e.preventDefault();
+      if(notice)notice.textContent=blockedMessage;
+    }
+  });
+})();
+
+// Paste the deployed Web App URL for the collector script supplied with this lesson.
+const SUBMISSION_ENDPOINT = "https://script.google.com/macros/s/AKfycbxKwWE0CYJDxrpP60p0A9JRv2sHrSECwzc9IPyYt9e-Kd1XQJsrHPGe2r8VHwlxPZWa/exec";
+function fieldValue(id){return (document.getElementById(id)?.value||'').trim()}
+function collectSkellClusters(){
+  return clusterIds.map(keyword=>({
+    keyword:keyword.toUpperCase(),
+    collocation1:fieldValue(`${keyword}-coll-1`),
+    sentence1:fieldValue(`${keyword}-sentence-1`),
+    collocation2:fieldValue(`${keyword}-coll-2`),
+    sentence2:fieldValue(`${keyword}-sentence-2`),
+    similarWord1:fieldValue(`${keyword}-syn-1`),
+    similarWord2:fieldValue(`${keyword}-syn-2`),
+    evidence:fieldValue(`${keyword}-evidence`)
+  }));
+}
+function collectAnswers(){
+  const answers={};
+  document.querySelectorAll('input,textarea,select').forEach((el,i)=>{
+    if(['profile-name','profile-group','paragraph','submitLessonBtn'].includes(el.id)) return;
+    if(el.type==='radio'&&!el.checked) return;
+    if(el.type==='checkbox'&&!el.checked) return;
+    const key=el.id||el.name||`field_${i+1}`;
+    answers[key]=String(el.value||'').trim();
+  });
+  return answers;
+}
+function getScoreSummary(){
+  const parts=Object.values(scores);
+  return {score:parts.reduce((sum,x)=>sum+Number(x.score||0),0),max:parts.reduce((sum,x)=>sum+Number(x.max||0),0)};
+}
+function validateSubmission(){
+  if(!fieldValue('profile-name')) return {ok:false,message:'Please enter your name in the student profile at the top of the lesson.',id:'profile-name'};
+  if(!fieldValue('profile-group')) return {ok:false,message:'Please enter your group in the student profile at the top of the lesson.',id:'profile-group'};
+  return {ok:true};
+}
+async function submitLessonWork(){
+  const status=document.getElementById('submitStatus');
+  const button=document.getElementById('submitLessonBtn');
+  const validation=validateSubmission();
+  if(!validation.ok){status.className='submission-status err';status.textContent=validation.message;document.getElementById(validation.id)?.focus();return;}
+  if(SUBMISSION_ENDPOINT.includes('PASTE_LEXILINK_APPS_SCRIPT_WEB_APP_URL_HERE')){
+    status.className='submission-status warn';
+    status.textContent='Submission is not connected yet. The teacher must deploy the shared LexiLink Google Apps Script collector, paste its /exec URL into SUBMISSION_ENDPOINT, and save the HTML file.';
+    return;
+  }
+  const payload={
+    lesson:'Lesson 19 — Artificial Intelligence and Digital Technology',
+    studentName:fieldValue('profile-name'),
+    group:fieldValue('profile-group'),
+    submittedAt:new Date().toISOString(),
+    writing:{prompt:'Responsible Use of Artificial Intelligence and Digital Technology',wordCount:fieldValue('paragraph').split(/\s+/).length,text:fieldValue('paragraph')},
+    skellClusters:collectSkellClusters(),
+    scores:{sections:scores,autoTotal:getScoreSummary()},
+    answers:collectAnswers(),
+    userAgent:navigator.userAgent
+  };
+  button.disabled=true;button.textContent='Sending…';status.className='submission-status warn';status.textContent='Sending your work to the teacher’s spreadsheet…';
+  try{
+    await fetch(SUBMISSION_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+    status.className='submission-status ok';status.textContent='Your submission request was sent. The browser cannot read the server confirmation in this mode, so the teacher should verify that the new rows appear in Google Sheets.';
+    button.textContent='Submission sent';
+  }catch(error){
+    status.className='submission-status err';status.textContent='The request could not be sent. Check the internet connection and try again.';
+    button.disabled=false;button.textContent='Try again';
+  }
+}
+const readMCQs=[{"q":"What is the main point of the reading?","ans":"AI can be useful, but its results and effects need critical evaluation.","opts":["AI outputs are always reliable if they sound confident.","AI can be useful, but its results and effects need critical evaluation.","AI should never be used for everyday tasks.","Only software developers need to think about data privacy."]},{"q":"Why can an AI system reproduce bias?","ans":"Its training examples may leave out groups or repeat stereotypes.","opts":["Its interface is always user-friendly.","Its training examples may leave out groups or repeat stereotypes.","It always processes too little data.","Its predictions are reviewed by people."]},{"q":"What should users do before sharing a surprising AI-generated claim?","ans":"Verify it and cross-check it with reliable evidence.","opts":["Assume that a confident answer is factual.","Share it before it becomes outdated.","Verify it and cross-check it with reliable evidence.","Check only whether the wording sounds formal."]},{"q":"What is a data breach in the context of the reading?","ans":"An incident involving unauthorised access to or disclosure of protected data.","opts":["A scheduled software update.","An incident involving unauthorised access to or disclosure of protected data.","A useful way to train an AI model.","A user-friendly way to present information."]},{"q":"What can add to a person’s digital footprint?","ans":"Online searches, posts and other digital activity.","opts":["Only printed documents kept at home.","Online searches, posts and other digital activity.","A software update that deletes all activity.","A conversation that never uses a digital device."]},{"q":"Why is human oversight important in high-stakes decisions?","ans":"People need to review outputs when errors may seriously affect lives.","opts":["It guarantees that an AI system cannot make a mistake.","People need to review outputs when errors may seriously affect lives.","It removes the need for reliable data.","It makes regulations unnecessary."]},{"q":"Which practice can help protect data?","ans":"Storing it securely and limiting unnecessary access.","opts":["Sharing passwords with colleagues.","Storing it securely and limiting unnecessary access.","Using the same weak password for every service.","Ignoring software updates."]},{"q":"What should organisations do when their systems raise concerns?","ans":"Investigate the problem instead of dismissing it.","opts":["Hide the system’s limitations.","Investigate the problem instead of dismissing it.","Stop explaining how information is used.","Remove all human review."]},{"q":"Why is transparency valuable?","ans":"It helps people understand how processes and decisions work.","opts":["It guarantees every prediction will be correct.","It helps people understand how processes and decisions work.","It prevents users from asking questions.","It replaces all safeguards."]},{"q":"What attitude towards AI does the reading recommend?","ans":"Use technology critically, safely and responsibly.","opts":["Trust every tool without checking it.","Reject all forms of digital innovation.","Use technology critically, safely and responsibly.","Let automated systems make every important decision."]}];const readTFs=[{"q":"AI systems may use large datasets to detect patterns and generate predictions.","ans":"True"},{"q":"The reading states that a confident AI response is proof that the information is correct.","ans":"False"},{"q":"Biased training data can affect decisions about recruitment or access to services.","ans":"True"},{"q":"Cross-checking information means comparing it with other evidence or sources.","ans":"True"},{"q":"The text says that digital footprints only include information a person deliberately publishes.","ans":"False"},{"q":"A data breach can involve confidential information being exposed without authorisation.","ans":"True"},{"q":"Human oversight is unnecessary whenever an AI system processes data quickly.","ans":"False"},{"q":"Strong passwords and software updates can contribute to safer digital practices.","ans":"True"},{"q":"The reading recommends ignoring concerns if the technology is convenient.","ans":"False"},{"q":"Responsible AI use can involve both technological benefits and protective measures.","ans":"True"}];const readMatches=[{"q":"AI tools learn from examples so they can recognise or classify new inputs.","ans":"1"},{"q":"Unrepresentative examples can influence a system’s outcomes unfairly.","ans":"2"},{"q":"Users compare a claim with other sources before sharing it.","ans":"3"},{"q":"Online searches and posts contribute to a trace of digital activity.","ans":"4"},{"q":"An incident exposes protected information without authorisation.","ans":"4"},{"q":"An organisation explains its processes and adds protective measures.","ans":"5"},{"q":"A person checks whether a claim is supported by evidence.","ans":"3"},{"q":"People review a system’s output where important decisions are involved.","ans":"2"},{"q":"A system identifies repeated relationships in information.","ans":"1"},{"q":"A training dataset reflects a systematic preference or distortion.","ans":"2"}];
+function renderReadRadio(id,items,optsFn){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${optsFn(x,i)}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+function renderSelect(id,items,options){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b><label for="${id}-${i}">Choose:</label><select id="${id}-${i}"><option value="">Choose an answer…</option>${options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select><div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+renderReadRadio('readMCQ',readMCQs,(x,i)=>`<div>${x.opts.map(o=>`<label><input type="radio" name="readMCQ-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`);
+renderReadRadio('readTF',readTFs,(x,i)=>`<div><label><input type="radio" name="readTF-${i}" value="True"> True</label><label><input type="radio" name="readTF-${i}" value="False"> False</label></div>`);
+renderSelect('readMatch',readMatches,['1','2','3','4','5']);
+const scores={};
+function markRadioSet(items,namePrefix,id,resultId){let n=0,answered=0;items.forEach((x,i)=>{const chosen=document.querySelector(`input[name="${namePrefix}-${i}"]:checked`)?.value;const f=document.getElementById(`${id}-fb-${i}`);if(!chosen){f.className='fb muted';f.textContent='Choose an answer before checking this question.';return;}answered++;const ok=chosen===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct. '+(x.why||''):'Not quite. Correct answer: '+x.ans+(x.why?' — '+x.why:'')});scores[id]={score:n,max:items.length};document.getElementById(resultId).innerHTML=`<p><b>Score: ${n}/${items.length}</b> · Answered: ${answered}/${items.length}</p>`}
+function checkReading(){markRadioSet(readMCQs,'readMCQ','readMCQ','reading-result')}
+function resetReading(){readMCQs.forEach((x,i)=>{document.querySelectorAll(`input[name="readMCQ-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readMCQ-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('reading-result').innerHTML='';delete scores.readMCQ}
+function checkTF(){markRadioSet(readTFs,'readTF','readTF','tf-result')}
+function resetTF(){readTFs.forEach((x,i)=>{document.querySelectorAll(`input[name="readTF-${i}"]`).forEach(e=>e.checked=false);const f=document.getElementById(`readTF-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('tf-result').innerHTML='';delete scores.readTF}
+function checkReadMatch(){let n=0,answered=0;readMatches.forEach((x,i)=>{const v=document.getElementById(`readMatch-${i}`).value;const f=document.getElementById(`readMatch-fb-${i}`);if(!v){f.className='fb muted';f.textContent='Choose a paragraph before checking this question.';return;}answered++;const ok=v===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=ok?'Correct.':'Not quite. Correct answer: paragraph '+x.ans+'.'});scores.readMatch={score:n,max:readMatches.length};document.getElementById('readmatch-result').innerHTML=`<p><b>Score: ${n}/${readMatches.length}</b> · Answered: ${answered}/${readMatches.length}</p>`}
+function resetReadMatch(){readMatches.forEach((x,i)=>{document.getElementById(`readMatch-${i}`).value='';const f=document.getElementById(`readMatch-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById('readmatch-result').innerHTML='';delete scores.readMatch}
+const data={"matching":{"mode":"select","items":[{"q":"train an AI ___","ans":"model"},{"q":"process large ___","ans":"datasets"},{"q":"detect ___","ans":"patterns"},{"q":"generate ___","ans":"predictions"},{"q":"raise ___","ans":"concerns"},{"q":"pose a ___","ans":"risk"},{"q":"take a ___","ans":"screenshot"},{"q":"make an informed ___","ans":"decision"},{"q":"compromise ___","ans":"privacy"},{"q":"store data ___","ans":"securely"}],"options":["model","datasets","patterns","predictions","concerns","risk","screenshot","decision","privacy","securely"]},"gaps":{"mode":"select","items":[{"q":"The engineers use thousands of labelled examples to ___.","ans":"train an AI model","why":"Training exposes a model to examples so it can learn patterns."},{"q":"With enough relevant examples, the system may __ about future demand.","ans":"generate predictions","why":"A system generates predictions; the predictions still need evaluation."},{"q":"Before reposting the claim, please ___ against independent evidence.","ans":"verify a claim","why":"To verify a claim is to check whether evidence supports it."},{"q":"The unfair result may be linked to __ that excluded some groups.","ans":"biased training data","why":"Biased or unrepresentative examples can produce distorted outcomes."},{"q":"The company reported a ___ after confidential customer records were exposed.","ans":"data breach","why":"A data breach involves unauthorised access to or disclosure of data."},{"q":"A false but convincing post can ___ rapidly when users share it without checking.","ans":"spread misinformation","why":"Misinformation spreads when inaccurate information circulates."},{"q":"Search histories and public posts can contribute to a person’s ___.","ans":"digital footprint","why":"A digital footprint is the trace left by online activity."},{"q":"In a medical setting, an automated suggestion should still be subject to ___.","ans":"human oversight","why":"Human oversight enables review when errors could have serious consequences."},{"q":"A company must ___ when it collects and processes personal information.","ans":"comply with regulations","why":"Organisations must comply with applicable rules and requirements."},{"q":"A clear layout and easy controls are features of a ___.","ans":"user-friendly interface","why":"A user-friendly interface is easy to understand and use."}],"options":["train an AI model","generate predictions","verify a claim","biased training data","data breach","spread misinformation","digital footprint","human oversight","comply with regulations","user-friendly interface"]},"find":{"mode":"select","items":[{"q":"___ an AI model","ans":"TRAIN"},{"q":"___ large datasets","ans":"PROCESS"},{"q":"___ patterns in the data","ans":"DETECT"},{"q":"___ a claim against evidence","ans":"VERIFY"},{"q":"___ concerns about privacy","ans":"RAISE"},{"q":"___ a risk to users","ans":"POSE"},{"q":"___ personal data","ans":"PROTECT"},{"q":"___ transparency about automated decisions","ans":"ENSURE"},{"q":"___ safeguards before launch","ans":"IMPLEMENT"},{"q":"___ an informed decision","ans":"MAKE"}],"options":["TRAIN","PROCESS","DETECT","VERIFY","RAISE","POSE","PROTECT","ENSURE","IMPLEMENT","MAKE"]},"sorting":{"mode":"select","items":[{"q":"The system makes suggestions about future demand based on past examples. It can ___.","ans":"generate predictions"},{"q":"A developer compares output for different groups to check whether the system treats them unfairly. They aim to ___.","ans":"identify a bias"},{"q":"A platform explains how its recommendations are produced. It helps to ___.","ans":"ensure transparency"},{"q":"The company uses customers’ details and must prevent unauthorised access. It needs to ___.","ans":"store data securely"},{"q":"A fabricated video is shared as if it were genuine. The post may ___.","ans":"spread misinformation"},{"q":"The app’s menus and controls are clear to new users. It has a ___.","ans":"user-friendly interface"},{"q":"Employees check updates and security settings before releasing software. They ___.","ans":"implement safeguards"},{"q":"A new AI tool is used to review applications for a high-stakes service. Staff should provide ___.","ans":"human oversight"},{"q":"Before forwarding medical advice, users should ___ through independent sources.","ans":"cross-check information"},{"q":"The company has to follow the rules that apply to handling personal information. It must ___.","ans":"comply with regulations"}],"options":["generate predictions","identify a bias","ensure transparency","store data securely","spread misinformation","user-friendly interface","implement safeguards","human oversight","cross-check information","comply with regulations"]},"cloze":{"mode":"select","items":[{"q":"Pattern-recognition tools can help researchers ___ in very large collections of records.","ans":"detect patterns"},{"q":"A responsible reader should ___ rather than accept a generated answer immediately.","ans":"cross-check information"},{"q":"Unclear collection practices may ___ about the use of personal data.","ans":"raise concerns"},{"q":"Before relying on a medical answer from a chatbot, users should ___.","ans":"consult a reliable source"},{"q":"In high-stakes decisions, a system should not replace ___.","ans":"human oversight"},{"q":"The developers plan to ___ before making the new tool available to the public.","ans":"implement safeguards"},{"q":"A record of searches, posts and online actions can form a person’s ___.","ans":"digital footprint"},{"q":"Organisations should ___ so that people can understand how a decision was reached.","ans":"ensure transparency"},{"q":"Companies need to ___ instead of exposing it to unnecessary access.","ans":"protect personal data"},{"q":"Even a useful technology can ___ if it is used without checking its limitations.","ans":"pose a risk"}],"options":["detect patterns","cross-check information","raise concerns","consult a reliable source","human oversight","implement safeguards","digital footprint","ensure transparency","protect personal data","pose a risk"]},"odd":{"mode":"radio","items":[{"q":"Which expression is not a natural collocation?","ans":"make a screenshot","opts":["take a screenshot","capture a screenshot","save a screenshot","make a screenshot"],"why":"English normally uses take or capture a screenshot, not make a screenshot."},{"q":"Which expression is the odd one out?","ans":"do a risk","opts":["pose a risk","present a risk","create a risk","do a risk"],"why":"Risk typically collocates with pose, present or create; do a risk is not standard."},{"q":"Choose the unnatural phrase.","ans":"do transparency","opts":["ensure transparency","promote transparency","improve transparency","do transparency"],"why":"English uses ensure, promote or improve transparency."},{"q":"Which phrase is not a natural word partnership in this context?","ans":"perform safeguards","opts":["implement safeguards","put safeguards in place","introduce safeguards","perform safeguards"],"why":"Safeguards are implemented, introduced or put in place."},{"q":"Which combination is unnatural?","ans":"commit a digital footprint","opts":["leave a digital footprint","create a digital footprint","add to a digital footprint","commit a digital footprint"],"why":"People leave, create or add to a digital footprint; commit does not fit this noun phrase."},{"q":"Choose the unnatural collocation.","ans":"make an information reliable source","opts":["consult a reliable source","check a credible source","refer to a trusted source","make an information reliable source"],"why":"A source is consulted, checked or referred to; make an information reliable source is not a natural collocation."},{"q":"Which phrase is not natural English?","ans":"do regulations","opts":["comply with regulations","follow regulations","meet regulatory requirements","do regulations"],"why":"Rules are complied with or followed; organisations do not normally “do regulations”."},{"q":"Which phrase is the odd one out?","ans":"raise a prediction","opts":["generate predictions","make predictions","produce predictions","raise a prediction"],"why":"Predictions are generated, made or produced; raise a prediction is not a standard collocation."},{"q":"Which expression is unnatural?","ans":"open a risk","opts":["pose a risk","present a risk","reduce a risk","open a risk"],"why":"A risk can be posed, presented or reduced; it is not opened."},{"q":"Choose the non-standard phrase.","ans":"do an informed decision","opts":["make an informed decision","reach an informed decision","make an evidence-based decision","do an informed decision"],"why":"The standard collocation is make an informed decision; do an informed decision is a direct-translation error."}]},"repair":{"mode":"radio","items":[{"q":"The first draft says: “The app can make a screenshot of the error.” Choose the best correction.","ans":"The app can take a screenshot of the error.","opts":["The app can take a screenshot of the error.","The app can do a screenshot of the error.","The app can pose a screenshot of the error.","The app can raise a screenshot of the error."],"why":"Take a screenshot is the conventional English collocation."},{"q":"The report says: “The new feature makes a risk to users.” Choose the best correction.","ans":"The new feature poses a risk to users.","opts":["The new feature poses a risk to users.","The new feature does a risk to users.","The new feature takes a risk to users.","The new feature makes a danger to users."],"why":"Pose a risk means to present a possibility of harm."},{"q":"The sentence reads: “The company should do regulations about data use.” Choose the best correction.","ans":"The company should comply with regulations about data use.","opts":["The company should comply with regulations about data use.","The company should do regulations about data use.","The company should make regulations about data use.","The company should perform regulations about data use."],"why":"Comply with regulations means to act according to applicable rules."},{"q":"The sentence reads: “The new policy makes concerns about privacy.” Choose the best correction.","ans":"The new policy raises concerns about privacy.","opts":["The new policy raises concerns about privacy.","The new policy does concerns about privacy.","The new policy takes concerns about privacy.","The new policy builds concerns of privacy."],"why":"Raise concerns is used when a situation causes people to worry."},{"q":"The draft says: “A user should do an informed decision before sharing the content.” Choose the best correction.","ans":"A user should make an informed decision before sharing the content.","opts":["A user should make an informed decision before sharing the content.","A user should do an informed decision before sharing the content.","A user should make an information decision before sharing the content.","A user should perform an informed decision before sharing the content."],"why":"Make an informed decision is the standard collocation."},{"q":"The sentence reads: “The system has to keep data by security.” Choose the best correction.","ans":"The system has to store data securely.","opts":["The system has to store data securely.","The system has to keep data by security.","The system has to put data with security.","The system has to make data secure storage."],"why":"Store data securely is a concise, conventional verb-adverb collocation."},{"q":"The draft says: “The organisation must take human control over high-stakes decisions.” Choose the best collocation.","ans":"The organisation must provide human oversight for high-stakes decisions.","opts":["The organisation must provide human oversight for high-stakes decisions.","The organisation must do human oversight for high-stakes decisions.","The organisation must make human oversight for high-stakes decisions.","The organisation must take an oversight human for high-stakes decisions."],"why":"Provide human oversight means to ensure people supervise or review the system."},{"q":"The sentence says: “Before reposting, check the information in more than one source.” Choose the best collocation.","ans":"Before reposting, cross-check the information with more than one source.","opts":["Before reposting, cross-check the information with more than one source.","Before reposting, over-check the information in more than one source.","Before reposting, pass the information through more than one source.","Before reposting, cross the information with more than one source."],"why":"Cross-check information means to compare it with additional sources or evidence."},{"q":"The draft says: “The provider needs to make safeguards before launching the system.” Choose the best correction.","ans":"The provider needs to implement safeguards before launching the system.","opts":["The provider needs to implement safeguards before launching the system.","The provider needs to perform safeguards before launching the system.","The provider needs to do safeguards before launching the system.","The provider needs to make a safeguardness before launching the system."],"why":"Implement safeguards means to put protective measures into operation."},{"q":"The sentence reads: “Users must make a reliable source before accepting a medical AI answer.” Choose the best correction.","ans":"Users must consult a reliable source before accepting a medical AI answer.","opts":["Users must consult a reliable source before accepting a medical AI answer.","Users must create a reliable source before accepting a medical AI answer.","Users must make a reliable source before accepting a medical AI answer.","Users must perform a reliable source before accepting a medical AI answer."],"why":"Consult a reliable source is a natural way to describe checking dependable information."}]},"interference":{"mode":"radio","items":[{"q":"A student writes “make a screenshot”. Which phrase is the conventional English collocation?","ans":"take a screenshot","opts":["take a screenshot","do a screenshot","make a screenshot","pose a screenshot"],"why":"English conventionally uses take a screenshot."},{"q":"Correct the phrase “make a risk to privacy”.","ans":"pose a risk to privacy","opts":["pose a risk to privacy","do a risk to privacy","take a risk to privacy","make a danger to privacy"],"why":"Pose a risk describes a potential source of harm."},{"q":"Choose the natural expression: “The regulator requires firms to ___.”","ans":"comply with regulations","opts":["comply with regulations","do regulations","make regulations with","perform to regulations"],"why":"Comply with regulations is the established phrase for following official rules."},{"q":"A direct translation produces “make concerns about data”. Choose the natural English form.","ans":"raise concerns about data","opts":["raise concerns about data","make concerns about data","do concerns about data","put concerns on data"],"why":"Raise concerns is the usual phrase for bringing a potential problem to attention."},{"q":"Choose the conventional collocation: “Before sharing the AI-generated claim, ___.”","ans":"verify the claim","opts":["verify the claim","realise the claim","make the claim verified","do the verification of claim"],"why":"Verify a claim means to check it against evidence."},{"q":"A user wants to make an evidence-based choice. Choose the conventional phrase.","ans":"make an informed decision","opts":["make an informed decision","do an informed decision","perform an informed decision","make an information decision"],"why":"Make an informed decision is the natural verb-noun partnership."},{"q":"A company should not “make a digital footprint”. Choose the usual expression.","ans":"leave a digital footprint","opts":["leave a digital footprint","do a digital footprint","pose a digital footprint","comply a digital footprint"],"why":"Leave a digital footprint describes the traces left through online activity."},{"q":"Choose the conventional phrase for checking information against another source.","ans":"cross-check information","opts":["cross-check information","cross the information","overcheck information","cross the data with information"],"why":"Cross-check information means to verify it by comparison."},{"q":"A responsible app should “keep personal information safe”. Choose the collocation-based version.","ans":"protect personal data","opts":["protect personal data","make personal data safe keeping","do personal data protection","pose personal information"],"why":"Protect personal data is a conventional expression for safeguarding personal information."},{"q":"Choose the natural phrase: “The company should ___ about how the system reaches decisions.”","ans":"ensure transparency","opts":["ensure transparency","do transparency","make transparentness","take transparency"],"why":"Ensure transparency means to make a process or decision clear enough to understand."}]},"context":{"mode":"select","items":[{"q":"A system has learned to recognise dogs in images after being trained with thousands of labelled examples. The developers had to ___.","ans":"train an AI model"},{"q":"Researchers analyse millions of records to find repeated relationships. The system helps them ___.","ans":"detect patterns"},{"q":"A company’s example set excludes some communities, and its hiring tool gives them systematically lower scores. The team must investigate ___.","ans":"biased training data"},{"q":"A chatbot says a medicine is safe, but it provides no evidence. Before sharing the answer, a reader should ___.","ans":"consult a reliable source"},{"q":"A service explains what information it collects and why it makes a recommendation. It is trying to ___.","ans":"ensure transparency"},{"q":"A platform’s customer records become accessible to strangers after a security failure. This incident is a ___.","ans":"data breach"},{"q":"A user reviews an automated decision in a process that could affect someone’s health or employment. This is an example of ___.","ans":"human oversight"},{"q":"A company puts access controls, testing and monitoring in place before releasing a new system. It has decided to ___.","ans":"implement safeguards"},{"q":"A website has clear labels, predictable controls and menus that new users can understand. It has a ___.","ans":"user-friendly interface"},{"q":"A reader checks an AI-generated statement using two independent publications before reposting it. The reader has decided to ___.","ans":"cross-check information"}],"options":["train an AI model","detect patterns","biased training data","consult a reliable source","ensure transparency","data breach","human oversight","implement safeguards","user-friendly interface","cross-check information"]}};
+function render(id){const d=data[id];document.getElementById(id).innerHTML=d.items.map((x,i)=>`<div class="q"><b>${i+1}. ${x.q}</b>${d.mode==='radio'?`<div>${x.opts.map(o=>`<label><input type="radio" name="${id}-${i}" value="${o.replace(/"/g,'&quot;')}"> ${o}</label>`).join('')}</div>`:`<select id="${id}-${i}"><option value="">Choose…</option>${d.options.map(o=>`<option value="${o}">${o}</option>`).join('')}</select>`}<div class="fb" id="${id}-fb-${i}"></div></div>`).join('')}
+Object.keys(data).forEach(render);
+function check(id){const d=data[id];let n=0,answered=0;d.items.forEach((x,i)=>{const v=d.mode==='radio'?document.querySelector(`input[name="${id}-${i}"]:checked`)?.value:document.getElementById(`${id}-${i}`).value;const f=document.getElementById(`${id}-fb-${i}`);if(!v){f.className='fb muted';f.textContent='Choose an answer before checking this question.';return;}answered++;const ok=v===x.ans;if(ok)n++;f.className='fb '+(ok?'ok':'bad');f.textContent=(ok?'Correct. ':'Not quite. Correct answer: '+x.ans+'. ')+(x.why||'')});scores[id]={score:n,max:d.items.length};document.getElementById(id+'-result').innerHTML=`<p><b>Score: ${n}/${d.items.length}</b> · Answered: ${answered}/${d.items.length}</p>`}
+function reset(id){const d=data[id];d.items.forEach((x,i)=>{if(d.mode==='radio')document.querySelectorAll(`input[name="${id}-${i}"]`).forEach(e=>e.checked=false);else document.getElementById(`${id}-${i}`).value='';const f=document.getElementById(`${id}-fb-${i}`);f.textContent='';f.className='fb'});document.getElementById(id+'-result').innerHTML='';delete scores[id]}
+function summary(){let n=0,m=0;Object.values(scores).forEach(x=>{n+=x.score;m+=x.max});document.getElementById('summary').innerHTML=`<p><b>Automatically scored so far: ${n}/${m}.</b><br>Teacher-scored: SkELL investigation 0–10; writing 0–5. Maximum lesson score: 135 points.</p>`}
+</script>
+</body></html>
