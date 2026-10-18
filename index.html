@@ -28,10 +28,17 @@ body{margin:0;background:linear-gradient(180deg,#eaf7ef 0,#f6fbf7 360px,#f6fbf7 
 .lesson h3{font-size:1rem;line-height:1.35;margin:1px 0 6px}
 .lesson p{font-size:.88rem;color:var(--muted);margin:0}
 .go{margin-left:auto;color:var(--green);font-size:1.3rem;line-height:1;padding-left:4px}
+.dictionary{display:flex;align-items:center;gap:18px;margin:28px 0 4px;padding:22px 24px;border:1px solid #a9d9bd;border-radius:20px;background:linear-gradient(115deg,#fff 0%,#edf9f1 100%);text-decoration:none;color:inherit;box-shadow:0 8px 24px #175d3e0b;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+.dictionary:hover,.dictionary:focus-visible{transform:translateY(-2px);border-color:#55b984;box-shadow:0 12px 30px #175d3e18;outline:none}
+.dict-icon{flex:0 0 54px;width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:#dff4e7;color:#147a55;font-size:1.7rem;font-weight:800}
+.dict-text{min-width:0}
+.dict-text h2{margin:0 0 5px;font-size:1.22rem;letter-spacing:-.02em}
+.dict-text p{margin:0;color:var(--muted);font-size:.94rem}
+.dict-go{margin-left:auto;color:var(--green);font-size:1.5rem}
 .note{margin-top:24px;padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:16px;color:var(--muted);font-size:.9rem}
 .note strong{color:var(--ink)}
 footer{text-align:center;color:var(--muted);font-size:.84rem;margin-top:26px}
-@media(max-width:700px){.wrap{padding:18px 14px 34px}.grid{grid-template-columns:1fr}.hero{border-radius:22px}.section-head{display:block}}
+@media(max-width:700px){.wrap{padding:18px 14px 34px}.grid{grid-template-columns:1fr}.hero{border-radius:22px}.section-head{display:block}.dictionary{align-items:flex-start;padding:18px}.dict-icon{flex-basis:46px;width:46px;height:46px}.dict-text h2{font-size:1.05rem}}
 </style>
 </head>
 <body>
@@ -40,14 +47,26 @@ footer{text-align:center;color:var(--muted);font-size:.84rem;margin-top:26px}
     <div class="eyebrow">Interactive collocation learning</div>
     <h1>LexiLink</h1>
     <p class="tagline">Connect words. Build fluency.</p>
-    <p class="desc">Explore natural English word partnerships through reading, interactive practice and guided discovery with SkELL. Choose a lesson below to begin.</p>
+    <p class="desc">Explore natural English word partnerships through reading, interactive practice and guided discovery with SkELL. Choose a lesson or explore the collocation dictionary.</p>
     <div class="pills">
       <span class="pill">B2 English</span>
       <span class="pill">Corpus discovery</span>
       <span class="pill">Collocation practice</span>
       <span class="pill">30 lessons</span>
+      <span class="pill">English–Russian / English–Uzbek dictionary</span>
     </div>
   </header>
+
+
+
+  <a class="dictionary" href="collocation-dictionary.html" aria-label="Open the trilingual collocation dictionary">
+    <span class="dict-icon" aria-hidden="true">Aa</span>
+    <span class="dict-text">
+      <h2>Trilingual Collocation Dictionary</h2>
+      <p>Search 8,552 English collocations, explore alphabetical headwords, view Russian or Uzbek translations, and check usage in SkELL.</p>
+    </span>
+    <span class="dict-go" aria-hidden="true">↗</span>
+  </a>
 
   <section aria-labelledby="lessons-title">
     <div class="section-head">
