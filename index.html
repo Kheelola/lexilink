@@ -237,7 +237,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #3d91df;outline-offset:3p
         <div class="search-card-top"><span class="search-mark">S</span><div><h3>SkELL</h3><p>Corpus examples and word combinations</p></div></div>
         <label class="visually-hidden" for="skell-query">Search SkELL</label>
         <div class="search-row"><input id="skell-query" name="q" type="search" placeholder="Enter a word or phrase…" required><button type="submit">Search SkELL <span aria-hidden="true">↗</span></button></div>
-        <p class="tool-direct"><a href="https://skell.sketchengine.eu/" target="_blank" rel="noopener noreferrer">Open SkELL directly ↗</a></p>
+        <p class="tool-direct"><a href="https://skell.sketchengine.eu/#home?lang=en" target="_blank" rel="noopener noreferrer">Open SkELL directly ↗</a></p>
       </form>
       <form class="search-card" id="power-thesaurus-search-form">
         <div class="search-card-top"><span class="search-mark pt-mark">PT</span><div><h3>Power Thesaurus</h3><p>Synonyms, antonyms and related words</p></div></div>
@@ -317,7 +317,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #3d91df;outline-offset:3p
     event.preventDefault();
     const term = document.getElementById('skell-query').value.trim();
     if (!term) return;
-    const url = 'https://skell.sketchengine.eu/#result?lang=en&query=' + encodeURIComponent(term);
+    const url = 'https://skell.sketchengine.eu/#result?f=concordance&lang=en&query=' + encodeURIComponent(term);
     const tab = window.open(url, '_blank', 'noopener');
     if (!tab) window.location.href = url;
   });
