@@ -39,6 +39,164 @@ body{margin:0;background:linear-gradient(180deg,#eaf7ef 0,#f6fbf7 360px,#f6fbf7 
 .note strong{color:var(--ink)}
 footer{text-align:center;color:var(--muted);font-size:.84rem;margin-top:26px}
 @media(max-width:700px){.wrap{padding:18px 14px 34px}.grid{grid-template-columns:1fr}.hero{border-radius:22px}.section-head{display:block}.dictionary{align-items:flex-start;padding:18px}.dict-icon{flex-basis:46px;width:46px;height:46px}.dict-text h2{font-size:1.05rem}}
+
+/* LexiLink Power Thesaurus-inspired palette override */
+:root{
+  --green:#3567e8;
+  --green2:#4f7df0;
+  --ink:#252b36;
+  --muted:#6d7685;
+  --paper:#f7f8fa;
+  --white:#ffffff;
+  --line:#e4e7ed;
+  --soft:#edf2ff;
+}
+body{background:#f7f8fa;color:var(--ink)}
+.hero{color:#252b36;background:linear-gradient(135deg,#ffffff 0%,#f5f7ff 100%);border:1px solid #e5e9f3;box-shadow:0 12px 38px rgba(31,48,86,.07)}
+.hero:after{border-color:#dce5ff;box-shadow:0 0 0 36px rgba(59,99,230,.035),0 0 0 72px rgba(59,99,230,.025)}
+.eyebrow{color:#4569c8}
+.desc{color:#687386}
+.pill{border-color:#dfe5f3;background:#ffffff;color:#59667d}
+.lesson{border-color:#e5e8ee;box-shadow:0 4px 16px rgba(30,43,70,.035)}
+.lesson:hover,.lesson:focus-visible{border-color:#9bb5ff;box-shadow:0 10px 28px rgba(48,82,170,.09)}
+.num{background:#edf2ff;color:#3567e8}
+.go{color:#3567e8}
+.dictionary{border-color:#e3e7ee;box-shadow:0 5px 18px rgba(30,43,70,.04)}
+.dict-icon{background:#edf2ff!important;color:#3567e8!important}
+.dict-go{color:#3567e8}
+.note{background:#fff;border-color:#e4e7ed}
+.note strong{color:#252b36}
+a:focus-visible,button:focus-visible{outline:3px solid #a9bdff;outline-offset:3px}
+@media(prefers-reduced-motion:no-preference){.lesson,.dictionary{transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}}
+
+
+/* Dual corpus and thesaurus search */
+.search-tools{margin:32px 0 8px}
+.search-head{margin-top:0}
+.search-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.search-card{min-width:0;background:#fff;border:1px solid #e4e7ed;border-radius:20px;padding:20px;box-shadow:0 5px 18px rgba(30,43,70,.04)}
+.search-card-top{display:flex;align-items:center;gap:12px;margin-bottom:17px}
+.search-mark{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border-radius:13px;background:#edf2ff;color:#3567e8;font-weight:850;font-size:1.15rem}
+.pt-mark{background:#eaf1ff;color:#285bc9;font-size:.88rem;letter-spacing:-.04em}
+.search-card h3{font-size:1.08rem;margin:0 0 2px;letter-spacing:-.02em}
+.search-card-top p{font-size:.86rem;color:#6d7685;margin:0}
+.search-row{display:flex;gap:8px}
+.search-row input{min-width:0;flex:1;border:1px solid #dfe3eb;border-radius:12px;background:#fff;padding:12px 13px;font:inherit;color:#252b36;outline:none}
+.search-row input:focus{border-color:#7194f4;box-shadow:0 0 0 3px rgba(53,103,232,.12)}
+.search-row button{border:0;border-radius:12px;padding:11px 14px;background:#3567e8;color:#fff;font:inherit;font-size:.9rem;font-weight:700;cursor:pointer;white-space:nowrap}
+.search-row button:hover{background:#2857d0}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:700px){.search-grid{grid-template-columns:1fr}.search-card{padding:17px}.search-row{flex-direction:column}.search-row button{width:100%}}
+
+
+/* Vivid unified LexiLink search hub: SkELL + Power Thesaurus */
+.search-tools{position:relative;padding:26px;border-radius:28px;background:linear-gradient(125deg,#edf8ff 0%,#f1edff 48%,#e9fff7 100%);border:1px solid #d8e5ff;box-shadow:0 16px 42px rgba(52,82,180,.12);overflow:hidden}
+.search-tools:before{content:"WORD DISCOVERY HUB";display:inline-flex;align-items:center;margin:0 0 14px;padding:6px 11px;border-radius:999px;background:linear-gradient(90deg,#244fe8,#7b3ff2);color:#fff;font-size:.69rem;letter-spacing:.13em;font-weight:850;box-shadow:0 5px 14px rgba(73,76,214,.22)}
+.search-tools .search-head{margin:0 2px 18px;align-items:center}
+.search-tools .search-head h2{color:#172554;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.04em}
+.search-tools .search-head p{color:#4f5e80;font-size:.98rem}
+.search-grid{gap:18px}
+.search-card{position:relative;border:0;border-radius:22px;padding:22px;background:#fff;box-shadow:0 10px 28px rgba(25,43,94,.12);overflow:hidden;transition:transform .18s ease,box-shadow .18s ease}
+.search-card:before{content:"";position:absolute;inset:0 0 auto;height:7px;background:linear-gradient(90deg,#00b887,#00d6c4)}
+#power-thesaurus-search-form:before{background:linear-gradient(90deg,#3b5bff,#9a42f5,#ed4cb5)}
+.search-card:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(25,43,94,.17)}
+.search-card-top{gap:13px;margin:0 0 19px}
+.search-mark{width:50px;height:50px;flex-basis:50px;border-radius:16px;background:linear-gradient(135deg,#00b887,#00cdbb);color:#fff;font-size:1.3rem;box-shadow:0 7px 17px rgba(0,184,135,.25)}
+.pt-mark{background:linear-gradient(135deg,#365dff,#8043f5 65%,#b53ff0);color:#fff;font-size:.88rem;letter-spacing:-.04em;box-shadow:0 7px 17px rgba(94,73,245,.27)}
+.search-card h3{font-size:1.2rem;font-weight:850;color:#182448;margin-bottom:3px}
+.search-card-top p{font-size:.9rem;color:#68738c}
+.search-row{gap:9px}
+.search-row input{border:2px solid #d9f2eb;border-radius:14px;padding:13px 14px;background:#fbfffe;color:#1c2745;font-size:.96rem;transition:border-color .15s,box-shadow .15s}
+#power-thesaurus-search-form .search-row input{border-color:#e2ddff;background:#fdfcff}
+.search-row input:focus{border-color:#00b887;box-shadow:0 0 0 4px rgba(0,184,135,.15)}
+#power-thesaurus-search-form .search-row input:focus{border-color:#7451ff;box-shadow:0 0 0 4px rgba(116,81,255,.15)}
+.search-row button{border-radius:14px;padding:12px 15px;background:linear-gradient(135deg,#00a978,#00c9b4);box-shadow:0 6px 14px rgba(0,169,120,.22);font-size:.92rem;font-weight:800;transition:filter .15s,transform .15s}
+.search-row button:hover{background:linear-gradient(135deg,#008f68,#00b6a0);filter:saturate(1.12);transform:translateY(-1px)}
+#power-thesaurus-search-form .search-row button{background:linear-gradient(135deg,#365dff,#7544f5 62%,#9b3fe8);box-shadow:0 6px 14px rgba(94,73,245,.24)}
+#power-thesaurus-search-form .search-row button:hover{background:linear-gradient(135deg,#2849e6,#6232dc 62%,#8530d4)}
+/* Shared visual language across LexiLink, its lessons and dictionary */
+.dictionary{background:linear-gradient(110deg,#fff 0%,#eef7ff 100%);border-color:#cbdcff}
+.dict-icon{background:linear-gradient(135deg,#365dff,#8b45ef)!important;color:#fff!important;box-shadow:0 7px 17px rgba(94,73,245,.2)}
+.dict-go{color:#4d55e8}
+.num{background:linear-gradient(135deg,#e1fff5,#e9eaff);color:#4059e8}
+.go{color:#4c58e9}
+@media(max-width:700px){.search-tools{padding:18px 14px;border-radius:22px}.search-card{padding:20px}.search-tools .search-head{margin-bottom:14px}}
+@media(prefers-reduced-motion:reduce){.search-card,.search-row button{transition:none}}
+
+
+/* Turquoise LexiLink hub: dictionary first, then SkELL and Power Thesaurus in one row */
+body{background:linear-gradient(145deg,#dffaf7 0%,#c9f4ef 36%,#e8fffb 72%,#f2fffd 100%);background-attachment:fixed}
+.wrap{max-width:1240px}
+.hero{background:linear-gradient(125deg,#087f8c 0%,#079b9b 48%,#24c6b7 100%);color:#fff;border:1px solid #7fe4d9;box-shadow:0 18px 50px rgba(0,125,135,.20)}
+.hero .eyebrow,.hero .tagline,.hero .desc{color:#fff}
+.hero .desc{opacity:.94}
+.hero .pill{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.38);color:#fff}
+.search-tools{background:linear-gradient(135deg,rgba(0,153,153,.16),rgba(91,229,207,.25));border:1px solid #87dfd5;box-shadow:0 16px 42px rgba(0,119,126,.12)}
+.search-tools:before{content:"LEXILINK WORD DISCOVERY HUB";background:linear-gradient(90deg,#008d96,#08bcae,#25c8a9)}
+.search-tools .search-head h2{color:#075e66}
+.search-tools .search-head p{color:#26777a}
+.hub-grid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;gap:16px}
+.hub-grid .dictionary,.hub-grid .search-card{min-width:0;min-height:100%;margin:0;box-sizing:border-box}
+.hub-grid .dictionary{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:22px;border:0;border-radius:22px;background:linear-gradient(150deg,#fff 0%,#e4fffa 100%);box-shadow:0 10px 28px rgba(0,105,110,.12);position:relative;overflow:hidden}
+.hub-grid .dictionary:before{content:"";position:absolute;inset:0 0 auto;height:7px;background:linear-gradient(90deg,#00a99d,#42e0c6)}
+.hub-grid .dict-icon{flex-basis:50px;width:50px;height:50px;background:linear-gradient(135deg,#00a99d,#23cbb5)!important;color:#fff!important;box-shadow:0 7px 17px rgba(0,169,157,.24)}
+.hub-grid .dict-text h2{font-size:1.18rem;line-height:1.3;margin:0 0 8px;color:#075e66}
+.hub-grid .dict-text p{font-size:.9rem;line-height:1.5;color:#427a7b;margin:0}
+.hub-grid .dict-go{margin-top:auto;color:#009b91;font-size:1.25rem}
+.hub-grid .search-card{padding:22px}
+#skell-search-form{background:linear-gradient(150deg,#fff 0%,#f0fffa 100%)}
+#power-thesaurus-search-form{background:linear-gradient(150deg,#fff 0%,#f6f2ff 100%)}
+@media(max-width:900px){.hub-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hub-grid .dictionary{grid-column:1/-1;min-height:0}}
+@media(max-width:600px){.hub-grid{grid-template-columns:1fr}.hub-grid .dictionary{grid-column:auto}.hub-grid .search-card{min-height:0}.search-row{flex-direction:column}.search-row button{width:100%}}
+
+
+/* Final palette: Power Thesaurus blue blended with SkELL teal-green */
+:root{
+  --green:#00a88f; --green2:#00c5b0; --ink:#172b4d; --muted:#5d7088;
+  --paper:#f2fbfc; --white:#fff; --line:#d7e9f1; --soft:#e3f8f5;
+}
+body{background:linear-gradient(135deg,#e4f7f7 0%,#e8f1ff 48%,#e5fbf4 100%);background-attachment:fixed;color:#172b4d}
+.hero{background:linear-gradient(120deg,#125f91 0%,#176fc0 45%,#079f9c 100%);border:1px solid #8ddedc;box-shadow:0 18px 48px rgba(24,91,145,.19)}
+.hero:after{border-color:rgba(255,255,255,.28);box-shadow:0 0 0 36px rgba(255,255,255,.07),0 0 0 72px rgba(255,255,255,.045)}
+.eyebrow{color:#c9fff5}.desc{color:#f0fffe}.pill{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.13);color:#fff}
+.search-tools{background:linear-gradient(125deg,rgba(31,91,235,.12) 0%,rgba(0,178,164,.16) 55%,rgba(81,220,196,.22) 100%);border:1px solid #a6dce6;box-shadow:0 16px 42px rgba(26,92,153,.13)}
+.search-tools:before{background:linear-gradient(90deg,#2457e8 0%,#287fd4 45%,#00a995 100%);box-shadow:0 5px 14px rgba(37,104,190,.22)}
+.search-tools .search-head h2{color:#174b83}.search-tools .search-head p{color:#426c83}
+.hub-grid .dictionary,.hub-grid .search-card{border:1px solid rgba(188,219,232,.9);background:linear-gradient(150deg,#fff 0%,#f5fbff 52%,#edfffa 100%);box-shadow:0 10px 28px rgba(25,73,126,.11)}
+.hub-grid .dictionary:before{background:linear-gradient(90deg,#2457e8 0%,#218ed1 48%,#00b89e 100%)}
+.hub-grid .dictionary:hover,.hub-grid .search-card:hover{border-color:#82cdd4;box-shadow:0 16px 34px rgba(25,73,126,.17)}
+.hub-grid .dict-icon{background:linear-gradient(135deg,#2457e8 0%,#218ed1 52%,#00b89e 100%)!important;color:#fff!important;box-shadow:0 7px 17px rgba(35,115,178,.24)}
+.hub-grid .dict-text h2{color:#174b83}.hub-grid .dict-text p{color:#526f86}.hub-grid .dict-go{color:#087fbd}
+/* The two search tools share one blue-to-teal visual identity, with distinct accents. */
+#skell-search-form:before{background:linear-gradient(90deg,#00a88f,#24d0b6,#63d9c5)}
+#power-thesaurus-search-form:before{background:linear-gradient(90deg,#2457e8,#397edb,#00a995)}
+.search-mark{background:linear-gradient(135deg,#00a88f,#39d3b7);color:#fff;box-shadow:0 7px 17px rgba(0,168,143,.22)}
+.pt-mark{background:linear-gradient(135deg,#2457e8 0%,#397edb 55%,#00a995 100%);color:#fff;box-shadow:0 7px 17px rgba(37,99,190,.23)}
+.search-card h3{color:#174b83}.search-card-top p{color:#5d7088}
+.search-row input{border:2px solid #cdeee7;background:#fbffff;color:#172b4d}
+#power-thesaurus-search-form .search-row input{border-color:#cbdcfb;background:#fcfdff}
+.search-row input:focus{border-color:#00a88f;box-shadow:0 0 0 4px rgba(0,168,143,.15)}
+#power-thesaurus-search-form .search-row input:focus{border-color:#397edb;box-shadow:0 0 0 4px rgba(57,126,219,.15)}
+.search-row button{background:linear-gradient(110deg,#00a88f 0%,#0cb9aa 100%);box-shadow:0 6px 14px rgba(0,168,143,.2)}
+.search-row button:hover{background:linear-gradient(110deg,#008f7a,#079f97)}
+#power-thesaurus-search-form .search-row button{background:linear-gradient(110deg,#2457e8 0%,#397edb 52%,#00a995 100%);box-shadow:0 6px 14px rgba(37,99,190,.22)}
+#power-thesaurus-search-form .search-row button:hover{background:linear-gradient(110deg,#1c47c7,#2d70c7 52%,#008f83)}
+.dictionary{background:linear-gradient(110deg,#fff 0%,#f1f8ff 55%,#eafff9 100%);border-color:#c3e1e8}
+.num{background:linear-gradient(135deg,#e2f8f5,#e6efff);color:#2467bb}.go{color:#087f9c}
+.lesson{border-color:#d7e9f1;box-shadow:0 4px 16px rgba(25,73,126,.04)}
+.lesson:hover,.lesson:focus-visible{border-color:#84cdd4;box-shadow:0 10px 28px rgba(25,73,126,.1)}
+.note{background:rgba(255,255,255,.88);border-color:#d7e9f1}.note strong{color:#174b83}footer{color:#426c83}
+a:focus-visible,button:focus-visible{outline:3px solid #3d91df;outline-offset:3px}
+@media(max-width:900px){.hub-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hub-grid .dictionary{grid-column:1/-1}}
+@media(max-width:600px){.hub-grid{grid-template-columns:1fr}.hub-grid .dictionary{grid-column:auto}}
+
+
+/* Access reliability and clear three-tool navigation */
+.tool-direct{margin:12px 0 0;font-size:.9rem}
+.tool-direct a{display:inline-flex;align-items:center;gap:6px;font-weight:750;text-decoration:none;color:#175dbe;border:1px solid #a8dfe0;background:#eafffb;border-radius:999px;padding:8px 12px}
+.tool-direct a:hover{background:#d8fff7;border-color:#4fc8bd}
+@media(min-width:901px){.hub-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hub-grid .dictionary{grid-column:auto}}
+
 </style>
 </head>
 <body>
@@ -58,71 +216,94 @@ footer{text-align:center;color:var(--muted);font-size:.84rem;margin-top:26px}
   </header>
 
 
+  <section class="search-tools" aria-labelledby="search-tools-title">
+    <div class="section-head search-head">
+      <div>
+        <h2 id="search-tools-title">Explore words and collocations</h2>
+        <p>Three connected tools for collocation lookup, corpus examples and synonym discovery — all in one LexiLink workspace.</p>
+      </div>
+    </div>
+    <div class="search-grid hub-grid">
 
-  <a class="dictionary" href="collocation-dictionary.html" aria-label="Open the trilingual collocation dictionary">
-    <span class="dict-icon" aria-hidden="true">Aa</span>
-    <span class="dict-text">
-      <h2>Trilingual Collocation Dictionary</h2>
-      <p>Search 8,552 English collocations, explore alphabetical headwords, view Russian or Uzbek translations, and check usage in SkELL.</p>
-    </span>
-    <span class="dict-go" aria-hidden="true">↗</span>
-  </a>
+      <a class="dictionary hub-dictionary" href="https://kheelola.github.io/lexilink/collocation-dictionary.html" aria-label="Open the trilingual collocation dictionary">
+        <span class="dict-icon" aria-hidden="true">Aa</span>
+        <span class="dict-text">
+          <h2>Trilingual Collocation Dictionary</h2>
+          <p>Search 8,552 English collocations with Uzbek and Russian translations and usage examples.</p>
+        </span>
+        <span class="dict-go" aria-hidden="true">↗</span>
+      </a>
+      <form class="search-card" id="skell-search-form">
+        <div class="search-card-top"><span class="search-mark">S</span><div><h3>SkELL</h3><p>Corpus examples and word combinations</p></div></div>
+        <label class="visually-hidden" for="skell-query">Search SkELL</label>
+        <div class="search-row"><input id="skell-query" name="q" type="search" placeholder="Enter a word or phrase…" required><button type="submit">Search SkELL <span aria-hidden="true">↗</span></button></div>
+        <p class="tool-direct"><a href="https://skell.sketchengine.eu/" target="_blank" rel="noopener noreferrer">Open SkELL directly ↗</a></p>
+      </form>
+      <form class="search-card" id="power-thesaurus-search-form">
+        <div class="search-card-top"><span class="search-mark pt-mark">PT</span><div><h3>Power Thesaurus</h3><p>Synonyms, antonyms and related words</p></div></div>
+        <label class="visually-hidden" for="power-thesaurus-query">Search Power Thesaurus</label>
+        <div class="search-row"><input id="power-thesaurus-query" name="q" type="search" placeholder="Find synonyms for…" required><button type="submit">Find synonyms <span aria-hidden="true">↗</span></button></div>
+        <p class="tool-direct"><a href="https://www.powerthesaurus.org/" target="_blank" rel="noopener noreferrer">Open Power Thesaurus directly ↗</a></p>
+      </form>
+    </div>
+  </section>
+
 
   <section aria-labelledby="lessons-title">
     <div class="section-head">
       <div>
-        <h2 id="lessons-title">Choose your lesson</h2>
-        <p>Open a lesson to read, investigate collocations and complete the activities.</p>
+        <h2 id="lessons-title">All 30 learning units</h2>
+        <p>Choose any of the 30 units to open its reading, collocation work and exercises. The dictionary and both search tools are available above.</p>
       </div>
     </div>
 
     <div class="grid">
-      <a class="lesson" href="lexilink-lesson-01-study-smart-audio.html"><span class="num">01</span><span><h3>Study Smart: Strategies for Academic Success</h3><p>Study skills, knowledge, research and deadlines.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-01-study-smart-audio.html"><span class="num">01</span><span><h3>Study Smart: Strategies for Academic Success</h3><p>Study skills, knowledge, research and deadlines.</p></span><span class="go" aria-hidden="true">↗</span></a>
 
-      <a class="lesson" href="lexilink-lesson-02-workplace-skills-audio.html"><span class="num">02</span><span><h3>Workplace Skills and Career Development</h3><p>Career growth, skills, experience and teamwork.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-02-workplace-skills-audio.html"><span class="num">02</span><span><h3>Workplace Skills and Career Development</h3><p>Career growth, skills, experience and teamwork.</p></span><span class="go" aria-hidden="true">↗</span></a>
 
-      <a class="lesson" href="lexilink-lesson-03-personality-traits-audio.html"><span class="num">03</span><span><h3>Personality Traits and Individual Differences</h3><p>Personality, emotions, confidence and relationships.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-03-personality-traits-audio.html"><span class="num">03</span><span><h3>Personality Traits and Individual Differences</h3><p>Personality, emotions, confidence and relationships.</p></span><span class="go" aria-hidden="true">↗</span></a>
 
-      <a class="lesson" href="lexilink-lesson-04-relationships-audio.html"><span class="num">04</span><span><h3>Building Strong and Lasting Relationships</h3><p>Trust, communication, relationships and conflict.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-04-relationships-audio.html"><span class="num">04</span><span><h3>Building Strong and Lasting Relationships</h3><p>Trust, communication, relationships and conflict.</p></span><span class="go" aria-hidden="true">↗</span></a>
 
-      <a class="lesson" href="lexilink-lesson-05-emotions-conflicts-reconciliation.html"><span class="num">05</span><span><h3>Emotions, Conflicts and Reconciliation</h3><p>Emotional responses, disagreement and resolving conflict.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-05-emotions-conflicts-reconciliation.html"><span class="num">05</span><span><h3>Emotions, Conflicts and Reconciliation</h3><p>Emotional responses, disagreement and resolving conflict.</p></span><span class="go" aria-hidden="true">↗</span></a>
 
-      <a class="lesson" href="lexilink-lesson-06-leisure-activities-lifestyle-choices.html"><span class="num">06</span><span><h3>Leisure Activities and Lifestyle Choices</h3><p>Free time, hobbies, relaxation and lifestyle.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-06-leisure-activities-lifestyle-choices.html"><span class="num">06</span><span><h3>Leisure Activities and Lifestyle Choices</h3><p>Free time, hobbies, relaxation and lifestyle.</p></span><span class="go" aria-hidden="true">↗</span></a>
 
-      <a class="lesson" href="lexilink-lesson-07-social-connections-art-literature-networking.html"><span class="num">07</span><span><h3>Social Connections: Art, Literature and Networking</h3><p>Art, books, conversation and professional connections.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-07-social-connections-art-literature-networking.html"><span class="num">07</span><span><h3>Social Connections: Art, Literature and Networking</h3><p>Art, books, conversation and professional connections.</p></span><span class="go" aria-hidden="true">↗</span></a>
 
-      <a class="lesson" href="lexilink-lesson-08-food-culture-cooking-culinary-experiences.html"><span class="num">08</span><span><h3>Food Culture, Cooking and Culinary Experiences</h3><p>Food traditions, cooking, flavour and meals.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-08-food-culture-cooking-culinary-experiences.html"><span class="num">08</span><span><h3>Food Culture, Cooking and Culinary Experiences</h3><p>Food traditions, cooking, flavour and meals.</p></span><span class="go" aria-hidden="true">↗</span></a>
 
-      <a class="lesson" href="lexilink-lesson-09-travel-experiences-cultural-discovery.html"><span class="num">09</span><span><h3>Travel Experiences and Cultural Discovery</h3><p>Travel, cultural discovery and memorable experiences.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-09-travel-experiences-cultural-discovery.html"><span class="num">09</span><span><h3>Travel Experiences and Cultural Discovery</h3><p>Travel, cultural discovery and memorable experiences.</p></span><span class="go" aria-hidden="true">↗</span></a>
 
-      <a class="lesson" href="lexilink-lesson-10-environmental-challenges-sustainable-living.html"><span class="num">10</span><span><h3>Environmental Challenges and Sustainable Living</h3><p>Environmental problems, sustainability and responsible choices.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-10-environmental-challenges-sustainable-living.html"><span class="num">10</span><span><h3>Environmental Challenges and Sustainable Living</h3><p>Environmental problems, sustainability and responsible choices.</p></span><span class="go" aria-hidden="true">↗</span></a>
 
-      <a class="lesson" href="lexilink-lesson-11-wildlife-biodiversity.html"><span class="num">11</span><span><h3>Protecting Wildlife and Preserving Biodiversity</h3><p>Wildlife protection, habitats and biodiversity.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-11-wildlife-biodiversity.html"><span class="num">11</span><span><h3>Protecting Wildlife and Preserving Biodiversity</h3><p>Wildlife protection, habitats and biodiversity.</p></span><span class="go" aria-hidden="true">↗</span></a>
 
-      <a class="lesson" href="lexilink-lesson-12-social-rules-law-enforcement-public-institutions.html"><span class="num">12</span><span><h3>Social Rules, Law Enforcement and Public Institutions</h3><p>Law, public institutions, rules and civic responsibility.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-12-social-rules-law-enforcement-public-institutions.html"><span class="num">12</span><span><h3>Social Rules, Law Enforcement and Public Institutions</h3><p>Law, public institutions, rules and civic responsibility.</p></span><span class="go" aria-hidden="true">↗</span></a>
 
-      <a class="lesson" href="lexilink-lesson-13-festivals-cultural-context.html"><span class="num">13</span><span><h3>Festivals in Their Cultural Context</h3><p>Festivals, cultural traditions and shared values.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-13-festivals-cultural-context.html"><span class="num">13</span><span><h3>Festivals in Their Cultural Context</h3><p>Festivals, cultural traditions and shared values.</p></span><span class="go" aria-hidden="true">↗</span></a>
 
-      <a class="lesson" href="lexilink-lesson-14-british-international-politics.html"><span class="num">14</span><span><h3>British Politics and International Politics</h3><p>Political institutions, international relations and public affairs.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-14-british-international-politics.html"><span class="num">14</span><span><h3>British Politics and International Politics</h3><p>Political institutions, international relations and public affairs.</p></span><span class="go" aria-hidden="true">↗</span></a>
 
-      <a class="lesson" href="lexilink-lesson-15-war-peace-economy-finance.html"><span class="num">15</span><span><h3>War, Peace, Economy and Finance</h3><p>Conflict, peace, economic change and financial issues.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-15-war-peace-economy-finance.html"><span class="num">15</span><span><h3>War, Peace, Economy and Finance</h3><p>Conflict, peace, economic change and financial issues.</p></span><span class="go" aria-hidden="true">↗</span></a>
 
-      <a class="lesson" href="LexiLink_Lesson_16_The_Media_In_Print_Voice_Selector.html"><span class="num">16</span><span><h3>News, Journalism and Media Representation</h3><p>News reporting, media language, journalism and public representation.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/LexiLink_Lesson_16_The_Media_In_Print_Voice_Selector.html"><span class="num">16</span><span><h3>News, Journalism and Media Representation</h3><p>News reporting, media language, journalism and public representation.</p></span><span class="go" aria-hidden="true">↗</span></a>
 
-      <a class="lesson" href="LexiLink_Lesson_17_Healthcare_Medical_Language_Voice_Selector.html"><span class="num">17</span><span><h3>Health, Medical Care and Well-being</h3><p>Healthcare, medical communication, patient care and well-being.</p></span><span class="go" aria-hidden="true">↗</span></a>
-      <a class="lesson" href="lexilink-lesson-18-education-lifelong-learning.html"><span class="num">18</span><span><h3>Education and Lifelong Learning</h3><p>Education, learning strategies and lifelong development.</p></span><span class="go" aria-hidden="true">↗</span></a>
-      <a class="lesson" href="lexilink-lesson-19-ai-digital-technology.html"><span class="num">19</span><span><h3>Artificial Intelligence and Digital Technology</h3><p>Artificial intelligence, digital tools and responsible innovation.</p></span><span class="go" aria-hidden="true">↗</span></a>
-      <a class="lesson" href="lexilink-lesson-20-work-careers-professional-development.html"><span class="num">20</span><span><h3>Work, Careers and Professional Development</h3><p>Career planning, workplace skills and professional growth.</p></span><span class="go" aria-hidden="true">↗</span></a>
-      <a class="lesson" href="lexilink-lesson-21-business-finance-entrepreneurship.html"><span class="num">21</span><span><h3>Business, Finance and Entrepreneurship</h3><p>Business planning, financial decisions and enterprise.</p></span><span class="go" aria-hidden="true">↗</span></a>
-      <a class="lesson" href="lexilink-lesson-22-science-research-innovation.html"><span class="num">22</span><span><h3>Science, Research and Innovation</h3><p>Research methods, evidence and scientific progress.</p></span><span class="go" aria-hidden="true">↗</span></a>
-      <a class="lesson" href="lexilink-lesson-23-academic-career-development-professional-networking.html"><span class="num">23</span><span><h3>Academic Career Development and Professional Networking</h3><p>Academic arguments, evidence and clear expression.</p></span><span class="go" aria-hidden="true">↗</span></a>
-      <a class="lesson" href="lexilink-lesson-24-communication-debate-public-speaking.html"><span class="num">24</span><span><h3>Communication, Debate and Public Speaking</h3><p>Persuasion, discussion and effective presentations.</p></span><span class="go" aria-hidden="true">↗</span></a>
-      <a class="lesson" href="lexilink-lesson-25-globalisation-cultural-diversity.html"><span class="num">25</span><span><h3>Globalisation and Cultural Diversity</h3><p>International connections, identity and intercultural understanding.</p></span><span class="go" aria-hidden="true">↗</span></a>
-      <a class="lesson" href="lexilink-lesson-26-urban-life-housing-modern-cities.html"><span class="num">26</span><span><h3>Urban Life, Housing and Modern Cities</h3><p>Housing, infrastructure and sustainable urban living.</p></span><span class="go" aria-hidden="true">↗</span></a>
-      <a class="lesson" href="lexilink-lesson-27-tourism-hospitality-travel.html"><span class="num">27</span><span><h3>Tourism, Hospitality and Travel</h3><p>Travel experiences, hospitality and responsible tourism.</p></span><span class="go" aria-hidden="true">↗</span></a>
-      <a class="lesson" href="lexilink-lesson-28-ethics-responsibility-social-issues.html"><span class="num">28</span><span><h3>Ethics, Responsibility and Social Issues</h3><p>Ethical choices, public concerns and social responsibility.</p></span><span class="go" aria-hidden="true">↗</span></a>
-      <a class="lesson" href="lexilink-lesson-29-leadership-teamwork-decision-making.html"><span class="num">29</span><span><h3>Leadership, Teamwork and Decision-Making</h3><p>Collaboration, team performance and responsible leadership.</p></span><span class="go" aria-hidden="true">↗</span></a>
-      <a class="lesson" href="lexilink-lesson-30-integrated-collocation-challenge-final-project.html"><span class="num">30</span><span><h3>Integrated Collocation Challenge and Final Project</h3><p>Integrating academic, professional and social collocations.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/LexiLink_Lesson_17_Healthcare_Medical_Language_Voice_Selector.html"><span class="num">17</span><span><h3>Health, Medical Care and Well-being</h3><p>Healthcare, medical communication, patient care and well-being.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-18-education-lifelong-learning.html"><span class="num">18</span><span><h3>Education and Lifelong Learning</h3><p>Education, learning strategies and lifelong development.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-19-ai-digital-technology.html"><span class="num">19</span><span><h3>Artificial Intelligence and Digital Technology</h3><p>Artificial intelligence, digital tools and responsible innovation.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-20-work-careers-professional-development.html"><span class="num">20</span><span><h3>Work, Careers and Professional Development</h3><p>Career planning, workplace skills and professional growth.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-21-business-finance-entrepreneurship.html"><span class="num">21</span><span><h3>Business, Finance and Entrepreneurship</h3><p>Business planning, financial decisions and enterprise.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-22-science-research-innovation.html"><span class="num">22</span><span><h3>Science, Research and Innovation</h3><p>Research methods, evidence and scientific progress.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-23-academic-career-development-professional-networking.html"><span class="num">23</span><span><h3>Academic Career Development and Professional Networking</h3><p>Academic arguments, evidence and clear expression.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-24-communication-debate-public-speaking.html"><span class="num">24</span><span><h3>Communication, Debate and Public Speaking</h3><p>Persuasion, discussion and effective presentations.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-25-globalisation-cultural-diversity.html"><span class="num">25</span><span><h3>Globalisation and Cultural Diversity</h3><p>International connections, identity and intercultural understanding.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-26-urban-life-housing-modern-cities.html"><span class="num">26</span><span><h3>Urban Life, Housing and Modern Cities</h3><p>Housing, infrastructure and sustainable urban living.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-27-tourism-hospitality-travel.html"><span class="num">27</span><span><h3>Tourism, Hospitality and Travel</h3><p>Travel experiences, hospitality and responsible tourism.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-28-ethics-responsibility-social-issues.html"><span class="num">28</span><span><h3>Ethics, Responsibility and Social Issues</h3><p>Ethical choices, public concerns and social responsibility.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-29-leadership-teamwork-decision-making.html"><span class="num">29</span><span><h3>Leadership, Teamwork and Decision-Making</h3><p>Collaboration, team performance and responsible leadership.</p></span><span class="go" aria-hidden="true">↗</span></a>
+      <a class="lesson" href="https://kheelola.github.io/lexilink/lexilink-lesson-30-integrated-collocation-challenge-final-project.html"><span class="num">30</span><span><h3>Integrated Collocation Challenge and Final Project</h3><p>Integrating academic, professional and social collocations.</p></span><span class="go" aria-hidden="true">↗</span></a>
     </div>
   </section>
 
@@ -130,5 +311,25 @@ footer{text-align:center;color:var(--muted);font-size:.84rem;margin-top:26px}
 
   <footer>LexiLink · Connect words. Build fluency.</footer>
 </main>
+
+<script>
+  document.getElementById('skell-search-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const term = document.getElementById('skell-query').value.trim();
+    if (!term) return;
+    const url = 'https://skell.sketchengine.eu/#result?lang=en&query=' + encodeURIComponent(term);
+    const tab = window.open(url, '_blank', 'noopener');
+    if (!tab) window.location.href = url;
+  });
+  document.getElementById('power-thesaurus-search-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const term = document.getElementById('power-thesaurus-query').value.trim();
+    if (!term) return;
+    const slug = term.toLowerCase().trim().replace(/\s+/g, '_');
+    const url = 'https://www.powerthesaurus.org/' + encodeURIComponent(slug) + '/synonyms';
+    const tab = window.open(url, '_blank', 'noopener');
+    if (!tab) window.location.href = url;
+  });
+</script>
 </body>
 </html>
